@@ -38,7 +38,7 @@
 \def\BaTitle{Evaluation von Web Application Security Testing Tools}
 \def\BaSupervisorOne{Prof. Andreas Mayer}
 \def\BaSupervisorTwo{Susanne Steuer (M.Sc.) }
-\def\BaDeadline{31.03.2019}
+\def\BaDeadline{05.04.2019}
 \def\MatNr{192972}
 
 \hypersetup{
@@ -200,21 +200,117 @@ TODO
 
 \chapter{Einführung}\label{ch:intro}
 
-Lorem ipsum dolor sit amet, adipiscing elit. Ut vehicula felis lectus, nec aliquet arcu aliquam vitae. Quisque laoreet consequat ante, eget pretium quam hendrerit at. Pellentesque nec purus eget erat mattis varius. Nullam ut vulputate velit. Suspendisse in dui in eros iaculis tempus. Phasellus vel est arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer elementum, nulla eu faucibus dignissim, orci justo imperdiet lorem, luctus consectetur orci orci a nunc. \cite{gamma2011patterns}
-
-Praesent at nunc nec tortor viverra viverra. Morbi in feugiat lectus. Vestibulum iaculis ipsum at eros viverra volutpat in id ipsum. Donec condimentum, ligula viverra pharetra tincidunt, nunc dui malesuada nisi, vitae mollis lacus massa quis velit. Integer feugiat ipsum a volutpat scelerisque. Nulla facilisis augue nunc. Curabitur eget consectetur nulla. Integer accumsan sem non nisi tristique dictum.
-
-Sed lacinia eu dolor sed congue. Ut dui orci, venenatis id interdum rhoncus, mattis elementum massa. Proin venenatis elementum purus ut rutrum. Phasellus sit amet enim porta, commodo mauris a, bibendum tortor. Nulla ut lobortis justo. Aenean auctor mi nec velit fermentum, quis ultricies odio viverra. Maecenas ultrices urna vel erat ornare, quis suscipit odio molestie. Donec vel dapibus orci, vel tincidunt orci.
-
-Etiam vitae eros erat. Praesent nec accumsan turpis, et mollis eros. Praesent lacinia nulla at neque porta aliquam. Quisque elementum neque ac porta suscipit. Nulla volutpat luctus venenatis. Aliquam imperdiet suscipit pretium. Nunc feugiat lacinia aliquet. Mauris ut sapien nec risus porttitor bibendum. Aenean feugiat bibendum lectus, id mattis elit adipiscing at. Pellentesque interdum felis non risus iaculis euismod fermentum nec urna. Nullam lacinia suscipit erat ac ullamcorper. Sed vitae nulla posuere, posuere sem id, ultricies urna. Maecenas eros lorem, tempus non nulla vitae, ullamcorper egestas nibh. Vestibulum facilisis ante vel purus accumsan mattis. Donec molestie tempor eros, a gravida odio congue posuere.
-
-Sed in tempus elit, sit amet suscipit quam. Ut suscipit dictum molestie. Etiam quis porta mauris. Cras dapibus sapien eget sem porta, ut congue sapien accumsan. Maecenas hendrerit lobortis mauris ut hendrerit. Suspendisse at aliquet est. Quisque eros est, scelerisque ac orci quis, placerat suscipit lorem. Phasellus rutrum enim non odio ullamcorper, sit amet auctor nulla fringilla. Nunc eleifend vulputate dui, a sollicitudin tellus venenatis non. Cras condimentum lorem at ultricies vestibulum. Vestibulum interdum lobortis commodo. Nullam rhoncus interdum massa, ut varius nisi scelerisque id. Nunc interdum quam in enim bibendum vulputate.
+TODO. \cite{gamma2011patterns}
 
 \cite{gamma2011patterns}
 
-\chapter{Grundlagen}
+\chapter{Überblick Web-Application Security}
 
-\chapter{Problemstellung}
+\section{OWASP: Open Web Application Security Project}
+TODO
+
+\section{Sicherheitsrisiken: The OWASP Top Ten}
+
+\subsection{A1: Injection}
+Injection-Schwachstellen, wie beispielsweise SQL-, OS- oder LDAP-Injection, treten auf, wenn
+nicht vertrauenswürdige Daten von einem Interpreter als Teil eines Kommandos oder einer
+Abfrage verarbeitet werden. Ein Angreifer kann Eingabedaten dann so manipulieren, dass er nicht
+vorgesehene Kommandos ausführen oder unautorisiert auf Daten zugreifen kann.
+
+\subsection{A2: Fehler in der Authentifizierung}
+Anwendungsfunktionen, die im Zusammenhang mit Authentifizierung und Session-Management
+stehen, werden häufig fehlerhaft implementiert. Dies erlaubt es Angreifern, Passwörter oder
+Session-Token zu kompromittieren oder die entsprechenden Schwachstellen so auszunutzen,
+dass sie die Identität anderer Benutzer vorübergehend oder dauerhaft annehmen können.
+
+\subsection{A3: Verlust der Vertraulichkeit sensibler Daten}
+Viele Anwendungen schützen sensible Daten, wie personenbezogene Informationen und Finanzoder
+Gesundheitsdaten, nicht ausreichend. Angreifer können diese Daten auslesen oder
+modifizieren und mit ihnen weitere Straftaten begehen (Kreditkartenbetrug, Identitätsdiebstahl
+etc.). Vertrauliche Daten können kompromittiert werden, wenn sie nicht durch Maßnahmen, wie
+Verschlüsselung gespeicherter Daten und verschlüsselte Datenübertragung, zusätzlich geschützt
+werden. Besondere Vorsicht ist beim Datenaustausch mit Browsern angeraten.
+
+\subsection{A4: XML External Entities}
+Viele veraltete oder schlecht konfigurierte XML Prozessoren berücksichtigen Referenzen auf
+externe Entitäten innerhalb von XML-Dokumenten. Dadurch können solche externen Entitäten
+dazu eingesetzt werden, um mittels URI Datei-Handlern interne Dateien oder File-Shares offenzulegen
+oder interne Port-Scans, Remote-Code-Executions oder Denial-of-Service Angriffe
+auszuführen.
+
+\subsection{A5: Fehler in der Zugriffskontrolle}
+Häufig werden die Zugriffsrechte für authentifizierte Nutzer nicht korrekt um- bzw. durchgesetzt.
+Angreifer können entsprechende Schwachstellen ausnutzen, um auf Funktionen oder Daten
+zuzugreifen, für die sie keine Zugriffsberechtigung haben. Dies kann Zugriffe auf Accounts
+anderer Nutzer sowie auf vertrauliche Daten oder aber die Manipulation von Nutzerdaten,
+Zugriffsrechten etc. zur Folge haben.
+
+\subsection{A6: Sicherheitsrelevante Fehlkonfiguration}
+Fehlkonfigurationen von Sicherheitseinstellungen sind das am häufigsten auftretende Problem.
+Ursachen sind unsichere Standardkonfigurationen, unvollständige oder ad-hoc durchgeführte
+Konfigurationen, ungeschützte Cloud-Speicher, fehlkonfigurierte HTTP-Header und Fehlerausgaben,
+die vertrauliche Daten enthalten. Betriebssysteme, Frameworks, Bibliotheken und Anwendungen
+müssen sicher konfiguriert werden und zeitnah Patches und Updates erhalten.
+
+\subsection{A7: Cross-Site-Scripting (XSS)}
+XSS tritt auf, wenn Anwendungen nicht vertrauenswürdige Daten entgegennehmen und ohne
+Validierung oder Umkodierung an einen Webbrowser senden. XSS tritt auch auf, wenn eine
+Anwendung HTML- oder JavaScript-Code auf Basis von Nutzereingaben erzeugt. XSS erlaubt es
+einem Angreifer, Scriptcode im Browser eines Opfers auszuführen und so Benutzersitzungen zu
+übernehmen, Seiteninhalte verändert anzuzeigen oder den Benutzer auf bösartige Seiten
+umzuleiten.
+
+\subsection{A8: Unsichere Deserialisierung}
+Unsichere, weil unzureichend geprüfte Deserialisierungen können zu Remote-Code-ExecutionSchwachstellen
+führen. Aber auch wenn das nicht der Fall ist, können Deserialisierungsfehler
+Angriffsmuster wie Replay-Angriffe, Injections und Erschleichung erweiterter Zugriffsrechte
+ermöglichen.
+
+\subsection{A9: Nutzung von Komponenten mit bekannten Schwachstellen}
+Komponenten wie Bibliotheken, Frameworks etc. werden mit den Berechtigungen der zugehörigen
+Anwendung ausgeführt. Wird eine verwundbare Komponente ausgenutzt, kann ein solcher
+Angriff von Datenverlusten bis hin zu einer Übernahme des Systems führen. Applikationen und
+APIs, die Komponenten mit bekannten Schwachstellen einsetzen, können Schutzmaßnahmen
+unterlaufen und so Angriffe mit schwerwiegenden Auswirkungen verursachen.
+
+\subsection{A10: Unzureichendes Logging und Monitoring}
+Unzureichendes Logging und Monitoring führt zusammen mit fehlender oder uneffektiver Reaktion
+auf Vorfälle zu andauernden oder wiederholten Angriffen. Auch können Angreifer dadurch in
+Netzwerken weiter vordringen und Daten entwenden, verändern oder zerstören. Viele Studien
+zeigen, dass die Zeit bis zur Aufdeckung eines Angriffs bei ca. 200 Tagen liegt sowie typischerweise
+durch Dritte entdeckt wird und nicht durch interne Überwachungs- und Kontrollmaßnahmen.
+
+\section{Sicherheitstechnologien}
+\subsection{White-Box testing}
+TODO
+
+\subsection{Black-Box testing}
+TODO
+
+\subsection{Fuzzing}
+TODO
+
+\subsection{Firewalls}
+TODO
+
+\subsection{Sonstige}
+TODO
+
+\section{Rechtliche Aspekte}
+\subsection{Hacker/Cracker <-> Pentester}
+
+TODO
+
+
+
+
+
+
+
+\chapter{Auswahl der Tools: 1. Scanner}
+\chapter{Auswahl der Tools: 1. Scanner}
+\chapter{Auswahl der Tools: 1. Scanner}
+\chapter{Auswahl der Tools: 2. Angriffstools}
 
 \chapter{Lösung}
 
