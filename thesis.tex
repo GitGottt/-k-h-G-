@@ -139,9 +139,9 @@ pdfkeywords={Keywords}
 
 
 
-
+\tracingmacros=1
 \begin{document}
-
+\tracingmacros=0
 
 %%%%%%%%%%%%%%%%%%%
 %% Titelseite
@@ -200,16 +200,43 @@ TODO
 
 \chapter{Einführung}\label{ch:intro}
 
-TODO. \cite{gamma2011patterns}
+TODO. \cite{handbook}
 
-\cite{gamma2011patterns}
+\cite{handbook}
 
 \chapter{Überblick Web-Application Security}
 
 \section{OWASP: Open Web Application Security Project}
-TODO
+Das ``Open Web Application Security Project'' (OWASP) ist eine unabhängige, weltweite Community mit dem Ziel, die Bedeutung der Sicherheit von Webanwendungen »sichtbar zu machen«, Fachwissen zur Entwicklung und den Betrieb sicherer Webanwendungen zu verbreiten und frei zur Verfügung zu stellen.
+OWASP ist mit keinem Technologieunternehmen verbunden, obwohl der Einsatz kommerzieller Sicherheitstechnologien unterstützt wird. Sämtliche OWASP-Instrumente, wie Dokumente, Videos, Slides, Podcasts etc. sind kollaborativ produziert worden und sind zudem kostenlos unter einer freien Lizenz verwendbar. Die OWASP Foundation ist eine Non-Profit-Organisation, die sich vier Grundwerten verschrieben hat:
 
-\section{Sicherheitsrisiken: The OWASP Top Ten}
+\begin{itemize}
+  \item Offenheit: Von den Finanzen bis zum Code ist alles radikal transparent.
+  \item Innovation: OWASP fördert und unterstützt Innovationen und Experimente zur Lösung von Software-Sicherheitsherausforderungen.
+  \item Globalität: Jeder auf der ganzen Welt kann sich an der OWASP-Community beteiligen.
+  \item Integrität: OWASP ist eine ehrliche und aufrichtige, herstellerneutrale, globale Gemeinschaft.
+\end{itemize}
+
+Zudem gibt es einen Verhaltenskodex mit folgenden Prinzipien:
+\begin{itemize}
+  \item Führe alle beruflichen Tätigkeiten und Pflichten in Übereinstimmung mit allen anwendbaren Gesetzen und den höchsten ethischen Grundsätzen aus.
+  \item Fördere die Umsetzung von Normen, Verfahren und Kontrollen für die Anwendungssicherheit und deren Einhaltung.
+  \item Bewahre eine angemessenene Vertraulichkeit gegenüber geschützter oder anderweitig sensibler Informationen, die im Rahmen einer beruflichen Tätigkeit auftreten.
+  \item Übernimm die berufliche Verantwortung mit Sorgfalt und Ehrlichkeit.
+  \item Kommuniziere offen und ehrlich.
+  \item Vermeide Aktivitäten, die einen Interessenskonflikt hervorrufen oder anderweitig den Ruf des Arbeitgebers, den Informationssicherheitsberuf oder die Vereinigung beeinträchtigen könnten.
+  \item Bewahre und verstärke unser Objektivität und Unabhängigkeit.
+  \item Weise unangemessenen Druck der von Seiten der Industrie oder anderen zurück.
+  \item Verletze oder bestreite nicht absichtlich den Ruf von Kollegen, Kunden oder Arbeitgebern.
+  \item Behandle jeden mit Respekt und Würde.
+  \item Vermeide Beziehungen, die die Objektivität und Unabhängigkeit von OWASP  beeinträchtigen könnten.
+\end{itemize}
+
+\cite{OWASPabout}
+
+\section{Sicherheitsrisiken: Die OWASP Top Ten}
+TODO
+\cite{OWASPtop10}
 
 \subsection{A1: Injection}
 Injection-Schwachstellen, wie beispielsweise SQL-, OS- oder LDAP-Injection, treten auf, wenn
@@ -218,7 +245,7 @@ Abfrage verarbeitet werden. Ein Angreifer kann Eingabedaten dann so manipulieren
 vorgesehene Kommandos ausführen oder unautorisiert auf Daten zugreifen kann.
 
 \subsection{A2: Fehler in der Authentifizierung}
-Anwendungsfunktionen, die im Zusammenhang mit Authentifizierung und Session-Management
+Anwendungsfunktionen, die im Zusammenhang mit Authentifizierung und Sessionmanagement
 stehen, werden häufig fehlerhaft implementiert. Dies erlaubt es Angreifern, Passwörter oder
 Session-Token zu kompromittieren oder die entsprechenden Schwachstellen so auszunutzen,
 dass sie die Identität anderer Benutzer vorübergehend oder dauerhaft annehmen können.
@@ -261,10 +288,10 @@ einem Angreifer, Scriptcode im Browser eines Opfers auszuführen und so Benutzer
 umzuleiten.
 
 \subsection{A8: Unsichere Deserialisierung}
-Unsichere, weil unzureichend geprüfte Deserialisierungen können zu Remote-Code-ExecutionSchwachstellen
-führen. Aber auch wenn das nicht der Fall ist, können Deserialisierungsfehler
-Angriffsmuster wie Replay-Angriffe, Injections und Erschleichung erweiterter Zugriffsrechte
-ermöglichen.
+Unsichere, weil unzureichend geprüfte Deserialisierungen können zu Schwachstellen in der
+Remote-Code-Execution führen. Aber auch wenn das nicht der Fall ist, können
+Deserialisierungsfehler Angriffsmuster wie Replay-Angriffe, Injections und Erschleichung
+erweiterter Zugriffsrechte ermöglichen.
 
 \subsection{A9: Nutzung von Komponenten mit bekannten Schwachstellen}
 Komponenten wie Bibliotheken, Frameworks etc. werden mit den Berechtigungen der zugehörigen
@@ -274,11 +301,14 @@ APIs, die Komponenten mit bekannten Schwachstellen einsetzen, können Schutzmaß
 unterlaufen und so Angriffe mit schwerwiegenden Auswirkungen verursachen.
 
 \subsection{A10: Unzureichendes Logging und Monitoring}
-Unzureichendes Logging und Monitoring führt zusammen mit fehlender oder uneffektiver Reaktion
-auf Vorfälle zu andauernden oder wiederholten Angriffen. Auch können Angreifer dadurch in
-Netzwerken weiter vordringen und Daten entwenden, verändern oder zerstören. Viele Studien
-zeigen, dass die Zeit bis zur Aufdeckung eines Angriffs bei ca. 200 Tagen liegt sowie typischerweise
-durch Dritte entdeckt wird und nicht durch interne Überwachungs- und Kontrollmaßnahmen.
+Unzureichendes Logging und Monitoring führt zusammen mit fehlender oder uneffektiver
+Reaktion auf Vorfälle zu andauernden oder wiederholten Angriffen. Auch können Angreifer
+dadurch in Netzwerken weiter vordringen und Daten entwenden, verändern oder zerstören.
+Viele Studien zeigen, dass die Zeit bis zur Aufdeckung eines Angriffs bei ca. 200 Tagen
+liegt sowie typischerweise durch Dritte entdeckt wird und nicht durch interne
+Überwachungs- und Kontrollmaßnahmen.\\
+\\
+\cite{OWASPtop10}
 
 \section{Sicherheitstechnologien}
 \subsection{White-Box testing}
