@@ -181,32 +181,59 @@ TODO
 
 TODO
 
-\newpage
-\chapter*{Danksagung}
 
-
-
-%%%%%%%%%%%%%%%%%%%
-%% Inhaltsverzeichnis
-%%%%%%%%%%%%%%%%%%%
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
 \tableofcontents
 
 
-
-%%%%%%%%%%%%%%%%%%%
-%% Main part of the thesis
-%%%%%%%%%%%%%%%%%%%
 \mainmatter
 
 \chapter{Einführung}\label{ch:intro}
 
-TODO. \cite{handbook}
+\chapter{Überblick}
 
-\cite{handbook}
+\section{Sicherheitsmaßnahmen}
+TODO
 
-\chapter{Überblick Web-Application Security}
+\subsection{Penetrationtesting}
+TODO
 
-\section{OWASP: Open Web Application Security Project}
+\subsubsection{Black-Box Testing}
+Beim Black-Box Testing befindet sich der Tester in der Rolle eines typischen Hackers von
+außen, der kein Wissen über die innere Arbeitsweise der Anwendung hat, weder Architektur noch
+Quellcode sind bekannt. Der Angreifer benötigt automatisierte Scanning-Tools für die
+dynamische Analyse des anzugreifenden Netzwerks und muss mit manuellen Methoden des
+Penetrationstestings vertraut sein, um Schwachstellen zu lokalisieren und auszunutzen.
+In der Praxis wird diese Art des Penetrationstests nur selten angewendet, der Aufwand ist sehr hoch, zudem
+
+\subsubsection{Grey-Box Testing}
+Während der Black-Box-Tester ein System aus der Sicht eines Außenseiters untersucht, hat ein
+Grey-Box Tester bereits Zugriff auf das System auf Benutzerebene, möglicherweise sogar mit
+erhöhten Berechtigungen eines Administrators. In der Regel liegt eine Dokumentation über
+Design und Architektur des Netzwerks vor, die internen Komponenten sind bekannt.
+Dies hat den Vorteil, dass die Sicherheit des Netzwerks gezielter und effizienter beurteilt werden kann, der Tester kann sich sofort auf die Systeme konzentrieren, die am wichtigsten sind oder ein besonders hohes Risiko haben. Zudem kann durch das interne Benutzerkonto ein Angriff innerhalb des abgesicherten Systems mit umfassendem Zugriff auf das Netzwerk simuliert werden.
+
+\subsubsection{White-Box Testing}
+White (auch bekannt als Clear Box Testing, Open Box Testing, Glass Box Testing, Transparent Box Testing, Code-Based Testing oder Structural Testing) ist eine Softwaretestmethode, bei der die interne Struktur / das Design / die Implementierung des zu testenden Objekts geprüft wird Dem Tester ist bekannt, dass der Tester Eingaben wählt, um Pfade durch den Code zu trainieren, und das Implementierungswissen ist von wesentlicher Bedeutung. White-Box-Tests sind Tests, die über die Benutzeroberfläche hinausgehen und bis in die Kernbereiche von a hineinreichen System.
+
+Diese Methode wird so benannt, dass das Softwareprogramm in den Augen des Testers wie eine weiße / transparente Box ist, in der man deutlich sieht.
+
+\subsection{Fuzzing}
+TODO
+
+\subsection{Firewalls}
+TODO
+
+\subsection{Sonstige}
+TODO
+
+\section{Rechtliche Aspekte}
+\subsection{Hacker/Cracker <-> Pentester}
+
+TODO
+
+\section{OWASP: The Open Web Application Security Project}
 Das ``Open Web Application Security Project'' (OWASP) ist eine unabhängige, weltweite Community mit dem Ziel, die Bedeutung der Sicherheit von Webanwendungen »sichtbar zu machen«, Fachwissen zur Entwicklung und den Betrieb sicherer Webanwendungen zu verbreiten und frei zur Verfügung zu stellen.
 OWASP ist mit keinem Technologieunternehmen verbunden, obwohl der Einsatz kommerzieller Sicherheitstechnologien unterstützt wird. Sämtliche OWASP-Instrumente, wie Dokumente, Videos, Slides, Podcasts etc. sind kollaborativ produziert worden und sind zudem kostenlos unter einer freien Lizenz verwendbar. Die OWASP Foundation ist eine Non-Profit-Organisation, die sich vier Grundwerten verschrieben hat:
 
@@ -225,7 +252,7 @@ Zudem gibt es einen Verhaltenskodex mit folgenden Prinzipien:
   \item Übernimm die berufliche Verantwortung mit Sorgfalt und Ehrlichkeit.
   \item Kommuniziere offen und ehrlich.
   \item Vermeide Aktivitäten, die einen Interessenskonflikt hervorrufen oder anderweitig den Ruf des Arbeitgebers, den Informationssicherheitsberuf oder die Vereinigung beeinträchtigen könnten.
-  \item Bewahre und verstärke unser Objektivität und Unabhängigkeit.
+  \item Bewahre und verstärke unsere Objektivität und Unabhängigkeit.
   \item Weise unangemessenen Druck der von Seiten der Industrie oder anderen zurück.
   \item Verletze oder bestreite nicht absichtlich den Ruf von Kollegen, Kunden oder Arbeitgebern.
   \item Behandle jeden mit Respekt und Würde.
@@ -234,23 +261,23 @@ Zudem gibt es einen Verhaltenskodex mit folgenden Prinzipien:
 
 \cite{OWASPabout}
 
-\section{Sicherheitsrisiken: Die OWASP Top Ten}
+\subsection{Sicherheitsrisiken: Die OWASP Top Ten}
 TODO
 \cite{OWASPtop10}
 
-\subsection{A1: Injection}
+\subsubsection{A1: Injection}
 Injection-Schwachstellen, wie beispielsweise SQL-, OS- oder LDAP-Injection, treten auf, wenn
 nicht vertrauenswürdige Daten von einem Interpreter als Teil eines Kommandos oder einer
 Abfrage verarbeitet werden. Ein Angreifer kann Eingabedaten dann so manipulieren, dass er nicht
 vorgesehene Kommandos ausführen oder unautorisiert auf Daten zugreifen kann.
 
-\subsection{A2: Fehler in der Authentifizierung}
+\subsubsection{A2: Fehler in der Authentifizierung}
 Anwendungsfunktionen, die im Zusammenhang mit Authentifizierung und Sessionmanagement
 stehen, werden häufig fehlerhaft implementiert. Dies erlaubt es Angreifern, Passwörter oder
 Session-Token zu kompromittieren oder die entsprechenden Schwachstellen so auszunutzen,
 dass sie die Identität anderer Benutzer vorübergehend oder dauerhaft annehmen können.
 
-\subsection{A3: Verlust der Vertraulichkeit sensibler Daten}
+\subsubsection{A3: Verlust der Vertraulichkeit sensibler Daten}
 Viele Anwendungen schützen sensible Daten, wie personenbezogene Informationen und Finanzoder
 Gesundheitsdaten, nicht ausreichend. Angreifer können diese Daten auslesen oder
 modifizieren und mit ihnen weitere Straftaten begehen (Kreditkartenbetrug, Identitätsdiebstahl
@@ -258,28 +285,28 @@ etc.). Vertrauliche Daten können kompromittiert werden, wenn sie nicht durch Ma
 Verschlüsselung gespeicherter Daten und verschlüsselte Datenübertragung, zusätzlich geschützt
 werden. Besondere Vorsicht ist beim Datenaustausch mit Browsern angeraten.
 
-\subsection{A4: XML External Entities}
+\subsubsection{A4: XML External Entities}
 Viele veraltete oder schlecht konfigurierte XML Prozessoren berücksichtigen Referenzen auf
 externe Entitäten innerhalb von XML-Dokumenten. Dadurch können solche externen Entitäten
 dazu eingesetzt werden, um mittels URI Datei-Handlern interne Dateien oder File-Shares offenzulegen
 oder interne Port-Scans, Remote-Code-Executions oder Denial-of-Service Angriffe
 auszuführen.
 
-\subsection{A5: Fehler in der Zugriffskontrolle}
+\subsubsection{A5: Fehler in der Zugriffskontrolle}
 Häufig werden die Zugriffsrechte für authentifizierte Nutzer nicht korrekt um- bzw. durchgesetzt.
 Angreifer können entsprechende Schwachstellen ausnutzen, um auf Funktionen oder Daten
 zuzugreifen, für die sie keine Zugriffsberechtigung haben. Dies kann Zugriffe auf Accounts
 anderer Nutzer sowie auf vertrauliche Daten oder aber die Manipulation von Nutzerdaten,
 Zugriffsrechten etc. zur Folge haben.
 
-\subsection{A6: Sicherheitsrelevante Fehlkonfiguration}
+\subsubsection{A6: Sicherheitsrelevante Fehlkonfiguration}
 Fehlkonfigurationen von Sicherheitseinstellungen sind das am häufigsten auftretende Problem.
 Ursachen sind unsichere Standardkonfigurationen, unvollständige oder ad-hoc durchgeführte
 Konfigurationen, ungeschützte Cloud-Speicher, fehlkonfigurierte HTTP-Header und Fehlerausgaben,
 die vertrauliche Daten enthalten. Betriebssysteme, Frameworks, Bibliotheken und Anwendungen
 müssen sicher konfiguriert werden und zeitnah Patches und Updates erhalten.
 
-\subsection{A7: Cross-Site-Scripting (XSS)}
+\subsubsection{A7: Cross-Site-Scripting (XSS)}
 XSS tritt auf, wenn Anwendungen nicht vertrauenswürdige Daten entgegennehmen und ohne
 Validierung oder Umkodierung an einen Webbrowser senden. XSS tritt auch auf, wenn eine
 Anwendung HTML- oder JavaScript-Code auf Basis von Nutzereingaben erzeugt. XSS erlaubt es
@@ -287,20 +314,20 @@ einem Angreifer, Scriptcode im Browser eines Opfers auszuführen und so Benutzer
 übernehmen, Seiteninhalte verändert anzuzeigen oder den Benutzer auf bösartige Seiten
 umzuleiten.
 
-\subsection{A8: Unsichere Deserialisierung}
+\subsubsection{A8: Unsichere Deserialisierung}
 Unsichere, weil unzureichend geprüfte Deserialisierungen können zu Schwachstellen in der
 Remote-Code-Execution führen. Aber auch wenn das nicht der Fall ist, können
 Deserialisierungsfehler Angriffsmuster wie Replay-Angriffe, Injections und Erschleichung
 erweiterter Zugriffsrechte ermöglichen.
 
-\subsection{A9: Nutzung von Komponenten mit bekannten Schwachstellen}
+\subsubsection{A9: Nutzung von Komponenten mit bekannten Schwachstellen}
 Komponenten wie Bibliotheken, Frameworks etc. werden mit den Berechtigungen der zugehörigen
 Anwendung ausgeführt. Wird eine verwundbare Komponente ausgenutzt, kann ein solcher
 Angriff von Datenverlusten bis hin zu einer Übernahme des Systems führen. Applikationen und
 APIs, die Komponenten mit bekannten Schwachstellen einsetzen, können Schutzmaßnahmen
 unterlaufen und so Angriffe mit schwerwiegenden Auswirkungen verursachen.
 
-\subsection{A10: Unzureichendes Logging und Monitoring}
+\subsubsection{A10: Unzureichendes Logging und Monitoring}
 Unzureichendes Logging und Monitoring führt zusammen mit fehlender oder uneffektiver
 Reaktion auf Vorfälle zu andauernden oder wiederholten Angriffen. Auch können Angreifer
 dadurch in Netzwerken weiter vordringen und Daten entwenden, verändern oder zerstören.
@@ -310,74 +337,37 @@ liegt sowie typischerweise durch Dritte entdeckt wird und nicht durch interne
 \\
 \cite{OWASPtop10}
 
-\section{Sicherheitstechnologien}
-\subsection{White-Box testing}
+\chapter{Die Tools}
+\section{Auswahlkriterien}
+TODO
+\section{Ausgewählte Tools}
+TODO
+\section{Nicht ausgewählte Tools}
 TODO
 
-\subsection{Black-Box testing}
+\chapter{Die Testumgebung}
+TODO
+\section{Der OWASP Juice Shop}
+TODO
+\section{Test OS: Parrot/Kali Linux}
 TODO
 
-\subsection{Fuzzing}
+\chapter{Das Testen}
+\section{Auswahl der Tests}
+TODO
+\section{Beschreibung der Tests}
 TODO
 
-\subsection{Firewalls}
+\chapter{Testergebnisse}
+\section{Bewertungskriterien}
+TODO
+\section{Bewertung der Tools}
 TODO
 
-\subsection{Sonstige}
+\chapter{Zusammenfassung und Ausblick}
 TODO
+\section{OWASP Benchmark}
 
-\section{Rechtliche Aspekte}
-\subsection{Hacker/Cracker <-> Pentester}
-
-TODO
-
-
-
-
-
-
-
-\chapter{Auswahl der Tools: 1. Scanner}
-\chapter{Auswahl der Tools: 1. Scanner}
-\chapter{Auswahl der Tools: 1. Scanner}
-\chapter{Auswahl der Tools: 2. Angriffstools}
-
-\chapter{Lösung}
-
-\begin{lstlisting}[label=lst:java,
-				   language=java,
-				   firstnumber=1,
-				   caption=Beispiel für einen Quelltext]
-
-public void foo() {
-	// Kommentar
-}
-\end{lstlisting}
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vehicula felis lectus, nec aliquet arcu aliquam vitae. Quisque laoreet consequat ante, eget pretium quam hendrerit at. Pellentesque nec purus eget erat mattis varius. Nullam ut vulputate velit. Suspendisse in dui in eros iaculis tempus. Phasellus vel est arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer elementum, nulla eu faucibus dignissim, orci justo imperdiet lorem, luctus consectetur orci orci a nunc.
-
-Praesent at nunc nec tortor viverra viverra. Morbi in feugiat lectus. Vestibulum iaculis ipsum at eros viverra volutpat in id ipsum. Donec condimentum, ligula viverra pharetra tincidunt, nunc dui malesuada nisi, vitae mollis lacus massa quis velit. Integer feugiat ipsum a volutpat scelerisque. Nulla facilisis augue nunc. Curabitur eget consectetur nulla. Integer accumsan sem non nisi tristique dictum.
-
-Sed lacinia eu dolor sed congue. Ut dui orci, venenatis id interdum rhoncus, mattis elementum massa. Proin venenatis elementum purus ut rutrum. Phasellus sit amet enim porta, commodo mauris a, bibendum tortor. Nulla ut lobortis justo. Aenean auctor mi nec velit fermentum, quis ultricies odio viverra. Maecenas ultrices urna vel erat ornare, quis suscipit odio molestie. Donec vel dapibus orci, vel tincidunt orci.
-
-Etiam vitae eros erat. Praesent nec accumsan turpis, et mollis eros. Praesent lacinia nulla at neque porta aliquam. Quisque elementum neque ac porta suscipit. Nulla volutpat luctus venenatis. Aliquam imperdiet suscipit pretium. Nunc feugiat lacinia aliquet. Mauris ut sapien nec risus porttitor bibendum. Aenean feugiat bibendum lectus, id mattis elit adipiscing at. Pellentesque interdum felis non risus iaculis euismod fermentum nec urna. Nullam lacinia suscipit erat ac ullamcorper. Sed vitae nulla posuere, posuere sem id, ultricies urna. Maecenas eros lorem, tempus non nulla vitae, ullamcorper egestas nibh. Vestibulum facilisis ante vel purus accumsan mattis. Donec molestie tempor eros, a gravida odio congue posuere.
-
-Sed in tempus elit, sit amet suscipit quam. Ut suscipit dictum molestie. Etiam quis porta mauris. Cras dapibus sapien eget sem porta, ut congue sapien accumsan. Maecenas hendrerit lobortis mauris ut hendrerit. Suspendisse at aliquet est. Quisque eros est, scelerisque ac orci quis, placerat suscipit lorem. Phasellus rutrum enim non odio ullamcorper, sit amet auctor nulla fringilla. Nunc eleifend vulputate dui, a sollicitudin tellus venenatis non. Cras condimentum lorem at ultricies vestibulum. Vestibulum interdum lobortis commodo. Nullam rhoncus interdum massa, ut varius nisi scelerisque id. Nunc interdum quam in enim bibendum vulputate.
-
-
-\chapter{Evaluierung}
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vehicula felis lectus, nec aliquet arcu aliquam vitae. Quisque laoreet consequat ante, eget pretium quam hendrerit at. Pellentesque nec purus eget erat mattis varius. Nullam ut vulputate velit. Suspendisse in dui in eros iaculis tempus. Phasellus vel est arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer elementum, nulla eu faucibus dignissim, orci justo imperdiet lorem, luctus consectetur orci orci a nunc.
-
-Praesent at nunc nec tortor viverra viverra. Morbi in feugiat lectus. Vestibulum iaculis ipsum at eros viverra volutpat in id ipsum. Donec condimentum, ligula viverra pharetra tincidunt, nunc dui malesuada nisi, vitae mollis lacus massa quis velit. Integer feugiat ipsum a volutpat scelerisque. Nulla facilisis augue nunc. Curabitur eget consectetur nulla. Integer accumsan sem non nisi tristique dictum.
-
-Sed lacinia eu dolor sed congue. Ut dui orci, venenatis id interdum rhoncus, mattis elementum massa. Proin venenatis elementum purus ut rutrum. Phasellus sit amet enim porta, commodo mauris a, bibendum tortor. Nulla ut lobortis justo. Aenean auctor mi nec velit fermentum, quis ultricies odio viverra. Maecenas ultrices urna vel erat ornare, quis suscipit odio molestie. Donec vel dapibus orci, vel tincidunt orci.
-
-Etiam vitae eros erat. Praesent nec accumsan turpis, et mollis eros. Praesent lacinia nulla at neque porta aliquam. Quisque elementum neque ac porta suscipit. Nulla volutpat luctus venenatis. Aliquam imperdiet suscipit pretium. Nunc feugiat lacinia aliquet. Mauris ut sapien nec risus porttitor bibendum. Aenean feugiat bibendum lectus, id mattis elit adipiscing at. Pellentesque interdum felis non risus iaculis euismod fermentum nec urna. Nullam lacinia suscipit erat ac ullamcorper. Sed vitae nulla posuere, posuere sem id, ultricies urna. Maecenas eros lorem, tempus non nulla vitae, ullamcorper egestas nibh. Vestibulum facilisis ante vel purus accumsan mattis. Donec molestie tempor eros, a gravida odio congue posuere.
-
-Sed in tempus elit, sit amet suscipit quam. Ut suscipit dictum molestie. Etiam quis porta mauris. Cras dapibus sapien eget sem porta, ut congue sapien accumsan. Maecenas hendrerit lobortis mauris ut hendrerit. Suspendisse at aliquet est. Quisque eros est, scelerisque ac orci quis, placerat suscipit lorem. Phasellus rutrum enim non odio ullamcorper, sit amet auctor nulla fringilla. Nunc eleifend vulputate dui, a sollicitudin tellus venenatis non. Cras condimentum lorem at ultricies vestibulum. Vestibulum interdum lobortis commodo. Nullam rhoncus interdum massa, ut varius nisi scelerisque id. Nunc interdum quam in enim bibendum vulputate.
-
-\chapter{Zusammenfassung}
 
 
 \backmatter
@@ -416,6 +406,22 @@ Hiermit versichere ich, dass ich die vorgelegte Bachelorarbeit selbstständig ve
 \begin{flushright}
 $\overline{~~~~~~~~~~~~~~~~~\mbox{\BaAuthor, am \today}~~~~~~~~~~~~~~~~~}$
 \end{flushright}
+
+\begin{lstlisting}[label=lst:java,
+				   language=java,
+				   firstnumber=1,
+				   caption=Beispiel für einen Quelltext]
+
+public void foo() {
+	// Kommentar
+}
+\end{lstlisting}
+
+
+
+
+
+
 
 \addchap{Zustimmung zur Plagiatsüberprüfung}
 
