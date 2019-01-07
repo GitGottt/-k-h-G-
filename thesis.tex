@@ -5,6 +5,7 @@
 \usepackage{floatflt}
 \usepackage{subfigure}
 \usepackage[pdftex]{graphicx}
+\usepackage{wrapfig}
 \usepackage[hidelinks]{hyperref}
 \usepackage{color}
 \usepackage{amssymb}
@@ -28,7 +29,7 @@
 \usepackage{setspace}
 \usepackage{booktabs}
 \usepackage[style=numeric,backend=bibtex]{biblatex}
-\bibliography{literatur}
+\bibliography{sources}
 
 
 %%%%%%%%%%%%%%%%%%%
@@ -139,9 +140,8 @@ pdfkeywords={Keywords}
 
 
 
-\tracingmacros=1
+
 \begin{document}
-\tracingmacros=0
 
 %%%%%%%%%%%%%%%%%%%
 %% Titelseite
@@ -191,197 +191,206 @@ TODO
 
 \chapter{Einführung}\label{ch:intro}
 
+  \begin{figure}
+    \includegraphics[width=1\textwidth]{VulnByYear}
+    \caption[Gefundene Schwachstellen pro Jahr laut CVE]{Gefundene Schwachstellen pro Jahr laut CVE \cite{cve}}
+  \end{figure}
+
 \chapter{Überblick}
+  \section{Sicherheitsmaßnahmen}
+  TODO
+    \subsection{Penetrationtesting}
+    TODO
 
-\section{Sicherheitsmaßnahmen}
-TODO
+    \subsubsection{Black-Box Testing}
+    Beim Black-Box Testing befindet sich der Tester in der Rolle eines typischen Hackers von
+    außen, der kein Wissen über die innere Arbeitsweise der Anwendung hat, weder Architektur noch
+    Quellcode sind bekannt. Der Angreifer benötigt automatisierte Scanning-Tools für die
+    dynamische Analyse des anzugreifenden Netzwerks und muss mit manuellen Methoden des
+    Penetrationstestings vertraut sein, um Schwachstellen zu lokalisieren und auszunutzen.
+    In der Praxis wird diese Art des Penetrationstests nur selten angewendet, der Aufwand ist sehr hoch, zudem
 
-\subsection{Penetrationtesting}
-TODO
+    \subsubsection{Grey-Box Testing}
+    Während der Black-Box-Tester ein System aus der Sicht eines Außenseiters untersucht, hat ein
+    Grey-Box Tester bereits Zugriff auf das System auf Benutzerebene, möglicherweise sogar mit
+    erhöhten Berechtigungen eines Administrators. In der Regel liegt eine Dokumentation über
+    Design und Architektur des Netzwerks vor, die internen Komponenten sind bekannt.
+    Dies hat den Vorteil, dass die Sicherheit des Netzwerks gezielter und effizienter beurteilt werden kann, der Tester kann sich sofort auf die Systeme konzentrieren, die am wichtigsten sind oder ein besonders hohes Risiko haben. Zudem kann durch das interne Benutzerkonto ein Angriff innerhalb des abgesicherten Systems mit umfassendem Zugriff auf das Netzwerk simuliert werden.
 
-\subsubsection{Black-Box Testing}
-Beim Black-Box Testing befindet sich der Tester in der Rolle eines typischen Hackers von
-außen, der kein Wissen über die innere Arbeitsweise der Anwendung hat, weder Architektur noch
-Quellcode sind bekannt. Der Angreifer benötigt automatisierte Scanning-Tools für die
-dynamische Analyse des anzugreifenden Netzwerks und muss mit manuellen Methoden des
-Penetrationstestings vertraut sein, um Schwachstellen zu lokalisieren und auszunutzen.
-In der Praxis wird diese Art des Penetrationstests nur selten angewendet, der Aufwand ist sehr hoch, zudem
+    \subsubsection{White-Box Testing}
+    White (auch bekannt als Clear Box Testing, Open Box Testing, Glass Box Testing, Transparent Box Testing, Code-Based Testing oder Structural Testing) ist eine Softwaretestmethode, bei der die interne Struktur / das Design / die Implementierung des zu testenden Objekts geprüft wird Dem Tester ist bekannt, dass der Tester Eingaben wählt, um Pfade durch den Code zu trainieren, und das Implementierungswissen ist von wesentlicher Bedeutung. White-Box-Tests sind Tests, die über die Benutzeroberfläche hinausgehen und bis in die Kernbereiche von a hineinreichen System.
 
-\subsubsection{Grey-Box Testing}
-Während der Black-Box-Tester ein System aus der Sicht eines Außenseiters untersucht, hat ein
-Grey-Box Tester bereits Zugriff auf das System auf Benutzerebene, möglicherweise sogar mit
-erhöhten Berechtigungen eines Administrators. In der Regel liegt eine Dokumentation über
-Design und Architektur des Netzwerks vor, die internen Komponenten sind bekannt.
-Dies hat den Vorteil, dass die Sicherheit des Netzwerks gezielter und effizienter beurteilt werden kann, der Tester kann sich sofort auf die Systeme konzentrieren, die am wichtigsten sind oder ein besonders hohes Risiko haben. Zudem kann durch das interne Benutzerkonto ein Angriff innerhalb des abgesicherten Systems mit umfassendem Zugriff auf das Netzwerk simuliert werden.
+    Diese Methode wird so benannt, dass das Softwareprogramm in den Augen des Testers wie eine weiße / transparente Box ist, in der man deutlich sieht.
 
-\subsubsection{White-Box Testing}
-White (auch bekannt als Clear Box Testing, Open Box Testing, Glass Box Testing, Transparent Box Testing, Code-Based Testing oder Structural Testing) ist eine Softwaretestmethode, bei der die interne Struktur / das Design / die Implementierung des zu testenden Objekts geprüft wird Dem Tester ist bekannt, dass der Tester Eingaben wählt, um Pfade durch den Code zu trainieren, und das Implementierungswissen ist von wesentlicher Bedeutung. White-Box-Tests sind Tests, die über die Benutzeroberfläche hinausgehen und bis in die Kernbereiche von a hineinreichen System.
+    \subsection{Fuzzing}
+    TODO
 
-Diese Methode wird so benannt, dass das Softwareprogramm in den Augen des Testers wie eine weiße / transparente Box ist, in der man deutlich sieht.
+    \subsection{Firewalls}
+    TODO
 
-\subsection{Fuzzing}
-TODO
+    \subsection{Sonstige}
+    TODO
 
-\subsection{Firewalls}
-TODO
+  \section{Rechtliche Aspekte}
+    \subsection{Hacker/Cracker <-> Pentester}
+    TODO
 
-\subsection{Sonstige}
-TODO
+  \section{OWASP: The Open Web Application Security Project}
+  Das ``Open Web Application Security Project'' (OWASP) ist eine unabhängige, weltweite Community mit dem Ziel, die Bedeutung der Sicherheit von Webanwendungen »sichtbar zu machen«, Fachwissen zur Entwicklung und den Betrieb sicherer Webanwendungen zu verbreiten und frei zur Verfügung zu stellen.
+  OWASP ist mit keinem Technologieunternehmen verbunden, obwohl der Einsatz kommerzieller Sicherheitstechnologien unterstützt wird. Sämtliche OWASP-Instrumente, wie Dokumente, Videos, Slides, Podcasts etc. sind kollaborativ produziert worden und sind zudem kostenlos unter einer freien Lizenz verwendbar. Die OWASP Foundation ist eine Non-Profit-Organisation, die sich vier Grundwerten verschrieben hat:
 
-\section{Rechtliche Aspekte}
-\subsection{Hacker/Cracker <-> Pentester}
+  \begin{itemize}
+    \item Offenheit: Von den Finanzen bis zum Code ist alles radikal transparent.
+    \item Innovation: OWASP fördert und unterstützt Innovationen und Experimente zur Lösung von Software-Sicherheitsherausforderungen.
+    \item Globalität: Jeder auf der ganzen Welt kann sich an der OWASP-Community beteiligen.
+    \item Integrität: OWASP ist eine ehrliche und aufrichtige, herstellerneutrale, globale Gemeinschaft.
+  \end{itemize}
 
-TODO
-
-\section{OWASP: The Open Web Application Security Project}
-Das ``Open Web Application Security Project'' (OWASP) ist eine unabhängige, weltweite Community mit dem Ziel, die Bedeutung der Sicherheit von Webanwendungen »sichtbar zu machen«, Fachwissen zur Entwicklung und den Betrieb sicherer Webanwendungen zu verbreiten und frei zur Verfügung zu stellen.
-OWASP ist mit keinem Technologieunternehmen verbunden, obwohl der Einsatz kommerzieller Sicherheitstechnologien unterstützt wird. Sämtliche OWASP-Instrumente, wie Dokumente, Videos, Slides, Podcasts etc. sind kollaborativ produziert worden und sind zudem kostenlos unter einer freien Lizenz verwendbar. Die OWASP Foundation ist eine Non-Profit-Organisation, die sich vier Grundwerten verschrieben hat:
-
-\begin{itemize}
-  \item Offenheit: Von den Finanzen bis zum Code ist alles radikal transparent.
-  \item Innovation: OWASP fördert und unterstützt Innovationen und Experimente zur Lösung von Software-Sicherheitsherausforderungen.
-  \item Globalität: Jeder auf der ganzen Welt kann sich an der OWASP-Community beteiligen.
-  \item Integrität: OWASP ist eine ehrliche und aufrichtige, herstellerneutrale, globale Gemeinschaft.
-\end{itemize}
-
-Zudem gibt es einen Verhaltenskodex mit folgenden Prinzipien:
-\begin{itemize}
-  \item Führe alle beruflichen Tätigkeiten und Pflichten in Übereinstimmung mit allen anwendbaren Gesetzen und den höchsten ethischen Grundsätzen aus.
-  \item Fördere die Umsetzung von Normen, Verfahren und Kontrollen für die Anwendungssicherheit und deren Einhaltung.
-  \item Bewahre eine angemessenene Vertraulichkeit gegenüber geschützter oder anderweitig sensibler Informationen, die im Rahmen einer beruflichen Tätigkeit auftreten.
-  \item Übernimm die berufliche Verantwortung mit Sorgfalt und Ehrlichkeit.
-  \item Kommuniziere offen und ehrlich.
-  \item Vermeide Aktivitäten, die einen Interessenskonflikt hervorrufen oder anderweitig den Ruf des Arbeitgebers, den Informationssicherheitsberuf oder die Vereinigung beeinträchtigen könnten.
-  \item Bewahre und verstärke unsere Objektivität und Unabhängigkeit.
-  \item Weise unangemessenen Druck der von Seiten der Industrie oder anderen zurück.
-  \item Verletze oder bestreite nicht absichtlich den Ruf von Kollegen, Kunden oder Arbeitgebern.
-  \item Behandle jeden mit Respekt und Würde.
-  \item Vermeide Beziehungen, die die Objektivität und Unabhängigkeit von OWASP  beeinträchtigen könnten.
-\end{itemize}
+  Zudem gibt es einen Verhaltenskodex mit folgenden Prinzipien:
+  \begin{itemize}
+    \item Führe alle beruflichen Tätigkeiten und Pflichten in Übereinstimmung mit allen anwendbaren Gesetzen und den höchsten ethischen Grundsätzen aus.
+    \item Fördere die Umsetzung von Normen, Verfahren und Kontrollen für die Anwendungssicherheit und deren Einhaltung.
+    \item Bewahre eine angemessenene Vertraulichkeit gegenüber geschützter oder anderweitig sensibler Informationen, die im Rahmen einer beruflichen Tätigkeit auftreten.
+    \item Übernimm die berufliche Verantwortung mit Sorgfalt und Ehrlichkeit.
+    \item Kommuniziere offen und ehrlich.
+    \item Vermeide Aktivitäten, die einen Interessenskonflikt hervorrufen oder anderweitig den Ruf des Arbeitgebers, den Informationssicherheitsberuf oder die Vereinigung beeinträchtigen könnten.
+    \item Bewahre und verstärke unsere Objektivität und Unabhängigkeit.
+    \item Weise unangemessenen Druck der von Seiten der Industrie oder anderen zurück.
+    \item Verletze oder bestreite nicht absichtlich den Ruf von Kollegen, Kunden oder Arbeitgebern.
+    \item Behandle jeden mit Respekt und Würde.
+    \item Vermeide Beziehungen, die die Objektivität und Unabhängigkeit von OWASP  beeinträchtigen könnten.
+  \end{itemize}
 
 \cite{OWASPabout}
 
-\subsection{Sicherheitsrisiken: Die OWASP Top Ten}
-TODO
+    \subsection{Sicherheitsrisiken: Die OWASP Top Ten}
+    TODO
 \cite{OWASPtop10}
 
-\subsubsection{A1: Injection}
-Injection-Schwachstellen, wie beispielsweise SQL-, OS- oder LDAP-Injection, treten auf, wenn
-nicht vertrauenswürdige Daten von einem Interpreter als Teil eines Kommandos oder einer
-Abfrage verarbeitet werden. Ein Angreifer kann Eingabedaten dann so manipulieren, dass er nicht
-vorgesehene Kommandos ausführen oder unautorisiert auf Daten zugreifen kann.
+    \subsubsection{A1: Injection}
+    Injection-Schwachstellen, wie beispielsweise SQL-, OS- oder LDAP-Injection, treten auf, wenn
+    nicht vertrauenswürdige Daten von einem Interpreter als Teil eines Kommandos oder einer
+    Abfrage verarbeitet werden. Ein Angreifer kann Eingabedaten dann so manipulieren, dass er nicht
+    vorgesehene Kommandos ausführen oder unautorisiert auf Daten zugreifen kann.
 
-\subsubsection{A2: Fehler in der Authentifizierung}
-Anwendungsfunktionen, die im Zusammenhang mit Authentifizierung und Sessionmanagement
-stehen, werden häufig fehlerhaft implementiert. Dies erlaubt es Angreifern, Passwörter oder
-Session-Token zu kompromittieren oder die entsprechenden Schwachstellen so auszunutzen,
-dass sie die Identität anderer Benutzer vorübergehend oder dauerhaft annehmen können.
+    \subsubsection{A2: Fehler in der Authentifizierung}
+    Anwendungsfunktionen, die im Zusammenhang mit Authentifizierung und Sessionmanagement
+    stehen, werden häufig fehlerhaft implementiert. Dies erlaubt es Angreifern, Passwörter oder
+    Session-Token zu kompromittieren oder die entsprechenden Schwachstellen so auszunutzen,
+    dass sie die Identität anderer Benutzer vorübergehend oder dauerhaft annehmen können.
 
-\subsubsection{A3: Verlust der Vertraulichkeit sensibler Daten}
-Viele Anwendungen schützen sensible Daten, wie personenbezogene Informationen und Finanzoder
-Gesundheitsdaten, nicht ausreichend. Angreifer können diese Daten auslesen oder
-modifizieren und mit ihnen weitere Straftaten begehen (Kreditkartenbetrug, Identitätsdiebstahl
-etc.). Vertrauliche Daten können kompromittiert werden, wenn sie nicht durch Maßnahmen, wie
-Verschlüsselung gespeicherter Daten und verschlüsselte Datenübertragung, zusätzlich geschützt
-werden. Besondere Vorsicht ist beim Datenaustausch mit Browsern angeraten.
+    \subsubsection{A3: Verlust der Vertraulichkeit sensibler Daten}
+    Viele Anwendungen schützen sensible Daten, wie personenbezogene Informationen und Finanzoder
+    Gesundheitsdaten, nicht ausreichend. Angreifer können diese Daten auslesen oder
+    modifizieren und mit ihnen weitere Straftaten begehen (Kreditkartenbetrug, Identitätsdiebstahl
+    etc.). Vertrauliche Daten können kompromittiert werden, wenn sie nicht durch Maßnahmen, wie
+    Verschlüsselung gespeicherter Daten und verschlüsselte Datenübertragung, zusätzlich geschützt
+    werden. Besondere Vorsicht ist beim Datenaustausch mit Browsern angeraten.
 
-\subsubsection{A4: XML External Entities}
-Viele veraltete oder schlecht konfigurierte XML Prozessoren berücksichtigen Referenzen auf
-externe Entitäten innerhalb von XML-Dokumenten. Dadurch können solche externen Entitäten
-dazu eingesetzt werden, um mittels URI Datei-Handlern interne Dateien oder File-Shares offenzulegen
-oder interne Port-Scans, Remote-Code-Executions oder Denial-of-Service Angriffe
-auszuführen.
+    \subsubsection{A4: XML External Entities}
+    Viele veraltete oder schlecht konfigurierte XML Prozessoren berücksichtigen Referenzen auf
+    externe Entitäten innerhalb von XML-Dokumenten. Dadurch können solche externen Entitäten
+    dazu eingesetzt werden, um mittels URI Datei-Handlern interne Dateien oder File-Shares offenzulegen
+    oder interne Port-Scans, Remote-Code-Executions oder Denial-of-Service Angriffe
+    auszuführen.
 
-\subsubsection{A5: Fehler in der Zugriffskontrolle}
-Häufig werden die Zugriffsrechte für authentifizierte Nutzer nicht korrekt um- bzw. durchgesetzt.
-Angreifer können entsprechende Schwachstellen ausnutzen, um auf Funktionen oder Daten
-zuzugreifen, für die sie keine Zugriffsberechtigung haben. Dies kann Zugriffe auf Accounts
-anderer Nutzer sowie auf vertrauliche Daten oder aber die Manipulation von Nutzerdaten,
-Zugriffsrechten etc. zur Folge haben.
+    \subsubsection{A5: Fehler in der Zugriffskontrolle}
+    Häufig werden die Zugriffsrechte für authentifizierte Nutzer nicht korrekt um- bzw. durchgesetzt.
+    Angreifer können entsprechende Schwachstellen ausnutzen, um auf Funktionen oder Daten
+    zuzugreifen, für die sie keine Zugriffsberechtigung haben. Dies kann Zugriffe auf Accounts
+    anderer Nutzer sowie auf vertrauliche Daten oder aber die Manipulation von Nutzerdaten,
+    Zugriffsrechten etc. zur Folge haben.
 
-\subsubsection{A6: Sicherheitsrelevante Fehlkonfiguration}
-Fehlkonfigurationen von Sicherheitseinstellungen sind das am häufigsten auftretende Problem.
-Ursachen sind unsichere Standardkonfigurationen, unvollständige oder ad-hoc durchgeführte
-Konfigurationen, ungeschützte Cloud-Speicher, fehlkonfigurierte HTTP-Header und Fehlerausgaben,
-die vertrauliche Daten enthalten. Betriebssysteme, Frameworks, Bibliotheken und Anwendungen
-müssen sicher konfiguriert werden und zeitnah Patches und Updates erhalten.
+    \subsubsection{A6: Sicherheitsrelevante Fehlkonfiguration}
+    Fehlkonfigurationen von Sicherheitseinstellungen sind das am häufigsten auftretende Problem.
+    Ursachen sind unsichere Standardkonfigurationen, unvollständige oder ad-hoc durchgeführte
+    Konfigurationen, ungeschützte Cloud-Speicher, fehlkonfigurierte HTTP-Header und Fehlerausgaben,
+    die vertrauliche Daten enthalten. Betriebssysteme, Frameworks, Bibliotheken und Anwendungen
+    müssen sicher konfiguriert werden und zeitnah Patches und Updates erhalten.
 
-\subsubsection{A7: Cross-Site-Scripting (XSS)}
-XSS tritt auf, wenn Anwendungen nicht vertrauenswürdige Daten entgegennehmen und ohne
-Validierung oder Umkodierung an einen Webbrowser senden. XSS tritt auch auf, wenn eine
-Anwendung HTML- oder JavaScript-Code auf Basis von Nutzereingaben erzeugt. XSS erlaubt es
-einem Angreifer, Scriptcode im Browser eines Opfers auszuführen und so Benutzersitzungen zu
-übernehmen, Seiteninhalte verändert anzuzeigen oder den Benutzer auf bösartige Seiten
-umzuleiten.
+    \subsubsection{A7: Cross-Site-Scripting (XSS)}
+    XSS tritt auf, wenn Anwendungen nicht vertrauenswürdige Daten entgegennehmen und ohne
+    Validierung oder Umkodierung an einen Webbrowser senden. XSS tritt auch auf, wenn eine
+    Anwendung HTML- oder JavaScript-Code auf Basis von Nutzereingaben erzeugt. XSS erlaubt es
+    einem Angreifer, Scriptcode im Browser eines Opfers auszuführen und so Benutzersitzungen zu
+    übernehmen, Seiteninhalte verändert anzuzeigen oder den Benutzer auf bösartige Seiten
+    umzuleiten.
 
-\subsubsection{A8: Unsichere Deserialisierung}
-Unsichere, weil unzureichend geprüfte Deserialisierungen können zu Schwachstellen in der
-Remote-Code-Execution führen. Aber auch wenn das nicht der Fall ist, können
-Deserialisierungsfehler Angriffsmuster wie Replay-Angriffe, Injections und Erschleichung
-erweiterter Zugriffsrechte ermöglichen.
+    \subsubsection{A8: Unsichere Deserialisierung}
+    Unsichere, weil unzureichend geprüfte Deserialisierungen können zu Schwachstellen in der
+    Remote-Code-Execution führen. Aber auch wenn das nicht der Fall ist, können
+    Deserialisierungsfehler Angriffsmuster wie Replay-Angriffe, Injections und Erschleichung
+    erweiterter Zugriffsrechte ermöglichen.
 
-\subsubsection{A9: Nutzung von Komponenten mit bekannten Schwachstellen}
-Komponenten wie Bibliotheken, Frameworks etc. werden mit den Berechtigungen der zugehörigen
-Anwendung ausgeführt. Wird eine verwundbare Komponente ausgenutzt, kann ein solcher
-Angriff von Datenverlusten bis hin zu einer Übernahme des Systems führen. Applikationen und
-APIs, die Komponenten mit bekannten Schwachstellen einsetzen, können Schutzmaßnahmen
-unterlaufen und so Angriffe mit schwerwiegenden Auswirkungen verursachen.
+    \subsubsection{A9: Nutzung von Komponenten mit bekannten Schwachstellen}
+    Komponenten wie Bibliotheken, Frameworks etc. werden mit den Berechtigungen der zugehörigen
+    Anwendung ausgeführt. Wird eine verwundbare Komponente ausgenutzt, kann ein solcher
+    Angriff von Datenverlusten bis hin zu einer Übernahme des Systems führen. Applikationen und
+    APIs, die Komponenten mit bekannten Schwachstellen einsetzen, können Schutzmaßnahmen
+    unterlaufen und so Angriffe mit schwerwiegenden Auswirkungen verursachen.
 
-\subsubsection{A10: Unzureichendes Logging und Monitoring}
-Unzureichendes Logging und Monitoring führt zusammen mit fehlender oder uneffektiver
-Reaktion auf Vorfälle zu andauernden oder wiederholten Angriffen. Auch können Angreifer
-dadurch in Netzwerken weiter vordringen und Daten entwenden, verändern oder zerstören.
-Viele Studien zeigen, dass die Zeit bis zur Aufdeckung eines Angriffs bei ca. 200 Tagen
-liegt sowie typischerweise durch Dritte entdeckt wird und nicht durch interne
-Überwachungs- und Kontrollmaßnahmen.\\
-\\
+    \subsubsection{A10: Unzureichendes Logging und Monitoring}
+    Unzureichendes Logging und Monitoring führt zusammen mit fehlender oder uneffektiver
+    Reaktion auf Vorfälle zu andauernden oder wiederholten Angriffen. Auch können Angreifer
+    dadurch in Netzwerken weiter vordringen und Daten entwenden, verändern oder zerstören.
+    Viele Studien zeigen, dass die Zeit bis zur Aufdeckung eines Angriffs bei ca. 200 Tagen
+    liegt sowie typischerweise durch Dritte entdeckt wird und nicht durch interne
+    Überwachungs- und Kontrollmaßnahmen.\\
+    \\
 \cite{OWASPtop10}
 
 \chapter{Die Tools}
-\section{Auswahlkriterien}
-TODO
-\section{Ausgewählte Tools}
-TODO
-\section{Nicht ausgewählte Tools}
-TODO
+  \section{Auswahlkriterien}
+  TODO
+  \section{Ausgewählte Tools}
+  TODO
+  \section{Nicht ausgewählte Tools}
+  TODO
 
 \chapter{Die Testumgebung}
-TODO
-\section{Der OWASP Juice Shop}
-TODO
-\section{Test OS: Parrot/Kali Linux}
-TODO
+  \section{Hardware}
+  TODO
+  \section{Virtuelle Maschinen}
+    \subsection{Parrot OS}
+    TODO
+    \subsection{Kali Linux}
+    TODO
+  \section{Der OWASP Juice Shop}
+  TODO
 
 \chapter{Das Testen}
-\section{Auswahl der Tests}
-TODO
-\section{Beschreibung der Tests}
-TODO
+  \section{Auswahl der Tests}
+  TODO
+  \section{Beschreibung der Tests}
+  TODO
 
 \chapter{Testergebnisse}
-\section{Bewertungskriterien}
-TODO
-\section{Bewertung der Tools}
-TODO
+  \section{Ergebnisse im Einzelnen}
+  TODO
+  \section{Bewertungskriterien}
+  TODO
+  \section{Bewertung der Tools}
+  TODO
 
 \chapter{Zusammenfassung und Ausblick}
 TODO
-\section{OWASP Benchmark}
-
+  \section{OWASP Benchmark}
+  TODO
 
 
 \backmatter
+
 %%%%%%%%%%%%%%%%%%%
 %% create figure list
 %%%%%%%%%%%%%%%%%%%
-
 \listoffigures
-\addcontentsline{toc}{chapter}{Verzeichnisse}
+\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
 
 %%%%%%%%%%%%%%%%%%%
 %% create tables list
 %%%%%%%%%%%%%%%%%%%
 \listoftables
+\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
 
 %%%%%%%%%%%%%%%%%%%
 %% create listings list
@@ -391,8 +400,8 @@ TODO
 
 \cleardoublepage
 \phantomsection
-\addcontentsline{toc}{chapter}{Literatur}
-\printbibliography
+\addcontentsline{toc}{chapter}{Quellenverzeichnis}
+\printbibliography[title=Quellenverzeichnis]
 
 %%%%%%%%%%%%%%%%%%%
 %% declaration on oath
