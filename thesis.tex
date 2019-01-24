@@ -36,7 +36,7 @@
 %% definitions
 %%%%%%%%%%%%%%%%%%%
 \def\BaAuthor{Henning Janning}
-\def\BaTitle{Evaluation von Web Application Security Testing Tools}
+\def\BaTitle{Evaluation von Web Application Security Scannern}
 \def\BaSupervisorOne{Prof. Andreas Mayer}
 \def\BaSupervisorTwo{Susanne Steuer (M.Sc.) }
 \def\BaDeadline{05.04.2019}
@@ -175,18 +175,9 @@ pdfkeywords={Keywords}
 
 \section*{Zusammenfassung}
 
-(alt)\\
-(In dieser Arbeit werden aktuelle Open Source Web Application Security Tools auf ihren Umfang und ihre Tauglichkeit überprüft und verglichen.
-Es werden Tests durchgeführt, die sich an den OWASP Top Ten des Open Web Application Security Projects orientieren, für jede der 10 Schwachstellen werden entsprechendende Tools und entsprechende Angriffsszenarien ausgewählt.
-Als angreifbare Web-Application wird der OWASP Juice Shop verwendet, dessen Schwachstellen und Angriffsszenarien sehr gut dokumentiert sind.
-Das Hauptkriterium für die Bewertung der Tools ist die Zeitersparnis gegenüber einem manuellen Angriff, hinzu kommen subjektive Eindrücke wie Handhabung oder intuitive Bedienbarkeit.)
-
-NEU:\\
-In dieser Arbeit werden aktuelle Open Source Web Application Vulnerability Scanner auf ihren Umfang und ihre Tauglichkeit überprüft und verglichen. Jeder Scanner wird an verschiedenen Web-Seiten getestet, die absichtlich eingebaute Schwachstellen haben, wie z.B. Juice-Shop oder Damn Vulnerable Web Application. Kriterien für die Bewertung der Tools sind Anzahl der gefundenen Schwachstellen, Anzahl der False Positives und die daraus resultierende Trefferquote.\\
-(Subjektive Eindrücke?)
+In dieser Arbeit werden aktuelle Open Source Web Application Vulnerability Scanner auf ihren Umfang und ihre Tauglichkeit überprüft und verglichen. Jeder Scanner wird an verschiedenen Web-Seiten getestet, die absichtlich eingebaute Schwachstellen haben, wie z.B. Juice-Shop oder Damn Vulnerable Web Application. Kriterien für die Bewertung der Tools sind Anzahl der gefundenen Schwachstellen, Anzahl der False Positives und die daraus resultierende Trefferquote.
 
 \section*{Abstract}
-
 TODO
 
 
@@ -213,9 +204,7 @@ TODO
     \subsubsection{Black-Box Testing}
     Beim Black-Box Testing befindet sich der Tester in der Rolle eines typischen Hackers von
     außen, der kein Wissen über die innere Arbeitsweise der Anwendung hat, weder Architektur noch
-    Quellcode sind bekannt. Der Angreifer benötigt automatisierte Scanning-Tools für die
-    dynamische Analyse des anzugreifenden Netzwerks und muss mit manuellen Methoden sowie speziellen Tools des Penetrationstestings vertraut sein, um Schwachstellen zu lokalisieren und auszunutzen.
-    Genau um diese Tools geht es in der vorliegenden Arbeit.
+    Quellcode sind bekannt. Der Angreifer muss mit manuellen Methoden sowie speziellen Tools des Penetrationstestings vertraut sein, um Schwachstellen zu lokalisieren und auszunutzen. Für die dynamische Analyse des anzugreifenden Netzwerks benötigt er Scanning Tools, die in der vorliegenden Arbeit evaluiert werden sollen.
 
     \subsubsection{Grey-Box Testing}
     Während der Black-Box-Tester ein System aus der Sicht eines Außenseiters untersucht, hat ein    Grey-Box Tester bereits Zugriff auf das System auf Benutzerebene, möglicherwei- se sogar mit    erhöhten Berechtigungen eines Administrators. In der Regel liegt eine Dokumentation über Design und Architektur des Netzwerks vor, die internen Komponenten sind bekannt. Dies hat den Vorteil, dass die Sicherheit des Netzwerks gezielter und effizienter beurteilt werden kann, der Tester kann sich sofort auf die Systeme konzentrieren, die am wichtigsten sind oder ein besonders hohes Risiko haben. Zudem kann durch das interne Benutzerkonto ein Angriff innerhalb des abgesicherten Systems mit umfassendem Zugriff auf das Netzwerk simuliert werden.
@@ -238,6 +227,85 @@ TODO
     \subsection{Hacker/Cracker vs. Pentester}
     TODO
 
+
+
+\chapter{Scanner}
+  \section{Kandidaten und Auswahlkriterien}
+  TODO
+  \section{Ausgewählte Scanner}
+  TODO
+  \section{Nicht ausgewählte Scanner}
+  TODO
+
+\chapter{Verwundbare Web-Applikationen}
+  \section{OWASP Juice Shop}
+  TODO
+  \section{Damn Vulnerable Web Application}
+  TODO
+  \section{Altoro Mutual}
+  TODO
+  \section{Webscantest}
+  TODO
+  \section{Security Tweets}
+  TODO
+
+\chapter{Testen}
+  \section{Testumgebung}
+  TODO
+  \section{Vorgehensweise}
+  TODO
+
+\chapter{Testergebnisse}
+  \section{Gefundene Schwachstellen per Web Application}
+  TODO
+  \section{Gefundene Schwachstellen nach Schwachstellentyp}
+  TODO
+  \section{Treffergenauigkeit}
+  TODO
+
+\chapter{Bewertung der Ergebnisse}
+  \section{Vergleich aller Scanner}
+  TODO
+  \section{Vergleich Open Source vs. Kommerziell}
+  TODO
+  \section{Handhabung und Bedienbarkeit}
+  TODO
+
+\chapter{Fazit und Ausblick}
+TODO
+  \section{OWASP Benchmark}
+  TODO
+
+
+\backmatter
+
+%%%%%%%%%%%%%%%%%%%
+%% create figure list
+%%%%%%%%%%%%%%%%%%%
+\listoffigures
+\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+
+%%%%%%%%%%%%%%%%%%%
+%% create tables list
+%%%%%%%%%%%%%%%%%%%
+\listoftables
+\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
+
+%%%%%%%%%%%%%%%%%%%
+%% create listings list
+%%%%%%%%%%%%%%%%%%%
+%\lstlistoflistings
+%\addcontentsline{toc}{chapter}{Listings}
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Quellenverzeichnis}
+\printbibliography[title=Quellenverzeichnis]
+
+\appendix
+  \chapter*{Anhang}
+  \addtocontents{toc}{\protect{\vspace{3ex}}}
+  \addcontentsline{toc}{chapter}{Anhang}
   \section{OWASP: The Open Web Application Security Project}
   Das ``Open Web Application Security Project'' (OWASP) ist eine unabhängige, weltweite Community mit dem Ziel, die Bedeutung der Sicherheit von Webanwendungen »sichtbar zu machen«, Fachwissen zur Entwicklung und den Betrieb sicherer Webanwendungen zu verbreiten und frei zur Verfügung zu stellen.
   OWASP ist mit keinem Technologieunternehmen verbunden, obwohl der Einsatz kommerzieller Sicherheitstechnologien unterstützt wird. Sämtliche OWASP-Instrumente, wie Dokumente, Videos, Slides, Podcasts etc. sind kollaborativ produziert worden und sind zudem kostenlos unter einer freien Lizenz verwendbar. Die OWASP Foundation ist eine Non-Profit-Organisation, die sich vier Grundwerten verschrieben hat:
@@ -266,7 +334,7 @@ TODO
 
 \cite{OWASPabout}
 
-    \subsection{Sicherheitsrisiken: Die OWASP Top Ten}
+    \subsection{Die OWASP Top Ten}
     TODO
 \cite{OWASPtop10}
 
@@ -337,69 +405,12 @@ TODO
 
 \cite{OWASPtop10}
 
-\chapter{Die Tools}
-  \section{Auswahlkriterien}
-  TODO
-  \section{Ausgewählte Tools je nach Schwachstelle}
-  TODO
-  \section{Nicht ausgewählte Tools}
-  TODO
-
-\chapter{Die Testumgebung}
-  \section{Hardware}
-  TODO
-  \section{Virtuelle Maschinen}
-    \subsection{Parrot OS}
-    TODO
-    \subsection{Kali Linux}
-    TODO
-  \section{Der OWASP Juice Shop}
-  TODO
-
-\chapter{Das Testen}
-  \section{Auswahl der Tests}
-  TODO
-  \section{Beschreibung der Tests}
-  TODO
-
-\chapter{Testergebnisse}
-  \section{Ergebnisse im Einzelnen}
-  TODO
-  \section{Bewertungskriterien}
-  TODO
-  \section{Bewertung der Tools}
-  TODO
-
-\chapter{Zusammenfassung und Ausblick}
-TODO
-  \section{OWASP Benchmark}
-  TODO
+  \section{Verwendete Abk"urzungen}
+  \dots{}
 
 
-\backmatter
 
-%%%%%%%%%%%%%%%%%%%
-%% create figure list
-%%%%%%%%%%%%%%%%%%%
-\listoffigures
-\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
 
-%%%%%%%%%%%%%%%%%%%
-%% create tables list
-%%%%%%%%%%%%%%%%%%%
-\listoftables
-\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
-
-%%%%%%%%%%%%%%%%%%%
-%% create listings list
-%%%%%%%%%%%%%%%%%%%
-%\lstlistoflistings
-%\addcontentsline{toc}{chapter}{Listings}
-
-\cleardoublepage
-\phantomsection
-\addcontentsline{toc}{chapter}{Quellenverzeichnis}
-\printbibliography[title=Quellenverzeichnis]
 
 %%%%%%%%%%%%%%%%%%%
 %% declaration on oath
