@@ -175,7 +175,7 @@ pdfkeywords={Keywords}
 
 \section*{Zusammenfassung}
 
-In dieser Arbeit werden aktuelle Open Source Web Application Vulnerability Scanner auf ihren Umfang und ihre Tauglichkeit überprüft und verglichen. Jeder Scanner wird an verschiedenen Web-Seiten getestet, die absichtlich eingebaute Schwachstellen haben, wie z.B. Juice-Shop oder Damn Vulnerable Web Application. Kriterien für die Bewertung der Tools sind Anzahl der gefundenen Schwachstellen, Anzahl der False Positives und die daraus resultierende Trefferquote.
+In dieser Arbeit werden aktuelle Web Vulnerability Scanner (WVS) auf ihren Umfang und ihre Tauglichkeit überprüft und verglichen. Jeder WVS wird an verschiedenen Web-Seiten getestet, die absichtlich eingebaute Schwachstellen haben, wie z.B. Juice-Shop oder Damn Vulnerable Web Application. Kriterien für die Bewertung der Tools sind die Anzahl der gefundenen Schwachstellen, Anzahl der False Positives und die daraus resultierende Trefferquote. Zudem fließen subjektive Eindrücke wie Handhabung oder intuitive Bedienung in die Bewertung mit ein.
 
 \section*{Abstract}
 TODO
@@ -196,86 +196,96 @@ TODO
   \end{figure}
 
 \chapter{Grundlagen}
-  \section{Sicherheitsmaßnahmen}
-  TODO
-    \subsection{Penetrationtesting}
+  \section{Web Application Security}
+    \subsection{Bedrohungen}
+    TODO
+      \subsubsection{OWASP Top 10}
+
+    \subsection{Sicherheitsmaßnahmen}
     TODO
 
-    \subsubsection{Black-Box Testing}
+    \subsubsection{Web Application Firewalls (WAF)}
+    TODO
+
+    \subsubsection{Penetrationtesting}
+    TODO
+
+    \paragraph{Black-Box Testing}
     Beim Black-Box Testing befindet sich der Tester in der Rolle eines typischen Hackers von
     außen, der kein Wissen über die innere Arbeitsweise der Anwendung hat, weder Architektur noch
-    Quellcode sind bekannt. Der Angreifer muss mit manuellen Methoden sowie speziellen Tools des Penetrationstestings vertraut sein, um Schwachstellen zu lokalisieren und auszunutzen. Für die dynamische Analyse des anzugreifenden Netzwerks benötigt er Scanning Tools, die in der vorliegenden Arbeit evaluiert werden sollen.
+    Quellcode sind bekannt. Der Angreifer muss mit manuellen Methoden sowie speziellen Tools des Penetrationstestings vertraut sein, um Schwachstellen zu lokalisieren und auszunutzen. Für die dynamische Analyse des anzugreifenden Netzwerks benötigt er Scanning Tools, die in der vorliegenden Arbeit evaluiert werden.
 
-    \subsubsection{Grey-Box Testing}
+    \paragraph{Grey-Box Testing}
     Während der Black-Box-Tester ein System aus der Sicht eines Außenseiters untersucht, hat ein    Grey-Box Tester bereits Zugriff auf das System auf Benutzerebene, möglicherwei- se sogar mit    erhöhten Berechtigungen eines Administrators. In der Regel liegt eine Dokumentation über Design und Architektur des Netzwerks vor, die internen Komponenten sind bekannt. Dies hat den Vorteil, dass die Sicherheit des Netzwerks gezielter und effizienter beurteilt werden kann, der Tester kann sich sofort auf die Systeme konzentrieren, die am wichtigsten sind oder ein besonders hohes Risiko haben. Zudem kann durch das interne Benutzerkonto ein Angriff innerhalb des abgesicherten Systems mit umfassendem Zugriff auf das Netzwerk simuliert werden.
 
-    \subsubsection{White-Box Testing}
+    \paragraph{White-Box Testing}
+    TODO
+    \paragraph{Rechtliche Aspekte}
+      \subparagraph{Hacker/Cracker vs. Pentester}
+      TODO
+
+  \section{Security Tools}
+    \subsection{Mapping Tools}
+    TODO
+    \subsection{Scanning Tools}
+    TODO
+    \subsection{Exploitation Tools}
     TODO
 
+\chapter{Methodik}
+\section{Testverfahren}
+Der Ablauf des Testens war für jeden WVS identisch.
+Zunächst wurden die verwundbare Web-Applikation gescannt und ein entsprechender Bericht generiert, anhand dessen die gefundenen Schwachstellen analysiert werden konnten. Um die True und False Positives zu identifizieren war es notwendig, die gefundenen Schwachstellen manuell zu validieren und die Ergenisse zu vergleichen.
+Dabei wurden stichpunktartig Notizen über Handhabung und Bedienbarkeit gemacht, teilweise bedurfte es zusätzlicher Konfiguration der WVS, um brauchbare Ergebnisse zu erhalten.
 
+\section{Web Vulnerability Scanner (WVS)}
+  \subsection{Auswahlkriterien}
+  OWASP listet 50 verschiedene Tools zum Scannen von Web-Applications auf
+  \cite{OWASPtools}. Die Auswahl wurde auf WVS mit folgenden Eigenschaften eingegrenzt:
+  \begin{itemize}
+    \item 1. Free und Open Source WVS.
+    \item 2. Kommerzielle WVS, die eine Free- oder Community-Edition anbieten.
+    \item 3. WVS, deren aktuelles Release nicht älter als 2 Jahre ist.
+  \end{itemize}
+  Zudem wurde bei den Firmen mit den bekanntesten kommerziellen WVS eine Trial Version angefragt, um ein realistisches Abbild der aktuell meistgenutzten Tools zu erhalten und um die Ergebnisse der kostenlosen denen der kommerziellen Scanner gegenüber zu stellen. Es handelt sich um folgende Firmen:
+  \\Acunetix, Beyond Security (AVDS), Beyond Trust (Retina), Netsparker, N-Stalker, Rapid 7 (Nexpose), Tenable (Nessus) und Tinfoil Security.
 
-    \subsection{Fuzzing}
-    TODO
-
-    \subsection{Firewalls}
-    TODO
-
-    \subsection{Sonstige}
-    TODO
-
-  \section{Rechtliche Aspekte}
-    \subsection{Hacker/Cracker vs. Pentester}
-    TODO
-
-\section{Methodik}
-
-
-\chapter{Scanner}
-  \section{Kandidaten und Auswahlkriterien}
+  \subsection{Ausgewählte WVS}
   TODO
-  \section{Ausgewählte Scanner}
-  TODO
-  \section{Nicht ausgewählte Scanner}
+  \subsection{Nicht ausgewählte WVS}
   TODO
 
-\chapter{Verwundbare Web-Applikationen}
-  \section{OWASP Juice Shop}
+\section{Verwundbare Web-Applikationen}
+  \subsection{OWASP Juice Shop}
   TODO
-  \section{Damn Vulnerable Web Application}
+  \subsection{Damn Vulnerable Web Application}
   TODO
-  \section{Altoro Mutual}
+  \subsection{Altoro Mutual}
   TODO
-  \section{Webscantest}
+  \subsection{Webscantest}
   TODO
-  \section{Security Tweets}
+  \subsection{Security Tweets}
   TODO
 
-\chapter{Testen}
-  \section{Testumgebung}
-  TODO
-  \section{Vorgehensweise}
-  1. Scannen der Web-Applikationen\\\\
-  2. Report erstellen\\\\
-  3. Gefundene Schwachstellen analysieren\\\\
-  4. Schwachstellen manuell validieren\\\\
-  5. Ergebnisse vergleichen\\\\
-  6. True und False Positives identifizieren\\\\
-
-\chapter{Testergebnisse}
+\chapter{Evaluation}
   \section{Gefundene Schwachstellen per Web Application}
   TODO
   \section{Gefundene Schwachstellen nach Schwachstellentyp}
   TODO
   \section{Treffergenauigkeit}
   TODO
+  \section{Bedienung und benötigter Konfigurationsumfang der WVS}
 
-\chapter{Bewertung der Ergebnisse}
-  \section{Vergleich aller Scanner}
+
+\chapter{Diskussion}
+  \section{Open Source WVS}
   TODO
-  \section{Vergleich Open Source vs. Kommerziell}
+  \section{Kommerzielle WVS}
   TODO
-  \section{Handhabung und Bedienbarkeit}
+  \section{Open Source vs. kommerziell}
   TODO
+  \section{Empfehlung}
+
 
 \chapter{Fazit und Ausblick}
 TODO
@@ -418,7 +428,7 @@ TODO
 
 
 
-%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
 %% declaration on oath
 %%%%%%%%%%%%%%%%%%%
 
