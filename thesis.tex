@@ -185,6 +185,11 @@ TODO
 \setcounter{tocdepth}{3}
 \tableofcontents
 
+\listoffigures
+\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+
+\listoftables
+\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
 
 \mainmatter
 
@@ -295,17 +300,6 @@ TODO
 
 \backmatter
 
-%%%%%%%%%%%%%%%%%%%
-%% create figure list
-%%%%%%%%%%%%%%%%%%%
-\listoffigures
-\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
-
-%%%%%%%%%%%%%%%%%%%
-%% create tables list
-%%%%%%%%%%%%%%%%%%%
-\listoftables
-\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
 
 %%%%%%%%%%%%%%%%%%%
 %% create listings list
@@ -322,6 +316,10 @@ TODO
   \chapter*{Anhang}
   \addtocontents{toc}{\protect{\vspace{3ex}}}
   \addcontentsline{toc}{chapter}{Anhang}
+
+  \section{Verwendete Abk"urzungen}
+  \dots{}
+
   \section{OWASP: The Open Web Application Security Project}
   Das ``Open Web Application Security Project'' (OWASP) ist eine unabhängige, weltweite Community mit dem Ziel, die Bedeutung der Sicherheit von Webanwendungen »sichtbar zu machen«, Fachwissen zur Entwicklung und den Betrieb sicherer Webanwendungen zu verbreiten und frei zur Verfügung zu stellen.
   OWASP ist mit keinem Technologieunternehmen verbunden, obwohl der Einsatz kommerzieller Sicherheitstechnologien unterstützt wird. Sämtliche OWASP-Instrumente, wie Dokumente, Videos, Slides, Podcasts etc. sind kollaborativ produziert worden und sind zudem kostenlos unter einer freien Lizenz verwendbar. Die OWASP Foundation ist eine Non-Profit-Organisation, die sich vier Grundwerten verschrieben hat:
@@ -421,8 +419,7 @@ TODO
 
 \cite{OWASPtop10}
 
-  \section{Verwendete Abk"urzungen}
-  \dots{}
+
 
 
 
