@@ -195,8 +195,8 @@ TODO
 
 \chapter{Einführung}\label{ch:intro}
  Zielsetzung!
-  \begin{figure}
-    \includegraphics[width=1\textwidth]{VulnByYear}
+  \begin{figure}[!htb]
+    \includegraphics[width=1\textwidth]{Images/VulnByYear}
     \caption[Gefundene Schwachstellen pro Jahr laut CVE]{Gefundene Schwachstellen pro Jahr laut CVE \cite{cve}}
   \end{figure}
 
@@ -253,10 +253,16 @@ Dabei wurden stichpunktartig Notizen über Handhabung und Bedienbarkeit gemacht,
     \item 3. WVS, deren aktuelles Release nicht älter als 2 Jahre ist.
   \end{itemize}
   Zudem wurde bei den Firmen mit den bekanntesten kommerziellen WVS eine Trial Version angefragt, um ein realistisches Abbild der aktuell meistgenutzten Tools zu erhalten und um die Ergebnisse der kostenlosen denen der kommerziellen Scanner gegenüber zu stellen. Es handelt sich um folgende Firmen:
-  \\Acunetix, Beyond Security (AVDS), Beyond Trust (Retina), Netsparker, N-Stalker, Rapid 7 (Nexpose), Tenable (Nessus) und Tinfoil Security.
+  \\Acunetix, Beyond Security (AVDS), Beyond Trust (Retina), Netsparker, N-Stalker, Rapid 7 (Nexpose) und Tenable (Nessus).
 
   \subsection{Ausgewählte WVS}
-  TODO
+    \subsubsection{Free und Open Source WVS}
+
+    \subsubsection{Kommerzielle WVS}
+      \begin{itemize}
+        \item BurpSuite Professional v2.0.15beta
+      \end{itemize}
+
   \subsection{Nicht ausgewählte WVS}
   TODO
 
@@ -267,7 +273,7 @@ Dabei wurden stichpunktartig Notizen über Handhabung und Bedienbarkeit gemacht,
   TODO
   \subsection{WebGoat}
   WebGoat ist ein weiteres Projekt von OWASP, für diese unsichere Webanwendung gibt es für jede Schwachstelle einzelne Lektionen, in denen der Benutzer nachweisen muss, dass er ein Sicherheitsproblem verstanden hat. Benutzt wird die aktuelle Version 8.0.0.M23 vom 18.01.2019.
-  
+
   \subsection{Zero Bank}
   TODO
   \subsection{Altoro Mutual}
@@ -286,7 +292,13 @@ Dabei wurden stichpunktartig Notizen über Handhabung und Bedienbarkeit gemacht,
   \section{Treffergenauigkeit}
   TODO
   \section{Bedienung und benötigter Konfigurationsumfang der WVS}
+  \subsubsection{BurpSuite Pro}
+  Die Firma Portswigger bietet eine 30-tägige Testversion mit allen Funktionen für BurpSuite Professional an. BurpSuite Pro enthält eine umfangreiche Dokumentation mit zahlreichen Hilfestellungen für verschiedene Anwendungsszenarien.  Das Dashboard ist sehr übersichtlich und intuitiv zu bedienen: mit Hilfe des Buttons ``New Scan'' lässt sich direkt ohne größeren Konfigurationsaufwand eine Website erfolgreich scannen.
 
+  \begin{figure}[!htb]
+    \includegraphics[width=1\textwidth]{Images/BurpSuitePro}
+    \caption[Dashboard von BurpSuite Pro]{Dashboard von BurpSuite Pro}
+  \end{figure}
 
 \chapter{Diskussion}
   \section{Open Source WVS}
