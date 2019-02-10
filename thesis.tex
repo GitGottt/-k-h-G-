@@ -238,10 +238,15 @@ TODO
     TODO
 
 \chapter{Methodik}
-\section{Testverfahren}
-Der Ablauf des Testens war für jeden WVS identisch.
-Zunächst wurden die verwundbare Web-Applikation gescannt und ein entsprechender Bericht generiert, anhand dessen die gefundenen Schwachstellen analysiert werden konnten. Um die True und False Positives zu identifizieren war es notwendig, die gefundenen Schwachstellen manuell zu validieren und die Ergenisse zu vergleichen.
-Dabei wurden stichpunktartig Notizen über Handhabung und Bedienbarkeit gemacht, teilweise bedurfte es zusätzlicher Konfiguration der WVS, um brauchbare Ergebnisse zu erhalten.
+  \section{Testaufbau}
+  Der Ablauf des Testens war für jeden WVS identisch.
+  Zunächst wurden die verwundbare Web-Applikation gescannt und ein entsprechender Bericht generiert, anhand dessen die gefundenen Schwachstellen analysiert werden konnten. Um die True und False Positives zu identifizieren war es notwendig, die gefundenen Schwachstellen manuell zu validieren und die Ergenisse zu vergleichen.
+  Dabei wurden stichpunktartig Notizen über Handhabung und Bedienbarkeit gemacht, teilweise bedurfte es zusätzlicher Konfiguration der WVS, um brauchbare Ergebnisse zu erhalten.
+
+  Für die Tests wurde folgendes System verwendet:
+  \\Intel Core i7-8700K CPU mit 32 GB RAM
+  \\Microsoft Windows 10 pro, Version 1809 (64 bit)
+  \\Als Virtuelle Maschinen innerhalb von VirtualBox: Kali Linux 18.4 und Parrot OS 4.5.1, jeweils ausgestattet mit 2 Kernen und 8 GB RAM
 
 \section{Web Vulnerability Scanner (WVS)}
   \subsection{Auswahlkriterien}
@@ -249,12 +254,13 @@ Dabei wurden stichpunktartig Notizen über Handhabung und Bedienbarkeit gemacht,
   \cite{OWASPtools}. Die Auswahl wurde auf WVS mit folgenden Eigenschaften eingegrenzt:
   \begin{itemize}
     \item 1. Free und Open Source WVS.
-    \item 2. Kommerzielle WVS, die eine Free- oder Community-Edition anbieten.
+    \item 2. Kommerzielle WVS, die eine voll funktionsfähige Testversion anbieten.
     \item 3. WVS, deren aktuelles Release nicht älter als 2 Jahre ist.
     \item 4. WVS, die in der Lage sind, umfassende Scans auszuführen, um möglichst viele verschiedene Schwachstellenarten aufzuspüren.
   \end{itemize}
-  Zudem wurde bei den Firmen mit den bekanntesten kommerziellen WVS eine Trial Version angefragt, um ein realistisches Abbild der aktuell meistgenutzten Tools zu erhalten und um die Ergebnisse der kostenlosen denen der kommerziellen Scanner gegenüber zu stellen. Es handelt sich um folgende Firmen:
-  \\Acunetix, Beyond Security (AVDS), Beyond Trust (Retina), Netsparker, N-Stalker, Rapid 7 (Nexpose) und Tenable (Nessus).
+  Bei den bekanntesten Anbietern kommerzieller WVS wurde jeweils eine Testversion angefragt, um ein realistisches Abbild der aktuell meistgenutzten Tools zu erhalten und um die Ergebnisse der kostenlosen denen der kommerziellen Scanner gegenüber zu stellen. Es handelt sich um folgende Firmen:
+  \\Acunetix, Beyond Security (AVDS), Beyond Trust (Retina), Netsparker, N-Stalker, Rapid 7 (Nexpose) und Tenable (Nessus).\\
+  Die Anbieter Portswigger (BurpSuite Pro) und SecApps (Websecurify Suite) bieten beide auf ihrer Website die Vollversion ihrer Suite für eine 30-tägige Testphase an.
 
   \subsection{Ausgewählte WVS}
     \subsubsection{Free und Open Source WVS}
@@ -301,6 +307,8 @@ Dabei wurden stichpunktartig Notizen über Handhabung und Bedienbarkeit gemacht,
       \end{itemize}
 
 \section{Verwundbare Web-Applikationen}
+  Bei der Auswahl der Web-Applikationen musste darauf geachtet werden, dass
+
   \subsection{OWASP Juice Shop}
   TODO
   \subsection{Damn Vulnerable Web Application}
@@ -326,17 +334,46 @@ Dabei wurden stichpunktartig Notizen über Handhabung und Bedienbarkeit gemacht,
   \section{Treffergenauigkeit}
   TODO
   \section{Bedienung und benötigter Konfigurationsumfang der WVS}
-  \subsubsection{BurpSuite Pro}
-  Die Firma Portswigger bietet eine 30-tägige Testversion mit allen Funktionen für BurpSuite Professional an. BurpSuite Pro enthält eine umfangreiche Dokumentation mit zahlreichen Hilfestellungen für verschiedene Anwendungsszenarien.  Das Dashboard ist sehr übersichtlich und intuitiv zu bedienen: mit Hilfe des Buttons ``New Scan'' lässt sich direkt ohne größeren Konfigurationsaufwand eine Website erfolgreich scannen.
+    \subsubsection{Open Source}
+        \begin{itemize}
+          \item Arachni:
+          \item GoLismero:
+          \item Grabber:
+          \item OpenVAS:
+          \item Skipfish:
+          \item Vega:
+          \item Wapiti:
+          \item Watobo:
+          \item Wfuzz:
+          \item W3af:
+          \item Zed Attack Proxy:\\
+            Der von OWASP entwickelte Scanner hat eine übersichtliche Benutzeroberfläche und lässt sich intuitiv bedienen. Auf der Startseite lässt sich direkt die anzugreifende URL eingeben und ohne weitere Konfiguration angreifen. Es gibt umfangreiche Hilfestellung in Form eines Handbuchs und einem Online-Wiki, zudem gibt es mit der OWASP ZAP User Group ein gut frequentiertes Benutzerforum, auf dem ein reger Austausch zwischen den Benutzern stattfindet.
+          \begin{figure}[!htb]
+            \includegraphics[width=1\textwidth]{Images/ZAP}
+            \caption[Grafische Benutzeroberfläche von ZAP]{Grafische Benutzeroberfläche von ZAP}
+          \end{figure}
+        \end{itemize}
 
-  \begin{figure}[!htb]
-    \includegraphics[width=1\textwidth]{Images/BurpSuitePro}
-    \caption[Dashboard von BurpSuite Pro]{Dashboard von BurpSuite Pro}
-  \end{figure}
+    \subsubsection{Kommerziell}
+      \begin{itemize}
+        \item Acunetix:
+        \item AVDS:
+        \item BurpSuite Pro:\\
+          Die Firma Portswigger bietet eine 30-tägige Testversion mit allen Funktionen für BurpSuite Professional an. BurpSuite Pro enthält eine umfangreiche Dokumentation mit zahlreichen Hilfestellungen für verschiedene Anwendungsszenarien.  Das Dashboard ist sehr übersichtlich und intuitiv zu bedienen: mit Hilfe des Buttons ``New Scan'' lässt sich direkt ohne größeren Konfigurationsaufwand eine Website erfolgreich scannen.
+        \begin{figure}[!htb]
+          \includegraphics[width=1\textwidth]{Images/BurpSuitePro}
+          \caption[Dashboard von BurpSuite Pro]{Dashboard von BurpSuite Pro}
+        \end{figure}
+     \end{itemize}
+
+
 
 \chapter{Diskussion}
   \section{Open Source WVS}
-  TODO
+    \begin{itemize}
+      \item Zed Attack Proxy:\\
+        Bei der Nutzung von ZAP fallen besonders die langen Scanzeiten auf, der Scan einer Web Application wie Altoro Mutual kann schon mal 10 Stunden dauern.
+    \end{itemize}
   \section{Kommerzielle WVS}
   TODO
   \section{Open Source vs. kommerziell}
