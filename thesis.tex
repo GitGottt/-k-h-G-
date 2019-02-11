@@ -270,9 +270,7 @@ TODO
           WVS              & Anbieter  & Version                      & Plattform \\ \hline
           Arachni          &           &                              &           \\ \hline
           GoLismero        &           &                              &           \\ \hline
-          Grabber          &           &                              &           \\ \hline
           OpenVAS          & Greenbone &                              &           \\ \hline
-          Skipfish         &           &                              &           \\ \hline
           Vega             &           &                              &           \\ \hline
           Wapiti           &           &                              &           \\ \hline
           Watobo           &           &                              &           \\ \hline
@@ -291,10 +289,12 @@ TODO
   \subsection{Nicht ausgewählte WVS}
     \subsubsection{Free und Open Source WVS}
     \begin{itemize}
+      \item Grabber: Veraltet (Latest Release 2006)
       \item Grendel-Scan: Veraltet (Last modified 2010)
       \item Iron Wasp: Beim Downloadversuch kam die Fehlermeldung ``Down (Service unavailable)''
       \item Nikto: Nikto ist im GoLismero Bundle enthalten und bedarf daher keiner separaten Evaluation
       \item Ratproxy: Veraltet (Latest Release 2009)
+      \item Skipfish: Veraltet (Latest Release 2012)
       \item SQLmap: Ist auf das Auffinden von SQLi Schwachstellen begrenzt und ist zudem Bestandteil von GoLismero
       \item Webscarab: Veraltet (Latest Release 2011)
       \item Wikto: Ist lediglich eine Windows-Portierung von Nikto
@@ -307,7 +307,7 @@ TODO
       \end{itemize}
 
 \section{Verwundbare Web-Applikationen}
-  Bei der Auswahl der Web-Applikationen musste darauf geachtet werden, dass
+  Bei der Auswahl der Web-Applikationen musste darauf geachtet werden, dass sie für WVS geeignet sind. Die ursprünglich vorgesehenen Applikationen WebGoat und JuiceShop (beide von OWASP) sind zwar sehr gut dokumentiert, aber dafür entwickelt worden, manuell Schwachstellen anzugreifen.
 
   \subsection{OWASP Juice Shop}
   TODO
@@ -342,10 +342,9 @@ TODO
               \includegraphics[width=1\textwidth]{Images/Arachni}
               \caption[Arachni WebUI 0.5.12]{Arachni WebUI 0.5.12}
             \end{figure}
-          \item GoLismero:
-          \item Grabber:
+          \item GoLismero:\\
+            GoLismero ist ein in Python geschriebenes Framework, das verschiedene Penetrationtesting-Tools in sich vereint. Bei einem Angriff werden alle Tools angewendet und die jeweiligen Ergebnisse in einem einzigen Report gebündelt. Anwwendungen wie nmap, nikto, sqlmap, theHarvester oder xsser sind bereits im Bundle enthalten und werden ohne weitere Konfiguration automatisch aufgerufen. Mit Hilfe von Plugins und dem Einbinden von APIs können weitere Tools wie z.B. OpenVAS, Shodan oder Wfuzz hinzugefügt werden. Bei den Tests wurde GoLismero out of the Box ohne zusätzlich eingebundene Tools verwendet.
           \item OpenVAS:
-          \item Skipfish:
           \item Vega:
           \item Wapiti:
           \item Watobo:
