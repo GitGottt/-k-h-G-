@@ -271,9 +271,7 @@ TODO
           Arachni          &           &                              &           \\ \hline
           GoLismero        &           &                              &           \\ \hline
           OpenVAS          & Greenbone &                              &           \\ \hline
-          Vega             &           &                              &           \\ \hline
           Wapiti           &           &                              &           \\ \hline
-          Watobo           &           &                              &           \\ \hline
           Wfuzz            &           &                              &           \\ \hline
           W3af             &           &                              &           \\ \hline
           Zed Attack Proxy &  OWASP    &                              &           \\ \hline
@@ -296,6 +294,8 @@ TODO
       \item Ratproxy: Veraltet (Latest Release 2009)
       \item Skipfish: Veraltet (Latest Release 2012)
       \item SQLmap: Ist auf das Auffinden von SQLi Schwachstellen begrenzt und ist zudem Bestandteil von GoLismero
+      \item Vega: Das aktuelle Release ist aus dem Jahr 2014, seit diesem Jahr wird in regelmäßigen Abständen angekündigt, ein Feature zum Exportieren der Ergebnisse hinzuzufügen, aber die Firma Subgraph scheint das Projekt nicht weiter zu verfolgen.\cite{Vega}
+      \item Watobo: Veraltet (Last modified 2015)
       \item Webscarab: Veraltet (Latest Release 2011)
       \item Wikto: Ist lediglich eine Windows-Portierung von Nikto
       \item Xenotix: Ist auf das Auffinden von Cross-Site-Scripting Schwachstellen begrenzt
@@ -343,11 +343,14 @@ TODO
               \caption[Arachni WebUI 0.5.12]{Arachni WebUI 0.5.12}
             \end{figure}
           \item GoLismero:\\
-            GoLismero ist ein in Python geschriebenes Framework, das verschiedene Penetrationtesting-Tools in sich vereint. Bei einem Angriff werden alle Tools angewendet und die jeweiligen Ergebnisse in einem einzigen Report gebündelt. Anwwendungen wie nmap, nikto, sqlmap, theHarvester oder xsser sind bereits im Bundle enthalten und werden ohne weitere Konfiguration automatisch aufgerufen. Mit Hilfe von Plugins und dem Einbinden von APIs können weitere Tools wie z.B. OpenVAS, Shodan oder Wfuzz hinzugefügt werden. Bei den Tests wurde GoLismero out of the Box ohne zusätzlich eingebundene Tools verwendet.
-          \item OpenVAS:
-          \item Vega:
+            GoLismero ist ein in Python geschriebenes Framework, das verschiedene Penetrationtesting-Tools in sich vereint. Bei einem Angriff werden alle Tools angewendet und die jeweiligen Ergebnisse in einem einzigen Report gebündelt. Anwendungen wie nmap, nikto, sqlmap, theHarvester oder xsser sind bereits im Bundle enthalten und werden ohne weitere Konfiguration automatisch aufgerufen. Mit Hilfe von Plugins und dem Einbinden von APIs können weitere Tools wie z.B. OpenVAS, Shodan oder Wfuzz hinzugefügt werden. Bei den Tests wurde GoLismero out of the Box ohne zusätzlich eingebundene Tools verwendet.
+          \item OpenVAS:\\
+
+          \begin{figure}[!htb]
+            \includegraphics[width=1\textwidth]{Images/OpenVAS}
+            \caption[OpenVAS Web-Interface]{OpenVAS Web-Interface}
+          \end{figure}
           \item Wapiti:
-          \item Watobo:
           \item Wfuzz:
           \item W3af:
           \item Zed Attack Proxy:\\
