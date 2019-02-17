@@ -240,8 +240,7 @@ TODO
 \chapter{Methodik}
   \section{Testaufbau}
   Der Ablauf des Testens war für jeden WVS identisch.
-  Zunächst wurden die verwundbare Web-Applikation gescannt und ein entsprechender Bericht generiert, anhand dessen die gefundenen Schwachstellen analysiert werden konnten. Um die True und False Positives zu identifizieren war es notwendig, die gefundenen Schwachstellen manuell zu validieren und die Ergenisse zu vergleichen.
-  Dabei wurden stichpunktartig Notizen über Handhabung und Bedienbarkeit gemacht, teilweise bedurfte es zusätzlicher Konfiguration der WVS, um brauchbare Ergebnisse zu erhalten.
+  Zunächst wurden die verwundbare Web-Applikation gescannt und ein entsprechender Bericht generiert, anhand dessen die gefundenen Schwachstellen analysiert werden konnten. Dabei entstand ein subjektiver Eindruck der Handhabung und Bedienbarkeit, der zusammen mit dem Konfigurationsaufwand in die Evaluation einfließt. Um die True und False Positives zu identifizieren war es notwendig, die gefundenen Schwachstellen anhand von Dokumentationen der Websites oder manuell zu validieren und die Ergenisse zu vergleichen.
 
   Für die Tests wurde folgendes System verwendet:
   \\Intel Core i7-8700K CPU mit 32 GB RAM
@@ -255,50 +254,79 @@ TODO
   \begin{itemize}
     \item 1. Free und Open Source WVS.
     \item 2. Kommerzielle WVS, die eine voll funktionsfähige Testversion anbieten.
-    \item 3. WVS, deren aktuelles Release nicht älter als 2 Jahre ist.
+    \item 3. WVS, deren aktuelles Release nicht älter als 2 Jahre ist oder innerhalb der letzten 2 Jahre modifiziert wurde.
     \item 4. WVS, die in der Lage sind, umfassende Scans auszuführen, um möglichst viele verschiedene Schwachstellenarten aufzuspüren.
   \end{itemize}
   Bei den bekanntesten Anbietern kommerzieller WVS wurde jeweils eine Testversion angefragt, um ein realistisches Abbild der aktuell meistgenutzten Tools zu erhalten und um die Ergebnisse der kostenlosen denen der kommerziellen Scanner gegenüber zu stellen. Es handelt sich um folgende Firmen:
-  \\Acunetix, Beyond Security (AVDS), Beyond Trust (Retina), Netsparker, N-Stalker, Rapid 7 (Nexpose) und Tenable (Nessus).\\
-  Die Anbieter Portswigger (BurpSuite Pro) und SecApps (Websecurify Suite) bieten beide auf ihrer Website die Vollversion ihrer Suite für eine 30-tägige Testphase an.
+  \\Acunetix, Beyond Security (WSSA), Beyond Trust (Retina), Netsparker, N-Stalker, Portswigger (BurpSuite Pro), Rapid 7 (Nexpose) und Tenable (Nessus).
+
+  Von den angefragten Firmen stellten Acunetix, Netsparker, N-Stalker, Portswigger und Tenable jeweils eine Testversion zur Verfügung.
 
   \subsection{Ausgewählte WVS}
     \subsubsection{Free und Open Source WVS}
-      \begin{table}[!htb]
-        \begin{tabular}{|l|l|l|l|}
-          \hline
-          WVS              & Anbieter  & Version                      & Plattform \\ \hline
-          Arachni          &           &                              &           \\ \hline
-          GoLismero        &           &                              &           \\ \hline
-          OpenVAS          & Greenbone &                              &           \\ \hline
-          Wapiti           &           &                              &           \\ \hline
-          Wfuzz            &           &                              &           \\ \hline
-          W3af             &           &                              &           \\ \hline
-          Zed Attack Proxy &  OWASP    &                              &           \\ \hline
+      \begin{table}[H]
+        \centering
+          \begin{tabular}{|l|l|l|l|}
+            \multicolumn{1}{l}{}      & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{}          \\
+            \hline
+            \textbf{WVS}              & \textbf{Entwickler}  & \textbf{Version}     & \textbf{VerwendetePlattform}  \\
+            \hline
+            \textbf{Arachni}          & Tasos Laskos         & 0.5.12 (WebUI)       & Windows                       \\
+            \hline
+            \textbf{Nikto}            & cirt.net             & 2.1.6                & Kali                          \\
+            \hline
+            \textbf{OpenVAS}          & Greenbone            & 7.0.3                & Parrot                        \\
+            \hline
+            \textbf{Wapiti}           & devloop              & 3.0.1                & Kali                          \\
+            \hline
+            \textbf{Zed Attack Proxy} & OWASP                & 2.7.0                & Parrot                        \\
+            \hline
           \end{tabular}
-          \caption[Ausgewählte Free und Open Source WVS]{Ausgewählte Free und Open Source WVS}
-        \end{table}
+        \caption[Ausgewählte Free und Open Source WVS]{Ausgewählte Free und Open Source WVS}
+      \end{table}
 
     \subsubsection{Kommerzielle WVS}
-      \begin{itemize}
-        \item BurpSuite Professional v2.0.15beta
-      \end{itemize}
+      \begin{table}[H]
+        \centering
+        \begin{tabular}{|l|l|l|l|}
+        \hline
+        \textbf{WVS}            & \textbf{Anbieter} & \textbf{Version} & \textbf{VerwendetePlattform}  \\
+        \hline
+        \textbf{Acunetix}       & Acunetix          & 12.0.190206130   & Kali                        \\
+        \hline
+        \textbf{Burp Suite Pro} & Portswigger       & 2.0.15           & Windows                       \\
+        \hline
+        \textbf{Nessus}         & Tenable           & 8.2.2            & Windows                       \\
+        \hline
+        \textbf{Netsparker}     & Netsparker        & 5.2.0.22027      & Windows                       \\
+        \hline
+                              &                   &                  &                               \\
+        \hline
+        \end{tabular}
+        \caption[Ausgewählte Kommerzielle WVS]{Ausgewählte Kommerzielle WVS}
+      \end{table}
 
   \subsection{Nicht ausgewählte WVS}
     \subsubsection{Free und Open Source WVS}
     \begin{itemize}
-      \item Grabber: Veraltet (Latest Release 2006)
-      \item Grendel-Scan: Veraltet (Last modified 2010)
-      \item Iron Wasp: Beim Downloadversuch kam die Fehlermeldung ``Down (Service unavailable)''
-      \item Nikto: Nikto ist im GoLismero Bundle enthalten und bedarf daher keiner separaten Evaluation
-      \item Ratproxy: Veraltet (Latest Release 2009)
-      \item Skipfish: Veraltet (Latest Release 2012)
-      \item SQLmap: Ist auf das Auffinden von SQLi Schwachstellen begrenzt und ist zudem Bestandteil von GoLismero
-      \item Vega: Das aktuelle Release ist aus dem Jahr 2014, seit diesem Jahr wird in regelmäßigen Abständen angekündigt, ein Feature zum Exportieren der Ergebnisse hinzuzufügen, aber die Firma Subgraph scheint das Projekt nicht weiter zu verfolgen.\cite{Vega}
-      \item Watobo: Veraltet (Last modified 2015)
-      \item Webscarab: Veraltet (Latest Release 2011)
-      \item Wikto: Ist lediglich eine Windows-Portierung von Nikto
-      \item Xenotix: Ist auf das Auffinden von Cross-Site-Scripting Schwachstellen begrenzt
+      \item GoLismero: GoLismero ist ein in Python geschriebenes Framework, das verschiedene Penetrationtesting-Tools in sich vereint. Theoretisch sollten bei einem Angriff alle Tools angewendet und die jeweiligen Ergebnisse in einem einzigen Report gebündelt werden. In der Praxis hängte sich das Programm jedoch jedes Mal nach einer Weile auf, sowohl unter Kali-Linux und Parrot OS, als auch unter Windows. Es werden zwar Teilergebnisse auf dem Bildschirm angezeigt, dies reicht aber nicht aus, um in die Evaluation aufgenommen zu werden.
+      \item Grabber: Veraltet (Latest Release 2006).
+      \item Grendel-Scan: Veraltet (Last modified 2010).
+      \item Iron Wasp: Beim Downloadversuch kam die Fehlermeldung ``Down (Service unavailable)''.
+      \item Ratproxy: Veraltet (Latest Release 2009).
+      \item Skipfish: Veraltet (Latest Release 2012).
+      \item SQLmap: Ist auf das Auffinden von SQLi Schwachstellen begrenzt.
+      \item Vega: Das aktuelle Release ist aus dem Jahr 2014, seit diesem Jahr wird in regelmäßigen Abständen angekündigt, ein Feature zum Exportieren der Ergebnisse hinzuzufügen, aber die Firma Subgraph scheint das Projekt nicht weiter zu verfolgen.
+      \item Watobo: Veraltet (Last modified 2015).
+      \item Webscarab: Der Vorgänger von OWASPs Zed Attack Proxy ist veraltet (Latest Release 2011)
+      \item Wfuzz: Wfuzz verwendet die Bibliothek Pycurl für HTTP-Requests, diese unterstützt keine SSL/TLS Verschlüsselung.
+      \item W3af: W3af wird zwar noch sporadisch mit Bibliotheks-Aktualisierungen gepflegt, das aktuelle Release ist jedoch aus dem Jahr 2014 und es ist weder auf Kali-Linux noch auf Parrot OS gelungen, alle für den Programmstart benötigten Dependencies zu installieren. Das bei der Installation generierte Script versucht, teils veraltete Module zu installieren, manuelles Nachinstallieren der aktuellen Versionen brachte keinen Erfolg.
+      \begin{figure}[H]
+        \includegraphics[width=1\textwidth]{Images/w3af}
+        \caption[W3af: Fehlende Module]{W3af: Fehlende Module}
+      \end{figure}
+      \item Wikto: Ist lediglich eine Windows-Portierung von Nikto.
+      \item Xenotix: Ist auf das Auffinden von Cross-Site-Scripting Schwachstellen begrenzt.
     \end{itemize}
 
     \subsubsection{Kommerzielle WVS}
@@ -307,20 +335,19 @@ TODO
       \end{itemize}
 
 \section{Verwundbare Web-Applikationen}
-  Bei der Auswahl der Web-Applikationen musste darauf geachtet werden, dass sie für WVS geeignet sind. Die ursprünglich vorgesehenen Applikationen WebGoat und JuiceShop (beide von OWASP) sind zwar sehr gut dokumentiert, aber dafür entwickelt worden, manuell Schwachstellen anzugreifen.
+  Bei der Auswahl der Web-Applikationen musste darauf geachtet werden, dass sie für WVS geeignet sind. Auf ursprünglich in die Auswahl aufgenommene Applikationen wie WebGoat, JuiceShop (beide von OWASP) oder Damn Vulnerable Web Application (Bestandteil von Metasploitable) wurde am Ende verzichtet, da hier beim Scannen keine hinreichenden Ergebnisse hervorgebracht wurden. Diese Anwendungen  sind zwar sehr gut dokumentiert, aber hauptsächlich für das Erlernen von manuellen Angriffen entwickelt worden.
 
-  \subsection{OWASP Juice Shop}
-  TODO
-  \subsection{Damn Vulnerable Web Application}
-  TODO
-  \subsection{WebGoat}
-  WebGoat ist ein weiteres Projekt von OWASP, für diese unsichere Webanwendung gibt es für jede Schwachstelle einzelne Lektionen, in denen der Benutzer nachweisen muss, dass er ein Sicherheitsproblem verstanden hat. Benutzt wird die aktuelle Version 8.0.0.M23 vom 18.01.2019.
-
-  \subsection{Zero Bank}
-  TODO
   \subsection{Altoro Mutual}
   TODO
   \subsection{Webscantest}
+  TODO
+  \subsection{Zero Bank}
+  TODO
+  \subsection{Aspnet Testsparker}
+  TODO
+  \subsection{Acuart}
+  TODO
+  \subsection{Crack Me Bank}
   TODO
   \subsection{Security Tweets}
   TODO
@@ -337,25 +364,29 @@ TODO
     \subsubsection{Open Source}
         \begin{itemize}
           \item Arachni:\\
-            Arachni gibt es als reine Terminal-Anwendung oder als Ruby on Rails Framework mit Web-Interface. Die Web-Oberfläche ist übersichtlich aufgebaut und leicht zu bedienen.
-            \begin{figure}[!htb]
+            Arachni gibt es als reine Terminal-Anwendung oder als Ruby on Rails Framework mit Web-Interface. Die Web-Oberfläche ist übersichtlich und verständlich aufgebaut, der User findet sich schnell zurecht und kann sofort mit dem Scannen einer Seite beginnen. Als Hilfestellung gibt es ein umfangreiches Wiki mit Erklärungen und Screenshots.
+            \begin{figure}[H]
               \includegraphics[width=1\textwidth]{Images/Arachni}
               \caption[Arachni WebUI 0.5.12]{Arachni WebUI 0.5.12}
             \end{figure}
-          \item GoLismero:\\
-            GoLismero ist ein in Python geschriebenes Framework, das verschiedene Penetrationtesting-Tools in sich vereint. Bei einem Angriff werden alle Tools angewendet und die jeweiligen Ergebnisse in einem einzigen Report gebündelt. Anwendungen wie nmap, nikto, sqlmap, theHarvester oder xsser sind bereits im Bundle enthalten und werden ohne weitere Konfiguration automatisch aufgerufen. Mit Hilfe von Plugins und dem Einbinden von APIs können weitere Tools wie z.B. OpenVAS, Shodan oder Wfuzz hinzugefügt werden. Bei den Tests wurde GoLismero out of the Box ohne zusätzlich eingebundene Tools verwendet.
+          \item Nikto:\\
+            Nikto ist ein gut dokumentiertes Terminal-Programm, nach kurzer Einarbeitung hat ein ungeübter User die benötigten Befehle und Optionen gefunden, um einen Scan zu starten.
+            Auffällig ist die im Vergleich zu allen anderen WVS ungewöhnlich hohe Scan-Geschwindigkeit, die sich im Minutenbereich einordnet.
+            Der generierte Report listet alle gefundenen Schwachstellen detailliert auf, unterscheidet diese jedoch im Gegensatz zu den meisten anderen WVS nicht zwischen High, Medium, Low und Informational.
           \item OpenVAS:\\
+            OpenVAS ist aus der Software Nessus hervorgegangen, als diese im Jahr 2005 von Open Soucre zu einer kommerziellen Lizenz wechselte, und wird seitdem auf Basis der letzten freien Nessus-Version 2.2 von Greenbone Networks weiterentwickelt. Der Scanner ist eingebettet in den Greenbone Security Assistant, der über ein Web-Interface bedient wird. Die Oberfläche ist nicht selbsterklärend, es bedarf etwas an Recherche, bis sich dem User der logische Aufbau des Programms erschließt. Hier ist das ``Tech Doc-Portal'' von Greenbone sehr hilfreich. Zuerst muss unter Configuration/Targets ein Ziel definiert werden, dann kann der User für dieses Ziel unter dem Punkt ``Scans'' einen Task erstellen und diesen entweder sofort oder per Schedule starten.
+            Die umständliche Handhabung hat den Vorteil, dass sich leicht mehrere Tasks automatisieren lassen.
+            \begin{figure} [H]
+              \includegraphics[width=1\textwidth]{Images/OpenVAS}
+              \caption[OpenVAS im Greenbone Security Assistant]{OpenVAS im Greenbone Security Assistant}
+            \end{figure}
+          \item Wapiti:\\
+            In der Handhabung und im Reporting ähnelt Wapiti dem anderen reinen Terminal-Programm Nikto. Die auswählbaren Optionen sind ähnlich, und die gefundenen Schwachstellen werden auch hier nicht in Kategorien eingeteilt. Die Dokumentation fällt etwas spartanischer aus, ist aber ausreichend, um sich schnell zurecht zu finden.
 
-          \begin{figure}[!htb]
-            \includegraphics[width=1\textwidth]{Images/OpenVAS}
-            \caption[OpenVAS Web-Interface]{OpenVAS Web-Interface}
-          \end{figure}
-          \item Wapiti:
-          \item Wfuzz:
-          \item W3af:
           \item Zed Attack Proxy:\\
             Der von OWASP entwickelte Scanner hat eine übersichtliche Benutzeroberfläche und lässt sich intuitiv bedienen. Auf der Startseite lässt sich direkt die anzugreifende URL eingeben und ohne weitere Konfiguration angreifen. Es gibt umfangreiche Hilfestellung in Form eines Handbuchs und einem Online-Wiki, zudem gibt es mit der OWASP ZAP User Group ein gut frequentiertes Benutzerforum, auf dem ein reger Austausch zwischen den Benutzern stattfindet.
-          \begin{figure}[!htb]
+            Auffällig sind die langen Scan-Zeiten von mehreren Stunden, die sich jedoch nicht in einer höheren Anzahl an gefundenen Schwachstellen widerspiegeln.
+          \begin{figure}[H]
             \includegraphics[width=1\textwidth]{Images/ZAP}
             \caption[Grafische Benutzeroberfläche von ZAP]{Grafische Benutzeroberfläche von ZAP}
           \end{figure}
@@ -363,14 +394,33 @@ TODO
 
     \subsubsection{Kommerziell}
       \begin{itemize}
-        \item Acunetix:
-        \item AVDS:
+        \item Acunetix:\\
+          Acunetix stellte eine 14-tägige Vollversion zur Verfügung. Die graphische Oberfläche ist sehr übersichtlich und lässt sich intuitiv bedienen. Online gibt es ein Support-Portal mit ausführlicher Dokumentation und Hilfestellung.
+          Unter Windows brachte Acunetix im Test das System mehrmals zum Absturz (BOSD), so dass auf die Linux-Version ausgewichen wurde.
+          \begin{figure}[H]
+            \includegraphics[width=1\textwidth]{Images/Acunetix}
+            \caption[Weboberfläche von Acunetix]{Weboberfläche von Acunetix}
+          \end{figure}
         \item BurpSuite Pro:\\
-           BurpSuite Pro enthält eine umfangreiche Dokumentation mit zahlreichen Hilfestellungen für verschiedene Anwendungsszenarien.  Das Dashboard ist sehr übersichtlich und intuitiv zu bedienen: mit Hilfe des Buttons ``New Scan'' lässt sich direkt ohne größeren Konfigurationsaufwand eine Website erfolgreich scannen.
-        \begin{figure}[!htb]
-          \includegraphics[width=1\textwidth]{Images/BurpSuitePro}
-          \caption[Dashboard von BurpSuite Pro]{Dashboard von BurpSuite Pro}
-        \end{figure}
+          Die Firma Portswigger stellte auf Anfrage eine 30-tägige unbeschränkte Testversion zur Verfügung.
+          BurpSuite Pro enthält eine umfangreiche Dokumentation mit zahlreichen Hilfestellungen für verschiedene Anwendungsszenarien.  Das Dashboard ist sehr übersichtlich und intuitiv zu bedienen: mit Hilfe des Buttons ``New Scan'' lässt sich direkt ohne größeren Konfigurationsaufwand eine Website erfolgreich scannen.
+          \begin{figure}[H]
+            \includegraphics[width=1\textwidth]{Images/BurpSuitePro}
+            \caption[Dashboard von BurpSuite Pro]{Dashboard von BurpSuite Pro}
+          \end{figure}
+        \item Nessus:\\
+          Die Firma Tenable bietet zwei Testversionen an: Nessus Home für das Testen des heimischen Netzwerks, gültig für ein Jahr sowie eine unbeschränkte Version von Nessus Pro, gültig für sieben Tage.
+          Nessus präsentiert sich auf einer übersichtlich gestalteten Web-Schnittstelle und ist selbsterklärend bedienbar. Einen Hilfe-Button sucht man vergeblich, die umfangreiche Dokumentation mit Anleitungen findet man online durch recherchieren.
+          \begin{figure}[H]
+            \includegraphics[width=1\textwidth]{Images/Nessus}
+            \caption[Grafische Benutzeroberfläche von Nessus]{Grafische Benutzeroberfläche von Nessus}
+          \end{figure}
+        \item Netsparker:\\
+          Netsparker stellte nach Rücksprache eine 14-tägige Testversion zur Verfügung, die auf 8 zu scannende Web-Applikationen begrenzt ist. Die grafische Benutzeroberfläche ist etwas unruhig und überladen, der User kann aber direkt über den Button ``New'' eine Web-Seite scannen.
+          \begin{figure}[H]
+            \includegraphics[width=1\textwidth]{Images/Netsparker}
+            \caption[Grafische Benutzeroberfläche von Netsparker]{Grafische Benutzeroberfläche von Netsparker}
+          \end{figure}
      \end{itemize}
 
 
@@ -378,7 +428,7 @@ TODO
 \chapter{Diskussion}
   \section{Open Source WVS}
     \begin{itemize}
-      \item Zed Attack Proxy:\\
+      \item
 
     \end{itemize}
   \section{Kommerzielle WVS}
