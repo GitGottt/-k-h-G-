@@ -338,21 +338,18 @@ Aktuelle Beispiele
 
 \section{Verwundbare Web-Applikationen}
   Bei der Auswahl der Web-Applikationen musste darauf geachtet werden, dass sie für WVS geeignet sind. Auf ursprünglich in die Auswahl aufgenommene Applikationen wie WebGoat, JuiceShop (beide von OWASP) oder Damn Vulnerable Web Application (Bestandteil von Metasploitable) wurde am Ende verzichtet, da hier beim Scannen keine hinreichenden Ergebnisse hervorgebracht wurden. Diese Anwendungen  sind zwar sehr gut dokumentiert, aber hauptsächlich für das Erlernen von manuellen Angriffen entwickelt worden.
-
+  Um den Arbeitsaufwand bei der Validierung der Scan-Ergebnisse in einem angemessenen Rahmen zu halten, wurde nach der Testphase die Evaluation auf die Ergebnisse von fünf Web-Applikationen beschränkt. Hier wurden diejenigen bevorzugt, für die eine Schwachstellen-Dokumentation existiert. Nicht berücksichtigt wurden demzufolge die Resultate der Seiten Aspnet Testsparker \cite{Aspnet} und Crack Me Bank \cite{CrackMeBank}.
+  Nachfolgend werden die für die Auswertung genutzten Web-Applikationen kurz vorgestellt.
   \subsection{Altoro Mutual}
-  TODO
+    Altoro Mutual ist eine in C\texttt{\#} geschriebene Online-Banking Web-Applikation, die von IBM entwickelt wurde, um WVS zu testen \cite{Altoro}. Eine große Hilfe bei der Validierung der gefundenen Schwachstellen ist ein von IBM zur Verfügung gestellter Report, der sämtliche Schwachstellen der Seite auflistet \cite{IBM}.
   \subsection{Webscantest}
-  TODO
+    Diese Web-Applikation ist in PHP geschrieben und wurde von NTOSpider entwickelt, um WVS zu testen. Die Schwachstellen sind direkt auf der Seite dokumentiert \cite{Webscantest}.
   \subsection{Zero Bank}
-  TODO
-  \subsection{Aspnet Testsparker}
-  TODO
+    Eine weitere Online-Banking Web-Applikation, entwickelt von Hewlett-Packard/Micro Focus \cite{Zero}. Auch hier gibt es einen gut dokumentierten Report mit allen Schwachstellen \cite{ZeroReport}.
   \subsection{Acuart}
-  TODO
-  \subsection{Crack Me Bank}
-  TODO
+    Eine Test-Seite von Acunetix, der einen Online-Shop für Kunstwerke simuliert, geschrieben in PHP \cite{Acuart}.
   \subsection{Security Tweets}
-  TODO
+    Security Tweets ist eine von Twitter inspirierte Social Networks Applikation, die ebenfalls von Acunetix entwickelt wurde. Sie ist in HTML5 geschrieben \cite{Tweets}.
 
 
 \chapter{Evaluation}
@@ -362,11 +359,41 @@ Aktuelle Beispiele
   TODO
   \section{Treffergenauigkeit}
   TODO
-  \section{Bedienung und benötigter Konfigurationsumfang der WVS}
-    \subsubsection{Open Source}
+  \section{Bedienung, Geschwindigkeit und Konfigurationsaufwand}
+   Für die Bewertung wurde eine Skala mit fünf Skalenwerten von -{}- bis ++ herangezogen:
+   \begin{table}[H]
+      \begin{tabular}{ll}
+      -{}-         & \textbf{ungenügend}             \\
+      -            & \textbf{unterdurchschnittlich}  \\
+      o            & \textbf{durchschnittlich}       \\
+      +            & \textbf{überdurchschnittlich}   \\
+      ++           & \textbf{überragend}
+      \end{tabular}
+    \end{table}
+    Das Gesamtergebnis setzt sich aus den Bewertungen für die Bedienung (20\%), der Geschwindigkeit (20\%) und dem Scanergebnis (60\%) zusammen.
+
+    \subsection{Open Source}
+      \begin{table}[H]
+        \centering
+        \begin{tabular}{|r|c|c|c|c|c|}
+        \hline
+        \textbf{Open Source WVS}            & \textbf{Arachni} & \textbf{Nikto} & \textbf{OpenVAS} & \textbf{Wapiti} & \textbf{Zed Attack Proxy}  \\
+        \hline
+        \textbf{Bedienung (20\%)}       & \textbf{+}       & \textbf{o}     & \textbf{-}       & \textbf{o}      & \textbf{+}                 \\
+        \hline
+        \textbf{Geschwindigkeit (20\%)} & \textbf{+}       & \textbf{++}    & \textbf{o}       & \textbf{++}     & \textbf{-{}-}                \\
+        \hline
+        \textbf{Scanergebnis (60\%)}    &                  &                &                  &                 &                            \\
+        \hline
+        \textbf{Gesamt}                 &                  &                &                  &                 &                            \\
+        \hline
+        \end{tabular}
+        \caption[Bewertung der Open Source WVS]{Bewertung der Open Source WVS}
+      \end{table}
+
         \begin{itemize}
           \item Arachni \cite{Arachni}:\\
-            Arachni gibt es als reine Terminal-Anwendung oder als Ruby on Rails Framework mit Web-Interface. Die Web-Oberfläche ist übersichtlich und verständlich aufgebaut, der User findet sich schnell zurecht und kann sofort mit dem Scannen einer Seite beginnen. Als Hilfestellung gibt es ein umfangreiches Wiki mit Erklärungen und Screenshots.
+            Arachni gibt es als reine Terminal-Anwendung oder als Ruby on Rails Framework mit Web-Interface. Die Web-Oberfläche ist übersichtlich und verständlich aufgebaut, der User findet sich schnell zurecht und kann sofort mit dem Scannen einer Seite beginnen, die Scangeschwindigkeit ist überdurchschnittlich. Als Hilfestellung gibt es ein umfangreiches Wiki mit Erklärungen und Screenshots.
             \begin{figure}[H]
               \includegraphics[width=1\textwidth]{Images/Arachni}
               \caption[Arachni WebUI 0.5.12]{Arachni WebUI 0.5.12}
@@ -383,7 +410,7 @@ Aktuelle Beispiele
               \caption[OpenVAS im Greenbone Security Assistant]{OpenVAS im Greenbone Security Assistant}
             \end{figure}
           \item Wapiti \cite{Wapiti}:\\
-            In der Handhabung und im Reporting ähnelt Wapiti dem anderen reinen Terminal-Programm Nikto. Die auswählbaren Optionen sind ähnlich, und die gefundenen Schwachstellen werden auch hier nicht in Kategorien eingeteilt. Die Dokumentation fällt etwas spartanischer aus, ist aber ausreichend, um sich schnell zurecht zu finden.
+            In der Handhabung und im Reporting ähnelt Wapiti dem anderen reinen Terminal-Programm Nikto. Die auswählbaren Optionen sind ähnlich, und die gefundenen Schwachstellen werden auch hier nicht in Kategorien eingeteilt. Die Dokumentation fällt etwas spartanischer aus, ist aber ausreichend, um sich schnell zurecht zu finden. Wapiti scannt nicht so schnell wie Nikto, reiht sich aber im oberen Mittelfeld ein.
 
           \item Zed Attack Proxy \cite{ZAP}:\\
             Der von OWASP entwickelte Scanner hat eine übersichtliche Benutzeroberfläche und lässt sich intuitiv bedienen. Auf der Startseite lässt sich direkt die anzugreifende URL eingeben und ohne weitere Konfiguration angreifen. Es gibt umfangreiche Hilfestellung in Form eines Handbuchs und einem Online-Wiki, zudem gibt es mit der OWASP ZAP User Group ein gut frequentiertes Benutzerforum, auf dem ein reger Austausch zwischen den Benutzern stattfindet.
@@ -394,31 +421,48 @@ Aktuelle Beispiele
           \end{figure}
         \end{itemize}
 
-    \subsubsection{Kommerziell}
+    \subsection{Kommerziell}
+    \begin{table}[H]
+      \centering
+      \begin{tabular}{|r|c|c|c|c|}
+      \hline
+      \textbf{Kommerzielle WVS}       & \textbf{Acunetix} & \textbf{Burp Suite Pro} & \textbf{Nessus} & \textbf{Netsparker}  \\
+      \hline
+      \textbf{Bedienung (20\%)}       & \textbf{-}        & \textbf{+}              & \textbf{+}      & \textbf{o}           \\
+      \hline
+      \textbf{Geschwindigkeit (20\%)} & \textbf{++}       & \textbf{o}              & \textbf{o}      & \textbf{-}           \\
+      \hline
+      \textbf{Scanergebnis (60\%)}    &                   &                         &                 &                      \\
+      \hline
+      \textbf{Gesamt}                 &                   &                         &                 &                      \\
+      \hline
+      \end{tabular}
+      \caption[Bewertung der kommerziellen WVS]{Bewertung der kommerziellen WVS}
+    \end{table}
       \begin{itemize}
         \item Acunetix \cite{Acunetix}:\\
           Acunetix stellte eine 14-tägige Vollversion zur Verfügung. Die graphische Oberfläche ist sehr übersichtlich und lässt sich intuitiv bedienen. Online gibt es ein Support-Portal mit ausführlicher Dokumentation und Hilfestellung.
-          Unter Windows brachte Acunetix das System mehrmals zum Absturz (BSOD), so dass auf die Linux-Version ausgewichen wurde.
+          Unter Windows brachte Acunetix das System mehrmals zum Absturz (BSOD), so dass auf die Linux-Version ausgewichen wurde. Hier lief das Programm stabil und scannte von den kommerziellen WVS am schnellsten, von allen WVS muss sich Acunetix hier nur von Wapiti und Nikto geschlagen geben.
           \begin{figure}[H]
             \includegraphics[width=1\textwidth]{Images/Acunetix}
             \caption[Weboberfläche von Acunetix]{Weboberfläche von Acunetix}
           \end{figure}
         \item BurpSuite Pro \cite{Burp}:\\
           Die Firma Portswigger stellte auf Anfrage eine 30-tägige unbeschränkte Testversion zur Verfügung.
-          BurpSuite Pro enthält eine umfangreiche Dokumentation mit zahlreichen Hilfestellungen für verschiedene Anwendungsszenarien.  Das Dashboard ist sehr übersichtlich und intuitiv zu bedienen: mit Hilfe des Buttons ``New Scan'' lässt sich direkt ohne größeren Konfigurationsaufwand eine Website erfolgreich scannen.
+          BurpSuite Pro enthält eine umfangreiche Dokumentation mit zahlreichen Hilfestellungen für verschiedene Anwendungsszenarien.  Das Dashboard ist sehr übersichtlich und intuitiv zu bedienen: mit Hilfe des Buttons ``New Scan'' lässt sich direkt ohne größeren Konfigurationsaufwand eine Website erfolgreich und in durchschnittlicher Geschwindigkeit scannen.
           \begin{figure}[H]
             \includegraphics[width=1\textwidth]{Images/BurpSuitePro}
             \caption[Dashboard von BurpSuite Pro]{Dashboard von BurpSuite Pro}
           \end{figure}
         \item Nessus \cite{Nessus}:\\
           Die Firma Tenable bietet zwei Testversionen an: Nessus Home für das Testen des heimischen Netzwerks, gültig für ein Jahr sowie eine unbeschränkte Version von Nessus Pro, gültig für sieben Tage.
-          Nessus präsentiert sich auf einer übersichtlich gestalteten Web-Schnittstelle und ist selbsterklärend bedienbar. Einen Hilfe-Button sucht man vergeblich, die umfangreiche Dokumentation mit Anleitungen findet man online durch recherchieren.
+          Nessus präsentiert sich auf einer übersichtlich gestalteten Web-Schnittstelle und ist selbsterklärend bedienbar. Einen Hilfe-Button sucht man vergeblich, die umfangreiche Dokumentation mit Anleitungen findet man online durch recherchieren. Die Scangeschwindigkeit ist durchschnittlich.
           \begin{figure}[H]
             \includegraphics[width=1\textwidth]{Images/Nessus}
             \caption[Grafische Benutzeroberfläche von Nessus]{Grafische Benutzeroberfläche von Nessus}
           \end{figure}
         \item Netsparker \cite{Netsparker}:\\
-          Netsparker stellte nach Rücksprache eine 14-tägige Testversion zur Verfügung, die auf 8 zu scannende Web-Applikationen begrenzt ist. Die grafische Benutzeroberfläche ist etwas unruhig und überladen, der User kann aber direkt über den Button ``New'' eine Web-Seite scannen.
+          Netsparker stellte nach Rücksprache eine 14-tägige Testversion zur Verfügung, die auf 8 zu scannende Web-Applikationen begrenzt ist. Die grafische Benutzeroberfläche ist etwas unruhig und überladen, der User kann aber direkt über den Button ``New'' eine Web-Seite scannen. Die Scangeschwindigkeit ist im unteren Mittelfeld angesiedelt.
           \begin{figure}[H]
             \includegraphics[width=1\textwidth]{Images/Netsparker}
             \caption[Grafische Benutzeroberfläche von Netsparker]{Grafische Benutzeroberfläche von Netsparker}
