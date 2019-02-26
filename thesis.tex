@@ -337,24 +337,86 @@ Aktuelle Beispiele
       \end{itemize}
 
 \section{Verwundbare Web-Applikationen}
-  Bei der Auswahl der Web-Applikationen musste darauf geachtet werden, dass sie für WVS geeignet sind. Auf ursprünglich in die Auswahl aufgenommene Applikationen wie WebGoat, JuiceShop (beide von OWASP) oder Damn Vulnerable Web Application (Bestandteil von Metasploitable) wurde am Ende verzichtet, da hier beim Scannen keine hinreichenden Ergebnisse hervorgebracht wurden. Diese Anwendungen  sind zwar sehr gut dokumentiert, aber hauptsächlich für das Erlernen von manuellen Angriffen entwickelt worden.
+  Bei der Auswahl der Web-Applikationen musste darauf geachtet werden, dass sie für WVS geeignet sind. Auf ursprünglich in die Auswahl aufgenommene Applikationen wie WebGoat, JuiceShop (beide von OWASP) oder Damn Vulnerable Web Application (Bestandteil von Metasploitable) wurde am Ende verzichtet, da hier beim Scannen keine hinreichenden Ergebnisse hervorgebracht wurden. Diese Anwendungen  sind zwar sehr gut dokumentiert, aber hauptsächlich für das Erlernen von manuellen Angriffen entwickelt worden. Es wurde bei der Auswahl auf das OWASP Vulnerable Web Applications Directory Project zurückgegriffen, das eine Reihe von verwundbaren Web-Applikationen auflistet \cite{OWASPWebApps}. Die Auswahl deckt mehrere Technologien wie PHP, ASP.Net oder HTML5 ab.
   %Um den Arbeitsaufwand bei der Validierung der Scan-Ergebnisse in einem angemessenen Rahmen zu halten, wurde nach der Testphase die Evaluation auf die Ergebnisse von fünf Web-Applikationen beschränkt. Hier wurden diejenigen bevorzugt, für die eine Schwachstellen-Dokumentation existiert. Nicht berücksichtigt wurden demzufolge die Resultate der Seiten Aspnet Testsparker \cite{Aspnet} und Crack Me Bank \cite{CrackMeBank}.
   Nachfolgend werden die für die Auswertung genutzten Web-Applikationen kurz vorgestellt.
-  \subsection{Altoro Mutual}
-    Altoro Mutual ist eine in C\texttt{\#} geschriebene Online-Banking Web-Applikation, die von IBM entwickelt wurde, um WVS zu testen \cite{Altoro}. Eine große Hilfe bei der Validierung der gefundenen Schwachstellen ist ein von IBM zur Verfügung gestellter Report, der sämtliche Schwachstellen der Seite auflistet \cite{IBM}.
-  \subsection{Webscantest}
+  \begin{itemize}
+    \item WA1: Altoro Mutual\\
+    Altoro Mutual ist eine in C\texttt{\#} .NET geschriebene Online-Banking Web-Applikation, die von IBM entwickelt wurde, um WVS zu testen \cite{Altoro}. %Eine große Hilfe bei der Validierung der gefundenen Schwachstellen ist ein von IBM zur Verfügung gestellter Report, der sämtliche Schwachstellen der Seite auflistet \cite{IBM}.
+    \item WA2: Webscantest\\
     Diese Web-Applikation ist in PHP geschrieben und wurde von NTOSpider entwickelt, um WVS zu testen. Die Schwachstellen sind direkt auf der Seite dokumentiert \cite{Webscantest}.
-  \subsection{Zero Bank}
-    Eine weitere Online-Banking Web-Applikation, entwickelt von Hewlett-Packard/Micro Focus \cite{Zero}. Auch hier gibt es einen gut dokumentierten Report mit allen Schwachstellen \cite{ZeroReport}.
-  \subsection{Bitcoin Web Site}  \cite{Aspnet}
-  \subsection{Acuart}
+    \item WA3: Zero Bank\\
+    Eine weitere Online-Banking Web-Applikation, entwickelt von Hewlett-Packard/Micro Focus \cite{Zero}.% Auch hier gibt es einen gut dokumentierten Report mit allen Schwachstellen \cite{ZeroReport}.
+    \item WA4: Bitcoin Web Site\\
+    Diese von Netsparker entwickelte Applikation ist in ASP.NET geschrieben und simuliert eine Online-Seite für Bitcoin-Transaktionen \cite{Aspnet}.
+    \item WA5: Acuart\\
     Eine Test-Seite von Acunetix, der einen Online-Shop für Kunstwerke simuliert, geschrieben in PHP \cite{Acuart}.
-  \subsection{Crack Me Bank} \cite{CrackMeBank}
-  \subsection{Security Tweets}
-    Security Tweets ist eine von Twitter inspirierte Social Networks Applikation, die ebenfalls von Acunetix entwickelt wurde. Sie ist in HTML5 geschrieben \cite{Tweets}.
+    \item WA6: Crack Me Bank\\
+    Eine in PHP geschriebene Online-Banking Seite, entwickelt von Trustwave \cite{CrackMeBank}:
+    \item WA7: Security Tweets\\
+    Security Tweets ist eine von Twitter inspirierte Social Networks Applikation, die von Acunetix entwickelt wurde und HTML5 verwendet \cite{Tweets}.
+ \end{itemize}
 \chapter{Evaluation}
   \section{Gefundene Schwachstellen per Web Application}
-  TODO
+  Die Buchstaben H, L, M und I stehen für die Kategorien High, Medium, Low und Informational (siehe Einführung). WA1 - WA7 stehen für die verwundbaren Web-Applikationen (siehe 3.3)
+    \begin{table}[H]
+      \centering
+      \begin{tabular}{|r|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+        \cline{2-15}
+        \multicolumn{1}{r|}{}       & \multicolumn{4}{c|}{\textbf{Arachni}} & \textbf{Nikto} & \multicolumn{4}{c|}{\textbf{OpenVAS}} & \textbf{Wapiti} & \multicolumn{4}{c|}{\textbf{ZAP}}  \\
+        \cline{2-15}
+        \multicolumn{1}{r|}{}       & H & M & L & I              &                & H & M & L & I              &                 & H & M & L & I                        \\
+        \hline
+        \textbf{WA1}      & 9    & 4    & 2   & 5                 & 12             & 0    & 2    & 0   & 24                & 10              & 1    & 2    & 5   & 0                           \\
+        \hline
+        \textbf{WA2}        & 4    & 10   & 5   & 29                & 18             & 0    & 8    & 0   & 41                & 12              & 1    & 4    & 11  & 0                           \\
+        \hline
+        \textbf{WA3}          & 4    & 6    & 4   & 4                 & 18             & 6    & 51   & 2   & 34                & 2               & 0    & 1    & 2   & 0                           \\
+        \hline
+        \textbf{WA4}    & 22   & 6    & 8   & 27                & 15             & 0    & 4    & 0   & 24                & 32              & 3    & 4    & 6   & 0                           \\
+        \hline
+        \textbf{WA5}             & 56   & 6    & 10  & 24                & 18             & 2    & 31   & 1   & 77                & 31              & 4    & 1    & 2   & 0                           \\
+        \hline
+        \textbf{WA6}      & 29   & 10   & 4   & 10                & 9              & 0    & 11   & 1   & 29                & 6               & 4    & 3    & 3   & 0                           \\
+        \hline
+        \textbf{WA7}    & 10   & 2    & 3   & 6                 & 7              & 1    & 31   & 1   & 77                & 0               & 0    & 1    & 5   & 0                           \\
+        \hline
+        \textbf{Subt.}           & 134  & 44   & 36  & 105               & 97             & 9    & 138  & 5   & 306               & 93              & 13   & 16   & 34  & 0                           \\
+        \hline
+        \textbf{Total}              & \multicolumn{4}{c|}{\textbf{319}}     & \textbf{97}    & \multicolumn{4}{c|}{\textbf{458}}     & \textbf{93}     & \multicolumn{4}{c|}{\textbf{63}}                \\
+        \hline
+      \end{tabular}
+      \caption[Gefundene Schwachstellen der Open Source WVS]{Gefundene Schwachstellen der Open Source WVS}
+    \end{table}
+    \begin{table}[H]
+      \centering
+      \begin{tabular}{|r|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+        \cline{2-17}
+        \multicolumn{1}{l|}{}    & \multicolumn{4}{c|}{\textbf{Acunetix}}                   & \multicolumn{4}{c|}{\textbf{Burp Suite Pro}}          & \multicolumn{4}{c|}{\textbf{Nessus}}                  & \multicolumn{4}{c|}{\textbf{Netsparker}}                 \\
+        \cline{2-17}
+        \multicolumn{1}{c|}{}    & H            & M            & L           & I            & H           & M          & L           & I            & H           & M           & L          & I            & H            & M           & L           & I             \\
+        \hline
+        \textbf{WA1}   & 4            & 10           & 2           & 34           & 10          & 0          & 7           & 18           & 0           & 3           & 2          & 21           & 4            & 6           & 10          & 15            \\
+        \hline
+        \textbf{WA2}     & 25           & 41           & 6           & 14           & 5           & 2          & 4           & 160          & 1           & 7           & 1          & 25           & 37           & 18          & 24          & 20            \\
+        \hline
+        \textbf{WA3}       & 19           & 23           & 20          & 24           & 0           & 0          & 1           & 13           & 14          & 31          & 1          & 23           & 7            & 6           & 16          & 14            \\
+        \hline
+        \textbf{WA4} & 73           & 26           & 6           & 7            & 17          & 1          & 4           & 119          & 1           & 6           & 1          & 20           & 21           & 8           & 16          & 28            \\
+        \hline
+        \textbf{WA5}          & 39           & 34           & 9           & 19           & 28          & 0          & 4           & 49           & 21          & 18          & 1          & 21           & 24           & 18          & 12          & 12            \\
+        \hline
+        \textbf{WA6}   & 6            & 14           & 27          & 5            & 11          & 0          & 1           & 74           & 0           & 5           & 1          & 22           & 14           & 4           & 11          & 13            \\
+        \hline
+        \textbf{WA7} & 14           & 4            & 9           & 3            & 8           & 2          & 2           & 11           & 0           & 1           & 2          & 16           & 8            & 2           & 10          & 11            \\
+        \hline
+        \textbf{Subt.}        & \textbf{180} & \textbf{152} & \textbf{79} & \textbf{106} & \textbf{79} & \textbf{5} & \textbf{23} & \textbf{444} & \textbf{37} & \textbf{71} & \textbf{9} & \textbf{148} & \textbf{115} & \textbf{62} & \textbf{99} & \textbf{113}  \\
+        \hline
+        \textbf{Total}           & \multicolumn{4}{c|}{\textbf{517}}                        & \multicolumn{4}{c|}{\textbf{551}}                     & \multicolumn{4}{c|}{\textbf{265}}                     & \multicolumn{4}{c|}{\textbf{389}}                        \\
+        \hline
+      \end{tabular}
+      \caption[Gefundene Schwachstellen der kommerziellen WVS]{Gefundene Schwachstellen der kommerziellen WVS}
+    \end{table}
   \section{Gefundene Schwachstellen nach Schwachstellentyp}
   TODO
   \section{Bedienung, Geschwindigkeit und Konfigurationsaufwand}
