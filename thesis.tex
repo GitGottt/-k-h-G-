@@ -20,8 +20,9 @@
 \usepackage[verbose]{placeins}
 \usepackage[headsepline,plainfootsepline]{scrlayer-scrpage}
 \usepackage{listings}
-\usepackage{xcolor}
-\usepackage{color}
+%\usepackage{xcolor}
+\usepackage[table]{xcolor}
+%\usepackage{color}
 \usepackage{caption}
 \usepackage{subfigure}
 \usepackage{epstopdf}
@@ -330,7 +331,6 @@ Aktuelle Beispiele
       \item Wikto \cite{Wikto}: Wikto ist eine Windows-Portierung von Nikto und bedarf daher keiner eigenen Evaluation.
       \item Xenotix \cite{Xenotix}: Xenotix wurde von OWASP für das Auffinden von Cross-Site-Scripting Schwachstellen entwickelt und ist darauf begrenzt.
     \end{itemize}
-
     \subsubsection{Kommerzielle WVS}
       \begin{itemize}
         \item N-Stalker \cite{Stalker}: Die angebotene ``7-Day Evaluation Licence'' erlaubt nur das Scannen einer einzigen, vorher festgelegten URL und ist daher für den geplanten Testaufbau nicht geeignet.
@@ -338,7 +338,7 @@ Aktuelle Beispiele
 
 \section{Verwundbare Web-Applikationen}
   Bei der Auswahl der Web-Applikationen musste darauf geachtet werden, dass sie für WVS geeignet sind. Auf ursprünglich in die Auswahl aufgenommene Applikationen wie WebGoat, JuiceShop (beide von OWASP) oder Damn Vulnerable Web Application (Bestandteil von Metasploitable) wurde am Ende verzichtet, da hier beim Scannen keine hinreichenden Ergebnisse hervorgebracht wurden. Diese Anwendungen  sind zwar sehr gut dokumentiert, aber hauptsächlich für das Erlernen von manuellen Angriffen entwickelt worden.
-  Um den Arbeitsaufwand bei der Validierung der Scan-Ergebnisse in einem angemessenen Rahmen zu halten, wurde nach der Testphase die Evaluation auf die Ergebnisse von fünf Web-Applikationen beschränkt. Hier wurden diejenigen bevorzugt, für die eine Schwachstellen-Dokumentation existiert. Nicht berücksichtigt wurden demzufolge die Resultate der Seiten Aspnet Testsparker \cite{Aspnet} und Crack Me Bank \cite{CrackMeBank}.
+  %Um den Arbeitsaufwand bei der Validierung der Scan-Ergebnisse in einem angemessenen Rahmen zu halten, wurde nach der Testphase die Evaluation auf die Ergebnisse von fünf Web-Applikationen beschränkt. Hier wurden diejenigen bevorzugt, für die eine Schwachstellen-Dokumentation existiert. Nicht berücksichtigt wurden demzufolge die Resultate der Seiten Aspnet Testsparker \cite{Aspnet} und Crack Me Bank \cite{CrackMeBank}.
   Nachfolgend werden die für die Auswertung genutzten Web-Applikationen kurz vorgestellt.
   \subsection{Altoro Mutual}
     Altoro Mutual ist eine in C\texttt{\#} geschriebene Online-Banking Web-Applikation, die von IBM entwickelt wurde, um WVS zu testen \cite{Altoro}. Eine große Hilfe bei der Validierung der gefundenen Schwachstellen ist ein von IBM zur Verfügung gestellter Report, der sämtliche Schwachstellen der Seite auflistet \cite{IBM}.
@@ -346,18 +346,16 @@ Aktuelle Beispiele
     Diese Web-Applikation ist in PHP geschrieben und wurde von NTOSpider entwickelt, um WVS zu testen. Die Schwachstellen sind direkt auf der Seite dokumentiert \cite{Webscantest}.
   \subsection{Zero Bank}
     Eine weitere Online-Banking Web-Applikation, entwickelt von Hewlett-Packard/Micro Focus \cite{Zero}. Auch hier gibt es einen gut dokumentierten Report mit allen Schwachstellen \cite{ZeroReport}.
+  \subsection{Bitcoin Web Site}  \cite{Aspnet}
   \subsection{Acuart}
     Eine Test-Seite von Acunetix, der einen Online-Shop für Kunstwerke simuliert, geschrieben in PHP \cite{Acuart}.
+  \subsection{Crack Me Bank} \cite{CrackMeBank}
   \subsection{Security Tweets}
     Security Tweets ist eine von Twitter inspirierte Social Networks Applikation, die ebenfalls von Acunetix entwickelt wurde. Sie ist in HTML5 geschrieben \cite{Tweets}.
-
-
 \chapter{Evaluation}
   \section{Gefundene Schwachstellen per Web Application}
   TODO
   \section{Gefundene Schwachstellen nach Schwachstellentyp}
-  TODO
-  \section{Treffergenauigkeit}
   TODO
   \section{Bedienung, Geschwindigkeit und Konfigurationsaufwand}
    Für die Bewertung wurde eine Skala mit fünf Skalenwerten von -{}- bis ++ herangezogen:
@@ -469,8 +467,6 @@ Aktuelle Beispiele
           \end{figure}
      \end{itemize}
 
-
-
 \chapter{Diskussion}
   \section{Open Source WVS}
     \begin{itemize}
@@ -515,14 +511,12 @@ TODO
   \section{OWASP: The Open Web Application Security Project}
   Das ``Open Web Application Security Project'' (OWASP) ist eine unabhängige, weltweite Community mit dem Ziel, die Bedeutung der Sicherheit von Webanwendungen »sichtbar zu machen«, Fachwissen zur Entwicklung und den Betrieb sicherer Webanwendungen zu verbreiten und frei zur Verfügung zu stellen.
   OWASP ist mit keinem Technologieunternehmen verbunden, obwohl der Einsatz kommerzieller Sicherheitstechnologien unterstützt wird. Sämtliche OWASP-Instrumente, wie Dokumente, Videos, Slides, Podcasts etc. sind kollaborativ produziert worden und sind zudem kostenlos unter einer freien Lizenz verwendbar. Die OWASP Foundation ist eine Non-Profit-Organisation, die sich vier Grundwerten verschrieben hat \cite{OWASPabout}:
-
   \begin{itemize}
     \item Offenheit: Von den Finanzen bis zum Code ist alles radikal transparent.
     \item Innovation: OWASP fördert und unterstützt Innovationen und Experimente zur Lösung von Software-Sicherheitsherausforderungen.
     \item Globalität: Jeder auf der ganzen Welt kann sich an der OWASP-Community beteiligen.
     \item Integrität: OWASP ist eine ehrliche und aufrichtige, herstellerneutrale, globale Gemeinschaft.
   \end{itemize}
-
   Zudem gibt es einen Verhaltenskodex mit folgenden Prinzipien:
   \begin{itemize}
     \item Führe alle beruflichen Tätigkeiten und Pflichten in Übereinstimmung mit allen anwendbaren Gesetzen und den höchsten ethischen Grundsätzen aus.
@@ -537,7 +531,6 @@ TODO
     \item Behandle jeden mit Respekt und Würde.
     \item Vermeide Beziehungen, die die Objektivität und Unabhängigkeit von OWASP  beeinträchtigen könnten.
   \end{itemize}
-
     \subsection{Die OWASP Top Ten}
     TODO
      \cite{OWASPtop10}
@@ -622,14 +615,6 @@ $\overline{~~~~~~~~~~~~~~~~~\mbox{\BaAuthor, am \today}~~~~~~~~~~~~~~~~~}$
 \end{flushright}
 
 
-\begin{lstlisting}[label=lst:java,
-				   language=java,
-				   firstnumber=1,
-				   caption=Beispiel für einen Quelltext]
 
-public void foo() {
-	// Kommentar
-}
-\end{lstlisting}
 
 \end{document}
