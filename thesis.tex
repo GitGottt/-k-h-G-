@@ -196,13 +196,18 @@ TODO
 
 \chapter{Einführung}\label{ch:intro}
 
+
 Motivation
 Zielsetzung
 Aufbau der Arbeit
 Aktuelle Beispiele
   \begin{figure}[!htb]
     \includegraphics[width=1\textwidth]{Images/VulnByYear}
-    \caption[Gefundene Schwachstellen pro Jahr laut CVE]{Gefundene Schwachstellen pro Jahr laut CVE \cite{cve}}
+    \caption[Gefundene Schwachstellen pro Jahr laut CVE Details]{Gefundene Schwachstellen pro Jahr laut CVE Details \cite{cve}}
+  \end{figure}
+  \begin{figure}[!htb]
+    \includegraphics[width=1\textwidth]{Images/Bitkom}
+    \caption[Bitkom Studie - Bedrohungsszenarien]{Bitkom Studie - Bedrohungsszenarien \cite{Bitkom}}
   \end{figure}
 
 \chapter{Grundlagen}
@@ -245,7 +250,7 @@ Aktuelle Beispiele
 \chapter{Methodik}
   \section{Testaufbau}
   Für die Tests wurde der Ansatz des Black-Box Testings (siehe 2.1.2.2) verfolgt, der Ablauf des Testens war für jeden WVS identisch.
-  Zunächst wurden die verwundbare Web-Applikation gescannt und ein entsprechender Bericht generiert, anhand dessen die gefundenen Schwachstellen katalogisiert und typisiert werden konnten. Der beim Testen entstandene subjektive Eindruck der Handhabung und Bedienbarkeit, fließt zusammen mit der Scangeschwindigkeit in die Evaluation mit ein. %Um die True und False Positives zu identifizieren war es notwendig, die gefundenen Schwachstellen anhand von Dokumentationen der Websites oder manuell zu validieren und die Ergenisse zu vergleichen.
+  Zunächst wurden die verwundbare Web-Applikation gescannt und ein entsprechender Bericht generiert, anhand dessen die gefundenen Schwachstellen katalogisiert und typisiert werden konnten. Der beim Testen entstandene subjektive Eindruck der Handhabung und Bedienbarkeit fließt zusammen mit der Scangeschwindigkeit in die Evaluation mit ein. %Um die True und False Positives zu identifizieren war es notwendig, die gefundenen Schwachstellen anhand von Dokumentationen der Websites oder manuell zu validieren und die Ergenisse zu vergleichen.
 
   Für die Tests wurde folgendes System verwendet:
   \\Intel Core i7-8700K CPU mit 32 GB RAM
@@ -571,7 +576,14 @@ TODO
   \addcontentsline{toc}{chapter}{Anhang}
 
   \section{Verwendete Abk"urzungen}
-  \dots{}
+  \textbf{WVS} - Web Application Vulnerability Scanner\\
+
+  \textbf{CVE} - Common Vulnerabilities and Exposures: Industriestandard zur Bezeichnung von
+  Schwachstellen und deren Gefährdungspotential. Der Service CVE Details \cite{cve} bietet
+  eine übersichtliche Darstellung aller CVE.\\
+
+  \textbf{OWASP} - The Open Web Application Security Project: siehe Anhang 2\\
+  \newpage
 
   \section{OWASP: The Open Web Application Security Project}
   Das ``Open Web Application Security Project'' (OWASP) ist eine unabhängige, weltweite Community mit dem Ziel, die Bedeutung der Sicherheit von Webanwendungen »sichtbar zu machen«, Fachwissen zur Entwicklung und den Betrieb sicherer Webanwendungen zu verbreiten und frei zur Verfügung zu stellen.
