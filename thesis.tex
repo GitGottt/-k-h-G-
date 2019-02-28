@@ -226,7 +226,7 @@ Aktuelle Beispiele
     Quellcode sind bekannt. Der Angreifer muss mit manuellen Methoden sowie speziellen Tools des Penetrationstestings vertraut sein, um Schwachstellen zu lokalisieren und auszunutzen. Für die dynamische Analyse des anzugreifenden Netzwerks benötigt er Scanning Tools, die in der vorliegenden Arbeit evaluiert werden.
 
     \paragraph{Grey-Box Testing}
-    Während der Black-Box-Tester ein System aus der Sicht eines Außenseiters untersucht, hat ein    Grey-Box Tester bereits Zugriff auf das System auf Benutzerebene, möglicherwei- se sogar mit    erhöhten Berechtigungen eines Administrators. In der Regel liegt eine Dokumentation über Design und Architektur des Netzwerks vor, die internen Komponenten sind bekannt. Dies hat den Vorteil, dass die Sicherheit des Netzwerks gezielter und effizienter beurteilt werden kann, der Tester kann sich sofort auf die Systeme konzentrieren, die am wichtigsten sind oder ein besonders hohes Risiko haben. Zudem kann durch das interne Benutzerkonto ein Angriff innerhalb des abgesicherten Systems mit umfassendem Zugriff auf das Netzwerk simuliert werden.
+    Während der Black-Box-Tester ein System aus der Sicht eines Außenseiters untersucht, hat ein    Grey-Box Tester bereits Zugriff auf das System auf Benutzerebene, möglicherweise sogar mit erhöhten Berechtigungen eines Administrators. In der Regel liegt eine Dokumentation über Design und Architektur des Netzwerks vor, die internen Komponenten sind bekannt. Dies hat den Vorteil, dass die Sicherheit des Netzwerks gezielter und effizienter beurteilt werden kann, der Tester kann sich sofort auf die Systeme konzentrieren, die am wichtigsten sind oder ein besonders hohes Risiko haben. Zudem kann durch das interne Benutzerkonto ein Angriff innerhalb des abgesicherten Systems mit umfassendem Zugriff auf das Netzwerk simuliert werden.
 
     \paragraph{White-Box Testing}
     TODO
@@ -245,13 +245,16 @@ Aktuelle Beispiele
 \chapter{Methodik}
   \section{Testaufbau}
   Für die Tests wurde der Ansatz des Black-Box Testings (siehe 2.1.2.2) verfolgt, der Ablauf des Testens war für jeden WVS identisch.
-  Zunächst wurden die verwundbare Web-Applikation gescannt und ein entsprechender Bericht generiert, anhand dessen die gefundenen Schwachstellen typisiert und werden konnten. Der beim Testen entstandene subjektive Eindruck der Handhabung und Bedienbarkeit, fließt zusammen mit Scangeschwindigkeit in die Evaluation mit ein. %Um die True und False Positives zu identifizieren war es notwendig, die gefundenen Schwachstellen anhand von Dokumentationen der Websites oder manuell zu validieren und die Ergenisse zu vergleichen.
+  Zunächst wurden die verwundbare Web-Applikation gescannt und ein entsprechender Bericht generiert, anhand dessen die gefundenen Schwachstellen katalogisiert und typisiert werden konnten. Der beim Testen entstandene subjektive Eindruck der Handhabung und Bedienbarkeit, fließt zusammen mit der Scangeschwindigkeit in die Evaluation mit ein. %Um die True und False Positives zu identifizieren war es notwendig, die gefundenen Schwachstellen anhand von Dokumentationen der Websites oder manuell zu validieren und die Ergenisse zu vergleichen.
 
   Für die Tests wurde folgendes System verwendet:
   \\Intel Core i7-8700K CPU mit 32 GB RAM
   \\Microsoft Windows 10 pro, Version 1809 (64 bit)
-  \\Als Virtuelle Maschinen innerhalb von VirtualBox: Kali Linux 18.4 und Parrot OS 4.5.1, jeweils ausgestattet mit 2 Kernen und 8 GB RAM
-
+  \\Als Virtuelle Maschinen innerhalb von VirtualBox: Kali Linux 18.4 und Parrot OS 4.5.1, jeweils ausgestattet mit 2 Kernen und 8 GB RAM.
+  \begin{figure}[H]
+    \includegraphics[width=1\textwidth]{Images/Visio}
+    \caption[Testaufbau]{Testaufbau}
+  \end{figure}
 \section{Web Vulnerability Scanner (WVS)}
   \subsection{Auswahlkriterien}
   OWASP listet 50 verschiedene Tools zum Scannen von Web-Applications auf
@@ -437,7 +440,7 @@ Aktuelle Beispiele
         \centering
         \begin{tabular}{|r|c|c|c|c|c|}
         \hline
-        \textbf{Open Source WVS}            & \textbf{Arachni} & \textbf{Nikto} & \textbf{OpenVAS} & \textbf{Wapiti} & \textbf{Zed Attack Proxy}  \\
+        \textbf{Open Source WVS}            & \textbf{Arachni} & \textbf{Nikto} & \textbf{OpenVAS} & \textbf{Wapiti} & \textbf{ZAP}  \\
         \hline
         \textbf{Bedienung (20\%)}       & \textbf{+}       & \textbf{o}     & \textbf{-}       & \textbf{o}      & \textbf{+}                 \\
         \hline
