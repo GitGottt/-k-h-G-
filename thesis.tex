@@ -371,7 +371,7 @@ TODO
  \end{itemize}
 \chapter{Evaluation}
   \section{Gefundene Schwachstellen per Web Application}
-  Die Buchstaben H, L, M und I stehen für die Kategorien High, Medium, Low und Informational (siehe 2.2.2). WA1 - WA7 stehen für die verwundbaren Web-Applikationen (siehe 3.3)
+  Die Buchstaben H, L, M und I stehen für die Kategorien High, Medium, Low und Informational (siehe Punkt 2.2.2). WA1 - WA7 stehen für die verwundbaren Web-Applikationen (siehe Punkt 3.3)
     \begin{table}[H]
       \centering
       \begin{tabular}{|r|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
@@ -432,7 +432,7 @@ TODO
     \end{table}
 
   \section{Bedienung, Reporting und Geschwindigkeit}
-   Um am Ende ein Ranking der getesteten WVS abbilden zu können, wurde für die Bewertung eine Skala mit fünf Skalenwerten von 0 bis 4 herangezogen:
+   Um am Ende ein Ranking der getesteten WVS abbilden zu können, wurde für die Bewertung eine Skala mit fünf Skalenwerten von 0 bis 4 Punkten herangezogen:
    \begin{table}[H]
       \begin{tabular}{ll}
       0         & \textbf{ungenügend}             \\
@@ -442,7 +442,9 @@ TODO
       4         & \textbf{überragend}
       \end{tabular}
     \end{table}
-    Das Gesamtergebnis setzt sich aus den Bewertungen für die Bedienung (20\%), Qualität des Reportings (20\%), der Geschwindigkeit (10\%) und dem Scanergebnis (50\%) zusammen. Für das Scanergebnis wurde die reine Anzahl der gefundenen Schwachstellen zu Grunde gelegt. Für eine tiefergehende Evaluation ist eine manuelle Validierung aller Schwachstellen auf True- und False-Positives in Betracht zu ziehen, was jedoch angesichts der Vielzahl (über 3000) an Funden den Rahmen dieser Ausarbeitung gesprengt hätte.
+    Das Gesamtergebnis setzt sich aus den Bewertungen für die Bedienung (20\%), Qualität des Reportings (20\%), der Geschwindigkeit (10\%) und dem Scanergebnis (50\%) zusammen. Die höchste zu erreichende Punktzahl ist somit 40.\\
+    Angesichts zahlreicher Abstürze der Software Acunetix unter Windows (siehe Punkt 4.2.2) wurde eine weitere Bewertungskategorie ``Stabilität'' in Betracht gezogen, aber im Hinblick auf die Ununterscheidbarkeit aller anderen stabil laufenden WVS wieder verworfen. Die Abstürze der Acunetix-Software fanden schließlich in der Kategorie ``Bedienung'' ihre Berücksichtigung.\\
+    Für das Scanergebnis wurde die reine Anzahl der gefundenen Schwachstellen zu Grunde gelegt. Für eine tiefergehende Evaluation ist eine manuelle Validierung aller Schwachstellen auf True- und False-Positives zu erwägen, was jedoch angesichts der Vielzahl (über 3000) an Funden den Rahmen dieser Ausarbeitung gesprengt hätte.
 
     \subsection{Open Source}
       \begin{table}[H]
@@ -451,11 +453,11 @@ TODO
         \hline
         \textbf{Open Source WVS}            & \textbf{Arachni} & \textbf{Nikto} & \textbf{OpenVAS} & \textbf{Wapiti} & \textbf{ZAP}  \\
         \hline
-        \textbf{Scanergebnis (50\%)}    &                  &                &                  &                 &                   \\
+        \textbf{Scanergebnis (50\%) *5}    &                  &                &                  &                 &                   \\
         \hline
-        \textbf{Reporting (20\%)}       &                  &                &                  &                 &                   \\
+        \textbf{Reporting (20\%) *2}       &                  &                &                  &                 &                   \\
         \hline
-        \textbf{Bedienung (20\%)}       & \textbf{3}       & \textbf{2}     & \textbf{1}       & \textbf{2}      & \textbf{3}        \\
+        \textbf{Bedienung (20\%) *2}       & \textbf{3}       & \textbf{2}     & \textbf{1}       & \textbf{2}      & \textbf{3}        \\
         \hline
         \textbf{Geschwindigkeit (10\%)} & \textbf{3}       & \textbf{4}    & \textbf{2}       & \textbf{4}     & \textbf{0}          \\
         \hline
@@ -502,13 +504,13 @@ TODO
       \hline
       \textbf{Kommerzielle WVS}       & \textbf{Acunetix} & \textbf{Burp Suite Pro} & \textbf{Nessus} & \textbf{Netsparker}  \\
       \hline
-      \textbf{Scanergebnis (50\%)}    &                   &                         &                 &                      \\
+      \textbf{Scanergebnis (50\%) *5}    &                   &                         &                 &                      \\
       \hline
-      \textbf{Reporting (20\%)}       &                   &                         &                 &                      \\
+      \textbf{Reporting (20\%) *2}       &                   &                         &                 &                      \\
       \hline
-      \textbf{Bedienung (20\%)}       & \textbf{-}        & \textbf{+}              & \textbf{+}      & \textbf{o}           \\
+      \textbf{Bedienung (20\%) *2}       & \textbf{1}        & \textbf{3}              & \textbf{3}      & \textbf{2}           \\
       \hline
-      \textbf{Geschwindigkeit (10\%)} & \textbf{++}       & \textbf{o}              & \textbf{o}      & \textbf{-}           \\
+      \textbf{Geschwindigkeit (10\%)} & \textbf{4}       & \textbf{2}              & \textbf{2}      & \textbf{1}            \\
       \hline
       \textbf{Gesamt}                 &                   &                         &                 &                      \\
       \hline
@@ -518,7 +520,7 @@ TODO
       \begin{itemize}
         \item Acunetix \cite{Acunetix}:\\
           Acunetix stellte eine 14-tägige Vollversion zur Verfügung. Die graphische Oberfläche ist sehr übersichtlich und lässt sich intuitiv bedienen. Online gibt es ein Support-Portal mit ausführlicher Dokumentation und Hilfestellung.
-          Unter Windows brachte Acunetix das System mehrmals zum Absturz (BSOD), so dass auf die Linux-Version ausgewichen wurde. Hier lief das Programm stabil und scannte von den kommerziellen WVS am schnellsten, von allen WVS muss sich Acunetix hier nur von Wapiti und Nikto geschlagen geben.
+          Unter Windows brachte Acunetix das System mehrmals zum Absturz (BSoD), so dass auf die Linux-Version ausgewichen wurde. Hier lief das Programm stabil und scannte von den kommerziellen WVS am schnellsten, von allen WVS muss sich Acunetix hier nur von Wapiti und Nikto geschlagen geben. Die Abstürze wirken sich negativ auf die Bewertung für die Bedienung aus.
           \begin{figure}[H]
             \includegraphics[width=1\textwidth]{Images/Acunetix}
             \caption[Weboberfläche von Acunetix]{Weboberfläche von Acunetix}
@@ -591,6 +593,8 @@ TODO
   eine übersichtliche Darstellung aller CVE.\\
 
   \textbf{OWASP} - The Open Web Application Security Project: siehe Anhang 2\\
+
+  \textbf{BSoD} - ``Blue Screen of Death'': Umgangssprachlich für einen kritischen Systemfehler unter Microsoft Windows, bei dem die Benutzeroberfläche durch einen blauen Bildschirm mit Fehlermeldungen ersetzt wird.\\
   \newpage
 
   \section{OWASP: The Open Web Application Security Project}
