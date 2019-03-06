@@ -197,10 +197,7 @@ TODO
 \chapter{Einführung}\label{ch:intro}
 
 
-Motivation
-Zielsetzung
-Aufbau der Arbeit
-Aktuelle Beispiele
+
   \begin{figure}[!htb]
     \includegraphics[width=1\textwidth]{Images/VulnByYear}
     \caption[Gefundene Schwachstellen pro Jahr laut CVE Details]{Gefundene Schwachstellen pro Jahr laut CVE Details \cite{cve}}
@@ -268,7 +265,7 @@ Aktuelle Beispiele
     \includegraphics[width=1\textwidth]{Images/Visio}
     \caption[Testaufbau]{Testaufbau}
   \end{figure}
-\section{Web Vulnerability Scanner (WVS)}
+\section{Web Application Vulnerability Scanner (WVS)}
   \subsection{Auswahlkriterien}
   OWASP listet 50 verschiedene Tools zum Scannen von Web-Applications auf
   \cite{OWASPtools}. Die Auswahl wurde auf WVS mit folgenden Eigenschaften eingegrenzt:
@@ -345,7 +342,7 @@ Aktuelle Beispiele
         \caption[W3af: Fehlende Module]{W3af: Fehlende Module}
       \end{figure}
       \item Wikto \cite{Wikto}: Wikto ist eine Windows-Portierung von Nikto und bedarf daher keiner eigenen Evaluation.
-      \item Xenotix \cite{Xenotix}: Xenotix wurde von OWASP für das Auffinden von Cross-Site-Scripting Schwachstellen entwickelt und ist darauf begrenzt.
+      \item Xenotix \cite{Xenotix}: Xenotix wurde von OWASP für das Auffinden von Cross-Site-Scripting Schwachstellen entwickelt und ist darauf beschränkt.
     \end{itemize}
     \subsubsection{Kommerzielle WVS}
       \begin{itemize}
@@ -374,7 +371,7 @@ Aktuelle Beispiele
  \end{itemize}
 \chapter{Evaluation}
   \section{Gefundene Schwachstellen per Web Application}
-  Die Buchstaben H, L, M und I stehen für die Kategorien High, Medium, Low und Informational (siehe Einführung). WA1 - WA7 stehen für die verwundbaren Web-Applikationen (siehe 3.3)
+  Die Buchstaben H, L, M und I stehen für die Kategorien High, Medium, Low und Informational (siehe 2.2.2). WA1 - WA7 stehen für die verwundbaren Web-Applikationen (siehe 3.3)
     \begin{table}[H]
       \centering
       \begin{tabular}{|r|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
@@ -433,20 +430,19 @@ Aktuelle Beispiele
       \end{tabular}
       \caption[Gefundene Schwachstellen der kommerziellen WVS]{Gefundene Schwachstellen der kommerziellen WVS}
     \end{table}
-  \section{Gefundene Schwachstellen nach Schwachstellentyp}
-  TODO
-  \section{Bedienung, Geschwindigkeit und Konfigurationsaufwand}
-   Für die Bewertung wurde eine Skala mit fünf Skalenwerten von -{}- bis ++ herangezogen:
+
+  \section{Bedienung, Reporting und Geschwindigkeit}
+   Um am Ende ein Ranking der getesteten WVS abbilden zu können, wurde für die Bewertung eine Skala mit fünf Skalenwerten von 0 bis 4 herangezogen:
    \begin{table}[H]
       \begin{tabular}{ll}
-      -{}-         & \textbf{ungenügend}             \\
-      -            & \textbf{unterdurchschnittlich}  \\
-      o            & \textbf{durchschnittlich}       \\
-      +            & \textbf{überdurchschnittlich}   \\
-      ++           & \textbf{überragend}
+      0         & \textbf{ungenügend}             \\
+      1         & \textbf{unterdurchschnittlich}  \\
+      2         & \textbf{durchschnittlich}       \\
+      3         & \textbf{überdurchschnittlich}   \\
+      4         & \textbf{überragend}
       \end{tabular}
     \end{table}
-    Das Gesamtergebnis setzt sich aus den Bewertungen für die Bedienung (20\%), der Geschwindigkeit (20\%) und dem Scanergebnis (60\%) zusammen.
+    Das Gesamtergebnis setzt sich aus den Bewertungen für die Bedienung (20\%), Qualität des Reportings (20\%), der Geschwindigkeit (10\%) und dem Scanergebnis (50\%) zusammen. Für das Scanergebnis wurde die reine Anzahl der gefundenen Schwachstellen zu Grunde gelegt. Für eine tiefergehende Evaluation ist eine manuelle Validierung aller Schwachstellen auf True- und False-Positives in Betracht zu ziehen, was jedoch angesichts der Vielzahl (über 3000) an Funden den Rahmen dieser Ausarbeitung gesprengt hätte.
 
     \subsection{Open Source}
       \begin{table}[H]
@@ -455,13 +451,15 @@ Aktuelle Beispiele
         \hline
         \textbf{Open Source WVS}            & \textbf{Arachni} & \textbf{Nikto} & \textbf{OpenVAS} & \textbf{Wapiti} & \textbf{ZAP}  \\
         \hline
-        \textbf{Bedienung (20\%)}       & \textbf{+}       & \textbf{o}     & \textbf{-}       & \textbf{o}      & \textbf{+}                 \\
+        \textbf{Scanergebnis (50\%)}    &                  &                &                  &                 &                   \\
         \hline
-        \textbf{Geschwindigkeit (20\%)} & \textbf{+}       & \textbf{++}    & \textbf{o}       & \textbf{++}     & \textbf{-{}-}                \\
+        \textbf{Reporting (20\%)}       &                  &                &                  &                 &                   \\
         \hline
-        \textbf{Scanergebnis (60\%)}    &                  &                &                  &                 &                            \\
+        \textbf{Bedienung (20\%)}       & \textbf{3}       & \textbf{2}     & \textbf{1}       & \textbf{2}      & \textbf{3}        \\
         \hline
-        \textbf{Gesamt}                 &                  &                &                  &                 &                            \\
+        \textbf{Geschwindigkeit (10\%)} & \textbf{3}       & \textbf{4}    & \textbf{2}       & \textbf{4}     & \textbf{0}          \\
+        \hline
+        \textbf{Gesamt}                 &                  &                &                  &                 &                   \\
         \hline
         \end{tabular}
         \caption[Bewertung der Open Source WVS]{Bewertung der Open Source WVS}
@@ -504,11 +502,13 @@ Aktuelle Beispiele
       \hline
       \textbf{Kommerzielle WVS}       & \textbf{Acunetix} & \textbf{Burp Suite Pro} & \textbf{Nessus} & \textbf{Netsparker}  \\
       \hline
+      \textbf{Scanergebnis (50\%)}    &                   &                         &                 &                      \\
+      \hline
+      \textbf{Reporting (20\%)}       &                   &                         &                 &                      \\
+      \hline
       \textbf{Bedienung (20\%)}       & \textbf{-}        & \textbf{+}              & \textbf{+}      & \textbf{o}           \\
       \hline
-      \textbf{Geschwindigkeit (20\%)} & \textbf{++}       & \textbf{o}              & \textbf{o}      & \textbf{-}           \\
-      \hline
-      \textbf{Scanergebnis (60\%)}    &                   &                         &                 &                      \\
+      \textbf{Geschwindigkeit (10\%)} & \textbf{++}       & \textbf{o}              & \textbf{o}      & \textbf{-}           \\
       \hline
       \textbf{Gesamt}                 &                   &                         &                 &                      \\
       \hline
