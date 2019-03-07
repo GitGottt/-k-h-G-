@@ -224,7 +224,7 @@ TODO
     Der Prozess umfasst die Suche nach Schwachstellen sowie die Demonstration von Beispielangriffen, um zu zeigen, dass die Bedrohungen real sind.
     Ein ordnungsgemäßer Penetrationstest resultiert immer in spezifischen Empfehlungen für das
     Beheben der während des Tests aufgetretenen Probleme.
-    Insgesamt wird dieses Verfahren dazu verwendet, Computer und Netzwerke gegen zukünftige Angriffe abzusichern. Die allgemeine Idee besteht darin, Sicherheitslücken mithilfe der gleichen Tools und Tecniken zu finden, die auch ein Angreifer benutzt. Die Lücken können so geschlossen werden, bevor ein richtiger Hacker sie ausnutzt. \cite{engebretson}
+    Insgesamt wird dieses Verfahren dazu verwendet, Computer und Netzwerke gegen zukünftige Angriffe abzusichern. Die allgemeine Idee besteht darin, Sicherheitslücken mithilfe der gleichen Tools und Techniken zu finden, die auch ein Angreifer benutzt. Die Lücken können so geschlossen werden, bevor ein realer Hacker sie ausnutzt. \cite{engebretson}
 
     Man unterscheidet beim Penetrationtesting zwischen drei unterschiedlichen Ansätzen, dem Black-Box, Grey-Box und White-Box Testing:
     \paragraph{Black-Box Testing}
@@ -255,14 +255,29 @@ TODO
 \chapter{Methodik}
   \section{Testaufbau}
   Für die Tests wurde der Ansatz des Black-Box Testings (siehe 2.1.2.2) verfolgt, der Ablauf des Testens war für jeden WVS identisch.
-  Zunächst wurden die verwundbare Web-Applikation gescannt und ein entsprechender Bericht generiert, anhand dessen die gefundenen Schwachstellen katalogisiert und typisiert werden konnten. Der beim Testen entstandene subjektive Eindruck der Handhabung und Bedienbarkeit fließt zusammen mit der Scangeschwindigkeit in die Evaluation mit ein. %Um die True und False Positives zu identifizieren war es notwendig, die gefundenen Schwachstellen anhand von Dokumentationen der Websites oder manuell zu validieren und die Ergenisse zu vergleichen.
+  Nach dem Scannen der 7 verwundbaren Web-Applikationen wurde jeweils ein entsprechender Bericht in Form einer HTML-Datei generiert, der die gefundenen Schwachstellen und je nach WVS auch die benötigte Zeit für den Scan auflistet.
+  Neben diesen evidenten Daten fließen subjektive Eindrücke wie Handhabung und Bedienbarkeit der Software und die Qualität der erstellten Berichte in die Evaluation mit ein.\\
+  Um dies messbar zu machen und um am Ende ein Ranking der getesteten WVS abbilden zu können, musste ein Bewertungssystem etabliert werden. Die Bewertungskategorien wurden nach Relevanz gewichtet und für die Bewertung eine Skala mit fünf Skalenwerten von 0 bis 4 Punkten herangezogen:
+  \begin{table}[H]
+     \begin{tabular}{ll}
+     0         & \textbf{ungenügend}             \\
+     1         & \textbf{unterdurchschnittlich}  \\
+     2         & \textbf{durchschnittlich}       \\
+     3         & \textbf{überdurchschnittlich}   \\
+     4         & \textbf{überragend}
+     \end{tabular}
+   \end{table}
+   Das Gesamtergebnis setzt sich aus den Bewertungen für die Bedienung (20\%), Qualität des Reportings (20\%), der Geschwindigkeit (10\%) und dem Scanergebnis (50\%) zusammen. Die höchste zu erreichende Punktzahl ist somit 40.\\
+   Angesichts zahlreicher Abstürze der Software Acunetix unter Windows (siehe Punkt 4.2.2) wurde eine weitere Bewertungskategorie ``Stabilität'' in Betracht gezogen, aber im Hinblick auf die Ununterscheidbarkeit aller anderen stabil laufenden WVS wieder verworfen. Die Abstürze der Acunetix-Software fanden schließlich in der Kategorie ``Bedienung'' ihre Berücksichtigung.\\
+   Für das Scanergebnis wurde die reine Anzahl der gefundenen Schwachstellen zu Grunde gelegt. Für eine tiefergehende Evaluation ist eine manuelle Validierung aller Schwachstellen auf True- und False-Positives in Erwägung zu ziehen, was jedoch angesichts der Vielzahl (über 3000) an Funden den Rahmen dieser Ausarbeitung gesprengt hätte.
 
   Für die Tests wurde folgendes System verwendet:
   \\Intel Core i7-8700K CPU mit 32 GB RAM
   \\Microsoft Windows 10 pro, Version 1809 (64 bit)
   \\Als Virtuelle Maschinen innerhalb von VirtualBox: Kali Linux 18.4 und Parrot OS 4.5.1, jeweils ausgestattet mit 2 Kernen und 8 GB RAM.
   \begin{figure}[H]
-    \includegraphics[width=1\textwidth]{Images/Visio}
+    \centering
+    \includegraphics[width=0.9\textwidth]{Images/Visio}
     \caption[Testaufbau]{Testaufbau}
   \end{figure}
 \section{Web Application Vulnerability Scanner (WVS)}
@@ -338,7 +353,8 @@ TODO
       \item Wfuzz \cite{Wfuzz}: Der in Python geschriebene Scanner verwendet die Bibliothek Pycurl für HTTP-Requests, diese unterstützt keine SSL/TLS Verschlüsselung.
       \item W3af \cite{W3af}: W3af wird zwar noch sporadisch mit Bibliotheks-Aktualisierungen gepflegt, das aktuelle Release ist jedoch aus dem Jahr 2014 und es ist weder auf Kali-Linux noch auf Parrot OS gelungen, alle für den Programmstart benötigten Dependencies zu installieren. Das bei der Installation generierte Script versucht, teils veraltete Module zu installieren, manuelles Nachinstallieren der aktuellen Versionen brachte keinen Erfolg.
       \begin{figure}[H]
-        \includegraphics[width=1\textwidth]{Images/w3af}
+        \centering
+        \includegraphics[width=0.9\textwidth]{Images/w3af}
         \caption[W3af: Fehlende Module]{W3af: Fehlende Module}
       \end{figure}
       \item Wikto \cite{Wikto}: Wikto ist eine Windows-Portierung von Nikto und bedarf daher keiner eigenen Evaluation.
@@ -351,15 +367,15 @@ TODO
 
 \section{Verwundbare Web-Applikationen}
   Bei der Auswahl der Web-Applikationen musste darauf geachtet werden, dass sie für WVS geeignet sind. Auf ursprünglich in die Auswahl aufgenommene Applikationen wie WebGoat, JuiceShop (beide von OWASP) oder Damn Vulnerable Web Application (Bestandteil von Metasploitable) wurde am Ende verzichtet, da hier beim Scannen keine hinreichenden Ergebnisse hervorgebracht wurden. Diese Anwendungen  sind zwar sehr gut dokumentiert, aber hauptsächlich für das Erlernen von manuellen Angriffen entwickelt worden. Es wurde bei der Auswahl auf das OWASP Vulnerable Web Applications Directory Project zurückgegriffen, das eine Reihe von verwundbaren Web-Applikationen auflistet \cite{OWASPWebApps}. Die Auswahl deckt mehrere Technologien wie PHP, ASP.Net oder HTML5 ab.
-  %Um den Arbeitsaufwand bei der Validierung der Scan-Ergebnisse in einem angemessenen Rahmen zu halten, wurde nach der Testphase die Evaluation auf die Ergebnisse von fünf Web-Applikationen beschränkt. Hier wurden diejenigen bevorzugt, für die eine Schwachstellen-Dokumentation existiert. Nicht berücksichtigt wurden demzufolge die Resultate der Seiten Aspnet Testsparker \cite{Aspnet} und Crack Me Bank \cite{CrackMeBank}.
+
   Nachfolgend werden die für die Auswertung genutzten Web-Applikationen kurz vorgestellt.
   \begin{itemize}
     \item WA1: Altoro Mutual\\
-    Altoro Mutual ist eine in C\texttt{\#} .NET geschriebene Online-Banking Web-Applikation, die von IBM entwickelt wurde, um WVS zu testen \cite{Altoro}. %Eine große Hilfe bei der Validierung der gefundenen Schwachstellen ist ein von IBM zur Verfügung gestellter Report, der sämtliche Schwachstellen der Seite auflistet \cite{IBM}.
+    Altoro Mutual ist eine in C\texttt{\#} .NET geschriebene Online-Banking Web-Applikation, die von IBM entwickelt wurde, um WVS zu testen \cite{Altoro}.
     \item WA2: Webscantest\\
     Diese Web-Applikation ist in PHP geschrieben und wurde von NTOSpider entwickelt, um WVS zu testen. Die Schwachstellen sind direkt auf der Seite dokumentiert \cite{Webscantest}.
     \item WA3: Zero Bank\\
-    Eine weitere Online-Banking Web-Applikation, entwickelt von Hewlett-Packard/Micro Focus \cite{Zero}.% Auch hier gibt es einen gut dokumentierten Report mit allen Schwachstellen \cite{ZeroReport}.
+    Eine weitere Online-Banking Web-Applikation, entwickelt von Hewlett-Packard/Micro Focus \cite{Zero}.
     \item WA4: Bitcoin Web Site\\
     Diese von Netsparker entwickelte Applikation ist in ASP.NET geschrieben und simuliert eine Online-Seite für Bitcoin-Transaktionen \cite{Aspnet}.
     \item WA5: Acuart\\
@@ -401,6 +417,7 @@ TODO
       \end{tabular}
       \caption[Gefundene Schwachstellen der Open Source WVS]{Gefundene Schwachstellen der Open Source WVS}
     \end{table}
+
     \begin{table}[H]
       \centering
       \begin{tabular}{|r|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
@@ -432,120 +449,171 @@ TODO
     \end{table}
 
   \section{Bedienung, Reporting und Geschwindigkeit}
-   Um am Ende ein Ranking der getesteten WVS abbilden zu können, wurde für die Bewertung eine Skala mit fünf Skalenwerten von 0 bis 4 Punkten herangezogen:
-   \begin{table}[H]
-      \begin{tabular}{ll}
-      0         & \textbf{ungenügend}             \\
-      1         & \textbf{unterdurchschnittlich}  \\
-      2         & \textbf{durchschnittlich}       \\
-      3         & \textbf{überdurchschnittlich}   \\
-      4         & \textbf{überragend}
-      \end{tabular}
-    \end{table}
-    Das Gesamtergebnis setzt sich aus den Bewertungen für die Bedienung (20\%), Qualität des Reportings (20\%), der Geschwindigkeit (10\%) und dem Scanergebnis (50\%) zusammen. Die höchste zu erreichende Punktzahl ist somit 40.\\
-    Angesichts zahlreicher Abstürze der Software Acunetix unter Windows (siehe Punkt 4.2.2) wurde eine weitere Bewertungskategorie ``Stabilität'' in Betracht gezogen, aber im Hinblick auf die Ununterscheidbarkeit aller anderen stabil laufenden WVS wieder verworfen. Die Abstürze der Acunetix-Software fanden schließlich in der Kategorie ``Bedienung'' ihre Berücksichtigung.\\
-    Für das Scanergebnis wurde die reine Anzahl der gefundenen Schwachstellen zu Grunde gelegt. Für eine tiefergehende Evaluation ist eine manuelle Validierung aller Schwachstellen auf True- und False-Positives zu erwägen, was jedoch angesichts der Vielzahl (über 3000) an Funden den Rahmen dieser Ausarbeitung gesprengt hätte.
-
     \subsection{Open Source}
-      \begin{table}[H]
-        \centering
-        \begin{tabular}{|r|c|c|c|c|c|}
-        \hline
-        \textbf{Open Source WVS}            & \textbf{Arachni} & \textbf{Nikto} & \textbf{OpenVAS} & \textbf{Wapiti} & \textbf{ZAP}  \\
-        \hline
-        \textbf{Scanergebnis (50\%) *5}    &                  &                &                  &                 &                   \\
-        \hline
-        \textbf{Reporting (20\%) *2}       &                  &                &                  &                 &                   \\
-        \hline
-        \textbf{Bedienung (20\%) *2}       & \textbf{3}       & \textbf{2}     & \textbf{1}       & \textbf{2}      & \textbf{3}        \\
-        \hline
-        \textbf{Geschwindigkeit (10\%)} & \textbf{3}       & \textbf{4}    & \textbf{2}       & \textbf{4}     & \textbf{0}          \\
-        \hline
-        \textbf{Gesamt}                 &                  &                &                  &                 &                   \\
-        \hline
-        \end{tabular}
-        \caption[Bewertung der Open Source WVS]{Bewertung der Open Source WVS}
-      \end{table}
-
         \begin{itemize}
           \item Arachni \cite{Arachni}:\\
-            Arachni gibt es als reine Terminal-Anwendung oder als Ruby on Rails Framework mit Web-Interface. Die Web-Oberfläche ist übersichtlich und verständlich aufgebaut, der User findet sich schnell zurecht und kann sofort mit dem Scannen einer Seite beginnen, die Scangeschwindigkeit ist überdurchschnittlich. Als Hilfestellung gibt es ein umfangreiches Wiki mit Erklärungen und Screenshots.
+            Arachni gibt es als reine Terminal-Anwendung oder als Ruby on Rails Framework mit Web-Interface. Die Web-Oberfläche ist übersichtlich und verständlich aufgebaut, der User findet sich schnell zurecht und kann sofort mit dem Scannen einer Seite beginnen, die Scangeschwindigkeit ist überdurchschnittlich. Als Hilfestellung gibt es ein umfangreiches Wiki mit Erklärungen und Screenshots. Der Report ist sehr umfangreich, verschiedene Balken- und Kuchendiagramme geben Statistiken über Art und Schweregrad der Funde wieder, zudem gibt es Verlinkungen zu den OWASP Top 10 und detaillierte Ausführungen über die Schwachstellen. Arachni unterscheidet bei den Funden außerdem zwischen gesicherten (``Trusted'') und noch zu überprüfenden Ergebnissen (``Untrusted'').
+
+            \textbf{Bewertung: Reporting 4, Bedienung 3, Geschwindigkeit 3}
             \begin{figure}[H]
-              \includegraphics[width=1\textwidth]{Images/Arachni}
+              \centering
+              \includegraphics[width=0.9\textwidth]{Images/Arachni}
               \caption[Arachni WebUI 0.5.12]{Arachni WebUI 0.5.12}
             \end{figure}
           \item Nikto \cite{Nikto}:\\
             Nikto ist ein gut dokumentiertes Terminal-Programm, nach kurzer Einarbeitung hat ein ungeübter User die benötigten Befehle und Optionen gefunden, um einen Scan zu starten.
             Auffällig ist die im Vergleich zu allen anderen WVS ungewöhnlich hohe Scan-Geschwindigkeit, die sich im Minutenbereich einordnet.
-            Der generierte Report listet alle gefundenen Schwachstellen detailliert auf, unterscheidet diese jedoch im Gegensatz zu den meisten anderen WVS nicht zwischen High, Medium, Low und Informational.
+            Der generierte Report listet alle gefundenen Schwachstellen auf, unterscheidet diese jedoch im Gegensatz zu den meisten anderen WVS nicht zwischen High, Medium, Low und Informational.
+
+            \textbf{Bewertung: Reporting 1, Bedienung 2, Geschwindigkeit 4}
           \item OpenVAS \cite{OpenVAS}:\\
             OpenVAS ist aus der Software Nessus hervorgegangen, als diese im Jahr 2005 von Open Soucre zu einer kommerziellen Lizenz wechselte, und wird seitdem auf Basis der letzten freien Nessus-Version 2.2 von Greenbone Networks weiterentwickelt. Der Scanner ist eingebettet in den Greenbone Security Assistant, der über ein Web-Interface bedient wird. Die Oberfläche ist nicht selbsterklärend, es bedarf etwas an Recherche, bis sich dem User der logische Aufbau des Programms erschließt. Hier ist das ``Tech Doc-Portal'' von Greenbone sehr hilfreich. Zuerst muss unter Configuration/Targets ein Ziel definiert werden, dann kann der User für dieses Ziel unter dem Punkt ``Scans'' einen Task erstellen und diesen entweder sofort oder per Schedule starten.
-            Die umständliche Handhabung hat den Vorteil, dass sich leicht mehrere Tasks automatisieren lassen.
+            Die umständliche Handhabung hat jedoch den Vorteil, dass sich leicht mehrere Tasks automatisieren lassen. Der Bericht präsentiert sich etwas sparsam, die gefundenen Schwachstellen der Kategorie ``Informational'' werden nicht aufgelistet.
+
+            \textbf{Bewertung: Reporting 2, Bedienung 1, Geschwindigkeit 2}
             \begin{figure} [H]
-              \includegraphics[width=1\textwidth]{Images/OpenVAS}
+              \centering
+              \includegraphics[width=0.85\textwidth]{Images/OpenVAS}
               \caption[OpenVAS im Greenbone Security Assistant]{OpenVAS im Greenbone Security Assistant}
             \end{figure}
           \item Wapiti \cite{Wapiti}:\\
-            In der Handhabung und im Reporting ähnelt Wapiti dem anderen reinen Terminal-Programm Nikto. Die auswählbaren Optionen sind ähnlich, und die gefundenen Schwachstellen werden auch hier nicht in Kategorien eingeteilt. Die Dokumentation fällt etwas spartanischer aus, ist aber ausreichend, um sich schnell zurecht zu finden. Wapiti scannt nicht so schnell wie Nikto, reiht sich aber im oberen Mittelfeld ein.
+            In der Handhabung und im Reporting ähnelt Wapiti dem anderen reinen Terminal-Programm Nikto. Die auswählbaren Optionen sind ähnlich, und die gefundenen Schwachstellen werden auch hier nicht in Kategorien eingeteilt. Die Dokumentation fällt etwas spartanischer aus, ist aber ausreichend, um sich schnell zurecht zu finden. Wapiti scannt fast so schnell wie Nikto und reiht sich hier auf dem zweiten Platz ein.
+
+            \textbf{Bewertung: Reporting 1, Bedienung 2, Geschwindigkeit 4}
 
           \item Zed Attack Proxy \cite{ZAP}:\\
             Der von OWASP entwickelte Scanner hat eine übersichtliche Benutzeroberfläche und lässt sich intuitiv bedienen. Auf der Startseite lässt sich direkt die anzugreifende URL eingeben und ohne weitere Konfiguration angreifen. Es gibt umfangreiche Hilfestellung in Form eines Handbuchs und einem Online-Wiki, zudem gibt es mit der OWASP ZAP User Group ein gut frequentiertes Benutzerforum, auf dem ein reger Austausch zwischen den Benutzern stattfindet.
-            Auffällig sind die langen Scan-Zeiten von mehreren Stunden, die sich jedoch nicht in einer höheren Anzahl an gefundenen Schwachstellen widerspiegeln.
+            Auffällig sind die langen Scan-Zeiten von mehreren Stunden, die sich jedoch nicht in einer höheren Anzahl an gefundenen Schwachstellen widerspiegeln. Die wenigen Funde werden im Report ausführlich beschrieben einschließlich umfangreicher Empfehlungen zur Behebung.
+
+            \textbf{Bewertung: Reporting 2, Bedienung 3, Geschwindigkeit 0}
           \begin{figure}[H]
-            \includegraphics[width=1\textwidth]{Images/ZAP}
+            \centering
+            \includegraphics[width=0.9\textwidth]{Images/ZAP}
             \caption[Grafische Benutzeroberfläche von ZAP]{Grafische Benutzeroberfläche von ZAP}
           \end{figure}
         \end{itemize}
 
     \subsection{Kommerziell}
-    \begin{table}[H]
-      \centering
-      \begin{tabular}{|r|c|c|c|c|}
-      \hline
-      \textbf{Kommerzielle WVS}       & \textbf{Acunetix} & \textbf{Burp Suite Pro} & \textbf{Nessus} & \textbf{Netsparker}  \\
-      \hline
-      \textbf{Scanergebnis (50\%) *5}    &                   &                         &                 &                      \\
-      \hline
-      \textbf{Reporting (20\%) *2}       &                   &                         &                 &                      \\
-      \hline
-      \textbf{Bedienung (20\%) *2}       & \textbf{1}        & \textbf{3}              & \textbf{3}      & \textbf{2}           \\
-      \hline
-      \textbf{Geschwindigkeit (10\%)} & \textbf{4}       & \textbf{2}              & \textbf{2}      & \textbf{1}            \\
-      \hline
-      \textbf{Gesamt}                 &                   &                         &                 &                      \\
-      \hline
-      \end{tabular}
-      \caption[Bewertung der kommerziellen WVS]{Bewertung der kommerziellen WVS}
-    \end{table}
       \begin{itemize}
         \item Acunetix \cite{Acunetix}:\\
           Acunetix stellte eine 14-tägige Vollversion zur Verfügung. Die graphische Oberfläche ist sehr übersichtlich und lässt sich intuitiv bedienen. Online gibt es ein Support-Portal mit ausführlicher Dokumentation und Hilfestellung.
-          Unter Windows brachte Acunetix das System mehrmals zum Absturz (BSoD), so dass auf die Linux-Version ausgewichen wurde. Hier lief das Programm stabil und scannte von den kommerziellen WVS am schnellsten, von allen WVS muss sich Acunetix hier nur von Wapiti und Nikto geschlagen geben. Die Abstürze wirken sich negativ auf die Bewertung für die Bedienung aus.
+          Unter Windows brachte Acunetix das System mehrmals zum Absturz (BSoD), so dass auf die Linux-Version ausgewichen wurde. Hier lief das Programm stabil und scannte von den kommerziellen WVS am schnellsten, von allen WVS muss sich Acunetix hier nur den Terminalprogrammen Wapiti und Nikto geschlagen geben. Der Report listet zu jeder gefundenen Schwachstelle sehr detailliert die vollständigen GET- und POST-Requests sowie teilweise seitenlange Code-Passagen auf. Die Empfehlungen zur Behebung der Funde könnte hingegen ausführlicher sein. Für die Abstürze wurden bei der Bewertung für die Bedienung 2 Punkte abgezogen.
+
+          \textbf{Bewertung: Reporting 3, Bedienung 1, Geschwindigkeit 4}\\
+
           \begin{figure}[H]
-            \includegraphics[width=1\textwidth]{Images/Acunetix}
+            \centering
+            \includegraphics[width=0.9\textwidth]{Images/Acunetix}
             \caption[Weboberfläche von Acunetix]{Weboberfläche von Acunetix}
           \end{figure}
+          \newpage
         \item BurpSuite Pro \cite{Burp}:\\
           Die Firma Portswigger stellte auf Anfrage eine 30-tägige unbeschränkte Testversion zur Verfügung.
           BurpSuite Pro enthält eine umfangreiche Dokumentation mit zahlreichen Hilfestellungen für verschiedene Anwendungsszenarien.  Das Dashboard ist sehr übersichtlich und intuitiv zu bedienen: mit Hilfe des Buttons ``New Scan'' lässt sich direkt ohne größeren Konfigurationsaufwand eine Website erfolgreich und in durchschnittlicher Geschwindigkeit scannen.
           \begin{figure}[H]
-            \includegraphics[width=1\textwidth]{Images/BurpSuitePro}
+            \centering
+            \includegraphics[width=0.91\textwidth]{Images/BurpSuitePro}
             \caption[Dashboard von BurpSuite Pro]{Dashboard von BurpSuite Pro}
           \end{figure}
+          Der von BurpSuite generierte Report ist von allen getesteten WVS der umfangreichste und ist trotzdem sehr übersichtlich. Ähnlich wie Arachni unterscheidet BurpSuite zwischen gesicherten und ungesicherten Ergebnissen, allerdings noch genauer: in einer ``Confidence''-Tabelle wird zwischen gesicherten (Certain), wahrscheinlichen (Firm) und möglichen (Tentative) Schwachstellen unterschieden.
+
+          \textbf{Bewertung: Reporting 4, Bedienung 3, Geschwindigkeit 2}
+          \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.76\textwidth]{Images/BurpReport}
+            \caption[Confidence-Tabelle im Report von BurpSuite Pro]{Confidence-Tabelle im Report von BurpSuite Pro}
+          \end{figure}
+
         \item Nessus \cite{Nessus}:\\
           Die Firma Tenable bietet zwei Testversionen an: Nessus Home für das Testen des heimischen Netzwerks, gültig für ein Jahr sowie eine unbeschränkte Version von Nessus Pro, gültig für sieben Tage.
-          Nessus präsentiert sich auf einer übersichtlich gestalteten Web-Schnittstelle und ist selbsterklärend bedienbar. Einen Hilfe-Button sucht man vergeblich, die umfangreiche Dokumentation mit Anleitungen findet man online durch recherchieren. Die Scangeschwindigkeit ist durchschnittlich.
+          Nessus präsentiert sich auf einer übersichtlich gestalteten Web-Schnittstelle und ist selbsterklärend bedienbar. Einen Hilfe-Button sucht man vergeblich, die umfangreiche Dokumentation mit Anleitungen findet man online durch Recherchieren. Die Scangeschwindigkeit ist durchschnittlich, der Report übersichtlich aber eher spartanisch. Nur durch Anklicken der Funde gibt es online Beschreibungen und Lösungsvorschläge.
+
+          \textbf{Bewertung: Reporting 2, Bedienung 3, Geschwindigkeit 2}
           \begin{figure}[H]
-            \includegraphics[width=1\textwidth]{Images/Nessus}
+            \centering
+            \includegraphics[width=0.9\textwidth]{Images/Nessus}
             \caption[Grafische Benutzeroberfläche von Nessus]{Grafische Benutzeroberfläche von Nessus}
           \end{figure}
         \item Netsparker \cite{Netsparker}:\\
-          Netsparker stellte nach Rücksprache eine 14-tägige Testversion zur Verfügung, die auf 8 zu scannende Web-Applikationen begrenzt ist. Die grafische Benutzeroberfläche ist etwas unruhig und überladen, der User kann aber direkt über den Button ``New'' eine Web-Seite scannen. Die Scangeschwindigkeit ist im unteren Mittelfeld angesiedelt.
+          Netsparker stellte nach Rücksprache eine 14-tägige Testversion zur Verfügung, die auf 8 zu scannende Web-Applikationen begrenzt ist. Die grafische Benutzeroberfläche ist etwas unruhig und überladen, der User kann aber direkt über den Button ``New'' eine Web-Seite scannen. Die Scangeschwindigkeit ist im unteren Mittelfeld angesiedelt. Der Report ist äußerst umfangreich aber etwas unübersichtlich. Neben Nessus hat auch Netsparker nach High, Medium, Low und Informational eine fünfte Kategorie ``Critical'' eingeführt, die auf besonders kritische Schwachstellen hinweist. Wie bei Arachni und BurpSuite werden gesicherte Ergebnisse gesondert gekennzeichnet, hier als ``Confirmed''.
+
+          \textbf{Bewertung: Reporting 3, Bedienung 2, Geschwindigkeit 1}
           \begin{figure}[H]
-            \includegraphics[width=1\textwidth]{Images/Netsparker}
+            \centering
+            \includegraphics[width=0.9\textwidth]{Images/Netsparker}
             \caption[Grafische Benutzeroberfläche von Netsparker]{Grafische Benutzeroberfläche von Netsparker}
           \end{figure}
      \end{itemize}
+     \newpage
+     \subsection{Gesamtbewertung und Ranking}
+     \ \\
+     \begin{table}[H]
+       \centering
+       \begin{tabular}{|r|c|c|c|c|c|}
+       \hline
+       \textbf{Open Source WVS}            & \textbf{Arachni} & \textbf{Nikto} & \textbf{OpenVAS} & \textbf{Wapiti} & \textbf{ZAP}  \\
+       \hline
+       \textbf{Scanergebnis (50\%) *5}    & \textbf{3}      &  \textbf{1}      & \textbf{4}      &   \textbf{1}     &  \textbf{0}       \\
+       \hline
+       \textbf{Reporting (20\%) *2}       &  \textbf{4}     &  \textbf{1}      & \textbf{2}      &   \textbf{1}    &   \textbf{2}     \\
+       \hline
+       \textbf{Bedienung (20\%) *2}       & \textbf{3}       & \textbf{2}     & \textbf{1}       & \textbf{2}      & \textbf{3}        \\
+       \hline
+       \textbf{Geschwindigkeit (10\%)} & \textbf{3}       & \textbf{4}    & \textbf{2}       & \textbf{4}     & \textbf{0}          \\
+       \hline
+       \textbf{Gesamt}                 &   \textbf{32}     &  \textbf{15}   &  \textbf{28}      &  \textbf{15}    &  \textbf{10}          \\
+       \hline
+       \end{tabular}
+       \caption[Bewertung der Open Source WVS]{Bewertung der Open Source WVS}
+     \end{table}
+     \ \\
+     \begin{table}[H]
+       \centering
+       \begin{tabular}{|r|c|c|c|c|}
+       \hline
+       \textbf{Kommerzielle WVS}       & \textbf{Acunetix} & \textbf{Burp Suite Pro} & \textbf{Nessus} & \textbf{Netsparker}  \\
+       \hline
+       \textbf{Scanergebnis (50\%) *5}    & \textbf{4}      &  \textbf{4}            & \textbf{2}      &   \textbf{3}         \\
+       \hline
+       \textbf{Reporting (20\%) *2}       &  \textbf{3}     &  \textbf{4}            & \textbf{2}      &   \textbf{3}         \\
+       \hline
+       \textbf{Bedienung (20\%) *2}       & \textbf{1}      & \textbf{3}           & \textbf{3}      & \textbf{2}        \\
+       \hline
+       \textbf{Geschwindigkeit (10\%)} & \textbf{4}       & \textbf{2}              & \textbf{2}      & \textbf{1}            \\
+       \hline
+       \textbf{Gesamt}                 &  \textbf{32}     & \textbf{36}              & \textbf{22}       &  \textbf{26}                    \\
+       \hline
+       \end{tabular}
+       \caption[Bewertung der kommerziellen WVS]{Bewertung der kommerziellen WVS}
+     \end{table}
+     \ \\
+     \begin{table}[H]
+ \centering
+ \begin{tabular}{|r|c|c|c|c|c|c|}
+ \cline{2-7}
+ \multicolumn{1}{l|}{} & \textbf{WVS}           & \textbf{Gesamt} & Scanergebnis & Reporting & Bedienung & Geschwindigkeit  \\
+ \hline
+ \textbf{1}            & \textbf{BurpSuite Pro} & \textbf{36}     & 4            & 4         & 3         & 2                \\
+ \hline
+ \textbf{2}            & \textbf{Acunetix}      & \textbf{32}     & 4            & 3         & 1         & 4                \\
+ \hline
+ \textbf{2}            & \textbf{Arachni}       & \textbf{32}     & 3            & 4         & 3         & 3                \\
+ \hline
+ \textbf{4}            & \textbf{OpenVAS}       & \textbf{28}     & 4            & 2         & 1         & 2                \\
+ \hline
+ \textbf{5}            & \textbf{Netsparker}    & \textbf{26}     & 3            & 3         & 2         & 1                \\
+ \hline
+ \textbf{6}            & \textbf{Nessus}        & \textbf{22}     & 2            & 2         & 3         & 2                \\
+ \hline
+ \textbf{7}            & \textbf{Nikto}         & \textbf{15}     & 1            & 1         & 2         & 4                \\
+ \hline
+ \textbf{7}            & \textbf{Wapiti}        & \textbf{15}     & 1            & 1         & 2         & 4                \\
+ \hline
+ \textbf{9}            & \textbf{ZAP}           & \textbf{10}     & 0            & 2         & 3         & 0                \\
+ \hline
+ \end{tabular}
+ \caption[Ranking aller WVS]{Ranking aller WVS}
+ \end{table}
 
 \chapter{Diskussion}
   \section{Open Source WVS}
