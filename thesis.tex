@@ -37,7 +37,7 @@
 %% definitions
 %%%%%%%%%%%%%%%%%%%
 \def\BaAuthor{Henning Janning}
-\def\BaTitle{Evaluation von Web Application Security Scannern}
+\def\BaTitle{Evaluation von Web Application Vulnerability Scannern}
 \def\BaSupervisorOne{Prof. Andreas Mayer}
 \def\BaSupervisorTwo{Susanne Steuer (M.Sc.) }
 \def\BaDeadline{05.04.2019}
@@ -195,17 +195,60 @@ TODO
 \mainmatter
 
 \chapter{Einführung}\label{ch:intro}
-
-
-
-  \begin{figure}[!htb]
+Webanwendungen spielen in der heutigen Welt eine immer größer werdende Rolle, sei es beim Einkaufen im Online-Shop einschließlich diverser Bezahlsysteme, dem Nachrichtenaustausch über Social-Media-Kanäle oder zur
+Informationsgewinnung auf Nachrichtenseiten. Die Gesellschaft ist mehr denn je abhängig von der immer größer werdenden Anzahl an Netzwerkdiensten im Internet.
+Fortschreitende Digitalisierung und weltweite Vernetzung verursachen jedoch auch immer mehr Sicherheitslücken: laut CVE Details hat sich die Anzahl der gefundenen Schwachstellen in den letzten zwei Jahren mehr als verdoppelt:
+\begin{figure}[H]
     \includegraphics[width=1\textwidth]{Images/VulnByYear}
-    \caption[Gefundene Schwachstellen pro Jahr laut CVE Details]{Gefundene Schwachstellen pro Jahr laut CVE Details \cite{cve}}
+  \caption[Gefundene Schwachstellen pro Jahr laut CVE Details]{Gefundene Schwachstellen pro Jahr laut CVE Details \cite{cve}}
   \end{figure}
-  \begin{figure}[!htb]
-    \includegraphics[width=1\textwidth]{Images/Bitkom}
-    \caption[Bitkom Studie - Bedrohungsszenarien]{Bitkom Studie - Bedrohungsszenarien \cite{Bitkom}}
-  \end{figure}
+Zunehmende Cyberangriffe von kriminellen Hackern aber auch von politisch oder ideologisch motivierten Angreifern sind die Folge. Aktuelle Beispiele sind der Angriff auf die Münchner Firma Krauss Maffai im Dezember 2018, der die Produktion des Maschinen-bauunternehmens für mehrere Tage lahmlegte oder die Attacke auf das Datennetz des Deutschen Bundestags im Oktober 2018. Das Datenleck „Collection \texttt{\#}1“, das im Januar 2019 auftauchte, ist das Ergebnis einer Vielzahl von Cyberattacken, es enthält über 2,6 Milliarden Datensätze mit Zugangsdaten und Passwörtern für hunderte Webseiten.
+
+Für die betroffenen Firmen ist der Schaden enorm: Laut einer Studie des Digitalverbands Bitkom lag der durch Cyberattacken verursachte wirtschaftliche Gesamtschaden für Industrieunternehmen in Deutschland innerhalb der letzten zwei Jahre bei über 43 Milliarden Euro \cite{Bitkom}. Aus der gleichen Studie geht hervor, dass unentdeckte Sicherheitslücken das größte Risiko darstellen:
+\begin{figure}[H]
+  \includegraphics[width=1\textwidth]{Images/Bitkom}
+  \caption[Bitkom Studie - Bedrohungsszenarien]{Bitkom Studie - Bedrohungsszenarien \cite{Bitkom}}
+\end{figure}
+Ansätze, diesem Risiko zu begegnen, gibt es mehrere: Grundsätzlich sollte der Entwickler einer Webseite von Beginn an eine Programmierung anstreben, die bereits bekannte Sicherheitslücken vermeidet und so potentiellen Angreifern möglichst wenig Angriffsfläche bietet. Hier bietet das Bundesamt für Sicherheit in der Informationstechnik (BSI) mit seinem ``Leitfaden zur Entwicklung sicherer Webanwendungen''  \cite{BSI} Hilfestellung.\\
+Fehler in der Programmierung lassen sich jedoch nicht immer ausschließen, zudem ist auch ein Schutz gegen unentdeckte Sicherheitslücken vonnöten.
+
+Neben dem Einsatz von Web Application Firewalls ("Web Shields"), die den Datenstrom zwischen Browser und Webapplikation überwachen, ist die Verwendung von Web Application Vulnerability Scannern (WVS) im Rahmen von Penetrationstests ein wesentlicher Bestandteil von Sicherheitskonzepten in diesem Bereich.
+
+WVS überprüfen Webanwendungen automatisiert auf Schwachstellen und unterstützen dadurch den Penetrationstester beim Aufspüren von Sicherheitslücken.
+
+Die vorliegende Arbeit macht sich die Evaluation von WVS zur Aufgabe, da die wenigen bisherigen Ausarbeitungen zu diesem Thema veraltet sind und teilweise andere Ansätze verfolgen:
+
+\begin{itemize}
+  \item
+  Holm \cite{Holm} vergleicht in seiner Studie aus dem Jahr 2011 lediglich kommerzielle Scanner und verzichtet auf Bewertungskategorien wie Bedienung und Reporting.
+  \item
+  Wundram \cite{Wundram}\cite{Wundram2} behandelt das Thema zweimal, in seinen Vergleichen von 2011 und 2012 finden sich veraltete Programme wie Watobo oder das inzwischen nicht mehr lauffähige W3af.
+\end{itemize}
+
+Zusätzliche Motivation ist die große Anzahl und Vielfalt der Scanner: Das Open Web Application Security Project (OWASP) listet allein eine Sammlung von 50 verschiedenen WVS auf \cite{OWASPtools}, es gibt freie, Open Source und kommerzielle WVS jeweils für verschiedene Plattformen, reine Terminal-Anwendungen und Programme mit grafischer Benutzeroberfläche.\\
+Das Ziel dieser Arbeit ist es, aus dieser bunten Mischung diejenigen WVS herauszufiltern, für die eine nähere Betrachtung lohnenswert erscheint und diese im Hinblick auf folgende Fragestellungen zu evaluieren:
+
+1. Wieviele Schwachstellen werden von den WVS gefunden?
+
+2. Wie unterscheiden sich die WVS in den Kategorien Bedienung, Reporting und Scan-Geschwindigkeit?
+
+Die Evaluation soll mit Hilfe eines Punktesystems erfolgen und schließlich in einem Ranking resultieren, das die Tauglichkeit und Qualität der getesteten WVS anhand ihrer Platzierungen aufzeigt.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \chapter{Grundlagen}
   \section{Web Application Security}
@@ -387,7 +430,7 @@ TODO
     Security Tweets ist eine von Twitter inspirierte Social Networks Applikation, die von Acunetix entwickelt wurde und HTML5 verwendet \cite{Tweets}.
  \end{itemize}
 \chapter{Evaluation}
-  \section{Gefundene Schwachstellen per Web Application}
+  \section{Gefundene Schwachstellen per Webanwendung}
   Die Buchstaben H, L, M und I stehen für die Kategorien High, Medium, Low und Informational (siehe Punkt 2.2.2). WA1 - WA7 stehen für die verwundbaren Web-Applikationen (siehe Punkt 3.3)
     \begin{table}[H]
       \centering
@@ -660,6 +703,10 @@ TODO
   \textbf{CVE} - Common Vulnerabilities and Exposures: Industriestandard zur Bezeichnung von
   Schwachstellen und deren Gefährdungspotential. Der Service CVE Details \cite{cve} bietet
   eine übersichtliche Darstellung aller CVE.\\
+
+  \textbf{BSI} - Bundesamt für Sicherheit in der Informationstechnik\\
+
+  \textbf{WAF} - Web Application Firewall\\
 
   \textbf{OWASP} - The Open Web Application Security Project: siehe Anhang 2\\
 
