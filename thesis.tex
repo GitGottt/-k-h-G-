@@ -195,18 +195,19 @@ TODO
 \mainmatter
 
 \chapter{Einführung}\label{ch:intro}
-Webanwendungen spielen in der heutigen Welt eine immer größer werdende Rolle, sei es beim Einkaufen im Online-Shop einschließlich diverser Bezahlsysteme, dem Nachrichtenaustausch über Social-Media-Kanäle oder zur
-Informationsgewinnung auf Nachrichtenseiten. Die Gesellschaft ist mehr denn je abhängig von der immer größer werdenden Anzahl an Netzwerkdiensten im Internet.
+Mit der weltweit immer größer werdenen Zahl der Internetnutzer steigt auch der Einfluss des World Wide Webs auf alle Lebensbereiche, sei es beim Einkaufen im Online-Shop einschließlich diverser Bezahlsysteme, dem Nachrichtenaustausch über Social-Media-Kanäle oder nur zur Informationsgewinnung auf Nachrichtenseiten - die Gesellschaft ist mehr denn je abhängig von der immer größer werdenden Anzahl an verschiedenen Webanwendungen im Internet.
 Fortschreitende Digitalisierung und weltweite Vernetzung verursachen jedoch auch immer mehr Sicherheitslücken: laut CVE Details hat sich die Anzahl der gefundenen Schwachstellen in den letzten zwei Jahren mehr als verdoppelt:
 \begin{figure}[H]
-    \includegraphics[width=1\textwidth]{Images/VulnByYear}
+  \centering
+    \includegraphics[width=0.9\textwidth]{Images/VulnByYear}
   \caption[Gefundene Schwachstellen pro Jahr laut CVE Details]{Gefundene Schwachstellen pro Jahr laut CVE Details \cite{cve}}
   \end{figure}
 Zunehmende Cyberangriffe von kriminellen Hackern aber auch von politisch oder ideologisch motivierten Angreifern sind die Folge. Aktuelle Beispiele sind der Angriff auf die Münchner Firma Krauss Maffai im Dezember 2018, der die Produktion des Maschinen-bauunternehmens für mehrere Tage lahmlegte oder die Attacke auf das Datennetz des Deutschen Bundestags im Oktober 2018. Das Datenleck „Collection \texttt{\#}1“, das im Januar 2019 auftauchte, ist das Ergebnis einer Vielzahl von Cyberattacken, es enthält über 2,6 Milliarden Datensätze mit Zugangsdaten und Passwörtern für hunderte Webseiten.
 
 Für die betroffenen Firmen ist der Schaden enorm: Laut einer Studie des Digitalverbands Bitkom lag der durch Cyberattacken verursachte wirtschaftliche Gesamtschaden für Industrieunternehmen in Deutschland innerhalb der letzten zwei Jahre bei über 43 Milliarden Euro \cite{Bitkom}. Aus der gleichen Studie geht hervor, dass unentdeckte Sicherheitslücken das größte Risiko darstellen:
 \begin{figure}[H]
-  \includegraphics[width=1\textwidth]{Images/Bitkom}
+  \centering
+   \includegraphics[width=0.9\textwidth]{Images/Bitkom}
   \caption[Bitkom Studie - Bedrohungsszenarien]{Bitkom Studie - Bedrohungsszenarien \cite{Bitkom}}
 \end{figure}
 Ansätze, diesem Risiko zu begegnen, gibt es mehrere: Grundsätzlich sollte der Entwickler einer Webseite von Beginn an eine Programmierung anstreben, die bereits bekannte Sicherheitslücken vermeidet und so potentiellen Angreifern möglichst wenig Angriffsfläche bietet. Hier bietet das Bundesamt für Sicherheit in der Informationstechnik (BSI) mit seinem ``Leitfaden zur Entwicklung sicherer Webanwendungen''  \cite{BSI} Hilfestellung.\\
@@ -225,30 +226,32 @@ Die vorliegende Arbeit macht sich die Evaluation von WVS zur Aufgabe, da die wen
   Wundram \cite{Wundram}\cite{Wundram2} behandelt das Thema zweimal, in seinen Vergleichen von 2011 und 2012 finden sich veraltete Programme wie Watobo oder das inzwischen nicht mehr lauffähige W3af.
 \end{itemize}
 
-Zusätzliche Motivation ist die große Anzahl und Vielfalt der Scanner: Das Open Web Application Security Project (OWASP) listet allein eine Sammlung von 50 verschiedenen WVS auf \cite{OWASPtools}, es gibt freie, Open Source und kommerzielle WVS jeweils für verschiedene Plattformen, reine Terminal-Anwendungen und Programme mit grafischer Benutzeroberfläche.\\
+Zusätzliche Motivation ist die große Anzahl und Vielfalt der Scanner: Das Open Web Application Security Project (OWASP) listet allein eine Sammlung von 50 verschiedenen WVS auf \cite{OWASPtools}, es gibt freie, Open Source und kommerzielle WVS jeweils für verschiedene Plattformen, reine Terminal-Anwendungen und Programme mit grafischer Benutzeroberfläche.
 Das Ziel dieser Arbeit ist es, aus dieser bunten Mischung diejenigen WVS herauszufiltern, für die eine nähere Betrachtung lohnenswert erscheint und diese im Hinblick auf folgende Fragestellungen zu evaluieren:
 
 1. Wieviele Schwachstellen werden von den WVS gefunden?
 
 2. Wie unterscheiden sich die WVS in den Kategorien Bedienung, Reporting und Scan-Geschwindigkeit?
 
+3. Wie groß sind die Unterschiede zwischen Open Source- und kommerziellen WVS?
+
 Die Evaluation soll mit Hilfe eines Punktesystems erfolgen und schließlich in einem Ranking resultieren, das die Tauglichkeit und Qualität der getesteten WVS anhand ihrer Platzierungen aufzeigt.
 
+Die Arbeit ist in sechs Kapitel aufgeteilt:
 
+\textbf{1. Einführung:} In der Einführung wird der Leser an das Thema herangeführt, die Motivation und die Zielsetzung  sowie die zentralen Fragestellungen und der Aufbau der Arbeit werden erläutert.
 
+\textbf{2. Grundlagen:} Das zweite Kapitel enthält Hintergrundwissen, das erforderlich ist, um die Problemstellung und den Rest der Thesis zu verstehen.
 
+\textbf{3. Methodik:} Hier wird der Testaufbau beschrieben einschließlich der Auswahlkriterien für die WVS und des Punktesystems für die Bewertung. Nicht berücksichtigte WVS werden beschrieben sowie die verwundbaren Webanwendungen, die für die Tests verwendet wurden.
 
+\textbf{4. Evaluation:} Dieses Kapitel beinhaltet die Ergebnisse der Evaluation, zum einen die Anzahl der gefundenen Schwachstellen per WVS, zum anderen eine Beschreibung der WVS einschließlich der Bewertung in den Kategorien Bedienung, Reporting und Scangeschwindigkeit.
 
+\textbf{5. Diskussion:} In diesem Kapitel werden die Ergebnisse der Evaluation durchleuchtet und erörtert.
 
+\textbf{6. Fazit und Ausblick:} Zum Schluss wird die Studie nochmals zusammengefasst und auf mögliche zukünftige Arbeiten verwiesen.\\
 
-
-
-
-
-
-
-
-
+Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgführten Scans enthält.
 
 \chapter{Grundlagen}
   \section{Web Application Security}
