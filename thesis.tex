@@ -233,7 +233,9 @@ Das Ziel dieser Arbeit ist es, aus dieser bunten Mischung diejenigen WVS herausz
 
 2. Wie unterscheiden sich die WVS in den Kategorien Bedienung, Reporting und Scan-Geschwindigkeit?
 
-3. Wie groß sind die Unterschiede zwischen Open Source- und kommerziellen WVS?
+3. Welcher WVS schneidet insgesamt am besten ab?
+
+4. Wie groß sind die Unterschiede zwischen Open Source- und kommerziellen WVS?
 
 Die Evaluation soll mit Hilfe eines Punktesystems erfolgen und schließlich in einem Ranking resultieren, das die Tauglichkeit und Qualität der getesteten WVS anhand ihrer Platzierungen aufzeigt.
 
@@ -255,15 +257,28 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
 
 \chapter{Grundlagen}
   \section{Web Application Security}
+  In den letzten zwei Jahrzehnten hat sich das World Wide Web von einem reinen Informationsspeicher in eine Plattform mit hochfunktionalen Anwendungen verwandelt, die nicht nur sensible Daten verarbeiten sondern auch  Aktionen durchführen, die einflussreiche Auswirkungen auf die reale Welt haben.
+  Mit jeder Weiterentwicklung bringen Webanwendungen neue Sicherheitslücken mit sich und so verändern sich auch die Art und die Anzahl der am häufigsten auftretenden Fehler. Es gibt Angriffe auf Schwachstellen, die bei der Entwicklung der Webanwendungen noch nicht bekannt waren und daher nicht berücksichtigt wurden, andere Attacken haben an Bedeutung verloren, da das Bewusstsein für sie gestiegen ist oder aufgrund von Verbesserungen der Web-Browser Software. Neue Technologien bergen jedoch auch immer das Risiko von neuen Sicherheitslücken und so ist ``...in gewissem Maße die Sicherheit von Webanwendungen heute das bedeutendste Schlachtfeld zwischen Angreifern und solchen, die Daten schützen und Computerressourcen verteidigen müssen, und dies wird wahrscheinlich auf absehbare Zeit so bleiben.'' \cite{handbook}
+
     \subsection{Bedrohungen}
-    TODO
+    Die schwerwiegendsten Angriffe auf Webanwendungen sind diejenigen, die sensible Daten verfügbar machen oder uneingeschränkten Zugriff auf die Systeme ermöglichen, auf denen die Anwendung ausgeführt wird. Zudem sind Angriffe, die Systemausfälle versursachen für vielen Organisationen ein sehr kritisches Ereignis. Dies kann mit sogenannten Denial-of-Service Angriffen erreicht werden, bei denen die Server durch absichtlich herbeigeführte Überlastungen funktionsunfähig gemacht werden.
+
       \subsubsection{OWASP Top 10}
 
     \subsection{Sicherheitsmaßnahmen}
-    TODO
+    Sensibilisierung der Entwickler
 
     \subsubsection{Web Application Firewalls (WAF)}
-    TODO
+Eine WAF bietet Schutz für Webanwendungen, indem sie den Verkehr zwischen Clients und Webservern auf Anwendungsebene analysiert. Sie kann HTTP-Traffic überwachen, filtern und blockieren und ist direkt auf dem Server oder als eigenständige Firewall installiert.
+Mit Hilfe der WAF lassen sich Webanwendungen durch die Analyse, Filterung und Blockierung von HTTP-Daten (Hypertext Transfer Protocol) schützen. Im Gegensatz zu einer normalen Firewall werden die Daten nicht auf Netz- und Protokollebene, sondern direkt auf der Anwendungsebene untersucht.\\
+Oft kommen herkömmliche Firewalls und die WAF gemeinsam zum Einsatz und analysieren Kommunikation und Daten in aufeinander folgenden Schritten. Bei der Analyse beachtet die Application Firewall sowohl die vom Webserver gesendeten als auch die empfangenen Daten. Die WAF kann Software- oder Hardware-basiert realisiert und als eigenständige Appliance oder Zusatzkomponente installiert sein. \\
+Je nach Konfiguration und Typ der Firewall arbeitet sie mit Black- oder Whitelists. Die Listen definieren, ob nur festgelegter Verkehr durchgelassen und der Rest blockiert wird oder alles außer erkannten Angriffsmustern die Firewall passieren darf. Viele Application Firewalls sind in der Lage, auf Basis des analysierten Verkehrs zu lernen und bisher unbekannte Angriffe aufgrund ungewöhnlicher Muster zu erkennen. Die Analyse des Webtraffics erfolgt bevor die Daten den Server erreichen in Echtzeit und erfordert eine entsprechende Rechenleistung der Firewall. Eine WAF kann Webapplikationen zum Beispiel vor bekannten Angriffen, Diebstahl von Identitäten oder Zero-Day Exploits schützen. Oft werden die Firewalls auch als Web Shields bezeichnet.
+
+Eine WAF untersucht alle an einen Webserver gesendeten Anfragen und dessen Antworten. Erkennt die Firewall verdächtige oder gefährliche Muster, unterbindet sie die weitere Kommunikation des jeweiligen Clients oder ganze Datenströme. Neben vordefinierten Mustern sind die Application Firewalls meist in der Lage, gefährlichen oder verbotenen Verkehr in einer vorgeschalteten Lernphase selbständig zu erkennen. Unter anderem analysiert die Firewall die empfangenen Eingabeparameter für die Formularfelder der Webapplikation und blockiert Parameter, die nicht den definierten Vorgaben entsprechen. Vorgaben können zum Beispiel Parameterlängen, Parameterwertetypen oder Parameteranzahlen sein. Gegenüber normalen Netzwerk-Firewalls bietet die WAF einen erweiterten Schutz, da sie auf einer höheren Ebene arbeitet. Während Netzwerk-Firewalls nur Absender- und Zieladressen oder die verwendeten Ports und Netzwerkdienste der Kommunikationsdaten analysiert, arbeitet die WAF direkt auf Anwendungsebene. Dadurch sorgt sie für einen zusätzlichen Schutz zu den vorhandenen Netzwerkfiltern. Sie kann Schwachstellen von Anwendungen schließen, die noch nicht aktualisiert wurden und deckt unter Umständen mehrere Angriffsziele hinter der WAF durch einen einzigen Filter ab.
+
+Die WAF ist dafür konzipiert, die Webapplikation vor einer Vielzahl verschiedener Bedrohungen zu schützen. Darunter fallen zum Beispiel SQL Injection Angriffe, Script Injection Angriffe, Angriffe per Cross-Site Scripting (XSS), Angriffe per Pufferüberlauf oder Parameter und Hidden Field Tampering. Auch Cookie Poisoning oder der unbefugte Zugriff auf bestimmte Bereiche des Webservers und Identitätsdiebstahl können vermieden werden.
+
+Für die WAF existieren abhängig von der Positionierung der Firewall zwei grundlegende Architekturen. Sie kann hinter der Netzwerk Firewall und vor dem Webserver platziert oder direkt auf dem Webserver installiert sein. Im ersten Fall handelt es sich um eine zentralisierte Architektur, im zweiten Fall um einen Host-basierten Ansatz. In der zentralisierten Architektur kommen meist dedizierte Geräte für die WAF zum Einsatz. Die WAF im Host-basierten Ansatz besteht in der Regel aus einer zusätzlichen Software. Diese Software ist beispielsweise ein Plugin für den Webserver oder direkt in der Webserver-Software integriert. Eine häufige Einsatzart für die WAF ist der so genannte Reverse-Proxy-Modus. Der Proxy befindet sich zwischen Webserver und der Firewall und terminiert die Websessions. Der Proxy führt die Zugriffe auf die Webanwendungen im Namen des Clients durch und analysiert im zweiten Schritt als Applikation Firewall die Anfragen an den eigentlichen Webserver. \cite{WAF}
 
     \subsubsection{Penetrationtesting}
     Penetrationstests können als legaler und autorisierter Versuch definiert werden, Computersysteme anzugreifen, mit dem Ziel, diese sicherer zu machen.
@@ -281,14 +296,25 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
     Während der Black-Box-Tester ein System aus der Sicht eines Außenseiters untersucht, hat ein    Grey-Box Tester bereits Zugriff auf das System auf Benutzerebene, möglicherweise sogar mit erhöhten Berechtigungen eines Administrators. In der Regel liegt eine Dokumentation über Design und Architektur des Netzwerks vor, die internen Komponenten sind bekannt. Dies hat den Vorteil, dass die Sicherheit des Netzwerks gezielter und effizienter beurteilt werden kann, der Tester kann sich sofort auf die Systeme konzentrieren, die am wichtigsten sind oder ein besonders hohes Risiko haben. Zudem kann durch das interne Benutzerkonto ein Angriff innerhalb des abgesicherten Systems mit umfassendem Zugriff auf das Netzwerk simuliert werden.
     \paragraph{White-Box Testing}
     Der White-Box Tester hat uneingeschränkten Zugriff auf ein System, er besitzt alle nötigen Berechtigungen und kennt Netzwerkarchitektur und Design. Überdies hat er Zugang zum Quellcode, was es ihm erlaubt, statische Code-Analysen durchzuführen. Durch das Auffinden sowohl interner als auch externer Schwachstellen ist das White-Box Testing maximal effektiv, aber auch sehr aufwandsintensiv da der Tester sehr große Datenmengen untersuchen muss.
-    Alternative Namen sind Clear-Box, Glass-Box oder Open-Box Testing.
+    Alternative Namen sind Clear-Box, Glass-Box oder Open-Box Testing.\\
 
 
-
-
-    \paragraph{Rechtliche Aspekte}
-      \subparagraph{Hacker/Cracker vs. Pentester}
-      TODO
+    Ein Penetrationstest besteht in der Regel aus 7 Phasen \cite{pentest}:
+    \paragraph{1. Pre-Engagement}
+    In der Vorbereitungsphase gibt es mit dem Auftraggeber einige Dinge zu klären: Welcher Ansatz soll verfolgt werden (Black-, Grey- oder White-Box)? Wann soll der Test stattfinden? Stehen Dokumentationen zur Verfügung? Welche Domains und IP-Adressen sollen getestet werden? Zudem benötigt man aus rechtlichen Gründen eine unterschriebene Erlaubnis, das System anzugreifen.
+    \paragraph{2. Information Gathering}
+    Das Ziel der zweiten Phase ist, so viele Informationen über das zu testende System wie möglich zu sammeln, diese Daten können später zum Eindringen in das Ziel genutzt werden. Je mehr Informationen gesammelt werden, desto mehr Möglichkeiten zum Angriff stehen zur Verfügung.
+    \paragraph{3. Threat Modeling}
+    In der dritten Phase werden Bedrohungsanalysen erstellt und damit die Bedrohungen für das Unternehmen identifiziert und bewertet. Dies wird dokumentiert und ist Teil des Abschlussberichts.
+    \paragraph{4. Vulnerability Analysis}
+    Anhand der gesammelten Informationen und der Bedrohungsanalyse werden gezielt Schwachstellen gesucht. Hier kommen Tools wie Portscanner und Web Application Vulnerability Scanner zum Einsatz, die Gewinnung von sensiblen Daten durch Analyse von Metadaten oder durch Traffic Monitoring muss aber meistens zusätzlich manuell erfolgen.
+    \paragraph{5. Exploitation}
+    Mit Hilfe der vorher durchgeführten Analysen wird nun versucht, in das System einzudringen und möglichst viele Daten zu sammeln, die einen hohen Wert für das Unternehmen haben. Zudem kann versucht werden, durch Schadsoftware Programme zum Absturz zu bringen, wenn es mit dem Auftraggeber abgesprochen wurde.
+    \paragraph{6. Post-Exploitation}
+    Nach dem Eindringen werden die gesammelten Daten und Informationen nach folgenden Kriterien bewertet: Haben die Daten sensiblen Inhalt, wie Benutzerkonten und Passwörter? Sind sie hilfreich, um tiefer in das System vorzudringen? Welche Auswirkungen auf das Unternehmen hätte das Stehlen dieser Daten bei einem realen Hacker-Angriff?
+    \paragraph{7. Reporting}
+    Im Abschlussbericht werden schließlich nochmals die spezifischen Ziele des Penetrationstests erläutert und die gefundenen Daten und Informationen mit der der ausführlichen Bewertung der Post-Exploitation-Phase präsentiert.
+  
 
   \section{Security Tools}
     \subsection{Mapping Tools}
@@ -676,7 +702,11 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
 
 
 \chapter{Fazit und Ausblick}
-TODO
+In dieser Arbeit wurden WVS auf ihre Tauglichkeit und Qualität überprüft:
+
+Es wurde der Unterschied zwischen Open Source und kommerziellen Scannern aufgezeigt:
+
+Ausblick: Diese Ausarbeitung kann in verschiedenen Richtungen erweitert werden:
   \section{OWASP Benchmark}
   TODO
 
@@ -713,6 +743,8 @@ TODO
 
   \textbf{OWASP} - The Open Web Application Security Project: siehe Anhang 2\\
 
+  \textbf{PTES} - The Penetration Testing Execution Standard\\
+
   \textbf{BSoD} - ``Blue Screen of Death'': Umgangssprachlich für einen kritischen Systemfehler unter Microsoft Windows, bei dem die Benutzeroberfläche durch einen blauen Bildschirm mit Fehlermeldungen ersetzt wird.\\
   \newpage
 
@@ -740,8 +772,9 @@ TODO
     \item Vermeide Beziehungen, die die Objektivität und Unabhängigkeit von OWASP  beeinträchtigen könnten.
   \end{itemize}
     \subsection{Die OWASP Top Ten}
-    TODO
-     \cite{OWASPtop10}
+    Eines der bekanntesten und wichtigsten Projekte von OWASP sind die OWASP Top Ten. Alle drei bis vier Jahre wird eine Liste mit den 10 häufigsten Sicherheitsrisiken für Webanwendungen veröffentlicht, um Unternehmen und Organisationen für Websicherheit zu sensibilisieren. Die Liste wird von einem weltweiten Team von IT-Sicherheitsexperten zusammengestellt, und kann durch die große Akzeptanz in der Fachwelt als Sicherheitsrichtlinie angesehen werden.
+
+    Nachfolgend werden die aktuellen OWASP Top Ten aus dem Jahr 2017 aufgelistet \cite{OWASPtop10}:
 
     \subsubsection{A1: Injection}
     Injection-Schwachstellen, wie beispielsweise SQL-, OS- oder LDAP-Injection, treten auf, wenn
