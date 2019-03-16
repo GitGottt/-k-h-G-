@@ -195,22 +195,27 @@ TODO
 \mainmatter
 
 \chapter{Einführung}\label{ch:intro}
-Mit der weltweit immer größer werdenen Zahl der Internetnutzer steigt auch der Einfluss des World Wide Webs auf alle Lebensbereiche, sei es beim Einkaufen im Online-Shop einschließlich diverser Bezahlsysteme, dem Nachrichtenaustausch über Social-Media-Kanäle oder nur zur Informationsgewinnung auf Nachrichtenseiten - die Gesellschaft ist mehr denn je abhängig von der immer größer werdenden Anzahl an verschiedenen Webanwendungen im Internet.
-Fortschreitende Digitalisierung und weltweite Vernetzung verursachen jedoch auch immer mehr Sicherheitslücken: laut CVE Details hat sich die Anzahl der gefundenen Schwachstellen in den letzten zwei Jahren mehr als verdoppelt:
-\begin{figure}[H]
+In den letzten zwei Jahrzehnten hat sich das World Wide Web von einem reinen Informationsspeicher in eine Plattform mit hochfunktionalen Anwendungen verwandelt, die nicht nur sensible Daten verarbeiten sondern auch  Aktionen durchführen, die einflussreiche Auswirkungen auf die reale Welt haben.
+Mit jeder Weiterentwicklung bringen Webanwendungen neue Sicherheitslücken mit sich und so verändern sich auch die Art und die Anzahl der am häufigsten auftretenden Fehler. Es gibt Angriffe auf Schwachstellen, die bei der Entwicklung der Webanwendungen noch nicht bekannt waren und daher nicht berücksichtigt wurden, andere Attacken haben an Bedeutung verloren, da das Bewusstsein für sie gestiegen ist oder aufgrund von Verbesserungen der Web-Browser Software. Neue Technologien bergen jedoch auch immer das Risiko von neuen Sicherheitslücken und so ist ``...in gewissem Maße die Sicherheit von Webanwendungen heute das bedeutendste Schlachtfeld zwischen Angreifern und solchen, die Daten schützen und Computerressourcen verteidigen müssen, und dies wird wahrscheinlich auf absehbare Zeit so bleiben.'' \cite{handbook}
+
+Mit der Anzahl der Webanwendungen steigt auch der Einfluss des World Wide Webs auf alle Lebensbereiche, sei es beim Einkaufen im Online-Shop einschließlich diverser Bezahlsysteme, dem Nachrichtenaustausch über Social-Media-Kanäle oder nur zur Informationsgewinnung auf Nachrichtenseiten - die Gesellschaft ist mehr denn je abhängig von der immer größer werdenden Anzahl an verschiedenen Webanwendungen im Internet.
+Fortschreitende Digitalisierung und weltweite Vernetzung verursachen jedoch auch immer mehr Sicherheitslücken: laut CVE Details hat sich die Anzahl der gefundenen Schwachstellen in den letzten zwei Jahren mehr als verdoppelt (siehe Abb. 1.1).
+
+\begin{figure}[htb!]
   \centering
-    \includegraphics[width=0.9\textwidth]{Images/VulnByYear}
+    \includegraphics[width=1\textwidth]{Images/VulnByYear}
   \caption[Gefundene Schwachstellen pro Jahr laut CVE Details]{Gefundene Schwachstellen pro Jahr laut CVE Details \cite{cve}}
   \end{figure}
 Zunehmende Cyberangriffe von kriminellen Hackern aber auch von politisch oder ideologisch motivierten Angreifern sind die Folge. Aktuelle Beispiele sind der Angriff auf die Münchner Firma Krauss Maffai im Dezember 2018, der die Produktion des Maschinen-bauunternehmens für mehrere Tage lahmlegte oder die Attacke auf das Datennetz des Deutschen Bundestags im Oktober 2018. Das Datenleck „Collection \texttt{\#}1“, das im Januar 2019 auftauchte, ist das Ergebnis einer Vielzahl von Cyberattacken, es enthält über 2,6 Milliarden Datensätze mit Zugangsdaten und Passwörtern für hunderte Webseiten.
 
-Für die betroffenen Firmen ist der Schaden enorm: Laut einer Studie des Digitalverbands Bitkom lag der durch Cyberattacken verursachte wirtschaftliche Gesamtschaden für Industrieunternehmen in Deutschland innerhalb der letzten zwei Jahre bei über 43 Milliarden Euro \cite{Bitkom}. Aus der gleichen Studie geht hervor, dass unentdeckte Sicherheitslücken das größte Risiko darstellen:
-\begin{figure}[H]
+Für die betroffenen Firmen ist der Schaden enorm: Laut einer Studie des Digitalverbands Bitkom lag der durch Cyberattacken verursachte wirtschaftliche Gesamtschaden für Industrieunternehmen in Deutschland innerhalb der letzten zwei Jahre bei über 43 Milliarden Euro \cite{Bitkom}. Aus der gleichen Studie geht hervor, dass unentdeckte Sicherheitslücken das größte Risiko darstellen (siehe Abb. 1.2)
+
+\begin{figure}[htb!]
   \centering
-   \includegraphics[width=0.9\textwidth]{Images/Bitkom}
+   \includegraphics[width=1\textwidth]{Images/Bitkom}
   \caption[Bitkom Studie - Bedrohungsszenarien]{Bitkom Studie - Bedrohungsszenarien \cite{Bitkom}}
 \end{figure}
-Ansätze, diesem Risiko zu begegnen, gibt es mehrere: Grundsätzlich sollte der Entwickler einer Webseite von Beginn an eine Programmierung anstreben, die bereits bekannte Sicherheitslücken vermeidet und so potentiellen Angreifern möglichst wenig Angriffsfläche bietet. Hier bietet das Bundesamt für Sicherheit in der Informationstechnik (BSI) mit seinem ``Leitfaden zur Entwicklung sicherer Webanwendungen''  \cite{BSI} Hilfestellung.\\
+Es gibt mehrere Ansätze, diesem Risiko zu begegnen: Grundsätzlich sollte der Entwickler einer Webseite von Beginn an eine Programmierung anstreben, die bereits bekannte Sicherheitslücken vermeidet und so potentiellen Angreifern möglichst wenig Angriffsfläche bietet. Hier bietet das Bundesamt für Sicherheit in der Informationstechnik (BSI) mit seinem ``Leitfaden zur Entwicklung sicherer Webanwendungen''  \cite{BSI} Hilfestellung.\\
 Fehler in der Programmierung lassen sich jedoch nicht immer ausschließen, zudem ist auch ein Schutz gegen unentdeckte Sicherheitslücken vonnöten.
 
 Neben dem Einsatz von Web Application Firewalls ("Web Shields"), die den Datenstrom zwischen Browser und Webapplikation überwachen, ist die Verwendung von Web Application Vulnerability Scannern (WVS) im Rahmen von Penetrationstests ein wesentlicher Bestandteil von Sicherheitskonzepten in diesem Bereich.
@@ -229,13 +234,13 @@ Die vorliegende Arbeit macht sich die Evaluation von WVS zur Aufgabe, da die wen
 Zusätzliche Motivation ist die große Anzahl und Vielfalt der Scanner: Das Open Web Application Security Project (OWASP) listet allein eine Sammlung von 50 verschiedenen WVS auf \cite{OWASPtools}, es gibt freie, Open Source und kommerzielle WVS jeweils für verschiedene Plattformen, reine Terminal-Anwendungen und Programme mit grafischer Benutzeroberfläche.
 Das Ziel dieser Arbeit ist es, aus dieser bunten Mischung diejenigen WVS herauszufiltern, für die eine nähere Betrachtung lohnenswert erscheint und diese im Hinblick auf folgende Fragestellungen zu evaluieren:
 
-1. Wieviele Schwachstellen werden von den WVS gefunden?
+\textbf{1. Wieviele Schwachstellen werden von den WVS gefunden?}
 
-2. Wie unterscheiden sich die WVS in den Kategorien Bedienung, Reporting und Scan-Geschwindigkeit?
+\textbf{2. Wie unterscheiden sich die WVS in den Kategorien Bedienung, Reporting und Scan-Geschwindigkeit?}
 
-3. Welcher WVS schneidet insgesamt am besten ab?
+\textbf{3. Welcher WVS schneidet insgesamt am besten ab?}
 
-4. Wie groß sind die Unterschiede zwischen Open Source- und kommerziellen WVS?
+\textbf{4. Gibt es Unterschiede zwischen Open Source- und kommerziellen WVS?}
 
 Die Evaluation soll mit Hilfe eines Punktesystems erfolgen und schließlich in einem Ranking resultieren, das die Tauglichkeit und Qualität der getesteten WVS anhand ihrer Platzierungen aufzeigt.
 
@@ -243,7 +248,7 @@ Die Arbeit ist in sechs Kapitel aufgeteilt:
 
 \textbf{1. Einführung:} In der Einführung wird der Leser an das Thema herangeführt, die Motivation und die Zielsetzung  sowie die zentralen Fragestellungen und der Aufbau der Arbeit werden erläutert.
 
-\textbf{2. Grundlagen:} Das zweite Kapitel enthält Hintergrundwissen, das erforderlich ist, um die Problemstellung und den Rest der Thesis zu verstehen.
+\textbf{2. Grundlagen:} Das zweite Kapitel vermittelt Grundlagen über Schwachstellen, Sicherheitsmaßnahmen wie Web Application Firewalls und Penetrationtesting sowie die Arbeistweise von WVS.
 
 \textbf{3. Methodik:} Hier wird der Testaufbau beschrieben einschließlich der Auswahlkriterien für die WVS und des Punktesystems für die Bewertung. Nicht berücksichtigte WVS werden beschrieben sowie die verwundbaren Webanwendungen, die für die Tests verwendet wurden.
 
@@ -256,29 +261,122 @@ Die Arbeit ist in sechs Kapitel aufgeteilt:
 Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgführten Scans enthält.
 
 \chapter{Grundlagen}
+  \section{Schwachstellen}
+  Zu Beginn soll geklärt werden, was unter dem Begriff Schwachstelle verstanden wird. Das Bundesamt für Sicherheit in der Informationstechnik (BSI) definiert eine Schwachstelle wie folgt:
+
+  \begin{quote}``Eine Schwachstelle (englisch ``vulnerability'') ist ein sicherheitsrelevanter Fehler eines IT-Systems oder einer Institution. Ursachen können in der Konzeption, den verwendeten Algorithmen, der Implementation, der Konfiguration, dem Betrieb sowie der Organisation liegen. Eine Schwachstelle kann dazu führen, dass eine Bedrohung wirksam wird und eine Institution oder ein System geschädigt wird. Durch eine Schwachstelle wird ein Objekt (eine Institution oder ein System) anfällig für Bedrohungen.'' \cite{BSI2}
+  \end{quote}
+   \subsection{Lebenszyklus einer Schwachstelle}
+   Viele Schwachstellen werden nicht öffentlich bekannt, da ein Hersteller sie im Idealfall
+   selbst entdeckt und behebt, bevor ein Dritter sie finden und insbesondere ein Angreifer
+  sie ausnutzen kann.
+  Wird eine sicherheitskritische Schwachstelle jedoch nicht durch den Hersteller, sondern
+  durch einen Dritten gefunden, gibt es unterschiedliche Möglichkeiten, wie ihr Lebenszyklus und die daraus resultierende Gefährdung für den Nutzer verlaufen können.
+  Wichtig sind dabei Rolle und Selbstverständnis des Entdeckers. Neben Personen, die
+  sich beruflich mit IT-Sicherheit beschäftigen, kann beispielsweise auch akademische
+  Forschung zur Entdeckung von Schwachstellen beitragen. Es kann sich um gezielte Suche nach Schwachstellen handeln, aber auch Zufallsfunde sind möglich.
+  Der Lebenszyklus hängt daher stark von Verhalten und Motivation des Entdeckers sowie von der Reaktion des Herstellers ab:
+
+  • Ist dem Entdecker daran gelegen, die IT-Sicherheit zu verbessern, oder möchte er die
+  Schwachstelle für eigene, möglicherweise kriminelle Zwecke nutzen?
+
+  • Wie viele Informationen über die Schwachstelle werden öffentlich bekannt?
+
+  • Schätzt der Hersteller die entstehende Gefährdung richtig ein und kann er schnell genug Abhilfe
+  schaffen?
+
+  Um die Diskussion über Schwachstellen zwischen Entdeckern, Herstellern und weiteren
+  Beteiligten zu systematisieren, wurde zur einheitlichen Benennung von öffentlich bekannten Schwachstellen und zur Sammlung der darüber verfügbaren Informationen
+  mit den Common Vulnerabilities and Exposures (CVE) ein herstellerübergreifender Industriestandard geschaffen. Mit diesem Standard wird sichergestellt, dass alle Beteiligten während des gesamten Lebenszyklus tatsächlich jeweils dieselbe Schwachstelle meinen. Zudem werden statistische Auswertungen ermöglicht.
+
+  Grundsätzlich basiert der Lebenszyklus einer durch Dritte entdeckten Schwachstelle auf dem
+  folgenden Schema:
+
+  1. Die Schwachstelle wird durch einen Dritten entdeckt und untersucht.
+
+  2. Der Hersteller erlangt auf einem der folgenden Wege Kenntnis von der Schwachstelle:
+
+  • Der Entdecker veröffentlicht sämtliche Informationen über die Schwachstelle.
+  → Full Disclosure
+
+  • Der Entdecker informiert den Hersteller direkt und verzichtet zunächst auf eine detaillierte
+  Veröffentlichung.
+  → Coordinated Disclosure
+
+  • Die Schwachstelle wird für Angriffe ausgenutzt und diese werden entdeckt.
+  → Zero-Day-Exploit
+
+  • Der Hersteller wird indirekt über die Schwachstelle informiert.
+  → Schwachstellen-Broker
+
+  3. Der Hersteller beginnt mit der Entwicklung eines Patches (von engl. Flicken), einer Nachbesserung der Software, mit der die Schwachstelle behoben wird.
+
+  4. Der Hersteller veröffentlicht eine Schwachstellenwarnung, ein sogenanntes Advisory. Dieses
+  enthält üblicherweise allgemeine Informationen zur Schwachstelle, eine Bewertung der
+  entstehenden Gefährdung sowie mögliche vorläufige Gegenmaßnahmen (sogenannte
+  Workarounds oder Mitigations). Ein Advisory wird vor allem dann schon vor Verfügbarkeit
+  des Patches veröffentlicht, wenn auch die Öffentlichkeit bereits Kenntnis von der Schwachstelle hat und die Gefährdung hoch ist. Häufig erscheinen Advisory und Patch jedoch zeitgleich.
+
+  5. Der Hersteller stellt zusammen mit einer entsprechenden Beschreibung (Bulletin) einen
+  Patch zur Behebung der Schwachstelle bereit. Durch Analyse des Patches kann ein Angreifer
+  unter Umständen so viele Details über die Schwachstelle herausfinden, dass er sie ausnutzen
+  kann. Daher steigt mit der Veröffentlichung des Patches die Gefährdung für ungepatchte
+  Systeme an.
+
+  6. Der Benutzer der betroffenen Software installiert den Patch, schließt dadurch die Schwachstelle und ist erst dann vor ihrer Ausnutzung geschützt. Dies unterstreicht die enorme Bedeutung eines effektiven Patchmanagements.
+  \begin{figure}[htb!]
+    \centering
+     \includegraphics[width=1\textwidth]{Images/Lebenszyklus}
+    \caption[Lebenszyklus einer Schwachstelle]{Lebenszyklus einer Schwachstelle \cite{BSI3}}
+  \end{figure}
+
+  Abweichungen von diesem Schema sind möglich, der Ablauf kann sich dynamisch ändern. So
+  kann ein Hersteller beispielsweise eine Schwachstelle als unkritisch einschätzen und auf die
+  Entwicklung eines Patches zunächst verzichten. Wird zu einem späteren Zeitpunkt doch eine
+  Ausnutzungsmöglichkeit bekannt, so kann der Hersteller dadurch zu einer entsprechenden
+  schnellen Reaktion gezwungen sein. \cite{BSI3}
+
   \section{Web Application Security}
-  In den letzten zwei Jahrzehnten hat sich das World Wide Web von einem reinen Informationsspeicher in eine Plattform mit hochfunktionalen Anwendungen verwandelt, die nicht nur sensible Daten verarbeiten sondern auch  Aktionen durchführen, die einflussreiche Auswirkungen auf die reale Welt haben.
-  Mit jeder Weiterentwicklung bringen Webanwendungen neue Sicherheitslücken mit sich und so verändern sich auch die Art und die Anzahl der am häufigsten auftretenden Fehler. Es gibt Angriffe auf Schwachstellen, die bei der Entwicklung der Webanwendungen noch nicht bekannt waren und daher nicht berücksichtigt wurden, andere Attacken haben an Bedeutung verloren, da das Bewusstsein für sie gestiegen ist oder aufgrund von Verbesserungen der Web-Browser Software. Neue Technologien bergen jedoch auch immer das Risiko von neuen Sicherheitslücken und so ist ``...in gewissem Maße die Sicherheit von Webanwendungen heute das bedeutendste Schlachtfeld zwischen Angreifern und solchen, die Daten schützen und Computerressourcen verteidigen müssen, und dies wird wahrscheinlich auf absehbare Zeit so bleiben.'' \cite{handbook}
+  Als Teildisziplin der IT-Sicherheit befasst sich die Webanwendungssicherheit im Wesentlichen mit dem
+  Schutz von Assets einer Webanwendung. Unter Assets versteht man in diesem Fall all jene Bestandteile
+  (Daten, Systeme und Funktionen) einer Webanwendung, für die sich ein Schutzbedarf hinsichtlich eines der
+  drei primären Schutzziele
 
-    \subsection{Bedrohungen}
-    Die schwerwiegendsten Angriffe auf Webanwendungen sind diejenigen, die sensible Daten verfügbar machen oder uneingeschränkten Zugriff auf die Systeme ermöglichen, auf denen die Anwendung ausgeführt wird. Zudem sind Angriffe, die Systemausfälle versursachen für vielen Organisationen ein sehr kritisches Ereignis. Dies kann mit sogenannten Denial-of-Service Angriffen erreicht werden, bei denen die Server durch absichtlich herbeigeführte Überlastungen funktionsunfähig gemacht werden.
+  • Vertraulichkeit,
 
-      \subsubsection{OWASP Top 10}
+  • Integrität sowie
 
-    \subsection{Sicherheitsmaßnahmen}
+  • Verfügbarkeit
+
+  ableiten lässt.
+
+  Darüber hinaus leiten sich aus diesen primären Schutzzielen auch sekundäre Schutzziele ab, zu denen etwa
+  Authentizität oder Nicht-Abstreitbarkeit zählen.
+
+  Die Disziplin der Webanwendungssicherheit stellt sich dabei als Querschnittthema dar, welches sich auf alle
+  Phasen des Lebenszyklus einer Webanwendung bezieht und auch einen Bestandteil der Qualitätssicherung
+  darstellt. Sie befasst sich sowohl mit der Abwehr von Bedrohungen und der Prävention von Schwachstellen
+  als auch mit der Identifikation und der Behebung von Schwachstellen. \cite{BSI}
+  \subsection{Bedrohungen und Risiken}
+  Die schwerwiegendsten Angriffe auf Webanwendungen sind diejenigen, die sensible Daten verfügbar machen oder uneingeschränkten Zugriff auf die Systeme ermöglichen, auf denen die Anwendung ausgeführt wird. Zudem sind Angriffe, die Systemausfälle versursachen für vielen Organisationen ein sehr kritisches Ereignis. Dies kann mit sogenannten Denial-of-Service (DoS) Angriffen erreicht werden, bei denen die Server durch absichtlich herbeigeführte Überlastungen funktionsunfähig gemacht werden.
+
+
+  \subsection{Sicherheitsmaßnahmen}
+    \begin{quote} ``Als Sicherheitsmaßnahmen werden alle Aktionen bezeichnet, die dazu dienen, Sicherheitsrisiken zu steuern und diesen entgegenzuwirken. Dies schließt sowohl organisatorische, als auch personelle, technische oder infrastrukturelle Sicherheitsmaßnahmen ein. Synonym werden auch die Begriffe Sicherheitsvorkehrung oder Schutzmaßnahme benutzt.'' \cite{BSI2}\end{quote}
+
     Sensibilisierung der Entwickler
 
     \subsubsection{Web Application Firewalls (WAF)}
-Eine WAF bietet Schutz für Webanwendungen, indem sie den Verkehr zwischen Clients und Webservern auf Anwendungsebene analysiert. Sie kann HTTP-Traffic überwachen, filtern und blockieren und ist direkt auf dem Server oder als eigenständige Firewall installiert.
-Mit Hilfe der WAF lassen sich Webanwendungen durch die Analyse, Filterung und Blockierung von HTTP-Daten (Hypertext Transfer Protocol) schützen. Im Gegensatz zu einer normalen Firewall werden die Daten nicht auf Netz- und Protokollebene, sondern direkt auf der Anwendungsebene untersucht.\\
-Oft kommen herkömmliche Firewalls und die WAF gemeinsam zum Einsatz und analysieren Kommunikation und Daten in aufeinander folgenden Schritten. Bei der Analyse beachtet die Application Firewall sowohl die vom Webserver gesendeten als auch die empfangenen Daten. Die WAF kann Software- oder Hardware-basiert realisiert und als eigenständige Appliance oder Zusatzkomponente installiert sein. \\
-Je nach Konfiguration und Typ der Firewall arbeitet sie mit Black- oder Whitelists. Die Listen definieren, ob nur festgelegter Verkehr durchgelassen und der Rest blockiert wird oder alles außer erkannten Angriffsmustern die Firewall passieren darf. Viele Application Firewalls sind in der Lage, auf Basis des analysierten Verkehrs zu lernen und bisher unbekannte Angriffe aufgrund ungewöhnlicher Muster zu erkennen. Die Analyse des Webtraffics erfolgt bevor die Daten den Server erreichen in Echtzeit und erfordert eine entsprechende Rechenleistung der Firewall. Eine WAF kann Webapplikationen zum Beispiel vor bekannten Angriffen, Diebstahl von Identitäten oder Zero-Day Exploits schützen. Oft werden die Firewalls auch als Web Shields bezeichnet.
+    Eine WAF bietet Schutz für Webanwendungen, indem sie den Verkehr zwischen Clients und Webservern auf Anwendungsebene analysiert. Sie kann HTTP-Traffic überwachen, filtern und blockieren und ist direkt auf dem Server oder als eigenständige Firewall installiert.
+    Mit Hilfe der WAF lassen sich Webanwendungen durch die Analyse, Filterung und Blockierung von HTTP-Daten (Hypertext Transfer Protocol) schützen. Im Gegensatz zu einer normalen Firewall werden die Daten nicht auf Netz- und Protokollebene, sondern direkt auf der Anwendungsebene untersucht.\\
+    Oft kommen herkömmliche Firewalls und die WAF gemeinsam zum Einsatz und analysieren Kommunikation und Daten in aufeinander folgenden Schritten. Bei der Analyse beachtet die Application Firewall sowohl die vom Webserver gesendeten als auch die empfangenen Daten. Die WAF kann Software- oder Hardware-basiert realisiert und als eigenständige Appliance oder Zusatzkomponente installiert sein. \\
+    Je nach Konfiguration und Typ der Firewall arbeitet sie mit Black- oder Whitelists. Die Listen definieren, ob nur festgelegter Verkehr durchgelassen und der Rest blockiert wird oder alles außer erkannten Angriffsmustern die Firewall passieren darf. Viele Application Firewalls sind in der Lage, auf Basis des analysierten Verkehrs zu lernen und bisher unbekannte Angriffe aufgrund ungewöhnlicher Muster zu erkennen. Die Analyse des Webtraffics erfolgt bevor die Daten den Server erreichen in Echtzeit und erfordert eine entsprechende Rechenleistung der Firewall. Eine WAF kann Webapplikationen zum Beispiel vor bekannten Angriffen, Diebstahl von Identitäten oder Zero-Day Exploits schützen. Oft werden die Firewalls auch als Web Shields bezeichnet.
 
-Eine WAF untersucht alle an einen Webserver gesendeten Anfragen und dessen Antworten. Erkennt die Firewall verdächtige oder gefährliche Muster, unterbindet sie die weitere Kommunikation des jeweiligen Clients oder ganze Datenströme. Neben vordefinierten Mustern sind die Application Firewalls meist in der Lage, gefährlichen oder verbotenen Verkehr in einer vorgeschalteten Lernphase selbständig zu erkennen. Unter anderem analysiert die Firewall die empfangenen Eingabeparameter für die Formularfelder der Webapplikation und blockiert Parameter, die nicht den definierten Vorgaben entsprechen. Vorgaben können zum Beispiel Parameterlängen, Parameterwertetypen oder Parameteranzahlen sein. Gegenüber normalen Netzwerk-Firewalls bietet die WAF einen erweiterten Schutz, da sie auf einer höheren Ebene arbeitet. Während Netzwerk-Firewalls nur Absender- und Zieladressen oder die verwendeten Ports und Netzwerkdienste der Kommunikationsdaten analysiert, arbeitet die WAF direkt auf Anwendungsebene. Dadurch sorgt sie für einen zusätzlichen Schutz zu den vorhandenen Netzwerkfiltern. Sie kann Schwachstellen von Anwendungen schließen, die noch nicht aktualisiert wurden und deckt unter Umständen mehrere Angriffsziele hinter der WAF durch einen einzigen Filter ab.
+    Eine WAF untersucht alle an einen Webserver gesendeten Anfragen und dessen Antworten. Erkennt die Firewall verdächtige oder gefährliche Muster, unterbindet sie die weitere Kommunikation des jeweiligen Clients oder ganze Datenströme. Neben vordefinierten Mustern sind die Application Firewalls meist in der Lage, gefährlichen oder verbotenen Verkehr in einer vorgeschalteten Lernphase selbständig zu erkennen. Unter anderem analysiert die Firewall die empfangenen Eingabeparameter für die Formularfelder der Webapplikation und blockiert Parameter, die nicht den definierten Vorgaben entsprechen. Vorgaben können zum Beispiel Parameterlängen, Parameterwertetypen oder Parameteranzahlen sein. Gegenüber normalen Netzwerk-Firewalls bietet die WAF einen erweiterten Schutz, da sie auf einer höheren Ebene arbeitet. Während Netzwerk-Firewalls nur Absender- und Zieladressen oder die verwendeten Ports und Netzwerkdienste der Kommunikationsdaten analysiert, arbeitet die WAF direkt auf Anwendungsebene. Dadurch sorgt sie für einen zusätzlichen Schutz zu den vorhandenen Netzwerkfiltern. Sie kann Schwachstellen von Anwendungen schließen, die noch nicht aktualisiert wurden und deckt unter Umständen mehrere Angriffsziele hinter der WAF durch einen einzigen Filter ab.
 
-Die WAF ist dafür konzipiert, die Webapplikation vor einer Vielzahl verschiedener Bedrohungen zu schützen. Darunter fallen zum Beispiel SQL Injection Angriffe, Script Injection Angriffe, Angriffe per Cross-Site Scripting (XSS), Angriffe per Pufferüberlauf oder Parameter und Hidden Field Tampering. Auch Cookie Poisoning oder der unbefugte Zugriff auf bestimmte Bereiche des Webservers und Identitätsdiebstahl können vermieden werden.
+    Die WAF ist dafür konzipiert, die Webapplikation vor einer Vielzahl verschiedener Bedrohungen zu schützen. Darunter fallen zum Beispiel SQL Injection Angriffe, Script Injection Angriffe, Angriffe per Cross-Site Scripting (XSS), Angriffe per Pufferüberlauf oder Parameter und Hidden Field Tampering. Auch Cookie Poisoning oder der unbefugte Zugriff auf bestimmte Bereiche des Webservers und Identitätsdiebstahl können vermieden werden.
 
-Für die WAF existieren abhängig von der Positionierung der Firewall zwei grundlegende Architekturen. Sie kann hinter der Netzwerk Firewall und vor dem Webserver platziert oder direkt auf dem Webserver installiert sein. Im ersten Fall handelt es sich um eine zentralisierte Architektur, im zweiten Fall um einen Host-basierten Ansatz. In der zentralisierten Architektur kommen meist dedizierte Geräte für die WAF zum Einsatz. Die WAF im Host-basierten Ansatz besteht in der Regel aus einer zusätzlichen Software. Diese Software ist beispielsweise ein Plugin für den Webserver oder direkt in der Webserver-Software integriert. Eine häufige Einsatzart für die WAF ist der so genannte Reverse-Proxy-Modus. Der Proxy befindet sich zwischen Webserver und der Firewall und terminiert die Websessions. Der Proxy führt die Zugriffe auf die Webanwendungen im Namen des Clients durch und analysiert im zweiten Schritt als Applikation Firewall die Anfragen an den eigentlichen Webserver. \cite{WAF}
+    Für die WAF existieren abhängig von der Positionierung der Firewall zwei grundlegende Architekturen. Sie kann hinter der Netzwerk Firewall und vor dem Webserver platziert oder direkt auf dem Webserver installiert sein. Im ersten Fall handelt es sich um eine zentralisierte Architektur, im zweiten Fall um einen Host-basierten Ansatz. In der zentralisierten Architektur kommen meist dedizierte Geräte für die WAF zum Einsatz. Die WAF im Host-basierten Ansatz besteht in der Regel aus einer zusätzlichen Software. Diese Software ist beispielsweise ein Plugin für den Webserver oder direkt in der Webserver-Software integriert. Eine häufige Einsatzart für die WAF ist der so genannte Reverse-Proxy-Modus. Der Proxy befindet sich zwischen Webserver und der Firewall und terminiert die Websessions. Der Proxy führt die Zugriffe auf die Webanwendungen im Namen des Clients durch und analysiert im zweiten Schritt als Applikation Firewall die Anfragen an den eigentlichen Webserver. \cite{WAF}
 
     \subsubsection{Penetrationtesting}
     Penetrationstests können als legaler und autorisierter Versuch definiert werden, Computersysteme anzugreifen, mit dem Ziel, diese sicherer zu machen.
@@ -296,33 +394,79 @@ Für die WAF existieren abhängig von der Positionierung der Firewall zwei grund
     Während der Black-Box-Tester ein System aus der Sicht eines Außenseiters untersucht, hat ein    Grey-Box Tester bereits Zugriff auf das System auf Benutzerebene, möglicherweise sogar mit erhöhten Berechtigungen eines Administrators. In der Regel liegt eine Dokumentation über Design und Architektur des Netzwerks vor, die internen Komponenten sind bekannt. Dies hat den Vorteil, dass die Sicherheit des Netzwerks gezielter und effizienter beurteilt werden kann, der Tester kann sich sofort auf die Systeme konzentrieren, die am wichtigsten sind oder ein besonders hohes Risiko haben. Zudem kann durch das interne Benutzerkonto ein Angriff innerhalb des abgesicherten Systems mit umfassendem Zugriff auf das Netzwerk simuliert werden.
     \paragraph{White-Box Testing}
     Der White-Box Tester hat uneingeschränkten Zugriff auf ein System, er besitzt alle nötigen Berechtigungen und kennt Netzwerkarchitektur und Design. Überdies hat er Zugang zum Quellcode, was es ihm erlaubt, statische Code-Analysen durchzuführen. Durch das Auffinden sowohl interner als auch externer Schwachstellen ist das White-Box Testing maximal effektiv, aber auch sehr aufwandsintensiv da der Tester sehr große Datenmengen untersuchen muss.
-    Alternative Namen sind Clear-Box, Glass-Box oder Open-Box Testing.\\
+    Alternative Namen sind Clear-Box, Glass-Box oder Open-Box Testing.
 
+    Üblicherweise erfolgen Penetration Tests in mehreren Phasen:
 
-    Ein Penetrationstest besteht in der Regel aus 7 Phasen \cite{pentest}:
-    \paragraph{1. Pre-Engagement}
-    In der Vorbereitungsphase gibt es mit dem Auftraggeber einige Dinge zu klären: Welcher Ansatz soll verfolgt werden (Black-, Grey- oder White-Box)? Wann soll der Test stattfinden? Stehen Dokumentationen zur Verfügung? Welche Domains und IP-Adressen sollen getestet werden? Zudem benötigt man aus rechtlichen Gründen eine unterschriebene Erlaubnis, das System anzugreifen.
-    \paragraph{2. Information Gathering}
-    Das Ziel der zweiten Phase ist, so viele Informationen über das zu testende System wie möglich zu sammeln, diese Daten können später zum Eindringen in das Ziel genutzt werden. Je mehr Informationen gesammelt werden, desto mehr Möglichkeiten zum Angriff stehen zur Verfügung.
-    \paragraph{3. Threat Modeling}
-    In der dritten Phase werden Bedrohungsanalysen erstellt und damit die Bedrohungen für das Unternehmen identifiziert und bewertet. Dies wird dokumentiert und ist Teil des Abschlussberichts.
-    \paragraph{4. Vulnerability Analysis}
-    Anhand der gesammelten Informationen und der Bedrohungsanalyse werden gezielt Schwachstellen gesucht. Hier kommen Tools wie Portscanner und Web Application Vulnerability Scanner zum Einsatz, die Gewinnung von sensiblen Daten durch Analyse von Metadaten oder durch Traffic Monitoring muss aber meistens zusätzlich manuell erfolgen.
-    \paragraph{5. Exploitation}
-    Mit Hilfe der vorher durchgeführten Analysen wird nun versucht, in das System einzudringen und möglichst viele Daten zu sammeln, die einen hohen Wert für das Unternehmen haben. Zudem kann versucht werden, durch Schadsoftware Programme zum Absturz zu bringen, wenn es mit dem Auftraggeber abgesprochen wurde.
-    \paragraph{6. Post-Exploitation}
-    Nach dem Eindringen werden die gesammelten Daten und Informationen nach folgenden Kriterien bewertet: Haben die Daten sensiblen Inhalt, wie Benutzerkonten und Passwörter? Sind sie hilfreich, um tiefer in das System vorzudringen? Welche Auswirkungen auf das Unternehmen hätte das Stehlen dieser Daten bei einem realen Hacker-Angriff?
-    \paragraph{7. Reporting}
-    Im Abschlussbericht werden schließlich nochmals die spezifischen Ziele des Penetrationstests erläutert und die gefundenen Daten und Informationen mit der der ausführlichen Bewertung der Post-Exploitation-Phase präsentiert.
-  
+    • Informationssammlung über das Zielsystem
+
+    • Scan nach angebotenen Diensten
+
+    • Identifikation des Systems und der Anwendungen
+
+    • Recherche nach Schwachstellen
+
+    • Ausnutzen der Schwachstellen
+
+    Penetration Tests können basierend auf unterschiedlichen Kriterien klassifiziert werden:
+
+    • Informationsbasis: Hier wird festgelegt, von welchem Wissensstand der Tester ausgeht.
+
+    • Aggressivität: Hier wird festgelegt, wie aggressiv der Angreifer vorgeht. z.B. passiv (gefundene
+    Schwachstellen werden nicht ausgenutzt) oder aggressiv (gefundene Schwachstellen werden
+    unabhängig von den Konsequenzen ausgenutzt).
+
+    • Umfang: Hier wird festgelegt, welche Systeme getestet werden.
+
+    • Vorgehensweise: Der Angreifer kann verdeckt (Penetration wird nicht direkt als Angriff erkannt)
+    oder offensichtlich (Penetration erfolgt offensichtlich) vorgehen.
+
+    • Technik: Es muss definiert werden, welche Techniken eingesetzt werden. Erfolgt der Angriff z.B. nur
+    über das Netzwerk oder auch über weitere Kommunikationsnetze (Telefon, physischer Zugriff etc.)?
+
+    • Ausgangspunkt: Hier wird festgelegt, ob der Penetrationstest von innen oder von außen erfolgen
+    soll.
+
+    Penetration Tests können nicht nur auf technische Systeme, sondern auch auf die organisatorische und
+    personelle Infrastruktur erfolgen. Angriffe auf personelle Infrastrukturen können beispielsweise mittels
+    Social Engineering erfolgen. Angriffe auf organisatorische Infrastruktur können beispielsweise die
+    physische Sicherheit betreffen.
+    Unabhängig von der Vorgehensweise haben Penetration Tests folgende Ziele:
+
+    • Erhöhung der Sicherheit der IT-Systeme
+
+    • Identifikation von Schwachstellen
+
+    • Bestätigung der Sicherheit der IT-Systeme von unabhängigen Dritten
+
+    • Erhöhung der Sicherheit der organisatorischen und personellen Infrastruktur
+
+    In jedem Fall liefern Penetrationstests Security Gaps zwischen Planung und Implementierung. Die
+    getroffenen Maßnahmen, um die Lücken zu schließen, müssen in einem weiteren Schritt nicht nur auf ihre
+    korrekte Umsetzung überprüft werden, sondern auf ihre Angemessenheit, wie effektiv sie das Risiko
+    tatsächlich senken beziehungsweise beseitigen oder ob durch sie ein falsches Sicherheitsgefühl vermittelt
+    wird. Üblicherweise werden Penetrationstests erst dann durchgeführt, wenn die Webanwendung mit allen
+    Komponenten fertiggestellt wird. \cite{BSI}
+
+    %Ein Penetrationstest besteht in der Regel aus 7 Phasen \cite{pentest}:
+    %\paragraph{1. Pre-Engagement}
+    %In der Vorbereitungsphase gibt es mit dem Auftraggeber einige Dinge zu klären: Welcher Ansatz soll verfolgt werden (Black-, Grey- oder White-Box)? Wann soll der Test stattfinden? Stehen Dokumentationen zur Verfügung? Welche Domains und IP-Adressen sollen getestet werden? Zudem benötigt man aus rechtlichen Gründen eine unterschriebene Erlaubnis, das System anzugreifen.
+    %\paragraph{2. Information Gathering}
+  %  Das Ziel der zweiten Phase ist, so viele Informationen über das zu testende System wie möglich zu sammeln, diese Daten können später zum Eindringen in das Ziel genutzt werden. Je mehr Informationen gesammelt werden, desto mehr Möglichkeiten zum Angriff stehen zur Verfügung.
+    %\paragraph{3. Threat Modeling}
+  %  In der dritten Phase werden Bedrohungsanalysen erstellt und damit die Bedrohungen für das Unternehmen identifiziert und bewertet. Dies wird dokumentiert und ist Teil des Abschlussberichts.
+    %\paragraph{4. Vulnerability Analysis}
+    %Anhand der gesammelten Informationen und der Bedrohungsanalyse werden gezielt Schwachstellen gesucht. Hier kommen Tools wie Portscanner und Web Application Vulnerability Scanner zum Einsatz, die Gewinnung von sensiblen Daten durch Analyse von Metadaten oder durch Traffic Monitoring muss aber meistens zusätzlich manuell erfolgen.
+    %\paragraph{5. Exploitation}
+    %Mit Hilfe der vorher durchgeführten Analysen wird nun versucht, in das System einzudringen und möglichst viele Daten zu sammeln, die einen hohen Wert für das Unternehmen haben. Zudem kann versucht werden, durch Schadsoftware Programme zum Absturz zu bringen, wenn es mit dem Auftraggeber abgesprochen wurde.
+    %\paragraph{6. Post-Exploitation}
+    %Nach dem Eindringen werden die gesammelten Daten und Informationen nach folgenden Kriterien bewertet: Haben die Daten sensiblen Inhalt, wie Benutzerkonten und Passwörter? Sind sie hilfreich, um tiefer in das System vorzudringen? Welche Auswirkungen auf das Unternehmen hätte das Stehlen dieser Daten bei einem realen Hacker-Angriff?
+    %\paragraph{7. Reporting}
+    %Im Abschlussbericht werden schließlich nochmals die spezifischen Ziele des Penetrationstests erläutert und die gefundenen Daten und Informationen mit der der ausführlichen Bewertung der Post-Exploitation-Phase präsentiert.
+
 
   \section{Security Tools}
-    \subsection{Mapping Tools}
-    TODO
-    \subsection{Scanning Tools}
-    TODO
-    \subsection{Exploitation Tools}
-    TODO
+
 
 \chapter{Methodik}
   \section{Testaufbau}
@@ -460,7 +604,7 @@ Für die WAF existieren abhängig von der Positionierung der Firewall zwei grund
  \end{itemize}
 \chapter{Evaluation}
   \section{Gefundene Schwachstellen per Webanwendung}
-  Die Buchstaben H, L, M und I stehen für die Kategorien High, Medium, Low und Informational (siehe Punkt 2.2.2). WA1 - WA7 stehen für die verwundbaren Web-Applikationen (siehe Punkt 3.3)
+  Die Buchstaben H, L, M und I stehen für die Kategorien High, Medium, Low und Informational (siehe Punkt 2.3). WA1 - WA7 stehen für die verwundbaren Web-Applikationen (siehe Punkt 3.3)
     \begin{table}[H]
       \centering
       \begin{tabular}{|r|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
@@ -738,6 +882,8 @@ Ausblick: Diese Ausarbeitung kann in verschiedenen Richtungen erweitert werden:
   eine übersichtliche Darstellung aller CVE.\\
 
   \textbf{BSI} - Bundesamt für Sicherheit in der Informationstechnik\\
+
+  \textbf{DoS} - Denial of Service\\
 
   \textbf{WAF} - Web Application Firewall\\
 
