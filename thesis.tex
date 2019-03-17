@@ -219,9 +219,9 @@ Für die betroffenen Firmen ist der Schaden enorm: Laut einer Studie des Digital
 Es gibt mehrere Ansätze, diesem Risiko zu begegnen: Grundsätzlich sollte der Entwickler einer Webseite von Beginn an eine Programmierung anstreben, die bereits bekannte Sicherheitslücken vermeidet und so potentiellen Angreifern möglichst wenig Angriffsfläche bietet. Hier bietet das Bundesamt für Sicherheit in der Informationstechnik (BSI) mit seinem ``Leitfaden zur Entwicklung sicherer Webanwendungen''  \cite{BSI} Hilfestellung.\\
 Fehler in der Programmierung lassen sich jedoch nicht immer ausschließen, zudem ist auch ein Schutz gegen unentdeckte Sicherheitslücken vonnöten.
 
-Neben dem Einsatz von Web Application Firewalls ("Web Shields"), die den Datenstrom zwischen Browser und Webapplikation überwachen, ist die Verwendung von Web Application Vulnerability Scannern (WVS) im Rahmen von Penetrationstests ein wesentlicher Bestandteil von Sicherheitskonzepten in diesem Bereich.
+Neben dem Einsatz von Web Application Firewalls ("Web Shields"), die den Datenstrom zwischen Browser und Webapplikation überwachen, ist die Verwendung von Web Application Vulnerability Scannern (WVS) im Rahmen von Penetration Tests ein wesentlicher Bestandteil von Sicherheitskonzepten in diesem Bereich.
 
-WVS überprüfen Webanwendungen automatisiert auf Schwachstellen und unterstützen dadurch den Penetrationstester beim Aufspüren von Sicherheitslücken.
+WVS überprüfen Webanwendungen automatisiert auf Schwachstellen und unterstützen dadurch den Penetration Tester beim Aufspüren von Sicherheitslücken.
 
 Die vorliegende Arbeit macht sich die Evaluation von WVS zur Aufgabe, da die wenigen bisherigen Ausarbeitungen zu diesem Thema veraltet sind und teilweise andere Ansätze verfolgen:
 
@@ -249,7 +249,7 @@ Die Arbeit ist in sechs Kapitel aufgeteilt:
 
 \textbf{1. Einführung:} In der Einführung wird der Leser an das Thema herangeführt, die Motivation und die Zielsetzung  sowie die zentralen Fragestellungen und der Aufbau der Arbeit werden erläutert.
 
-\textbf{2. Grundlagen:} Das zweite Kapitel vermittelt Grundlagen über Schwachstellen, Web Application Security, Sicherheitsmaßnahmen wie Web Application Firewalls und Penetrationtesting sowie die Arbeistweise von WVS.
+\textbf{2. Grundlagen:} Das zweite Kapitel vermittelt Grundlagen über Webanwendungen, Schwachstellen,  Sicherheitsmaßnahmen wie Web Application Firewalls und Penetrationtesting sowie die Arbeistweise von WVS.
 
 \textbf{3. Methodik:} Hier wird der Testaufbau beschrieben einschließlich der Auswahlkriterien für die WVS und des Punktesystems für die Bewertung. Nicht berücksichtigte WVS werden beschrieben sowie die verwundbaren Webanwendungen, die für die Tests verwendet wurden.
 
@@ -262,8 +262,37 @@ Die Arbeit ist in sechs Kapitel aufgeteilt:
 Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgführten Scans enthält.
 
 \chapter{Grundlagen}
-  \section{Schwachstellen}
-  Zu Beginn soll geklärt werden, was unter dem Begriff Schwachstelle verstanden wird. Das Bundesamt für Sicherheit in der Informationstechnik (BSI) definiert eine Schwachstelle wie folgt:
+  \section{Webanwendung}
+  Zu Beginn sollte der Begriff ``Webanwendung'' geklärt werden.
+  Eine Webanwendung muss nicht zwingend über das World Wide Web erreichbar sein, auch in vielen Unternehmen kommen Webanwendungen zum Einsatz. Entscheidend dafür, dass sich eine Anwendung als Webanwendung bezeichnen lässt, ist stattdessen einzig der Einsatz von Webtechnologien. Hierüber gelangen wir zu folgender Begriffsdefinition \cite{Rohr}:
+
+  \begin{quote}Eine Webanwendung ist eine Client-Server-Anwendung, die auf Webtechnologien (HTTP, HTML etc.) basiert.\end{quote}
+
+  Eine Webanwendung wird über einen Webbrowser aufgerufen, der den serverseitig bereitgestellten HTML-, Java-Script oder CSS-Code interpretiert und darstellt. Danben kann auch über ein Skript oder von einer Kommandozeile aus auf Webanwendungen zugegriffen werden, man spricht hier von einem User Agent oder Client.
+  Zur Kommunikation zwischen Browser (also Client) und Server wird das HTTP-Protokoll verwendet oder das darauf aufsetzende HTTPS-Protokoll.
+  Serverseitig werden Webanwendungen auf Web- und Applikationsservern oder Laufzeitumgebungen ausgeführt, die dann wiederum auf Hintergrundsysteme wie Datenbanken zugreifen können.
+
+  Daraus ergibt sich eine sogenannte 3-Tier-Architektur (dreischichtige Architektur, siehe Abb. 2.1).
+  \begin{figure}[H]
+    \centering
+     \includegraphics[width=0.7\textwidth]{Images/3_Tier_Architektur}
+    \caption[3-Tier-Architektur einer Webanwendung]{3-Tier-Architektur einer Webanwendung \cite{Rohr}}
+  \end{figure}
+
+  Moderne Webanwendungen lassen sich jedoch - insbesondere im Enterprise-Umfeld - nicht als einzelne Anwendungen sehen, sondern als Zusammenschluss verschiedener eigenständiger Dienste wie REST- oder Microservices zu einer Plattform, wie z.B. einem Onlineshop (siehe Abb. 2.2).
+  \begin{figure}[H]
+    \centering
+     \includegraphics[width=1\textwidth]{Images/Enterprise}
+    \caption[Enterprise Webanwendung auf Basis einer Microservice-Architektur]{Enterprise Webanwendung auf Basis einer Microservice-Architektur \cite{Rohr}}
+  \end{figure}
+
+  Im Zuge der Weiterentwicklung von Webanwendungen werden immer mehr Aspekte der Benutzerschnittstelle client-seitig, vor allem über JavaScript-Code umgesetzt, der im Hintergrund serverseitige Webdienste aufruft.
+  Diese Verlagerung von Anwendungslogik vom Server auf den Client findet ihren Höhepunkt in sogenannten Single Page Applications (SPAs), die nur noch aus einer einzigen HTML-Seite mit sehr viel JavaScript-Code bestehen, der im Hintergrund dynamisch mit serverseitigen REST-Services kommuniziert und die Anzeige von Seiteninhalten steuert. Ein bekanntes Beispiel für solch eine Single Page Application ist Google Mail.
+  \cite{Rohr}
+  \newpage
+
+ \section{Schwachstellen}
+  Das Bundesamt für Sicherheit in der Informationstechnik (BSI) definiert eine Schwachstelle wie folgt:
 
   \begin{quote}``Eine Schwachstelle (englisch ``vulnerability'') ist ein sicherheitsrelevanter Fehler eines IT-Systems oder einer Institution. Ursachen können in der Konzeption, den verwendeten Algorithmen, der Implementation, der Konfiguration, dem Betrieb sowie der Organisation liegen. Eine Schwachstelle kann dazu führen, dass eine Bedrohung wirksam wird und eine Institution oder ein System geschädigt wird. Durch eine Schwachstelle wird ein Objekt (eine Institution oder ein System) anfällig für Bedrohungen.'' \cite{BSI2}
   \end{quote}
@@ -276,7 +305,7 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
   Wichtig sind dabei Rolle und Selbstverständnis des Entdeckers. Neben Personen, die
   sich beruflich mit IT-Sicherheit beschäftigen, kann beispielsweise auch akademische
   Forschung zur Entdeckung von Schwachstellen beitragen. Es kann sich um gezielte Suche nach Schwachstellen handeln, aber auch Zufallsfunde sind möglich.
-  Der Lebenszyklus hängt daher stark von Verhalten und Motivation des Entdeckers sowie von der Reaktion des Herstellers ab:
+  Der Lebenszyklus hängt daher stark von Verhalten und Motivation des Entdeckers sowie von der Reaktion des Herstellers ab \cite{BSI3}:
   \begin{itemize}
     \item Ist dem Entdecker daran gelegen, die IT-Sicherheit zu verbessern, oder möchte er die
     Schwachstelle für eigene, möglicherweise kriminelle Zwecke nutzen?
@@ -289,7 +318,7 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
   mit den Common Vulnerabilities and Exposures (CVE) ein herstellerübergreifender Industriestandard geschaffen. Mit diesem Standard wird sichergestellt, dass alle Beteiligten während des gesamten Lebenszyklus tatsächlich jeweils dieselbe Schwachstelle meinen. Zudem werden statistische Auswertungen ermöglicht.
 
   Grundsätzlich basiert der Lebenszyklus einer durch Dritte entdeckten Schwachstelle auf dem
-  folgenden Schema:
+  folgenden Schema \cite{BSI3}:
 
   1. Die Schwachstelle wird durch einen Dritten entdeckt und untersucht.
 
@@ -315,9 +344,9 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
   kann. Daher steigt mit der Veröffentlichung des Patches die Gefährdung für ungepatchte
   Systeme an.
 
-  6. Der Benutzer der betroffenen Software installiert den Patch, schließt dadurch die Schwachstelle und ist erst dann vor ihrer Ausnutzung geschützt. Dies unterstreicht die enorme Bedeutung eines effektiven Patchmanagements.\\
+  6. Der Benutzer der betroffenen Software installiert den Patch, schließt dadurch die Schwachstelle und ist erst dann vor ihrer Ausnutzung geschützt. Dies unterstreicht die enorme Bedeutung eines effektiven Patchmanagements.
 
-  \begin{figure}[H]
+  \begin{figure}[hdt!]
     \centering
      \includegraphics[width=1\textwidth]{Images/Lebenszyklus}
     \caption[Lebenszyklus einer Schwachstelle]{Lebenszyklus einer Schwachstelle \cite{BSI3}}
@@ -328,43 +357,41 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
   Entwicklung eines Patches zunächst verzichten. Wird zu einem späteren Zeitpunkt doch eine
   Ausnutzungsmöglichkeit bekannt, so kann der Hersteller dadurch zu einer entsprechenden
   schnellen Reaktion gezwungen sein. \cite{BSI3}
-  \newpage
 
   \section{Web Application Security}
-  Als Teildisziplin der IT-Sicherheit befasst sich die Webanwendungssicherheit im Wesentlichen mit dem
-  Schutz von Assets einer Webanwendung. Unter Assets versteht man in diesem Fall all jene Bestandteile
+  Die Webanwendungssicherheit ist ein Teilgebiet der IT-Sicherheit und befasst sich vor allem mit dem Schutz von Assets einer Webanwendung. Unter Assets versteht man in diesem Fall all jene Bestandteile
   (Daten, Systeme und Funktionen) einer Webanwendung, für die sich ein Schutzbedarf hinsichtlich eines der
-  drei primären Schutzziele
-  \begin{itemize}
-    \item Vertraulichkeit,
-    \item Integrität sowie
+  drei primären Schutzziele ableiten lässt.
+  Diese primären Schutzziele lauten:
+    \begin{itemize}
+    \item Vertraulichkeit
+    \item Integrität
     \item Verfügbarkeit
   \end{itemize}
-  ableiten lässt.
 
-  Darüber hinaus leiten sich aus diesen primären Schutzzielen auch sekundäre Schutzziele ab, zu denen etwa
-  Authentizität oder Nicht-Abstreitbarkeit zählen.
+  Aus diesen primären Schutzzielen lassen sich auch sekundäre Schutzziele wie z.B. Authentizität oder Nicht-Abstreitbarkeit ableiten.
 
-  Die Disziplin der Webanwendungssicherheit stellt sich dabei als Querschnittthema dar, welches sich auf alle
-  Phasen des Lebenszyklus einer Webanwendung bezieht und auch einen Bestandteil der Qualitätssicherung
-  darstellt. Sie befasst sich sowohl mit der Abwehr von Bedrohungen und der Prävention von Schwachstellen
-  als auch mit der Identifikation und der Behebung von Schwachstellen. \cite{BSI}
+  Das Thema Webanwendungssicherheit bezieht sich auf alle Phasen des Lebenszyklus einer Webanwendung und stellt auch einen Bestandteil der Qualitätssicherung dar. Sie befasst sich sowohl mit der Abwehr von Bedrohungen und der Prävention von Schwachstellen als auch mit der Identifizierung und Behebung von Sicherheitslücken. \cite{BSI}
+
   \subsection{Bedrohungen und Risiken}
-  Die schwerwiegendsten Angriffe auf Webanwendungen sind diejenigen, die sensible Daten verfügbar machen oder uneingeschränkten Zugriff auf die Systeme ermöglichen, auf denen die Anwendung ausgeführt wird. Zudem sind Angriffe, die Systemausfälle versursachen für vielen Organisationen ein sehr kritisches Ereignis. Dies kann mit sogenannten Denial-of-Service (DoS) Angriffen erreicht werden, bei denen die Server durch absichtlich herbeigeführte Überlastungen funktionsunfähig gemacht werden.
+  Die schwerwiegendsten Angriffe auf Webanwendungen sind sicherlich diejenigen, die sensible Daten verfügbar machen oder uneingeschränkten Zugriff auf die Systeme ermöglichen, auf denen die Anwendung ausgeführt wird.
+  Hierzu gehören Angriffe per XSS oder SQL-Injection, aber auch Angriffe, die Systemausfälle versursachen (Denial-of-Service Attacken) stellen für viele Organisationen ein sehr kritisches Ereignis dar.
 
+  OWASP stellt in regelmäßigen Abständen seine OWASP Top Ten vor, eine Liste mit den 10 kritischsten Sicherheitsrisiken für Webanwendungen. Die aktuelle Version aus dem Jahr 2017 befindet sich im Anhang dieser Ausarbeitung.
 
   \subsection{Sicherheitsmaßnahmen}
+  Das BSI definiert den Begriff wie folgt:
     \begin{quote} ``Als Sicherheitsmaßnahmen werden alle Aktionen bezeichnet, die dazu dienen, Sicherheitsrisiken zu steuern und diesen entgegenzuwirken. Dies schließt sowohl organisatorische, als auch personelle, technische oder infrastrukturelle Sicherheitsmaßnahmen ein. Synonym werden auch die Begriffe Sicherheitsvorkehrung oder Schutzmaßnahme benutzt.'' \cite{BSI2}\end{quote}
+
+ Zu den Maßnahmen, die bereits während der Entwicklung ergriffen werden sollten, gehören umfangreiche Security Tests. Nach Inbetriebnahme der Webanwendung kann mit Hilfe von Penetration Tests nach Sicherheitslücken gesucht werden, zusätzlichen Schutz bieten Web Application Firewalls.
 
   \subsubsection{Security Tests}
 
-  Bereits im Rahmen der Entwicklung und in jedem Fall vor der Auslieferung ist eine Webanwendung
-  hinsichtlich Sicherheitsmängel zu testen. Dies erfolgt im Zuge eines oder mehrerer Security Assessments.
+  Bevor eine Webanwendung ausgeliefert wird, sollte sie im Zuge eines oder mehrerer Security Assessments  auf Sicherheitsmängel getestet werden.
   Ein Security Assessment soll dabei sicherstellen, dass die definierten Sicherheitsanforderungen in der
   Implementierungsphase korrekt umgesetzt worden sind. Zusätzlich soll in diesem Rahmen auch die
   Effektivität der gesetzten Sicherheitsanforderungen überprüft werden und so mögliche Unzulänglichkeiten
-  in der Spezifikation selbst aufgedeckt werden. Das heißt, es soll sichergestellt werden, dass die spezifizierten
-  Sicherheitsanforderungen auch angemessen und wirksam sind.
+  in der Spezifikation selbst aufgedeckt werden. Das heißt, es soll sichergestellt werden, dass die spezifizierten Sicherheitsanforderungen auch angemessen und wirksam sind.
   Üblicherweise durchlaufen Security Assessments die folgenden Phasen \cite{BSI}:
   \begin{itemize}
     \item Planung: Ein Security Assessment benötigt eine initiale Planung. Hier werden sämtliche
@@ -482,11 +509,9 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
     Der White-Box Tester hat schließlich uneingeschränkten Zugriff auf ein System, er besitzt alle nötigen Berechtigungen und kennt Netzwerkarchitektur und Design. Überdies hat er Zugang zum Quellcode, was es ihm erlaubt, statische Code-Analysen durchzuführen. Durch das Auffinden sowohl interner als auch externer Schwachstellen ist das White-Box Testing maximal effektiv, aber auch sehr aufwandsintensiv da der Tester sehr große Datenmengen untersuchen muss.
     \end{itemize}
 
-    Penetration Tests können nicht nur auf technische Systeme, sondern auch auf die organisatorische und
-    personelle Infrastruktur erfolgen. Angriffe auf personelle Infrastrukturen können beispielsweise mittels
-    Social Engineering erfolgen. Angriffe auf organisatorische Infrastruktur können beispielsweise die
-    physische Sicherheit betreffen.
-    Unabhängig von der Vorgehensweise haben Penetration Tests folgende Ziele:
+    Penetration Tests können nicht nur auf technische Systeme, sondern auch auf die organisatorische oder
+    personelle Infrastruktur in Form von Social Engineering erfolgen.
+    Unabhängig von der Vorgehensweise haben Penetration Tests folgende Ziele \cite{BSI}:
     \begin{itemize}
       \item Erhöhung der Sicherheit der IT-Systeme
       \item Identifikation von Schwachstellen
@@ -500,20 +525,26 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
     tatsächlich senken beziehungsweise beseitigen oder ob durch sie ein falsches Sicherheitsgefühl vermittelt
     wird. Üblicherweise werden Penetration Tests erst dann durchgeführt, wenn die Webanwendung mit allen
     Komponenten fertiggestellt wird. \cite{BSI}
-    \subsubsection{Web Application Firewalls (WAF)}
-    Eine WAF bietet Schutz für Webanwendungen, indem sie den Verkehr zwischen Clients und Webservern auf Anwendungsebene analysiert. Sie kann HTTP-Traffic überwachen, filtern und blockieren und ist direkt auf dem Server oder als eigenständige Firewall installiert.
-    Mit Hilfe der WAF lassen sich Webanwendungen durch die Analyse, Filterung und Blockierung von HTTP-Daten (Hypertext Transfer Protocol) schützen. Im Gegensatz zu einer normalen Firewall werden die Daten nicht auf Netz- und Protokollebene, sondern direkt auf der Anwendungsebene untersucht.
-    Oft kommen herkömmliche Firewalls und die WAF gemeinsam zum Einsatz und analysieren Kommunikation und Daten in aufeinander folgenden Schritten. Bei der Analyse beachtet die Application Firewall sowohl die vom Webserver gesendeten als auch die empfangenen Daten. Die WAF kann Software- oder Hardware-basiert realisiert und als eigenständige Appliance oder Zusatzkomponente installiert sein.
-    Je nach Konfiguration und Typ der Firewall arbeitet sie mit Black- oder Whitelists. Die Listen definieren, ob nur festgelegter Verkehr durchgelassen und der Rest blockiert wird oder alles außer erkannten Angriffsmustern die Firewall passieren darf. Viele Application Firewalls sind in der Lage, auf Basis des analysierten Verkehrs zu lernen und bisher unbekannte Angriffe aufgrund ungewöhnlicher Muster zu erkennen. Die Analyse des Webtraffics erfolgt bevor die Daten den Server erreichen in Echtzeit und erfordert eine entsprechende Rechenleistung der Firewall. Eine WAF kann Webapplikationen zum Beispiel vor bekannten Angriffen, Diebstahl von Identitäten oder Zero-Day Exploits schützen. Oft werden die Firewalls auch als Web Shields bezeichnet.
+    \subsubsection{Web Application Firewalls (WAFs)}
+    Zusätzlichen Schutz von Angriffen auf Webapplikationen bieten WAFs, die den Verkehr zwischen Clients und Webservern auf Anwendungsebene überprüfen. Sie sind in der Lage, HTTP-Traffic zu filtern und gegebenenfalls zu blockieren, um die Webanwendung zu schützen.
+    Hierzu untersucht eine WAF alle eingehenden Anfragen und die ausgehenden Antworten des Webservers.
+    Erkennt sie dabei gefährliche Muster, verhindert sie die weitere Kommunikation mit dem Client.
 
-    Eine WAF untersucht alle an einen Webserver gesendeten Anfragen und dessen Antworten. Erkennt die Firewall verdächtige oder gefährliche Muster, unterbindet sie die weitere Kommunikation des jeweiligen Clients oder ganze Datenströme. Neben vordefinierten Mustern sind die Application Firewalls meist in der Lage, gefährlichen oder verbotenen Verkehr in einer vorgeschalteten Lernphase selbständig zu erkennen. Unter anderem analysiert die Firewall die empfangenen Eingabeparameter für die Formularfelder der Webapplikation und blockiert Parameter, die nicht den definierten Vorgaben entsprechen. Vorgaben können zum Beispiel Parameterlängen, Parameterwertetypen oder Parameteranzahlen sein. Gegenüber normalen Netzwerk-Firewalls bietet die WAF einen erweiterten Schutz, da sie auf einer höheren Ebene arbeitet. Während Netzwerk-Firewalls nur Absender- und Zieladressen oder die verwendeten Ports und Netzwerkdienste der Kommunikationsdaten analysiert, arbeitet die WAF direkt auf Anwendungsebene. Dadurch sorgt sie für einen zusätzlichen Schutz zu den vorhandenen Netzwerkfiltern. Sie kann Schwachstellen von Anwendungen schließen, die noch nicht aktualisiert wurden und deckt unter Umständen mehrere Angriffsziele hinter der WAF durch einen einzigen Filter ab.
+    Eine WAF kann zentralisiert hinter der Netzerk Firewall und vor dem Webserver positioniert oder Host-basiert als Software-Lösung direkt auf dem Webserver installiert werden.
+    Häufig wird der sogenannte Reverse-Proxy-Modus verwendet, bei dem der Proxy sich zwischen Webserver und Firewall befindet und Zugriffe im Namen des Clients durchführt. Im zweiten Schritt werden die Anfragen an den eigentlichen Webserver analysiert und die Websessions bei Bedarf terminiert.
 
-    Die WAF ist dafür konzipiert, die Webapplikation vor einer Vielzahl verschiedener Bedrohungen zu schützen. Darunter fallen zum Beispiel SQL Injection Angriffe, Script Injection Angriffe, Angriffe per Cross-Site Scripting (XSS), Angriffe per Pufferüberlauf oder Parameter und Hidden Field Tampering. Auch Cookie Poisoning oder der unbefugte Zugriff auf bestimmte Bereiche des Webservers und Identitätsdiebstahl können vermieden werden.
+    Zu den üblichen Angriffen, die eine WAF verhindern kann, zählen Cross-Site-Scripting, SQL-Injection,
+    Angriffe per Pufferüberlauf oder auch Konfigurationsfehler. Der Schutz ist hier stets nur als zusätzlicher Schutzmechanismus zu verstehen, der keinesfalls die Notwendigkeit ersetzt, eine    Webanwendung mit ausreichender Sicherheit zu entwickeln und auch zu testen. Im Rahmen von Tests
+    sollte eine WAF dabei stets deaktiviert sein, damit diese nicht die Testergebnisse verfälscht.
+    Um den größtmöglichen Nutzen der WAF zu erhalten, muss deren Konfiguration durch fachmännisches
+    Personal auf die Webanwendung angepasst werden. \cite{BSI} \cite{WAF}
 
-    Für die WAF existieren abhängig von der Positionierung der Firewall zwei grundlegende Architekturen. Sie kann hinter der Netzwerk Firewall und vor dem Webserver platziert oder direkt auf dem Webserver installiert sein. Im ersten Fall handelt es sich um eine zentralisierte Architektur, im zweiten Fall um einen Host-basierten Ansatz. In der zentralisierten Architektur kommen meist dedizierte Geräte für die WAF zum Einsatz. Die WAF im Host-basierten Ansatz besteht in der Regel aus einer zusätzlichen Software. Diese Software ist beispielsweise ein Plugin für den Webserver oder direkt in der Webserver-Software integriert. Eine häufige Einsatzart für die WAF ist der so genannte Reverse-Proxy-Modus. Der Proxy befindet sich zwischen Webserver und der Firewall und terminiert die Websessions. Der Proxy führt die Zugriffe auf die Webanwendungen im Namen des Clients durch und analysiert im zweiten Schritt als Applikation Firewall die Anfragen an den eigentlichen Webserver. \cite{WAF}
+
     \newpage
 
   \section{Funktionsweise WVS}
+  WVS sind automatisierte Werkzeuge, die Webanwendungen - in der Regel von außerhalb - nach Sicherheitslücken wie Cross-Site Scripting, SQL-Injection, Command Injection, Path Traversal und unsicheren Serverkonfigurationen absuchen. Diese Kategorie von Werkzeugen wird häufig auch als ``Dynamic Application Security Testing (DAST) Tools'' bezeichnet \cite{OWASPtools}. Im Gegensatz zum ``Static Application Security Testing (SAST)'', bei dem der Quell-, Binär- oder Bytecode auf mögliche Implementierungs- und Konstruktionsfehler überprüft wird, testen DAST-Tools die laufende Webanwendung auf ihr Verhalten während des Betriebs. Es werden die gleichen Techniken angewendet, die auch ein realer Angreifer nutzen würde, um potentielle Sicherheitslücken zu finden.
+
   In der Regel werden WVS auf einem Client-Computer installiert, um dann die Webanwendung zu analysieren. Im Zuge der Analyse können folgende vier Phasen durchlaufen werden \cite{BSI4}:
   \begin{itemize}
     \item Crawl/Scan:
@@ -533,12 +564,15 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
     systematisch fehlerhafte oder unzulässige Eingabemuster erzeugt, und an die Webanwendung versandt. Einige der existierenden Scanner unterteilen diese Phase in eine schadlose, und eine potentiell schadhafte Prüfung.
     \item Reporting:
     Die Ergebnisse der Scan- und Audit-Phase werden in Reports zusammengefasst. Der
-    Umfang reicht dabei von Executive Summaries mit Nennung nur der größten Schwachstellen bis hin zu detaillierten Beschreibungen, in denen auch erste Hinweise für die Behebung des jeweiligen Problems gegeben werden können. Bei den meisten WVS hat sich ein System etabliert, bei dem die gefundenen Schwachstellen in 4 Kategorien eingeteilt werden \cite{Lepofsky}:
+    Umfang reicht dabei von Executive Summaries mit Nennung nur der größten Schwachstellen bis hin zu detaillierten Beschreibungen, in denen auch erste Hinweise für die Behebung des jeweiligen Problems gegeben werden können. Bei den meisten WVS hat sich ein System etabliert, bei dem die gefundenen Schwachstellen je nach Schweregrad in 4 Kategorien eingeteilt werden \cite{Lepofsky}:
     \begin{itemize}
-      \item High: Schwachstellen, die es Angreifern erlauben, die komplette Kontrolle über die Webanwendung einschließlich Server zu übernehmen. 
-      \item Medium:
-      \item Low:
-      \item Informational:
+      \item High: Schwachstellen, die es Angreifern erlauben, die komplette Kontrolle über die Webanwendung einschließlich Server zu übernehmen. Angreifer können auf die Datenbank der Anwendung zugreifen, Konten ändern und vertrauliche Informationen stehlen. XSS und SQL-Injection sind Beispiele für Schwachstellen mit hohem Schweregrad, die bei der Erkennung durch einen Scanner oberste Priorität haben sollten.
+
+      \item Medium: Sicherheitslücken, die Angreifern den Zugriff auf ein angemeldetes Benutzerkonto ermöglichen, um vertrauliche Inhalte anzuzeigen. Angreifer erhalten Zugriff auf Informationen, mit denen sie zusätzlich andere Schwachstellen ausnutzen können, oder das System besser verstehen, damit sie ihre Angriffe verfeinern können. Open Redirection ist ein Beispiel für eine Schwachstelle mit mittlerem Schweregrad, durch die ein Angreifer einen Benutzer auf eine schädliche Website umleiten kann. Schwachstellen mit mittlerem Schweregrad sollten so schnell wie möglich behoben werden, wenn sie von einem Scanner erkannt werden.
+
+      \item Low: Diese Schwachstellen haben nur minimalen Einfluss oder können von einem Angreifer nicht ausgenutzt werden. Cookies, die nicht als ``Http Only'' gekennzeichnet sind, sind ein Beispiel für eine Sicherheitsanfälligkeit mit niedrigem Schweregrad. Das Markieren von Cookies als Http Only macht das Cookie für clientseitige Skripts unlesbar und bietet somit eine zusätzliche Schutzschicht gegen XSS-Angriffe. Schwachstellen mit geringem Schweregrad sollten untersucht und korrigiert werden, wenn Zeit und Budget dies zulassen.
+
+      \item Informational: Dies sind keine Schwachstellen, sondern lediglich Warnungen, die Informationen über die Webanwendung enthalten. Beispiele sind die erforderliche NTLM-Autorisierung und die Datenbankermittlung (MySQL). Für diese Informationsalarme ist keine Aktion erforderlich.
     \end{itemize}
 
   \end{itemize}
@@ -923,13 +957,13 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
 
 
 \chapter{Fazit und Ausblick}
-In dieser Arbeit wurden WVS auf ihre Tauglichkeit und Qualität überprüft:
+%In dieser Arbeit wurden WVS auf ihre Tauglichkeit und Qualität überprüft:
 
-Es wurde der Unterschied zwischen Open Source und kommerziellen Scannern aufgezeigt:
+%Es wurde der Unterschied zwischen Open Source und kommerziellen Scannern aufgezeigt:
 
-Ausblick: Diese Ausarbeitung kann in verschiedenen Richtungen erweitert werden:
-  \section{OWASP Benchmark}
-  TODO
+%Ausblick: Diese Ausarbeitung kann in verschiedenen Richtungen erweitert werden:
+%  \section{OWASP Benchmark}
+
 
 
 \backmatter
@@ -964,7 +998,15 @@ Ausblick: Diese Ausarbeitung kann in verschiedenen Richtungen erweitert werden:
 
   \textbf{OWASP} - The Open Web Application Security Project\\
 
+  \textbf{DAST} - Dynamic Application Security Testing\\
+
+  \textbf{SAST} - Static Application Security Testing\\
+
+  \textbf{NTLM} - New Technology Lan Manager\\
+
   \textbf{BSoD} - ``Blue Screen of Death'' (Kritischer Systemfehler unter Microsoft-Windows)\\
+
+  \textbf{XSS} - Cross Site Scripting\\
   \newpage
 
   \section{OWASP: The Open Web Application Security Project}
