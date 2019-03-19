@@ -198,14 +198,16 @@ TODO
 In den letzten zwei Jahrzehnten hat sich das World Wide Web von einem reinen Informationsspeicher in eine Plattform mit hochfunktionalen Anwendungen verwandelt, die nicht nur sensible Daten verarbeiten sondern auch  Aktionen durchführen, die einflussreiche Auswirkungen auf die reale Welt haben.
 Mit jeder Weiterentwicklung bringen Webanwendungen neue Sicherheitslücken mit sich und so verändern sich auch die Art und die Anzahl der am häufigsten auftretenden Fehler. Es gibt Angriffe auf Schwachstellen, die bei der Entwicklung der Webanwendungen noch nicht bekannt waren und daher nicht berücksichtigt wurden, andere Attacken haben an Bedeutung verloren, da das Bewusstsein für sie gestiegen ist oder aufgrund von Verbesserungen der Web-Browser Software. Neue Technologien bergen jedoch auch immer das Risiko von neuen Sicherheitslücken und so ist ``...in gewissem Maße die Sicherheit von Webanwendungen heute das bedeutendste Schlachtfeld zwischen Angreifern und solchen, die Daten schützen und Computerressourcen verteidigen müssen, und dies wird wahrscheinlich auf absehbare Zeit so bleiben.'' \cite{handbook}
 
-Mit der Anzahl der Webanwendungen steigt auch der Einfluss des World Wide Webs auf alle Lebensbereiche, sei es beim Einkaufen im Online-Shop einschließlich diverser Bezahlsysteme, dem Nachrichtenaustausch über Social-Media-Kanäle oder nur zur Informationsgewinnung auf Nachrichtenseiten - die Gesellschaft ist mehr denn je abhängig von der immer größer werdenden Anzahl an verschiedenen Webanwendungen im Internet.
-Fortschreitende Digitalisierung und weltweite Vernetzung verursachen jedoch auch immer mehr Sicherheitslücken: laut CVE Details hat sich die Anzahl der gefundenen Schwachstellen in den letzten zwei Jahren mehr als verdoppelt (siehe Abb. 1.1).
-
 \begin{figure}[htb!]
   \centering
     \includegraphics[width=1\textwidth]{Images/VulnByYear}
   \caption[Gefundene Schwachstellen pro Jahr laut CVE Details]{Gefundene Schwachstellen pro Jahr laut CVE Details \cite{cve}}
-  \end{figure}
+\end{figure}
+
+Mit der Anzahl der Webanwendungen steigt auch der Einfluss des World Wide Webs auf alle Lebensbereiche, sei es beim Einkaufen im Online-Shop einschließlich diverser Bezahlsysteme, dem Nachrichtenaustausch über Social-Media-Kanäle oder nur zur Informationsgewinnung auf Nachrichtenseiten - die Gesellschaft ist mehr denn je abhängig von der immer größer werdenden Anzahl an verschiedenen Webanwendungen im Internet.
+Fortschreitende Digitalisierung und weltweite Vernetzung verursachen jedoch auch immer mehr Sicherheitslücken: laut CVE Details hat sich die Anzahl der gefundenen Schwachstellen in den letzten zwei Jahren mehr als verdoppelt (siehe Abb. 1.1).
+
+
 
 Zunehmende Cyberangriffe von kriminellen Hackern aber auch von politisch oder ideologisch motivierten Angreifern sind die Folge. Aktuelle Beispiele sind der Angriff auf die Münchner Firma Krauss Maffai im Dezember 2018, der die Produktion des Maschinen-bauunternehmens für mehrere Tage lahmlegte oder die Attacke auf das Datennetz des Deutschen Bundestags im Oktober 2018. Das Datenleck „Collection \texttt{\#}1“, das im Januar 2019 auftauchte, ist das Ergebnis einer Vielzahl von Cyberattacken, es enthält über 2,6 Milliarden Datensätze mit Zugangsdaten und Passwörtern für hunderte Webseiten.
 
@@ -345,8 +347,7 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
   Systeme an.
 
   6. Der Benutzer der betroffenen Software installiert den Patch, schließt dadurch die Schwachstelle und ist erst dann vor ihrer Ausnutzung geschützt. Dies unterstreicht die enorme Bedeutung eines effektiven Patchmanagements.
-
-  \begin{figure}[hdt!]
+  \begin{figure}[hbt!]
     \centering
      \includegraphics[width=1\textwidth]{Images/Lebenszyklus}
     \caption[Lebenszyklus einer Schwachstelle]{Lebenszyklus einer Schwachstelle \cite{BSI3}}
@@ -453,7 +454,7 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
     Funktionen wie beispielsweise Transaktionsmanagement, Authentisierung und Kryptographie
     wichtig. Die Ergebnisse des Code Reviews fließen zurück in den Implementierungsprozess.
     \item Statische Code Scanner:
-    Mittels Statischen Code Scannern (SCA) können eine Vielzahl von Schwachstellen bereits innerhalb
+    Mittels Statischer Code Analyse (SCA) können eine Vielzahl von Schwachstellen bereits innerhalb
     der Entwicklung identifiziert und so zeitnah behandelt werden. In der Praxis ist die Auswahl
     entsprechender Tools zur Durchführung von Sicherheitsscans sehr beschränkt. Weiterhin müssen
     diese Tools die eingesetzten Technologien unterstützen. Analysieren sie den Sourcecode, müssen
@@ -549,7 +550,7 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
   \begin{itemize}
     \item Crawl/Scan:
     Ein Web Scanner bewegt sich ähnlich wie eine Suchmaschine durch die gesamte
-    Webanwendung. Dabei werden sämtliche Links besucht und gegebenenfalls FormFelder mit Testwerten ausgefüllt. Der Scanner erhält so ein umfassendes Wissen über den Aufbau der Webanwendung, die Funktionsweise von Dialogschritten und den Inhalt von Formular-Seiten.
+    Webanwendung. Dabei werden sämtliche Links besucht und gegebenenfalls Formfelder mit Testwerten ausgefüllt. Der Scanner erhält so ein umfassendes Wissen über den Aufbau der Webanwendung, die Funktionsweise von Dialogschritten und den Inhalt von Formular-Seiten.
     Die Webanwendung wird auf häufig vorhandene Installations-, Konfigurations- oder
     Testverzeichnisse, sowie bekannte problematische oder informative Dateien durchsucht (Stichwörter: Directory Enumeration, File Enumeration, Directory Traversal, Forceful Browsing).
     Unterstützt werden kann die Scan-Phase durch Einbeziehen großer öffentlicher
@@ -944,22 +945,25 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
  \end{table}
 
 \chapter{Diskussion}
-  \section{Open Source WVS}
-    \begin{itemize}
-      \item
+  \section{Anzahl der gefundenen Schwachstellen}
 
-    \end{itemize}
-  \section{Kommerzielle WVS}
-  TODO
-  \section{Open Source vs. kommerziell}
-  TODO
+  \section{Bedienung, Reporting und Scan-Geschwindigkeit}
+
+  \section{Ranking}
+
+  \section{Open Source oder kommerzielle WVS}
+
   \section{Empfehlung}
+  Budget
 
 
 \chapter{Fazit und Ausblick}
+%Die Ergebnisse dieser Thesis zeigen, dass...
 %In dieser Arbeit wurden WVS auf ihre Tauglichkeit und Qualität überprüft:
+%Es wurde festgestellt, dass...
 
 %Es wurde der Unterschied zwischen Open Source und kommerziellen Scannern aufgezeigt:
+%Die Fragen, die mit dieser Ausarbeitung beantwortet werden sollten...
 
 %Ausblick: Diese Ausarbeitung kann in verschiedenen Richtungen erweitert werden:
 %  \section{OWASP Benchmark}
@@ -986,27 +990,61 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
   %\addcontentsline{toc}{chapter}{Anhang}
 
   \section{Verwendete Abk"urzungen}
-  \textbf{WVS} - Web Application Vulnerability Scanner\\
+  \textbf{BSI} - Bundesamt für Sicherheit in der Informationstechnik
 
-  \textbf{CVE} - Common Vulnerabilities and Exposures\\
+  \textbf{BSoD} - ``Blue Screen of Death'' (Kritischer Systemfehler unter Microsoft-Windows)
 
-  \textbf{BSI} - Bundesamt für Sicherheit in der Informationstechnik\\
+  \textbf{CGI} - Common Gateway Interface
 
-  \textbf{DoS} - Denial of Service\\
+  \textbf{CPU} - Central Processing Unit
 
-  \textbf{WAF} - Web Application Firewall\\
+  \textbf{CVE} - Common Vulnerabilities and Exposures
 
-  \textbf{OWASP} - The Open Web Application Security Project\\
+  \textbf{DAST} - Dynamic Application Security Testing
 
-  \textbf{DAST} - Dynamic Application Security Testing\\
+  \textbf{DoS} - Denial of Service
 
-  \textbf{SAST} - Static Application Security Testing\\
+  \textbf{HTML} - Hypertext Markup Language
 
-  \textbf{NTLM} - New Technology Lan Manager\\
+  \textbf{HTTP} - Hypertext Transfer Protocol
 
-  \textbf{BSoD} - ``Blue Screen of Death'' (Kritischer Systemfehler unter Microsoft-Windows)\\
+  \textbf{HTTPS} - Hypertext Transfer Protocol Secure
 
-  \textbf{XSS} - Cross Site Scripting\\
+  \textbf{JSP} - JavaServer Pages
+
+  \textbf{LDAP} - Lightweight Directory Protocol
+
+  \textbf{NTLM} - New Technology Lan Manager
+
+  \textbf{OS} - Operating System
+
+  \textbf{OWASP} - The Open Web Application Security Project
+
+  \textbf{RAM} - Random-Access Memory
+
+  \textbf{REST} - Representational State Transfer
+
+  \textbf{SAST} - Static Application Security Testing
+
+  \textbf{SCA} - Static Code Analysis
+
+  \textbf{SPA} - Single Page Application
+
+  \textbf{SSL} - Secure Sockets Layer
+
+  \textbf{SQL} - Structured Query Language
+
+  \textbf{TLS} - Transport Layer Security
+
+  \textbf{URI} - Uniform Resource Identifier
+
+  \textbf{WAF} - Web Application Firewall
+
+  \textbf{WVS} - Web Application Vulnerability Scanner
+
+  \textbf{XML} - Extensible Markup Language
+
+  \textbf{XSS} - Cross Site Scripting
   \newpage
 
   \section{OWASP: The Open Web Application Security Project}
