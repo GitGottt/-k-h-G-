@@ -717,7 +717,6 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
   \section{Gefundene Schwachstellen per Webanwendung}
    H, M, L und I: High, Medium, Low und Informational. Aus Gründen der Vergleichbarkeit wurden die Werte aus der zusätzlichen Kategorie ``Critical'' bei Nessus und Netsparker mit in die Kategorie High übernommen. WA1-7: Verwundbare Web-Applikationen.
     \begin{table}[H]
-      \centering
       \begin{tabular}{|r|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
         \cline{2-15}
         \multicolumn{1}{r|}{}       & \multicolumn{4}{c|}{\textbf{Arachni}} & \textbf{Nikto} & \multicolumn{4}{c|}{\textbf{OpenVAS}} & \textbf{Wapiti} & \multicolumn{4}{c|}{\textbf{ZAP}}  \\
@@ -747,7 +746,6 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
     \end{table}
 
     \begin{table}[H]
-      \centering
       \begin{tabular}{|r|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
         \cline{2-17}
         \multicolumn{1}{l|}{}    & \multicolumn{4}{c|}{\textbf{Acunetix}}                   & \multicolumn{4}{c|}{\textbf{BurpSuite Pro}}          & \multicolumn{4}{c|}{\textbf{Nessus}}                  & \multicolumn{4}{c|}{\textbf{Netsparker}}                 \\
@@ -813,7 +811,7 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
             Der von OWASP entwickelte Scanner hat eine übersichtliche Benutzeroberfläche und lässt sich intuitiv bedienen. Auf der Startseite lässt sich direkt die anzugreifende URL eingeben und ohne weitere Konfiguration angreifen. Es gibt umfangreiche Hilfestellung in Form eines Handbuchs und einem Online-Wiki, zudem gibt es mit der OWASP ZAP User Group ein gut frequentiertes Benutzerforum, auf dem ein reger Austausch zwischen den Benutzern stattfindet.
             Auffällig sind die langen Scan-Zeiten von mehreren Stunden, die sich jedoch nicht in einer höheren Anzahl an gefundenen Schwachstellen widerspiegeln. Die wenigen Funde werden im Report ausführlich beschrieben einschließlich umfangreicher Empfehlungen zur Behebung.
 
-            \textbf{Bewertung: Reporting 2, Bedienung 3, Geschwindigkeit 0}
+            \textbf{Bewertung: Reporting 3, Bedienung 3, Geschwindigkeit 0}
           \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{Images/ZAP}
@@ -883,7 +881,7 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
        \hline
        \textbf{Scanergebnis (50\%) *5}    & \textbf{3}      &  \textbf{1}      & \textbf{4}      &   \textbf{1}     &  \textbf{0}       \\
        \hline
-       \textbf{Reporting (20\%) *2}       &  \textbf{4}     &  \textbf{1}      & \textbf{2}      &   \textbf{1}    &   \textbf{2}     \\
+       \textbf{Reporting (20\%) *2}       &  \textbf{4}     &  \textbf{1}      & \textbf{2}      &   \textbf{1}    &   \textbf{3}     \\
        \hline
        \textbf{Bedienung (20\%) *2}       & \textbf{3}       & \textbf{2}     & \textbf{1}       & \textbf{2}      & \textbf{3}        \\
        \hline
@@ -937,7 +935,7 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
  \hline
  \textbf{7}            & \textbf{Wapiti}        & \textbf{15}     & 1            & 1         & 2         & 4                \\
  \hline
- \textbf{9}            & \textbf{ZAP}           & \textbf{10}     & 0            & 2         & 3         & 0                \\
+ \textbf{9}            & \textbf{ZAP}           & \textbf{12}     & 0            & 3         & 3         & 0                \\
  \hline
  \end{tabular}
  \caption[Ranking aller WVS]{Ranking aller WVS}
@@ -961,9 +959,16 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
   \section{Bedienung, Reporting und Scan-Geschwindigkeit}
   Dieses Kapitel widmet sich der Fragestellung \textbf{Wie unterscheiden sich die WVS in den Kategorien Bedienung, Reporting und Scan-Geschwindigkeit?}
   \subsection{Bedienung}
-  In dieser Kategorie gibt es keinen WVS, der die volle Punktzahl erreicht, es gibt aber auch keine Totalausfälle. Den beiden Terminalprogrammen Nikto und Wapiti fehlt es naturgemäß am Komfort, den eine grafische Benutzeroberfläche bietet, trotzdem schneiden sie noch besser ab als OpenVAS, das erst nach umfangreicher Einarbeitungszeit sinnvoll genutzt werden kann. Das Streben nach Automatisierung geht hier zu Lasten der Bedienbarkeit.
-
+  In dieser Kategorie gibt es keinen WVS, der die volle Punktzahl erreicht, es gibt aber auch keinen mit 0 Punkten. Den beiden Terminalprogrammen Nikto und Wapiti fehlt es naturgemäß am Komfort, den eine grafische Benutzeroberfläche bietet, trotzdem schneiden sie noch besser ab als OpenVAS, das erst nach umfangreicher Einarbeitungszeit sinnvoll genutzt werden kann. Das Streben nach Automatisierung geht hier zu Lasten der Bedienbarkeit. Netsparker befindet sich mit seiner überladenen Benutzeroberfläche ebenfalls nur im Mittelfeld, Acunetix, BurpSuite Pro und Nessus sind - erwartungsgemäß für kommerzielle WVS - sehr übersichtlich und benutzerfreundlich.
+  Die Open Source Programme Arachni und Zed Attack Proxy stehen dem jedoch in nichts nach und sind ebenfalls leicht verständlich und intuitiv zu bedienen. \\
+  Insgesamt gibt es in dieser Kategorie keinen klaren Sieger, mit Ausnahme von OpenVAS sind alle WVS mühelos und unproblematisch zu bedienen.
   \subsection{Reporting}
+  Nikto und Wapiti schneiden in dieser Kategorie unterdurchschnittlich ab, da sie die gefundenen Schwachstellen nicht nach Schweregrad unterteilen. Das Reporting von OpenVAS und Nessus könnte ausführlicher sein, OpenVAS verzichtet auf die Nennung von gefundenen Schwachstellen der Kategorie ``Informational'', bei Nessus sind die Beschreibungen der Schwachstellen und Lösungsvorschläge nur online abzurufen, das bedeutet zusätzlichen Aufwand, wenn der Auftraggeber einen gedruckten Bericht wünscht.
+  Überdurchschnittlich schneiden Zed Attack Proxy, Acunetix und Netsparker ab, die alle sehr umfangreiche Beschreibungen der Schwachstellen liefern, Netsparker ist hier hervorzuheben für die zusätzliche Kategorie ``Critical'' und die besondere Kennzeichnung gesicherter Ergebnisse als ``Confirmed''.
+  Überragende Ergebnisse liefern Arachni und BurpSuite Pro, Arachni sticht neben der Unterscheidung zwischen gesicherten und noch zu überprüfenden Ergenissen mit seinen ausführlichen Statistikfunktionen heraus, BurpSuite Pro mit seiner ``Confidence''-Tabelle, die die Schwachstellen noch genauer zwischen gesichert, wahrscheinlich und tentativ differenziert. Zudem bieten beide sehr detaillierte Beschreibungen der Schwachstellen und sind sehr übersichtlich gestaltet.
+
+
+
 
   \subsection{Scan-Geschwindigkeit}
 
@@ -976,6 +981,7 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
 
   \section{Empfehlung}
   Budget
+  %Zap: Bedienbarkeit ist nicht alles
 
 
 \chapter{Fazit und Ausblick}
@@ -985,9 +991,11 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
 
 %Es wurde der Unterschied zwischen Open Source und kommerziellen Scannern aufgezeigt:
 %Die Fragen, die mit dieser Ausarbeitung beantwortet werden sollten...
+%Scanergebnis mal 5?
 
 %Ausblick: Diese Ausarbeitung kann in verschiedenen Richtungen erweitert werden:
 %  \section{OWASP Benchmark}
+
 
 
 
@@ -1058,6 +1066,8 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
   \textbf{TLS} - Transport Layer Security
 
   \textbf{URI} - Uniform Resource Identifier
+
+  \textbf{URL} - Uniform Resource Locator
 
   \textbf{WAF} - Web Application Firewall
 
