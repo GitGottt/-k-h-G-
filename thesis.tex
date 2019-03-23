@@ -595,7 +595,7 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
      \end{tabular}
    \end{table}
    Das Gesamtergebnis setzt sich aus den Bewertungen für die Bedienung (20\%), Qualität des Reportings (20\%), der Geschwindigkeit (10\%) und dem Scanergebnis (50\%) zusammen. Die höchste zu erreichende Punktzahl ist somit 40.\\
-   Angesichts zahlreicher Abstürze der Software Acunetix unter Windows (siehe Punkt 4.2.2) wurde eine weitere Bewertungskategorie ``Stabilität'' in Betracht gezogen, aber im Hinblick auf die Ununterscheidbarkeit aller anderen stabil laufenden WVS wieder verworfen. Die Abstürze der Acunetix-Software fanden schließlich in der Kategorie ``Bedienung'' ihre Berücksichtigung.\\
+   Angesichts zahlreicher Abstürze der Software Acunetix unter Windows (siehe Punkt 4.2.2) wurde eine weitere Bewertungskategorie ``Stabilität'' in Betracht gezogen, aber im Hinblick auf die Ununterscheidbarkeit aller anderen stabil laufenden WVS wieder verworfen. Die Abstürze der Acunetix-Software wurden schließlich mit einem Abzug bei der Gesamtpunktzahl berücksichtigt.\\
    Für das Scanergebnis wurde die reine Anzahl der gefundenen Schwachstellen zu Grunde gelegt. Für eine tiefergehende Evaluation ist eine manuelle Validierung aller Schwachstellen auf True- und False-Positives in Erwägung zu ziehen, was jedoch angesichts der Vielzahl (über 3000) an Funden den Rahmen dieser Ausarbeitung gesprengt hätte.
 
   Für die Tests wurde folgendes System verwendet:
@@ -623,7 +623,7 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
   Von den angefragten Firmen stellten Acunetix, Netsparker, N-Stalker, Portswigger und Tenable jeweils eine Testversion zur Verfügung.
 
   \subsection{Ausgewählte WVS}
-  Aus der Vielzahl der ursprünglich in Betracht kommenden WVS haben sich am Ende 9 herauskristallisiert, 5 mit einer OpenSource-Lizenz und 4 kommerzielle Produkte. Unter Punkt 4.2 werden sie im Zuge der Evaluation näher berschrieben.
+  Aus der Vielzahl der ursprünglich in Betracht kommenden WVS haben sich am Ende 9 herauskristallisiert, 5 mit einer OpenSource-Lizenz und 4 kommerzielle Produkte. Unter Punkt 4.2 werden sie im Zuge der Evaluation näher beschrieben.
     \subsubsection{Free und Open Source WVS}
       \begin{table}[H]
         \centering
@@ -652,7 +652,7 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
             \hline
             \textbf{WVS}            & \textbf{Anbieter} & \textbf{Version} & \textbf{Verwendete Plattform}  \\
             \hline
-            \textbf{Acunetix}       & Acunetix          & 12.0.190206130   & Kali                          \\
+            \textbf{Acunetix}       & Acunetix          & 12.0.190206130   & Windows/Kali                          \\
             \hline
             \textbf{Burp Suite Pro} & Portswigger       & 2.0.15           & Windows                       \\
             \hline
@@ -825,9 +825,9 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
       \begin{itemize}
         \item Acunetix \cite{Acunetix}:\\
           Acunetix stellte eine 14-tägige Vollversion zur Verfügung. Die graphische Oberfläche ist sehr übersichtlich und lässt sich intuitiv bedienen. Online gibt es ein Support-Portal mit ausführlicher Dokumentation und Hilfestellung.
-          Unter Windows brachte Acunetix das System mehrmals zum Absturz (BSoD), so dass auf die Linux-Version ausgewichen wurde. Hier lief das Programm stabil und scannte von den kommerziellen WVS am schnellsten, von allen WVS muss sich Acunetix hier nur den Terminalprogrammen Wapiti und Nikto geschlagen geben. Der Report listet zu jeder gefundenen Schwachstelle sehr detailliert die vollständigen GET- und POST-Requests sowie teilweise seitenlange Code-Passagen auf. Die Empfehlungen zur Behebung der Funde könnte hingegen ausführlicher sein. Für die Abstürze wurden bei der Bewertung für die Bedienung 2 Punkte abgezogen.
+          Unter Windows brachte Acunetix das System mehrmals zum Absturz (BSoD), so dass auf die Linux-Version ausgewichen wurde. Hier lief das Programm stabil und scannte von den kommerziellen WVS am schnellsten, von allen WVS muss sich Acunetix hier nur den Terminalprogrammen Wapiti und Nikto geschlagen geben. Der Report listet zu jeder gefundenen Schwachstelle sehr detailliert die vollständigen GET- und POST-Requests sowie teilweise seitenlange Code-Passagen auf. Die Empfehlungen zur Behebung der Funde könnte hingegen ausführlicher sein. Aufgrund der Abstürze wurden bei der Gesamtpunktzahl 3 Punkte abgezogen.
 
-          \textbf{Bewertung: Reporting 3, Bedienung 1, Geschwindigkeit 4}\\
+          \textbf{Bewertung: Reporting 3, Bedienung 3, Geschwindigkeit 4}\\
 
           \begin{figure}[H]
             \centering
@@ -874,12 +874,12 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
      \end{itemize}
      \newpage
      \subsection{Gesamtbewertung und Ranking}
-     \ \\
-     \begin{table}[H]
-       \centering
+     \paragraph{Open Source WVS}
+     \
+       \begin{table}[H]
        \begin{tabular}{|r|c|c|c|c|c|}
        \hline
-       \textbf{Open Source WVS}            & \textbf{Arachni} & \textbf{Nikto} & \textbf{OpenVAS} & \textbf{Wapiti} & \textbf{ZAP}  \\
+       \textbf{}            & \textbf{Arachni} & \textbf{Nikto} & \textbf{OpenVAS} & \textbf{Wapiti} & \textbf{ZAP}  \\
        \hline
        \textbf{Scanergebnis (50\%) *5}    & \textbf{3}      &  \textbf{1}      & \textbf{4}      &   \textbf{1}     &  \textbf{0}       \\
        \hline
@@ -894,38 +894,38 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
        \end{tabular}
        \caption[Bewertung der Open Source WVS]{Bewertung der Open Source WVS}
      \end{table}
-     \ \\
-     \begin{table}[H]
-       \centering
+     \paragraph{Kommerzielle WVS}
+     \
+       \begin{table}[H]
        \begin{tabular}{|r|c|c|c|c|}
        \hline
-       \textbf{Kommerzielle WVS}       & \textbf{Acunetix} & \textbf{BurpSuite Pro} & \textbf{Nessus} & \textbf{Netsparker}  \\
+       \textbf{}       & \textbf{Acunetix} & \textbf{BurpSuite Pro} & \textbf{Nessus} & \textbf{Netsparker}  \\
        \hline
        \textbf{Scanergebnis (50\%) *5}    & \textbf{4}      &  \textbf{4}            & \textbf{2}      &   \textbf{3}         \\
        \hline
        \textbf{Reporting (20\%) *2}       &  \textbf{3}     &  \textbf{4}            & \textbf{2}      &   \textbf{3}         \\
        \hline
-       \textbf{Bedienung (20\%) *2}       & \textbf{1}      & \textbf{3}           & \textbf{3}      & \textbf{2}        \\
+       \textbf{Bedienung (20\%) *2}       & \textbf{3}      & \textbf{3}           & \textbf{3}      & \textbf{2}        \\
        \hline
        \textbf{Geschwindigkeit (10\%)} & \textbf{4}       & \textbf{2}              & \textbf{2}      & \textbf{1}            \\
        \hline
-       \textbf{Gesamt}                 &  \textbf{32}     & \textbf{36}              & \textbf{22}       &  \textbf{26}                    \\
+       \textbf{Gesamt}                 &  \textbf{36}     & \textbf{36}              & \textbf{22}       &  \textbf{26}                    \\
        \hline
        \end{tabular}
        \caption[Bewertung der kommerziellen WVS]{Bewertung der kommerziellen WVS}
      \end{table}
-     \ \\
+     \paragraph{Ranking aller WVS}
+     \
      \begin{table}[H]
- \centering
- \begin{tabular}{|r|c|c|c|c|c|c|}
+  \begin{tabular}{|r|c|c|c|c|c|c|}
  \cline{2-7}
  \multicolumn{1}{l|}{} & \textbf{WVS}           & \textbf{Gesamt} & Scanergebnis & Reporting & Bedienung & Geschwindigkeit  \\
  \hline
  \textbf{1}            & \textbf{BurpSuite Pro} & \textbf{36}     & 4            & 4         & 3         & 2                \\
  \hline
- \textbf{2}            & \textbf{Acunetix}      & \textbf{32}     & 4            & 3         & 1         & 4                \\
+ \textbf{2}            & \textbf{Acunetix}      & \textbf{33}\footnotemark     & 4            & 3         & 3         & 4                \\
  \hline
- \textbf{2}            & \textbf{Arachni}       & \textbf{32}     & 3            & 4         & 3         & 3                \\
+ \textbf{3}            & \textbf{Arachni}       & \textbf{32}     & 3            & 4         & 3         & 3                \\
  \hline
  \textbf{4}            & \textbf{OpenVAS}       & \textbf{28}     & 4            & 2         & 1         & 2                \\
  \hline
@@ -942,6 +942,7 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
  \end{tabular}
  \caption[Ranking aller WVS]{Ranking aller WVS}
  \end{table}
+ \footnotetext[1]{Ergebnis nach Abzug von 3 Punkten}
 
 \chapter{Diskussion}
   \section{Anzahl der gefundenen Schwachstellen}
@@ -950,11 +951,24 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
   OpenVAS lässt mit diesem Ergebnis auch noch den kommerziellen WVS Netsparker (389 Funde) hinter sich und belegt insgesamt den dritten Platz bei der Anzahl gefundener Schwachstellen. Arachni findet 319 Schwachstellen und reiht sich damit zwischen Nessus und Netsparker ein. Acunetix muss sich mit 517 Funden nur BurpSuite Pro geschlagen geben und belegt hier den zweiten Platz.
 
   Auch wenn die Werte in die Katgorien High, Medium, Low und Informational aufgesplittet werden, gibt es eine breite Palette an Ergebnissen, es gibt fast keinerlei Überein- stimmungen oder erkennbare Muster. Bei den WVS, die bei den insgesamt gefundenen Schwachstellen ungefähr gleich auf liegen, lässt sich dies veranschaulichen: Acunetix hat zum Beispiel mehr als 330 Funde in High und Medium eingeteilt und ca. 180 in Low und Informational, BurpSuite Pro stuft die Schwachstellen als nicht so schwerwiegend ein,  gerade einmal 84 Funde finden sich in High und Medium, aber 467 in Low und Informational. Arachni hat 134 Funde in die Kategorie High eingestuft, Nessus nur 37 und OpenVAS gar nur 9.
-  
+
   Selbst wenn man die Ergebnisse nach den verwundbaren Webanwendungen aufteilt, gibt es keine Wiedererkennungswerte, weder gibt es eine Webseite, bei der von allen WVS besonders viele Schwachstellen gefunden wurden, noch sticht eine mit besonders wenigen Funden heraus. Auch die Anzahl der Funde pro Webanwendung ist von WVS zu WVS sehr verschieden. So findet zum Beispiel Acunetix auf der Seite Zero Bank (WA3) 68 Schwachstellen, BurpSuite Pro nur 14, andererseits findet BurpSuite Pro auf Webscantest (WA2) 169 Schwachstellen und Acunetix nur 86. OpenVAS findet auf Security Tweets (WA7) 110 Schwachstellen, Netsparker nur 31. Auf Webscantest (WA2) hingegen findet Netsparker doppelt so viele (99) Schwachstellen wie OpenVAS (49).\\
-  Es sind keine Regelmäßigkeiten erkennbar und so lässt sich die erste Forschungsfrage \textbf{Wie viele Schwachstellen werden von den WVS gefunden?} nur in absoluten Zahlen pro WVS beantworten.
+  Bezüglich der Webanwendungen gibt es eine interessante Beobachtung:  Acuart (WA5) und Security Tweets (WA7) wurden beide von Acunetix entwickelt, die naheliegende Vermutung, dass der WVS von Acunetix hier besonders viele Schwachstellen finden müsste, hat sich nicht bestätigt.
+  Ebensowenig findet auch Netsparker auf der selbst entwickelten Bitcoin Web Site (WA4) relevant mehr Schwachstellen als die anderen WVS, Acunetix und BurpSuite Pro finden sogar deutlich mehr.
+
+  Zusammenfassend muss festgehalten werden, dass bei der Anzahl der gefundenen Schwachstellen keinerlei Regelmäßigkeiten erkennbar sind, und so lässt sich die erste Forschungsfrage \textbf{Wie viele Schwachstellen werden von den WVS gefunden?} nur mit einem Blick auf die Tabelle beantworten - in absoluten Zahlen pro WVS.
 
   \section{Bedienung, Reporting und Scan-Geschwindigkeit}
+  Dieses Kapitel widmet sich der Fragestellung \textbf{Wie unterscheiden sich die WVS in den Kategorien Bedienung, Reporting und Scan-Geschwindigkeit?}
+  \subsection{Bedienung}
+  In dieser Kategorie gibt es keinen WVS, der die volle Punktzahl erreicht, es gibt aber auch keine Totalausfälle. Den beiden Terminalprogrammen Nikto und Wapiti fehlt es naturgemäß am Komfort, den eine grafische Benutzeroberfläche bietet, trotzdem schneiden sie noch besser ab als OpenVAS, das erst nach umfangreicher Einarbeitungszeit sinnvoll genutzt werden kann. Das Streben nach Automatisierung geht hier zu Lasten der Bedienbarkeit.
+
+  \subsection{Reporting}
+
+  \subsection{Scan-Geschwindigkeit}
+
+
+
 
   \section{Ranking}
 
@@ -1019,7 +1033,7 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
 
   \textbf{JSP} - JavaServer Pages
 
-  \textbf{LDAP} - Lightweight Directory Protocol
+  \textbf{LDAP} - Lightweight Directory Access Protocol
 
   \textbf{NTLM} - New Technology Lan Manager
 
