@@ -870,6 +870,64 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
             \caption[Grafische Benutzeroberfläche von Netsparker]{Grafische Benutzeroberfläche von Netsparker}
           \end{figure}
      \end{itemize}
+\newpage
+     \subsection{Scanzeiten}
+     In den beiden folgenden Tabellen sind die Zeiten aufgeführt, die die WVS benötigten, umd die jeweiligen Webanwendungen zu scannen.
+     \paragraph{Open Source WVS}
+     \
+\begin{table}[H]
+\begin{tabular}{|r|c|c|c|c|c|}
+\hline
+                            & \textbf{Arachni} & \textbf{Nikto} & \textbf{OpenVAS} & \textbf{Wapiti} & \textbf{Zed Attack Proxy}  \\
+\hline
+\textbf{Altoro Mutual}      & 41               & 96             & 38               & 88              & 615                        \\
+\hline
+\textbf{Webscantest}        & 86               & 80             & 90               & 82              & 821                        \\
+\hline
+\textbf{Zero Bank}          & 42               & 29             & 85               & 31              & 786                        \\
+\hline
+\textbf{Aspnet Testsparker} & 28               & 20             & 29               & 14              & 579                        \\
+\hline
+\textbf{Acuart}             & 39               & 9              & 43               & 23              & 660                        \\
+\hline
+\textbf{Crack Me Bank}      & 38               & 32             & 45               & 28              & 704                        \\
+\hline
+\textbf{Security Tweets}    & 28               & 19             & 33               & 27              & 523                        \\
+\hline
+\textbf{Total}              & \textbf{302}     & \textbf{285}   & \textbf{363}     & \textbf{293}    & \textbf{4688}              \\
+\hline
+\end{tabular}
+\caption[Scanzeiten der Open Source WVS in Minuten]{Scanzeiten der Open Source WVS in Minuten}
+\end{table}
+\paragraph{Kommerzielle WVS}
+\
+
+\begin{table}[H]
+\begin{tabular}{|r|c|c|c|c|}
+\hline
+                            & \textbf{Acunetix} & \textbf{Burp Suite Pro} & \textbf{Nessus} & \textbf{Netsparker}  \\
+\hline
+\textbf{Altoro Mutual}      & 15                & 56                      & 44              & 46                   \\
+\hline
+\textbf{Webscantest}        & 60                & 102                     & 82              & 241                  \\
+\hline
+\textbf{Zero Bank}          & 26                & 71                      & 68              & 47                   \\
+\hline
+\textbf{Aspnet Testsparker} & 11                & 30                      & 27              & 52                   \\
+\hline
+\textbf{Acuart}             & 6                 & 45                      & 61              & 37                   \\
+\hline
+\textbf{Crack Me Bank}      & 28                & 39                      & 31              & 71                   \\
+\hline
+\textbf{Security Tweets}    & 8                 & 41                      & 51              & 20                   \\
+\hline
+\textbf{Total}              & \textbf{154}      & \textbf{384}            & \textbf{364}    & \textbf{514}         \\
+\hline
+\end{tabular}
+\caption[Scanzeiten der kommerziellen WVS in Minuten]{Scanzeiten der kommerziellen WVS in Minuten}
+\end{table}
+
+
      \newpage
      \subsection{Gesamtbewertung und Ranking}
      \paragraph{Open Source WVS}
@@ -915,7 +973,7 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
      \paragraph{Ranking aller WVS}
      \
      \begin{table}[H]
-  \begin{tabular}{|r|c|c|c|c|c|c|}
+  \begin{tabular}{|r|r|c|c|c|c|c|}
  \cline{2-7}
  \multicolumn{1}{l|}{} & \textbf{WVS}           & \textbf{Gesamt} & Scanergebnis & Reporting & Bedienung & Geschwindigkeit  \\
  \hline
