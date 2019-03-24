@@ -241,8 +241,9 @@ Das Ziel dieser Arbeit ist es, aus dieser bunten Mischung diejenigen WVS herausz
 \textbf{2. Wie unterscheiden sich die WVS in den Kategorien Bedienung, Reporting und Scan-Geschwindigkeit?}
 
 \textbf{3. Welcher WVS schneidet insgesamt am besten ab?}
+\newpage
 
-\textbf{4. Gibt es Unterschiede zwischen Open Source- und kommerziellen WVS?}
+\textbf{4. Wie schneiden die Open Source WVS im Vergleich mit kommerziellen WVS ab?}
 
 Die Evaluation soll mit Hilfe eines Punktesystems erfolgen und schließlich in einem Ranking resultieren, das die Tauglichkeit und Qualität der getesteten WVS anhand ihrer Platzierungen aufzeigt.
 
@@ -1030,13 +1031,14 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
   Die Ranking-Tabelle zeigt einen klaren Verlierer dieser Evaluation: Zed Attack Proxy ist der einzige WVS, der mit 0 Punkten bewertet werden musste, und das gleich zweimal, in den Kategorien Scanergebnis und Geschwindigkeit. Zed Attack Proxy ist damit als unbrauchbar zu bezeichnen, zumindest in der Funktion als WVS; die jeweils 3 Punkte in den Kategorien Reporting und Bedienung sind wertlos, da kaum Schwachstellen gefunden werden. Nikto und Wapiti liegen mit jeweils 14 Punkten auf dem vorletzten Platz, mit den dürftigen Scanergebnissen und den Mängeln im Reporting sind diese Tools für professionelles Penetration Testing nur sehr bedingt tauglich. Nessus befindet sich mit 22 Punkten im unteren Mittelfeld und kann nur in der Kategorie Bedienung überzeugen, erfüllt aber insgesamt seinen Zweck. Netsparker hat gute Werte im Scanergebnis und im Reporting und belegt mit 26 Punkten den 5. Platz. OpenVAS erreicht 28 Punkte und lässt damit den kommerziellen WVS Nessus, aus dem OpenVAS hervorgegengen ist, hinter sich.
   Auf den ersten drei Plätzen befinden sich mit Arachni, Acunetix und BurpSuite Pro diejenigen WVS, die durchweg überdurchschnittliche und überragende Werte erreicht haben und somit fast uneingeschränkt empfehlenswert sind. Arachni belegt mit 32 Punkten den 3. Platz und ist damit der beste Open Source WVS.
   Acunetix belegt mit 33 Punkten den 2. Platz, allerdings nur durch den Punktabzug aufgrund der Abstürze beim Testen unter Windows. Ohne Abstürze hätte Acunetix sich den ersten Platz mit BurpSuite Pro geteilt.\\
-  Testsieger und damit die Antwort auf die Frage \textbf{Welcher WVS schneidet insgesamt am besten ab?} ist BurpSuite Pro mit 36 Punkten. Ausschlaggebend für das Ergebnis sind in erster Linie das Scanergebnis und das Reporting, in beiden Kategorien hat BurpSuite Pro am besten von allen WVS abgeschnitten. 
+  Testsieger und damit die Antwort auf die Frage \textbf{Welcher WVS schneidet insgesamt am besten ab?} ist BurpSuite Pro mit 36 Punkten. Ausschlaggebend für das Ergebnis sind in erster Linie das Scanergebnis und das Reporting, in beiden Kategorien hat BurpSuite Pro am besten von allen WVS abgeschnitten.
 
-  \section{Open Source oder kommerzielle WVS}
+  \section{Open Source im Vergleich mit kommerziellen WVS}
+  In diesem Kapitel wird die Frage \textbf{Wie schneiden die Open Source WVS im Vergleich mit kommerziellen WVS ab?} erörtert.
 
-  \section{Empfehlung}
-  Budget
-  %Zap: Bedienbarkeit ist nicht alles
+  Von den fünf getesteten Open Source WVS finden sich im Ranking drei auf den letzten Plätzen wieder. Nikto und Wapiti haben als Terminalprogramme naturgemäß Nachteile in der Handhabung, sie schneiden aber auch beim Scanergebnis und im Reporting unterdurchschnittlich ab. Zed Attack Proxy auf dem letzten Platz ist zwar als WVS ungeeignet, wird in der Regel aber auch als ``Intercepting Proxy'' verwendet, der den Browsertraffic abfangen, überprüfen und verändern kann. Der Name deutet darauf hin, dass dies die Hauptfunktion von Zed Attack Proxy ist, vom schlechten Abschneiden als WVS sollte hier also nicht auf die übrigen Funktionen geschlossen werden.\\
+  Arachni und OpenVAS auf dem 3. und 4. Platz im Gesamtranking schneiden besser ab, als die kommerziellen WVS Netsparker und Nessus und stellen damit zwei kostengünstige Alternativen dar. Nach Bewältigung der Einarbeitungszeit lassen sich mit OpenVAS gute Ergebnisse erzielen, insbesondere wenn man einen hohen Automatisierungsgrad anstrebt.
+  Arachni überzeugt mit leichter Handhabung, sehr gutem Reporting und überdurchschnittlicher Geschwindigkeit, bei der Anzahl der gefundenen Schwachstellen setzen sich jedoch die kommerziellen WVS BurpSuite Pro und Acunetix durch.
 
 
 \chapter{Fazit und Ausblick}
@@ -1046,7 +1048,9 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
 
 %Es wurde der Unterschied zwischen Open Source und kommerziellen Scannern aufgezeigt:
 %Die Fragen, die mit dieser Ausarbeitung beantwortet werden sollten...
+%Einschränkungen Testergebnisse
 %Scanergebnis mal 5?
+%High, Informational
 
 %Ausblick: Diese Ausarbeitung kann in verschiedenen Richtungen erweitert werden:
 %  \section{OWASP Benchmark}
