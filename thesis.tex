@@ -1022,7 +1022,7 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
   Die Open Source Programme Arachni und Zed Attack Proxy stehen dem jedoch in nichts nach und sind ebenfalls leicht verständlich und intuitiv zu bedienen. \\
   Insgesamt gibt es in dieser Kategorie keinen klaren Sieger, mit Ausnahme von OpenVAS sind alle WVS mühelos und unproblematisch zu bedienen.
   \subsection{Reporting}
-  Nikto und Wapiti schneiden in dieser Kategorie unterdurchschnittlich ab, da sie die gefundenen Schwachstellen nicht nach Schweregrad unterteilen. Das Reporting von OpenVAS und Nessus könnte ausführlicher sein, OpenVAS verzichtet auf die Nennung von gefundenen Schwachstellen der Kategorie ``Informational'', bei Nessus sind die Beschreibungen der Schwachstellen und Lösungsvorschläge nur online abzurufen, das bedeutet zusätzlichen Aufwand, wenn der Auftraggeber einen gedruckten Bericht wünscht.
+  Nikto und Wapiti schneiden in dieser Kategorie unterdurchschnittlich ab, da sie die gefundenen Schwachstellen nicht nach Schweregrad unterteilen. Das Reporting von Nessus und OpenVAS könnte ausführlicher sein, OpenVAS verzichtet auf die Nennung von gefundenen Schwachstellen der Kategorie ``Informational'', bei Nessus sind die Beschreibungen der Schwachstellen und Lösungsvorschläge nur online abzurufen, das bedeutet zusätzlichen Aufwand, wenn der Auftraggeber einen gedruckten Bericht wünscht.
   Überdurchschnittlich schneiden Zed Attack Proxy, Acunetix und Netsparker ab, die alle sehr umfangreiche Beschreibungen der Schwachstellen liefern, Netsparker ist hier hervorzuheben für die zusätzliche Kategorie ``Critical'' und die besondere Kennzeichnung gesicherter Ergebnisse als ``Confirmed''.
   Überragende Ergebnisse liefern Arachni und BurpSuite Pro, Arachni sticht neben der Unterscheidung zwischen gesicherten und noch zu überprüfenden Ergenissen mit seinen ausführlichen Statistikfunktionen heraus, BurpSuite Pro mit seiner ``Confidence''-Tabelle, die die Schwachstellen noch genauer zwischen gesichert, wahrscheinlich und tentativ differenziert. Zudem bieten beide äußerst detaillierte Beschreibungen der Schwachstellen und sind trotzdem sehr übersichtlich gestaltet.
   \subsection{Scan-Geschwindigkeit}
@@ -1034,7 +1034,7 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
   Testsieger und damit die Antwort auf die Frage \textbf{Welcher WVS schneidet insgesamt am besten ab?} ist BurpSuite Pro mit 36 Punkten. Ausschlaggebend für das Ergebnis sind in erster Linie das Scanergebnis und das Reporting, in beiden Kategorien hat BurpSuite Pro am besten von allen WVS abgeschnitten.
 
   \section{Open Source im Vergleich mit kommerziellen WVS}
-  In diesem Kapitel wird die Frage \textbf{Wie schneiden die Open Source WVS im Vergleich mit kommerziellen WVS ab?} erörtert.
+  Nachfolgend wird die Frage \textbf{Wie schneiden die Open Source WVS im Vergleich mit kommerziellen WVS ab?} erörtert.
 
   Von den fünf getesteten Open Source WVS finden sich im Ranking drei auf den letzten Plätzen wieder. Nikto und Wapiti haben als Terminalprogramme naturgemäß Nachteile in der Handhabung, sie schneiden aber auch beim Scanergebnis und im Reporting unterdurchschnittlich ab. Zed Attack Proxy auf dem letzten Platz ist zwar als WVS ungeeignet, wird in der Regel aber auch als ``Intercepting Proxy'' verwendet, der den Browsertraffic abfangen, überprüfen und verändern kann. Der Name deutet darauf hin, dass dies die Hauptfunktion von Zed Attack Proxy ist, vom schlechten Abschneiden als WVS sollte hier also nicht auf die übrigen Funktionen geschlossen werden.\\
   Arachni und OpenVAS auf dem 3. und 4. Platz im Gesamtranking schneiden besser ab, als die kommerziellen WVS Netsparker und Nessus und stellen damit zwei kostengünstige Alternativen dar. Nach Bewältigung der Einarbeitungszeit lassen sich mit OpenVAS gute Ergebnisse erzielen, insbesondere wenn man einen hohen Automatisierungsgrad anstrebt.
@@ -1042,18 +1042,30 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
 
 
 \chapter{Fazit und Ausblick}
-%Die Ergebnisse dieser Thesis zeigen, dass...
-%In dieser Arbeit wurden WVS auf ihre Tauglichkeit und Qualität überprüft:
-%Es wurde festgestellt, dass...
+Das Ziel dieser dieser Arbeit war es, aus der großen Anzahl von WVS die für eine Evaluation geeigneten herauszufiltern und auf ihre Tauglichkeit und Qualität zu testen. Nach eingehender Prüfung der in Frage kommenden Kandidaten wurden schließlich 9 in die Evaluation aufgenommen, 5 Open Source- und 4 kommerzielle WVS.
+Zum Testen wurden 7 verwundbare Webanwendungen mit verschiedenen Technoligien ausgewählt, die von den WVS gescannt und auf Schwachstellen überprüft wurden. Anhand eines Punktesystems wurden die WVS in den Kategorien Scanergebnis, Reporting, Bedienung und Geschwindigkeit verglichen.\\
+Neben dem Aufzeigen der Unterschiede in den einzelnen Kategorien, sollten die Fragen beantwortet werden, welcher WVS das beste Resultat erzielt und wie die Open Source WVS im Vergleich mit den kommerziellen Scannern abschneiden.
 
-%Es wurde der Unterschied zwischen Open Source und kommerziellen Scannern aufgezeigt:
-%Die Fragen, die mit dieser Ausarbeitung beantwortet werden sollten...
-%Einschränkungen Testergebnisse
-%Scanergebnis mal 5?
-%High, Informational
+Durch die Evaluation gelang es, für jede Fragestellung Antworten zu finden:
+\paragraph{Anzahl gefundener Schwachstellen:}
+Mit Hilfe einer Tabelle wurden die großen Unterschiede bei der Anzahl gefundener Schwachstellen sichtbar gemacht, hier schnitten BurpSuitePro und Acunetix mit über 500 Funden am besten ab.
+\paragraph{Bedienung, Reporting und Geschwindigkeit:}
+Die Scan-Geschwindigkeit wurde den Berichten entnommen oder manuell ermittelt. Die subjektiven Eindrücke für die Bedienung und das Reporting wurden für jeden WVS einzeln beschrieben und mit Hilfe des Punktesystems bewertet. Die Bewertung resultiert in einem Gesamtranking.
+\paragraph{Ranking:} Aus dem Gesamtranking lässt sich der WVS ermitteln, der am besten abgeschnitten hat, es ist BurpSuite Pro mit 36 Punkten.
+\paragraph{Open Source im Vergleich mit kommerziellen WVS:}
+Anhand des Rankings wurde auch das Abschneiden der Open Source WVS aufgezeigt, mit Arachni und OpenVAS an dritter und vierter Stelle der Rangliste gibt es vollwertige, kostenlose Alternativen zu den kommerziellen WVS.
 
-%Ausblick: Diese Ausarbeitung kann in verschiedenen Richtungen erweitert werden:
-%  \section{OWASP Benchmark}
+Ungeachtet der Resultate soll hier jedoch durch Reflexion der gewählten Methodik auch auf die Grenzen der Evaluation eingegangen werden.\\
+So hat die Gesamtanzahl der gefundenen Schwachstellen zum Beispiel nur eingeschränkte Aussagekraft; zum einen müsste jeder Fund noch durch manuelles Testen verifiziert werden, um False-Positives auszuschließen, zum anderen ist die durch die WVS vorgenommene Einteilung in die Kategorien ``High'', ``Medium'', ``Low'' und ``Informational'' problematisch, da die ``Informational''-Funde, wie der Name schon sagt, nur der Information dienen und gar kein Eingreifen erfordern. Würde man diese Werte ausblenden, ergäbe sich im Ranking ein komplett anderes Bild, der Testsieger BurpSuite Pro käme zum Beispiel nur noch auf 107 gefundene Schwachstellen und würde damit in dieser Kategorie den vorletzten Rang belegen. In diesem Zusammenhang muss rückblickend auch die Gewichtung der einzelnen Kategorien hinterfragt werden, angesichts der zweifelhaften Ausssagekraft des Scanergebnisses ist die Gewichtung von 50\% vielleicht zu hoch angesetzt. \\
+Die Ergebnisse dieser Thesis sind somit als Grundlage für weitergehende Evaluationen einzuordnen.
+
+Für künftige Studien sind mehrere Ansätze möglich:
+\begin{itemize}
+  \item Durch Verifizierung der False-Positives werden die Scan-Ergebnisse genauer, hier müsste allerdings aufgrund des hohen Aufwands die Anzahl der WVS und der Webanwendgen reduziert werden.
+  \item Durch Weglassen der ``Informational''-Funde werden nur relevante Schwachstellen erfasst, die auch tatsächlich ein Eingreifen erfordern.
+  \item Bei Auswahl und Gewichtung der Bewertungskategorien können andere Prioritäten gesetzt werden, indem etwa die Scan-Geschwindigkeit vernachlässigt oder bei den kommerziellen WVS der Preis mit einbezogen wird.
+\end{itemize}
+Des Weiteren sei hier für tiefergehende Analysen auf das Projekt OWASP-Benchmark \cite{OWASPbench} verwiesen, eine von OWASP entwickelte, kostenlose Testsuite, mit der WVS in mehrtägigen Scans anhand von tausenden von Testfällen untersucht werden können.
 
 
 
