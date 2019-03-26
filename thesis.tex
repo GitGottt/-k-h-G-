@@ -1,4 +1,4 @@
-\documentclass[12pt,oneside,a4paper,parskip]{scrbook}
+\documentclass[12pt,oneside,a4paper,parskip,pointlessnumbers]{scrbook}
 \usepackage[utf8]{inputenc}
 \usepackage{csquotes}
 \usepackage[ngerman]{babel}
@@ -38,9 +38,9 @@
 %%%%%%%%%%%%%%%%%%%
 \def\BaAuthor{Henning Janning}
 \def\BaTitle{Evaluation von Web Application Vulnerability Scannern}
-\def\BaSupervisorOne{Prof. Andreas Mayer}
-\def\BaSupervisorTwo{Susanne Steuer (M.Sc.) }
-\def\BaDeadline{05.04.2019}
+\def\BaSupervisorOne{Prof. Dr.-Ing. Andreas Mayer}
+\def\BaSupervisorTwo{Susanne Steuer, (M.Sc.) }
+\def\BaDeadline{04.04.2019}
 \def\MatNr{192972}
 
 \hypersetup{
@@ -158,6 +158,7 @@ pdfkeywords={Keywords}
 \subtitle{\normalsize{vorgelegt an der Hochschule Heilbronn, Fakultät für Informatik zum Abschluss eines Studiums im Studiengang Angewandte Informatik}}
 \author{\BaAuthor\\
 \normalsize{Matrikelnummer: \MatNr}}
+\bigskip
 \date{\normalsize{Eingereicht am: \BaDeadline}}
 \publishers{
   \normalsize{Erstpr\"{u}fer: \BaSupervisorOne}\\
@@ -196,7 +197,7 @@ TODO
 
 \chapter{Einführung}\label{ch:intro}
 In den letzten zwei Jahrzehnten hat sich das World Wide Web von einem reinen Informationsspeicher in eine Plattform mit hochfunktionalen Anwendungen verwandelt, die nicht nur sensible Daten verarbeiten sondern auch  Aktionen durchführen, die einflussreiche Auswirkungen auf die reale Welt haben.
-Mit jeder Weiterentwicklung bringen Webanwendungen neue Sicherheitslücken mit sich und so verändern sich auch die Art und die Anzahl der am häufigsten auftretenden Fehler. Es gibt Angriffe auf Schwachstellen, die bei der Entwicklung der Webanwendungen noch nicht bekannt waren und daher nicht berücksichtigt wurden, andere Attacken haben an Bedeutung verloren, da das Bewusstsein für sie gestiegen ist oder aufgrund von Verbesserungen der Web-Browser Software. Neue Technologien bergen jedoch auch immer das Risiko von neuen Sicherheitslücken und so ist ``...in gewissem Maße die Sicherheit von Webanwendungen heute das bedeutendste Schlachtfeld zwischen Angreifern und solchen, die Daten schützen und Computerressourcen verteidigen müssen, und dies wird wahrscheinlich auf absehbare Zeit so bleiben.'' \cite{handbook}
+Mit jeder Weiterentwicklung bringen Webanwendungen neue Sicherheitslücken mit sich und so verändern sich auch die Art und die Anzahl der am häufigsten auftretenden Fehler. Es gibt Angriffe auf Schwachstellen, die bei der Entwicklung der Webanwendungen noch nicht bekannt waren und daher nicht berücksichtigt wurden, andere Attacken haben an Bedeutung verloren, da das Bewusstsein für sie gestiegen ist oder aufgrund von Verbesserungen der Web-Browser Software. Neue Technologien bergen jedoch auch immer das Risiko von neuen Sicherheitslücken und so ist ``...in gewissem Maße die Sicherheit von Webanwendungen heute das bedeutendste Schlachtfeld zwischen Angreifern und solchen, die Daten schützen und Computerressourcen verteidigen müssen, und dies wird wahrscheinlich auf absehbare Zeit so bleiben.'' \cite[S.6]{handbook}
 
 \begin{figure}[htb!]
   \centering
@@ -257,7 +258,10 @@ Die Arbeit ist in sechs Kapitel aufgeteilt:
 
 \textbf{4. Evaluation:} Dieses Kapitel beinhaltet die Ergebnisse der Evaluation, zum einen die Anzahl der gefundenen Schwachstellen per WVS, zum anderen eine Beschreibung der WVS einschließlich der Bewertung in den Kategorien Bedienung, Reporting und Scangeschwindigkeit.
 
+
+
 \textbf{5. Diskussion:} In diesem Kapitel werden die Ergebnisse der Evaluation durchleuchtet und erörtert.
+
 
 \textbf{6. Fazit und Ausblick:} Zum Schluss wird die Studie nochmals zusammengefasst und auf mögliche zukünftige Arbeiten verwiesen.\\
 
@@ -266,11 +270,11 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
 \chapter{Grundlagen}
   \section{Webanwendung}
   Zu Beginn sollte der Begriff ``Webanwendung'' geklärt werden.
-  Eine Webanwendung muss nicht zwingend über das World Wide Web erreichbar sein, auch in vielen Unternehmen kommen Webanwendungen zum Einsatz. Entscheidend dafür, dass sich eine Anwendung als Webanwendung bezeichnen lässt, ist stattdessen einzig der Einsatz von Webtechnologien. Hierüber gelangen wir zu folgender Begriffsdefinition \cite{Rohr}:
+  Eine Webanwendung muss nicht zwingend über das World Wide Web erreichbar sein, auch in vielen Unternehmen kommen Webanwendungen zum Einsatz. Ob eine Anwendung als Webanwendung bezeichnet werden kann, hängt vom Einsatz von Webtechnologien ab. Daraus kann folgende Begriffsdefinition abgeleitet werden \cite[S.1]{Rohr}:
 
-  \begin{quote}Eine Webanwendung ist eine Client-Server-Anwendung, die auf Webtechnologien (HTTP, HTML etc.) basiert.\end{quote}
+  \begin{quote}``Eine Webanwendung ist eine Client-Server-Anwendung, die auf Webtechnologien (HTTP, HTML etc.) basiert.''\end{quote}
 
-  Eine Webanwendung wird über einen Webbrowser aufgerufen, der den serverseitig bereitgestellten HTML-, Java-Script oder CSS-Code interpretiert und darstellt. Danben kann auch über ein Skript oder von einer Kommandozeile aus auf Webanwendungen zugegriffen werden, man spricht hier von einem User Agent oder Client.
+  Eine Webanwendung wird über einen Browser aufgerufen, der den serverseitig bereitgestellten HTML-, Java-Script oder CSS-Code interpretiert und darstellt. Danben kann auch über ein Skript oder von einer Kommandozeile aus auf Webanwendungen zugegriffen werden, man spricht hier von einem User Agent oder Client.
   Zur Kommunikation zwischen Browser (also Client) und Server wird das HTTP-Protokoll verwendet oder das darauf aufsetzende HTTPS-Protokoll.
   Serverseitig werden Webanwendungen auf Web- und Applikationsservern oder Laufzeitumgebungen ausgeführt, die dann wiederum auf Hintergrundsysteme wie Datenbanken zugreifen können.
 
@@ -289,81 +293,58 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
   \end{figure}
 
   Im Zuge der Weiterentwicklung von Webanwendungen werden immer mehr Aspekte der Benutzerschnittstelle client-seitig, vor allem über JavaScript-Code umgesetzt, der im Hintergrund serverseitige Webdienste aufruft.
-  Diese Verlagerung von Anwendungslogik vom Server auf den Client findet ihren Höhepunkt in sogenannten Single Page Applications (SPAs), die nur noch aus einer einzigen HTML-Seite mit sehr viel JavaScript-Code bestehen, der im Hintergrund dynamisch mit serverseitigen REST-Services kommuniziert und die Anzeige von Seiteninhalten steuert. Ein bekanntes Beispiel für solch eine Single Page Application ist Google Mail.
+  Diese Verlagerung von Anwendungslogik vom Server auf den Client resultieren in sogenannten Single Page Applications (SPAs), die nur noch aus einer einzigen HTML-Seite mit sehr viel JavaScript-Code bestehen, der im Hintergrund auf der Serverseite mit REST-Services kommuniziert und die Anzeige der Seiteninhalte steuert. Ein bekanntes Beispiel für solch eine Single Page Application ist Google Mail.
   \cite{Rohr}
   \newpage
 
  \section{Schwachstellen}
-  Das Bundesamt für Sicherheit in der Informationstechnik (BSI) definiert eine Schwachstelle wie folgt:
+  Das BSI definiert eine Schwachstelle wie folgt:
 
-  \begin{quote}``Eine Schwachstelle (englisch ``vulnerability'') ist ein sicherheitsrelevanter Fehler eines IT-Systems oder einer Institution. Ursachen können in der Konzeption, den verwendeten Algorithmen, der Implementation, der Konfiguration, dem Betrieb sowie der Organisation liegen. Eine Schwachstelle kann dazu führen, dass eine Bedrohung wirksam wird und eine Institution oder ein System geschädigt wird. Durch eine Schwachstelle wird ein Objekt (eine Institution oder ein System) anfällig für Bedrohungen.'' \cite{BSI2}
+  \begin{quote}``Eine Schwachstelle (englisch ``vulnerability'') ist ein sicherheitsrelevanter Fehler eines IT-Systems oder einer Institution. Ursachen können in der Konzeption, den verwendeten Algorithmen, der Implementation, der Konfiguration, dem Betrieb sowie der Organisation liegen. Eine Schwachstelle kann dazu führen, dass eine Bedrohung wirksam wird und eine Institution oder ein System geschädigt wird. Durch eine Schwachstelle wird ein Objekt (eine Institution oder ein System) anfällig für Bedrohungen.'' \cite[S.107]{BSI2}
   \end{quote}
 
-  Viele Schwachstellen werden nicht öffentlich bekannt, da ein Hersteller sie im Idealfall
-  selbst entdeckt und behebt, bevor ein Dritter sie finden und insbesondere ein Angreifer
-  sie ausnutzen kann.
-  Wird eine sicherheitskritische Schwachstelle jedoch nicht durch den Hersteller, sondern
-  durch einen Dritten gefunden, gibt es unterschiedliche Möglichkeiten, wie ihr Lebenszyklus und die daraus resultierende Gefährdung für den Nutzer verlaufen können.
-  Wichtig sind dabei Rolle und Selbstverständnis des Entdeckers. Neben Personen, die
-  sich beruflich mit IT-Sicherheit beschäftigen, kann beispielsweise auch akademische
-  Forschung zur Entdeckung von Schwachstellen beitragen. Es kann sich um gezielte Suche nach Schwachstellen handeln, aber auch Zufallsfunde sind möglich.
-  Der Lebenszyklus hängt daher stark von Verhalten und Motivation des Entdeckers sowie von der Reaktion des Herstellers ab \cite{BSI3}:
+  Im Idealfall entdeckt ein Hersteller Schwachstellen selbst und kann sie beheben, bevor sie öffentlich bekannt werden. Sollte die Sicherheitslücke jedoch durch Dritte gefunden werden, kann ihr Lebenszyklus und die Gefährdung für die Nutzer unterschiedlich verlaufen. Der Verlauf hängt in erster Linie vom Entdecker, aber auch von der Reaktion der Hersteller ab \cite{BSI3}:
   \begin{itemize}
-    \item Ist dem Entdecker daran gelegen, die IT-Sicherheit zu verbessern, oder möchte er die
-    Schwachstelle für eigene, möglicherweise kriminelle Zwecke nutzen?
-    \item Wie viele Informationen über die Schwachstelle werden öffentlich bekannt?
-    \item Schätzt der Hersteller die entstehende Gefährdung richtig ein und kann er schnell genug Abhilfe
-  schaffen?
+    \item Möchte der Entdecker die IT-Sicherheit verbessern, oder hat er kriminelle Absichten und benutzt die Schwachstelle für eigene Interessen?
+    \item Inwieweit wird die Öffentlichkeit über die Schwachstelle informiert?
+    \item Ist der Hersteller in der Lage, die Sicherheitslücke schnell zu beheben?
   \end{itemize}
-  Um die Diskussion über Schwachstellen zwischen Entdeckern, Herstellern und weiteren
-  Beteiligten zu systematisieren, wurde zur einheitlichen Benennung von öffentlich bekannten Schwachstellen und zur Sammlung der darüber verfügbaren Informationen
-  mit den Common Vulnerabilities and Exposures (CVE) ein herstellerübergreifender Industriestandard geschaffen. Mit diesem Standard wird sichergestellt, dass alle Beteiligten während des gesamten Lebenszyklus tatsächlich jeweils dieselbe Schwachstelle meinen. Zudem werden statistische Auswertungen ermöglicht.
+Um bekannte Schwachstellen herstellerübergreifend einheitlich benennen zu können, wurde der Industriestandard Common Vulnerabilities and Exposures (CVE) etabliert, der gewährleistet, dass Hersteller, Entdecker und weitere Beteiligte jeweils über dieselbe Schwachstelle diskutieren. Der CVE sammelt vorhandene Informationen über die Schwachstelle und bietet die Möglichkeit zu statistischen Auswertungen.
 
-  Grundsätzlich basiert der Lebenszyklus einer durch Dritte entdeckten Schwachstelle auf dem
-  folgenden Schema \cite{BSI3}:
+  Wie in Abbildung 2.3 dargestellt, lässt sich der Lebenszyklus einer Schwachstelle, die durch Dritte entdeckt wurde, auf das folgende Schema zurückführen\cite{BSI3}:
 
-  1. Die Schwachstelle wird durch einen Dritten entdeckt und untersucht.
+  1. Entdeckung der Schwachstelle durch einen Dritten.
 
-  2. Der Hersteller erlangt auf einem der folgenden Wege Kenntnis von der Schwachstelle:
+  2. Es gibt mehrere Möglichkeiten, wie der Hersteller von der Schwachstelle erfährt:
   \begin{itemize}
-    \item Der Entdecker veröffentlicht sämtliche Informationen über die Schwachstelle (\glqq Full Disclosure\grqq).
-    \item Der Entdecker informiert den Hersteller direkt und verzichtet zunächst auf eine detaillierte
-    Veröffentlichung (\glqq Coordinated Disclosure\grqq).
-    \item Die Schwachstelle wird für Angriffe ausgenutzt und diese werden entdeckt (\glqq Zero-Day-Exploit\grqq).
-    \item Der Hersteller wird indirekt über einen sogenannten Schwachstellen-Broker über die Schwachstelle informiert.
-  \end{itemize}
-  3. Der Hersteller beginnt mit der Entwicklung eines Patches (von engl. Flicken), einer Nachbesserung der Software, mit der die Schwachstelle behoben wird.
+    \item \glqq Full Disclosure\grqq: Alle Informationen über die Schwachstelle werden vom Entdecker öffentlich gemacht.
+    \item \glqq Coordinated Disclosure\grqq: Der Entdecker kontaktiert direkt den Hersteller und koordiniert mit ihm das weitere Vorgehen, hier werden zunächst keine Informationen an die Öffentlichkeit gegeben.
+    \item \glqq Zero-Day-Exploit\grqq: Niemand wird über die Schwachstelle informiert, stattdessen wird sie für Angriffe ausgenutzt. Öffentlichkeit und Hersteller erfahren erst nach erfolgreichen Angriffen von der Schwachstelle.
+    \item Indirekte Benachrichtigung an den Hersteller über einen sogenannten Schwachstellen-Broker. \end{itemize}
+  3. Der Hersteller beginnt damit, die Sicherheitslücke zu schließen, indem er die Software nachbessert und einen Patch entwickelt.
 
-  4. Der Hersteller veröffentlicht eine Schwachstellenwarnung, ein sogenanntes Advisory. Dieses
-  enthält üblicherweise allgemeine Informationen zur Schwachstelle, eine Bewertung der
-  entstehenden Gefährdung sowie mögliche vorläufige Gegenmaßnahmen (sogenannte
-  Workarounds oder Mitigations). Ein Advisory wird vor allem dann schon vor Verfügbarkeit
-  des Patches veröffentlicht, wenn auch die Öffentlichkeit bereits Kenntnis von der Schwachstelle hat und die Gefährdung hoch ist. Häufig erscheinen Advisory und Patch jedoch zeitgleich.
+  4. Veröffentlichung eines ``Advisorys'', einer Schwachstellenwarnung, die Informationen über die Sicherheitslücke, eine Gefährdungsbewertung und vorläufige Gegenmaßnahmen beinhaltet.
+  Das Advisory erscheint in der Regel zeitgleich mit dem Patch, bei hoher Gefährdung und wenn die Öffentlichkeit schon von der Schwachstelle erfahren hat, kann es auch vor der Fertigstellung des Patches veröffentlicht werden.
 
-  5. Der Hersteller stellt zusammen mit einer entsprechenden Beschreibung (Bulletin) einen
-  Patch zur Behebung der Schwachstelle bereit. Durch Analyse des Patches kann ein Angreifer
-  unter Umständen so viele Details über die Schwachstelle herausfinden, dass er sie ausnutzen
-  kann. Daher steigt mit der Veröffentlichung des Patches die Gefährdung für ungepatchte
-  Systeme an.
+  5. Der Patch ist fertiggestellt und wird vom Hersteller mit einer entsprechenden Beschreibung (Bulletin) zur Verfügung gestellt. Mit der Veröffentlichung des Patches und dem Bulletin steigt die Gefahr für ungepatchte Systeme, da nun auch potentelle Angreifer umfangreiche Informationen über die Schwachstelle
+  erhalten.
 
-  6. Der Benutzer der betroffenen Software installiert den Patch, schließt dadurch die Schwachstelle und ist erst dann vor ihrer Ausnutzung geschützt. Dies unterstreicht die enorme Bedeutung eines effektiven Patchmanagements.
-  \begin{figure}[hbt!]
+  6. Der Patch wird von den Benutzern der betroffenen Software installiert und die Sicherheitslücke dadurch geschlossen.
+
+  Der Ablauf kann von diesem Schema abweichen; wenn beispielsweise eine Schwachstelle vom Hersteller zunächst als nicht kritisch eingestuft und daher auf die Entwicklung eines Patches verzichtet wird, kann dies dazu führen, dass zu einem späteren Zeitpunkt schnell reagiert werden muss, wenn sich die Schwachstelle doch als ausnutzbar erweist. \cite{BSI3}
+
+  \begin{figure}[H]
     \centering
      \includegraphics[width=1\textwidth]{Images/Lebenszyklus}
     \caption[Lebenszyklus einer Schwachstelle]{Lebenszyklus einer Schwachstelle \cite{BSI3}}
   \end{figure}
 
-  Abweichungen von diesem Schema sind möglich, der Ablauf kann sich dynamisch ändern. So
-  kann ein Hersteller beispielsweise eine Schwachstelle als unkritisch einschätzen und auf die
-  Entwicklung eines Patches zunächst verzichten. Wird zu einem späteren Zeitpunkt doch eine
-  Ausnutzungsmöglichkeit bekannt, so kann der Hersteller dadurch zu einer entsprechenden
-  schnellen Reaktion gezwungen sein. \cite{BSI3}
+
 
   \section{Web Application Security}
-  Die Webanwendungssicherheit ist ein Teilgebiet der IT-Sicherheit und befasst sich vor allem mit dem Schutz von Assets einer Webanwendung. Unter Assets versteht man in diesem Fall all jene Bestandteile
-  (Daten, Systeme und Funktionen) einer Webanwendung, für die sich ein Schutzbedarf hinsichtlich eines der
-  drei primären Schutzziele ableiten lässt.
-  Diese primären Schutzziele lauten:
+  Die Webanwendungssicherheit ist ein Teilgebiet der IT-Sicherheit und befasst sich vor allem mit dem Schutz von Assets einer Webanwendung. Als Assets werden Bestandteile einer Webanwendung wie Daten, Systeme oder Funktionen bezeichnet, die Schutzbedarf im Hinblick auf die primären Schutzziele haben \cite{BSI}.
+
+  Diese primären Schutzziele lauten \cite{BSI}:
     \begin{itemize}
     \item Vertraulichkeit
     \item Integrität
@@ -372,23 +353,25 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
 
   Aus diesen primären Schutzzielen lassen sich auch sekundäre Schutzziele wie z.B. Authentizität oder Nicht-Abstreitbarkeit ableiten.
 
-  Das Thema Webanwendungssicherheit bezieht sich auf alle Phasen des Lebenszyklus einer Webanwendung und stellt auch einen Bestandteil der Qualitätssicherung dar. Sie befasst sich sowohl mit der Abwehr von Bedrohungen und der Prävention von Schwachstellen als auch mit der Identifizierung und Behebung von Sicherheitslücken. \cite{BSI}
+  Das Thema Webanwendungssicherheit bezieht sich auf den gesamten Lebenszyklus einer Webanwendung und ist ein wichtiger Bestandteil der Qualitätssicherung. Neben der Bedrohungsabwehr und der Vorbeugung von Sicherheitslücken befasst sie sich auch mit deren Identifizierung und Behebung. \cite{BSI}
 
   \subsection{Bedrohungen und Risiken}
-  Die schwerwiegendsten Angriffe auf Webanwendungen sind sicherlich diejenigen, die sensible Daten verfügbar machen oder uneingeschränkten Zugriff auf die Systeme ermöglichen, auf denen die Anwendung ausgeführt wird.
-  Hierzu gehören Angriffe per XSS oder SQL-Injection, aber auch Angriffe, die Systemausfälle versursachen (Denial-of-Service Attacken) stellen für viele Organisationen ein sehr kritisches Ereignis dar.
+  Die schwerwiegendsten Angriffe auf Webanwendungen sind sicherlich diejenigen, die sensible Daten verfügbar machen oder uneingeschränkten Zugriff auf die Systeme ermög- lichen, auf denen die Anwendung ausgeführt wird. Hierzu gehören Angriffe per XSS oder SQL-Injection. Aber auch Angriffe, die Systemausfälle versursachen (Denial-of-Service Attacken) stellen für viele Unternehmen ein sehr kritisches Ereignis dar.\\
+  Mehrere Organisationen haben es sich zur Aufgabe gemacht, Sicherheitsrisiken für Webanwendungen zu katalogisieren und zu klassifizieren. Das Web Application Security Consortium (WASC), ein Zusammenschluss von Sicherheitsexperten, die an Sicherheitsstandards für Webanwendungen arbeiten, hat mit seiner ``WASC Threat Classification v.2.0'' einen umfassenden Katalog mit Bedrohungen herausgegeben \cite{WASC}.\\
+  OWASP veröffentlicht alle drei bis vier Jahre mit den ``OWASP Top Ten'' \cite{OWASPtop10} eine Liste mit den 10 häufigsten Sicherheitsrisiken für Webanwendungen, die durch die große Akzeptanz in der Fachwelt als Sicherheitsrichtlinie angesehen werden kann.
 
-  OWASP stellt in regelmäßigen Abständen seine OWASP Top Ten vor, eine Liste mit den 10 kritischsten Sicherheitsrisiken für Webanwendungen. Die aktuelle Version aus dem Jahr 2017 befindet sich im Anhang dieser Ausarbeitung.
 
   \subsection{Sicherheitsmaßnahmen}
   Das BSI definiert den Begriff wie folgt:
-    \begin{quote} ``Als Sicherheitsmaßnahmen werden alle Aktionen bezeichnet, die dazu dienen, Sicherheitsrisiken zu steuern und diesen entgegenzuwirken. Dies schließt sowohl organisatorische, als auch personelle, technische oder infrastrukturelle Sicherheitsmaßnahmen ein. Synonym werden auch die Begriffe Sicherheitsvorkehrung oder Schutzmaßnahme benutzt.'' \cite{BSI2}\end{quote}
+    \begin{quote} ``Als Sicherheitsmaßnahmen werden alle Aktionen bezeichnet, die dazu dienen, Sicherheitsrisiken zu steuern und diesen entgegenzuwirken. Dies schließt sowohl organisatorische, als auch personelle, technische oder infrastrukturelle Sicherheitsmaßnahmen ein. Synonym werden auch die Begriffe Sicherheitsvorkehrung oder Schutzmaßnahme benutzt.'' \cite[S.107-108]{BSI2}\end{quote}
 
  Zu den Maßnahmen, die bereits während der Entwicklung ergriffen werden sollten, gehören umfangreiche Security Tests. Nach Inbetriebnahme der Webanwendung kann mit Hilfe von Penetration Tests nach Sicherheitslücken gesucht werden, zusätzlichen Schutz bieten Web Application Firewalls.
 
+
+
   \subsubsection{Security Tests}
 
-  Bevor eine Webanwendung ausgeliefert wird, sollte sie im Zuge eines oder mehrerer Security Assessments  auf Sicherheitsmängel getestet werden.
+  Bevor eine Webanwendung ausgeliefert wird, sollte sie mit Hilfe von Security Assessments  auf Sicherheitsmängel getestet werden.
   Ein Security Assessment soll dabei sicherstellen, dass die definierten Sicherheitsanforderungen in der
   Implementierungsphase korrekt umgesetzt worden sind. Zusätzlich soll in diesem Rahmen auch die
   Effektivität der gesetzten Sicherheitsanforderungen überprüft werden und so mögliche Unzulänglichkeiten
@@ -479,12 +462,13 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
     Insgesamt wird dieses Verfahren dazu verwendet, Computer und Netzwerke gegen zukünftige Angriffe abzusichern. Die allgemeine Idee besteht darin, Sicherheitslücken mithilfe der gleichen Tools und Techniken zu finden, die auch ein Angreifer benutzt. Die Lücken können so geschlossen werden, bevor ein realer Hacker sie ausnutzt. \cite{engebretson}
 
     Üblicherweise lassen sich Penetration Tests in mehrere Phasen unterteilen \cite{BSI}:
+
     \begin{itemize}
-      \item Informationssammlung über das Zielsystem
-      \item Scan nach angebotenen Diensten
-      \item Identifikation des Systems und der Anwendungen
-      \item Recherche nach Schwachstellen
-      \item Ausnutzen der Schwachstellen
+      \item Informationsgewinnung
+      \item Identifizierung der Angriffsfläche
+      \item Identifizierung von System und Anwendungen
+      \item Schwachstellenrecherche und Priorisierung der Schwachstellen nach Ausnutzbarkeit und Auswirkung
+      \item Angreifen der Schwachstellen
     \end{itemize}
 
     Penetration Tests können basierend auf unterschiedlichen Kriterien klassifiziert werden \cite{BSI}:
@@ -527,18 +511,16 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
     wird. Üblicherweise werden Penetration Tests erst dann durchgeführt, wenn die Webanwendung mit allen
     Komponenten fertiggestellt wird. \cite{BSI}
     \subsubsection{Web Application Firewalls (WAFs)}
-    Zusätzlichen Schutz von Angriffen auf Webapplikationen bieten WAFs, die den Verkehr zwischen Clients und Webservern auf Anwendungsebene überprüfen. Sie sind in der Lage, HTTP-Traffic zu filtern und gegebenenfalls zu blockieren, um die Webanwendung zu schützen.
-    Hierzu untersucht eine WAF alle eingehenden Anfragen und die ausgehenden Antworten des Webservers.
+    Zusätzlichen Schutz von Angriffen auf Webapplikationen bieten WAFs, die auf Anwendungsebene den Verkehr zwischen Clients und Webservern überprüfen. Sie sind in der Lage, HTTP-Traffic zu filtern und gegebenenfalls zu blockieren, um die Webanwendung zu schützen.
+    Eine WAF überprüft dabei alle eingehenden Anfragen und die ausgehenden Antworten des Webservers.
     Erkennt sie dabei gefährliche Muster, verhindert sie die weitere Kommunikation mit dem Client.
 
     Eine WAF kann zentralisiert hinter der Netzerk Firewall und vor dem Webserver positioniert oder Host-basiert als Software-Lösung direkt auf dem Webserver installiert werden.
-    Häufig wird der sogenannte Reverse-Proxy-Modus verwendet, bei dem der Proxy sich zwischen Webserver und Firewall befindet und Zugriffe im Namen des Clients durchführt. Im zweiten Schritt werden die Anfragen an den eigentlichen Webserver analysiert und die Websessions bei Bedarf terminiert.
+    Häufig wird der sogenannte Reverse-Proxy-Modus verwendet, bei dem der Proxy sich zwischen Webserver und Firewall befindet und Zugriffe im Namen des Clients durchführt. Im zweiten Schritt werden die Anfragen an den wirklichen Webserver analysiert und die Websessions bei Bedarf terminiert.
 
-    Zu den üblichen Angriffen, die eine WAF verhindern kann, zählen Cross-Site-Scripting, SQL-Injection,
-    Angriffe per Pufferüberlauf oder auch Konfigurationsfehler. Der Schutz ist hier stets nur als zusätzlicher Schutzmechanismus zu verstehen, der keinesfalls die Notwendigkeit ersetzt, eine    Webanwendung mit ausreichender Sicherheit zu entwickeln und auch zu testen. Im Rahmen von Tests
-    sollte eine WAF dabei stets deaktiviert sein, damit diese nicht die Testergebnisse verfälscht.
-    Um den größtmöglichen Nutzen der WAF zu erhalten, muss deren Konfiguration durch fachmännisches
-    Personal auf die Webanwendung angepasst werden. \cite{BSI} \cite{WAF}
+    Zu den Angriffen, die eine WAF üblicherweise verhindern kann, zählen Cross-Site-Scripting, SQL-Injection, Angriffe per Pufferüberlauf oder auch Konfigurationsfehler. Der Schutz ist hier stets nur als zusätzlicher Schutzmechanismus zu verstehen, der keinesfalls die Notwendigkeit ersetzt, Webanwendungenzu zu entwickeln, die ausreichend sicher sind und getestet wurden. Bei der Durchführung von Tests sollte eine WAF stets deaktiviert sein, um die Testergebnisse nicht zu verfälschen.
+    Um aus einer WAF den größtmöglichen Nutzen zu ziehen, sollte die Konfiguration möglichst durch Fachleute
+    auf die jeweilige Webanwendung angepasst werden. \cite{BSI,WAF}
 
 
     \newpage
@@ -546,26 +528,20 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
   \section{Funktionsweise WVS}
   WVS sind automatisierte Werkzeuge, die Webanwendungen - in der Regel von außerhalb - nach Sicherheitslücken wie Cross-Site Scripting, SQL-Injection, Command Injection, Path Traversal und unsicheren Serverkonfigurationen absuchen. Diese Kategorie von Werkzeugen wird häufig auch als ``Dynamic Application Security Testing (DAST) Tools'' bezeichnet \cite{OWASPtools}. Im Gegensatz zum ``Static Application Security Testing (SAST)'', bei dem der Quell-, Binär- oder Bytecode auf mögliche Implementierungs- und Konstruktionsfehler überprüft wird, testen DAST-Tools die laufende Webanwendung auf ihr Verhalten während des Betriebs. Es werden die gleichen Techniken angewendet, die auch ein realer Angreifer nutzen würde, um potentielle Sicherheitslücken zu finden.
 
-  In der Regel werden WVS auf einem Client-Computer installiert, um dann die Webanwendung zu analysieren. Im Zuge der Analyse können folgende vier Phasen durchlaufen werden \cite{BSI4}:
+  Um Webanwendungen zu analysieren, befindet sich der WVS  auf einem Client-Computer, in der Regel werden bei der Analyse vier Phasen durchlaufen \cite{BSI4}:
   \begin{itemize}
     \item Crawl/Scan:
-    Ein Web Scanner bewegt sich ähnlich wie eine Suchmaschine durch die gesamte
-    Webanwendung. Dabei werden sämtliche Links besucht und gegebenenfalls Formfelder mit Testwerten ausgefüllt. Der Scanner erhält so ein umfassendes Wissen über den Aufbau der Webanwendung, die Funktionsweise von Dialogschritten und den Inhalt von Formular-Seiten.
-    Die Webanwendung wird auf häufig vorhandene Installations-, Konfigurations- oder
-    Testverzeichnisse, sowie bekannte problematische oder informative Dateien durchsucht (Stichwörter: Directory Enumeration, File Enumeration, Directory Traversal, Forceful Browsing).
-    Unterstützt werden kann die Scan-Phase durch Einbeziehen großer öffentlicher
-    Suchmaschinen. Vorausgesetzt wird hierfür, dass die eigene Website bereits durch
-    diese Suchmaschinen indexiert worden ist. Die Ergebnisse dieses Schrittes wurden
-    dann auf den Suchmaschinen gespeichert (Index/Cache). Im Rahmen einer Scan-Phase können diese Suchmaschinen nun gezielt nach Informationen über die eigene Website abgefragt werden. Für die Zusammenstellung von Suchmustern, sowie Automatisierung der Abfragen kann die Nutzung spezieller Tools zweckmäßig sein.
+    Ähnlich einer Suchmaschine inspiziert der WVS die komplette Webanwendung, besucht dabei alle Links und füllt gegebenenfalls Formfelder mit Testwerten aus. So erlangt der WVS Kenntnis über Aufbau und Funktionsweise der Webanwendung und Inhalten von Formularseiten.
+    Häufig wird die Webanwendung auch auf vorhandene Verzeichnisse oder Dateien durchsucht, die Informationen beinhalten. Die Scan-Phase kann durch die Verwendung von öffentlichen Suchmaschinen unterstützt werden, die gezielt nach Informationen über die anzugreifende Webanwendung sucht.
+    Für die Automatisierung dieser Abfragen und das Erstellen von Suchmustern gibt es spezielle Tools.
     \item Analyse:
-    In einem nächsten Schritt wird die Webanwendung einer eingehenden Sicherheitsanalyse unterzogen. Die gewonnenen Erkenntnisse können in einer Datenbank hinterlegt werden: Typ und Version des Webservers, verwendete Technologien und Tools (CGI, Servlets, JSP, JavaScript, PHP, usw.), Verwendung von Cookies oder
-    anderer Mechanismen zum Session-Tracking, Analyse der Form-Parameter einer Seite, insbesondere auch die Verwendung von Hidden-Parametern, Extraktion von Kommentaren.
+    Im zweiten Schritt analaysiert der WVS die Webanwendung auf ihre Sicherheit und speichert die relevanten Erkenntnisse in einer Datenbank. Interessant sind hier zum Beispiel die Art des Webservers, welche Technologien und Tools verwendet werden (CGI, PHP, JavaScript, JSP usw.) oder Mechanismen zum Session-Tracking (Cookies).
     \item Audit/Penetrationstest:
-    Unter Einbeziehung des in der vorangegangenen Phase gewonnenen Wissens werden
-    systematisch fehlerhafte oder unzulässige Eingabemuster erzeugt, und an die Webanwendung versandt. Einige der existierenden Scanner unterteilen diese Phase in eine schadlose, und eine potentiell schadhafte Prüfung.
+    Die Erkenntnisse aus der Analysephase werden nun dazu verwendet, fehlerhafte und nicht zulässige Eingabemuster zu erzeugen, die dann an die Webanwendung geschickt werden. Diese Phase wird von einigen WVS in eine ``schadlose'' und ``potentiell schadhafte'' Prüfung unterteilt.
     \item Reporting:
-    Die Ergebnisse der Scan- und Audit-Phase werden in Reports zusammengefasst. Der
-    Umfang reicht dabei von Executive Summaries mit Nennung nur der größten Schwachstellen bis hin zu detaillierten Beschreibungen, in denen auch erste Hinweise für die Behebung des jeweiligen Problems gegeben werden können. Bei den meisten WVS hat sich ein System etabliert, bei dem die gefundenen Schwachstellen je nach Schweregrad in 4 Kategorien eingeteilt werden \cite{Lepofsky}:
+    Am Schluss werden die Ergebnisse in Berichten zusammengefasst.
+    Je nach WVS variiert hier der Umfang, teilweise werden nur kritische Sicherheitslücken genannt, teilweise gibt es detaillierte Beschreibungen von allen Schwachstellen mit Hinweisen zur Behebung der Prbleme.
+    Bei den meisten WVS hat sich ein System etabliert, bei dem die gefundenen Schwachstellen je nach Schweregrad in vier Kategorien eingeteilt werden \cite{Lepofsky}:
     \begin{itemize}
       \item High: Schwachstellen, die es Angreifern erlauben, die komplette Kontrolle über die Webanwendung einschließlich Server zu übernehmen. Angreifer können auf die Datenbank der Anwendung zugreifen, Konten ändern und vertrauliche Informationen stehlen. XSS und SQL-Injection sind Beispiele für Schwachstellen mit hohem Schweregrad, die bei der Erkennung durch einen Scanner oberste Priorität haben sollten.
 
@@ -1003,11 +979,11 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
 
 \chapter{Diskussion}
   \section{Anzahl der gefundenen Schwachstellen}
-  Die Tabellen mit den gefundenen Schwachstellen zeigen eine große Bandbreite an unterschiedlichen Ergebnisssen. Während Zed Attack Proxy insgesamt nur 63 Schwachstellen findet, sind es bei BurpSuite Pro mit 551 Funden ungefähr 9 mal so viele. Die beiden Terminalprogramme Nikto und Wapiti liegen fast gleich auf mit 97 und 93 Funden und sind damit nur geringfügig besser als das Schlusslicht Zed Attack Proxy.
+  Die Tabellen mit den gefundenen Schwachstellen zeigen eine große Bandbreite an unterschiedlichen Ergebnisssen. Während Zed Attack Proxy insgesamt nur 63 Schwachstellen findet, sind es bei BurpSuite Pro mit 551 Funden ungefähr neun mal so viele. Die beiden Terminalprogramme Nikto und Wapiti liegen fast gleich auf mit 97 und 93 Funden und sind damit nur geringfügig besser als das Schlusslicht Zed Attack Proxy.
   Mit 265 Funden hat Nessus bei den kommerziellen Scannern das schlechteste Ergebnis, überraschend ist hier vor allem, dass die Open Source Software und Nessus-Abspaltung OpenVAS fast 200 Schwachstellen mehr findet.
   OpenVAS lässt mit diesem Ergebnis auch noch den kommerziellen WVS Netsparker (389 Funde) hinter sich und belegt insgesamt den dritten Platz bei der Anzahl gefundener Schwachstellen. Arachni findet 319 Schwachstellen und reiht sich damit zwischen Nessus und Netsparker ein. Acunetix muss sich mit 517 Funden nur BurpSuite Pro geschlagen geben und belegt hier den zweiten Platz.
 
-  Auch wenn die Werte in die Katgorien High, Medium, Low und Informational aufgesplittet werden, gibt es eine breite Palette an Ergebnissen, es gibt fast keinerlei Überein- stimmungen oder erkennbare Muster. Bei den WVS, die bei den insgesamt gefundenen Schwachstellen ungefähr gleich auf liegen, lässt sich dies veranschaulichen: Acunetix hat zum Beispiel mehr als 330 Funde in High und Medium eingeteilt und ca. 180 in Low und Informational, BurpSuite Pro stuft die Schwachstellen als nicht so schwerwiegend ein,  gerade einmal 84 Funde finden sich in High und Medium, aber 467 in Low und Informational. Arachni hat 134 Funde in die Kategorie High eingestuft, Nessus nur 37 und OpenVAS gar nur 9.
+  Auch wenn die Werte in die Katgorien High, Medium, Low und Informational aufgesplittet werden, gibt es eine breite Palette an Ergebnissen, es gibt fast keinerlei Überein- stimmungen oder erkennbare Muster. Bei den WVS, die bei den insgesamt gefundenen Schwachstellen ungefähr gleich auf liegen, lässt sich dies veranschaulichen: Acunetix hat zum Beispiel mehr als 330 Funde in High und Medium eingeteilt und ca. 180 in Low und Informational, BurpSuite Pro stuft die Schwachstellen als nicht so schwerwiegend ein,  gerade einmal 84 Funde finden sich in High und Medium, aber 467 in Low und Informational. Arachni hat 134 Funde in die Kategorie High eingestuft, Nessus nur 37 und OpenVAS gar nur neun.
 
   Selbst wenn man die Ergebnisse nach den verwundbaren Webanwendungen aufteilt, gibt es keine Wiedererkennungswerte, weder gibt es eine Webseite, bei der von allen WVS besonders viele Schwachstellen gefunden wurden, noch sticht eine mit besonders wenigen Funden heraus. Auch die Anzahl der Funde pro Webanwendung ist von WVS zu WVS sehr verschieden. So findet zum Beispiel Acunetix auf der Seite Zero Bank (WA3) 68 Schwachstellen, BurpSuite Pro nur 14, andererseits findet BurpSuite Pro auf Webscantest (WA2) 169 Schwachstellen und Acunetix nur 86. OpenVAS findet auf Security Tweets (WA7) 110 Schwachstellen, Netsparker nur 31. Auf Webscantest (WA2) hingegen findet Netsparker doppelt so viele (99) Schwachstellen wie OpenVAS (49).\\
   Bezüglich der Webanwendungen gibt es eine interessante Beobachtung:  Acuart (WA5) und Security Tweets (WA7) wurden beide von Acunetix entwickelt, die naheliegende Vermutung, dass der WVS von Acunetix hier besonders viele Schwachstellen finden müsste, hat sich nicht bestätigt.
@@ -1018,7 +994,7 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
   \section{Bedienung, Reporting und Scan-Geschwindigkeit}
   Dieses Kapitel widmet sich der Fragestellung \textbf{Wie unterscheiden sich die WVS in den Kategorien Bedienung, Reporting und Scan-Geschwindigkeit?}
   \subsection{Bedienung}
-  In dieser Kategorie gibt es keinen WVS, der die volle Punktzahl erreicht, es gibt aber auch keinen mit 0 Punkten. Den beiden Terminalprogrammen Nikto und Wapiti fehlt es naturgemäß am Komfort, den eine grafische Benutzeroberfläche bietet, trotzdem schneiden sie noch besser ab als OpenVAS, das erst nach umfangreicher Einarbeitungszeit sinnvoll genutzt werden kann. Das Streben nach Automatisierung geht hier zu Lasten der Bedienbarkeit. Netsparker befindet sich mit seiner überladenen Benutzeroberfläche ebenfalls nur im Mittelfeld, Acunetix, BurpSuite Pro und Nessus sind - erwartungsgemäß für kommerzielle WVS - sehr übersichtlich und benutzerfreundlich.
+  In dieser Kategorie gibt es keinen WVS, der die volle Punktzahl erreicht, es gibt aber auch keinen mit null Punkten. Den beiden Terminalprogrammen Nikto und Wapiti fehlt es naturgemäß am Komfort, den eine grafische Benutzeroberfläche bietet, trotzdem schneiden sie noch besser ab als OpenVAS, das erst nach umfangreicher Einarbeitungszeit sinnvoll genutzt werden kann. Das Streben nach Automatisierung geht hier zu Lasten der Bedienbarkeit. Netsparker befindet sich mit seiner überladenen Benutzeroberfläche ebenfalls nur im Mittelfeld, Acunetix, BurpSuite Pro und Nessus sind - erwartungsgemäß für kommerzielle WVS - sehr übersichtlich und benutzerfreundlich.
   Die Open Source Programme Arachni und Zed Attack Proxy stehen dem jedoch in nichts nach und sind ebenfalls leicht verständlich und intuitiv zu bedienen. \\
   Insgesamt gibt es in dieser Kategorie keinen klaren Sieger, mit Ausnahme von OpenVAS sind alle WVS mühelos und unproblematisch zu bedienen.
   \subsection{Reporting}
@@ -1026,9 +1002,9 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
   Überdurchschnittlich schneiden Zed Attack Proxy, Acunetix und Netsparker ab, die alle sehr umfangreiche Beschreibungen der Schwachstellen liefern, Netsparker ist hier hervorzuheben für die zusätzliche Kategorie ``Critical'' und die besondere Kennzeichnung gesicherter Ergebnisse als ``Confirmed''.
   Überragende Ergebnisse liefern Arachni und BurpSuite Pro, Arachni sticht neben der Unterscheidung zwischen gesicherten und noch zu überprüfenden Ergenissen mit seinen ausführlichen Statistikfunktionen heraus, BurpSuite Pro mit seiner ``Confidence''-Tabelle, die die Schwachstellen noch genauer zwischen gesichert, wahrscheinlich und tentativ differenziert. Zudem bieten beide äußerst detaillierte Beschreibungen der Schwachstellen und sind trotzdem sehr übersichtlich gestaltet.
   \subsection{Scan-Geschwindigkeit}
-  Mit einer Ausnahme liegen die Scan-Geschwindigkeiten alle im vertretbaren Bereich, Lediglich Zed Attack Proxy muss hier mit Scanzeiten von 10 bis 14 Stunden pro Webanwendung als Totalausfall bezeichnet werden. Selbst die Werte von Netsparker, der auf dem vorletzten Platz landet, sind bis auf einen Ausreißer bei Webscantest (WA2) akzeptabel. Die Zeiten von OpenVAS, BurpSuite Pro und Nessus liegen alle nah beieinander und ordnen sich im Mittelfeld ein. Arachni sowie die beiden Terminalprogramme Nikto und Wapiti scannen überdurchschnittlich schnell, der beste WVS in dieser Kategorie ist mit großem Vorsprung Acunetix, der teilweise keine 10 Minuten für einen Scan benötigt.
+  Mit einer Ausnahme liegen die Scan-Geschwindigkeiten alle im vertretbaren Bereich, Lediglich Zed Attack Proxy weicht hier mit Scanzeiten von 10 bis 14 Stunden pro Webanwendung ungewöhnlich weit von der Norm ab. Selbst die Werte von Netsparker, der auf dem vorletzten Platz landet, sind bis auf einen Ausreißer bei Webscantest (WA2) akzeptabel. Die Zeiten von OpenVAS, BurpSuite Pro und Nessus liegen alle nah beieinander und ordnen sich im Mittelfeld ein. Arachni sowie die beiden Terminalprogramme Nikto und Wapiti scannen überdurchschnittlich schnell, der beste WVS in dieser Kategorie ist mit großem Vorsprung Acunetix, der teilweise keine zehn Minuten für einen Scan benötigt.
   \section{Ranking}
-  Die Ranking-Tabelle zeigt einen klaren Verlierer dieser Evaluation: Zed Attack Proxy ist der einzige WVS, der mit 0 Punkten bewertet werden musste, und das gleich zweimal, in den Kategorien Scanergebnis und Geschwindigkeit. Zed Attack Proxy ist damit als unbrauchbar zu bezeichnen, zumindest in der Funktion als WVS; die jeweils 3 Punkte in den Kategorien Reporting und Bedienung sind wertlos, da kaum Schwachstellen gefunden werden. Nikto und Wapiti liegen mit jeweils 14 Punkten auf dem vorletzten Platz, mit den dürftigen Scanergebnissen und den Mängeln im Reporting sind diese Tools für professionelles Penetration Testing nur sehr bedingt tauglich. Nessus befindet sich mit 22 Punkten im unteren Mittelfeld und kann nur in der Kategorie Bedienung überzeugen, erfüllt aber insgesamt seinen Zweck. Netsparker hat gute Werte im Scanergebnis und im Reporting und belegt mit 26 Punkten den 5. Platz. OpenVAS erreicht 28 Punkte und lässt damit den kommerziellen WVS Nessus, aus dem OpenVAS hervorgegengen ist, hinter sich.
+  Die Ranking-Tabelle zeigt einen klaren Verlierer dieser Evaluation: Zed Attack Proxy ist der einzige WVS, der mit null Punkten bewertet werden musste, und das gleich zweimal, in den Kategorien Scanergebnis und Geschwindigkeit. Zed Attack Proxy ist damit als unbrauchbar zu bezeichnen, zumindest in der Funktion als WVS; die jeweils drei Punkte in den Kategorien Reporting und Bedienung sind wertlos, da kaum Schwachstellen gefunden werden. Nikto und Wapiti liegen mit jeweils 14 Punkten auf dem vorletzten Platz, mit den dürftigen Scanergebnissen und den Mängeln im Reporting sind diese Tools für professionelles Penetration Testing nur sehr bedingt tauglich. Nessus befindet sich mit 22 Punkten im unteren Mittelfeld und kann nur in der Kategorie Bedienung überzeugen, erfüllt aber insgesamt seinen Zweck. Netsparker hat gute Werte im Scanergebnis und im Reporting und belegt mit 26 Punkten den 5. Platz. OpenVAS erreicht 28 Punkte und lässt damit den kommerziellen WVS Nessus, aus dem OpenVAS hervorgegengen ist, hinter sich.
   Auf den ersten drei Plätzen befinden sich mit Arachni, Acunetix und BurpSuite Pro diejenigen WVS, die durchweg überdurchschnittliche und überragende Werte erreicht haben und somit fast uneingeschränkt empfehlenswert sind. Arachni belegt mit 32 Punkten den 3. Platz und ist damit der beste Open Source WVS.
   Acunetix belegt mit 33 Punkten den 2. Platz, allerdings nur durch den Punktabzug aufgrund der Abstürze beim Testen unter Windows. Ohne Abstürze hätte Acunetix sich den ersten Platz mit BurpSuite Pro geteilt.\\
   Testsieger und damit die Antwort auf die Frage \textbf{Welcher WVS schneidet insgesamt am besten ab?} ist BurpSuite Pro mit 36 Punkten. Ausschlaggebend für das Ergebnis sind in erster Linie das Scanergebnis und das Reporting, in beiden Kategorien hat BurpSuite Pro am besten von allen WVS abgeschnitten.
@@ -1042,8 +1018,8 @@ Dieser Arbeit wurde eine CD-ROM beigelegt, die sämtliche Berichte aller durchgf
 
 
 \chapter{Fazit und Ausblick}
-Das Ziel dieser dieser Arbeit war es, aus der großen Anzahl von WVS die für eine Evaluation geeigneten herauszufiltern und auf ihre Tauglichkeit und Qualität zu testen. Nach eingehender Prüfung der in Frage kommenden Kandidaten wurden schließlich 9 in die Evaluation aufgenommen, 5 Open Source- und 4 kommerzielle WVS.
-Zum Testen wurden 7 verwundbare Webanwendungen mit verschiedenen Technoligien ausgewählt, die von den WVS gescannt und auf Schwachstellen überprüft wurden. Anhand eines Punktesystems wurden die WVS in den Kategorien Scanergebnis, Reporting, Bedienung und Geschwindigkeit verglichen.\\
+Das Ziel dieser dieser Arbeit war es, aus der großen Anzahl von WVS die für eine Evaluation geeigneten herauszufiltern und auf ihre Tauglichkeit und Qualität zu testen. Nach eingehender Prüfung der in Frage kommenden Kandidaten wurden schließlich neun in die Evaluation aufgenommen, fünf Open Source- und vier kommerzielle WVS.
+Zum Testen wurden sieben verwundbare Webanwendungen mit verschiedenen Technoligien ausgewählt, die von den WVS gescannt und auf Schwachstellen überprüft wurden. Anhand eines Punktesystems wurden die WVS in den Kategorien Scanergebnis, Reporting, Bedienung und Geschwindigkeit verglichen.\\
 Neben dem Aufzeigen der Unterschiede in den einzelnen Kategorien, sollten die Fragen beantwortet werden, welcher WVS das beste Resultat erzielt und wie die Open Source WVS im Vergleich mit den kommerziellen Scannern abschneiden.
 
 Durch die Evaluation gelang es, für jede Fragestellung Antworten zu finden:
@@ -1070,7 +1046,7 @@ Des Weiteren sei hier für tiefergehende Analysen auf das Projekt OWASP-Benchmar
 
 
 
-\backmatter
+
 
 
 %%%%%%%%%%%%%%%%%%%
@@ -1085,12 +1061,10 @@ Des Weiteren sei hier für tiefergehende Analysen auf das Projekt OWASP-Benchmar
 \printbibliography[title=Quellenverzeichnis]
 
 \appendix
-  \chapter{Anhang}
-
-  %\addtocontents{toc}{\protect{\vspace{3ex}}}
+  \addtocontents{toc}{\protect{\vspace{3ex}}}
+  \addtocontents{toc}{\protect\contentsline{chapter}{\appendixname}{}{}}
   %\addcontentsline{toc}{chapter}{Anhang}
-
-  \section{Verwendete Abk"urzungen}
+  \chapter{Verwendete Abk"urzungen}
   \textbf{BSI} - Bundesamt für Sicherheit in der Informationstechnik
 
   \textbf{BSoD} - ``Blue Screen of Death'' (Kritischer Systemfehler unter Microsoft-Windows)
@@ -1143,121 +1117,79 @@ Des Weiteren sei hier für tiefergehende Analysen auf das Projekt OWASP-Benchmar
 
   \textbf{WAF} - Web Application Firewall
 
+  \textbf{WASC} - Web Application Security Consortium
+
   \textbf{WVS} - Web Application Vulnerability Scanner
+
+  \textbf{WWW} - World Wide Web
 
   \textbf{XML} - Extensible Markup Language
 
   \textbf{XSS} - Cross Site Scripting
   \newpage
 
-  \section{OWASP: The Open Web Application Security Project}
-  Das ``Open Web Application Security Project'' (OWASP) ist eine unabhängige, weltweite Community mit dem Ziel, die Bedeutung der Sicherheit von Webanwendungen »sichtbar zu machen«, Fachwissen zur Entwicklung und den Betrieb sicherer Webanwendungen zu verbreiten und frei zur Verfügung zu stellen.
-  OWASP ist mit keinem Technologieunternehmen verbunden, obwohl der Einsatz kommerzieller Sicherheitstechnologien unterstützt wird. Sämtliche OWASP-Instrumente, wie Dokumente, Videos, Slides, Podcasts etc. sind kollaborativ produziert worden und sind zudem kostenlos unter einer freien Lizenz verwendbar. Die OWASP Foundation ist eine Non-Profit-Organisation, die sich vier Grundwerten verschrieben hat \cite{OWASPabout}:
-  \begin{itemize}
-    \item Offenheit: Von den Finanzen bis zum Code ist alles radikal transparent.
-    \item Innovation: OWASP fördert und unterstützt Innovationen und Experimente zur Lösung von Software-Sicherheitsherausforderungen.
-    \item Globalität: Jeder auf der ganzen Welt kann sich an der OWASP-Community beteiligen.
-    \item Integrität: OWASP ist eine ehrliche und aufrichtige, herstellerneutrale, globale Gemeinschaft.
-  \end{itemize}
-  Zudem gibt es einen Verhaltenskodex mit folgenden Prinzipien:
-  \begin{itemize}
-    \item Führe alle beruflichen Tätigkeiten und Pflichten in Übereinstimmung mit allen anwendbaren Gesetzen und den höchsten ethischen Grundsätzen aus.
-    \item Fördere die Umsetzung von Normen, Verfahren und Kontrollen für die Anwendungssicherheit und deren Einhaltung.
-    \item Bewahre eine angemessenene Vertraulichkeit gegenüber geschützter oder anderweitig sensibler Informationen, die im Rahmen einer beruflichen Tätigkeit auftreten.
-    \item Übernimm die berufliche Verantwortung mit Sorgfalt und Ehrlichkeit.
-    \item Kommuniziere offen und ehrlich.
-    \item Vermeide Aktivitäten, die einen Interessenskonflikt hervorrufen oder anderweitig den Ruf des Arbeitgebers, den Informationssicherheitsberuf oder die Vereinigung beeinträchtigen könnten.
-    \item Bewahre und verstärke unsere Objektivität und Unabhängigkeit.
-    \item Weise unangemessenen Druck der von Seiten der Industrie oder anderen zurück.
-    \item Verletze oder bestreite nicht absichtlich den Ruf von Kollegen, Kunden oder Arbeitgebern.
-    \item Behandle jeden mit Respekt und Würde.
-    \item Vermeide Beziehungen, die die Objektivität und Unabhängigkeit von OWASP  beeinträchtigen könnten.
-  \end{itemize}
-    \subsection{Die OWASP Top Ten}
-    Eines der bekanntesten und wichtigsten Projekte von OWASP sind die OWASP Top Ten. Alle drei bis vier Jahre wird eine Liste mit den 10 häufigsten Sicherheitsrisiken für Webanwendungen veröffentlicht, um Unternehmen und Organisationen für Websicherheit zu sensibilisieren. Die Liste wird von einem weltweiten Team von IT-Sicherheitsexperten zusammengestellt, und kann durch die große Akzeptanz in der Fachwelt als Sicherheitsrichtlinie angesehen werden.
+  \chapter{Screenshots}
+  \begin{figure}[htb!]
+    \centering
+      \includegraphics[width=0.8\textwidth]{Images/ScrAcunetix}
+    \caption[Bericht Acunetix]{Bericht Acunetix}
+  \end{figure}
+  \begin{figure}[htb!]
+    \centering
+      \includegraphics[width=1\textwidth]{Images/ScrBurp}
+    \caption[Bericht BurpSuite Pro]{Bericht BurpSuite Pro}
+  \end{figure}
+  \begin{figure}[htb!]
+    \centering
+      \includegraphics[width=1\textwidth]{Images/ScrNessus}
+    \caption[Bericht Nessus]{Bericht Nessus}
+  \end{figure}
+  \begin{figure}[htb!]
+    \centering
+      \includegraphics[width=1\textwidth]{Images/ScrNetsparker}
+    \caption[Bericht Netsparker]{Bericht Netsparker}
+  \end{figure}
+  \begin{figure}[htb!]
+    \centering
+      \includegraphics[width=1\textwidth]{Images/ScrArachni}
+    \caption[Bericht Arachni]{Bericht Arachni}
+  \end{figure}
+  \begin{figure}[htb!]
+    \centering
+      \includegraphics[width=0.9\textwidth]{Images/ScrOpenVAS}
+    \caption[Bericht OpenVAS]{Bericht OpenVAS}
+  \end{figure}
+  \begin{figure}[htb!]
+    \centering
+      \includegraphics[width=1\textwidth]{Images/ScrNikto}
+    \caption[Bericht Nikto]{Bericht Nikto}
+  \end{figure}
+  \begin{figure}[htb!]
+    \centering
+      \includegraphics[width=1\textwidth]{Images/ScrWapiti}
+    \caption[Bericht Wapiti]{Bericht Wapiti}
+  \end{figure}
+  \begin{figure}[htb!]
+    \centering
+      \includegraphics[width=1\textwidth]{Images/ScrZAP}
+    \caption[Bericht ZAP]{Bericht ZAP}
+  \end{figure}
 
-    Nachfolgend werden die aktuellen OWASP Top Ten aus dem Jahr 2017 aufgelistet \cite{OWASPtop10}:
 
-    \subsubsection{A1: Injection}
-    Injection-Schwachstellen, wie beispielsweise SQL-, OS- oder LDAP-Injection, treten auf, wenn
-    nicht vertrauenswürdige Daten von einem Interpreter als Teil eines Kommandos oder einer
-    Abfrage verarbeitet werden. Ein Angreifer kann Eingabedaten dann so manipulieren, dass er nicht
-    vorgesehene Kommandos ausführen oder unautorisiert auf Daten zugreifen kann.
-
-    \subsubsection{A2: Fehler in der Authentifizierung}
-    Anwendungsfunktionen, die im Zusammenhang mit Authentifizierung und Sessionmanagement
-    stehen, werden häufig fehlerhaft implementiert. Dies erlaubt es Angreifern, Passwörter oder
-    Session-Token zu kompromittieren oder die entsprechenden Schwachstellen so auszunutzen,
-    dass sie die Identität anderer Benutzer vorübergehend oder dauerhaft annehmen können.
-
-    \subsubsection{A3: Verlust der Vertraulichkeit sensibler Daten}
-    Viele Anwendungen schützen sensible Daten, wie personenbezogene Informationen und Finanzoder
-    Gesundheitsdaten, nicht ausreichend. Angreifer können diese Daten auslesen oder
-    modifizieren und mit ihnen weitere Straftaten begehen (Kreditkartenbetrug, Identitätsdiebstahl
-    etc.). Vertrauliche Daten können kompromittiert werden, wenn sie nicht durch Maßnahmen, wie
-    Verschlüsselung gespeicherter Daten und verschlüsselte Datenübertragung, zusätzlich geschützt
-    werden. Besondere Vorsicht ist beim Datenaustausch mit Browsern angeraten.
-
-    \subsubsection{A4: XML External Entities}
-    Viele veraltete oder schlecht konfigurierte XML Prozessoren berücksichtigen Referenzen auf
-    externe Entitäten innerhalb von XML-Dokumenten. Dadurch können solche externen Entitäten
-    dazu eingesetzt werden, um mittels URI Datei-Handlern interne Dateien oder File-Shares offenzulegen
-    oder interne Port-Scans, Remote-Code-Executions oder Denial-of-Service Angriffe
-    auszuführen.
-
-    \subsubsection{A5: Fehler in der Zugriffskontrolle}
-    Häufig werden die Zugriffsrechte für authentifizierte Nutzer nicht korrekt um- bzw. durchgesetzt.
-    Angreifer können entsprechende Schwachstellen ausnutzen, um auf Funktionen oder Daten
-    zuzugreifen, für die sie keine Zugriffsberechtigung haben. Dies kann Zugriffe auf Accounts
-    anderer Nutzer sowie auf vertrauliche Daten oder aber die Manipulation von Nutzerdaten,
-    Zugriffsrechten etc. zur Folge haben.
-
-    \subsubsection{A6: Sicherheitsrelevante Fehlkonfiguration}
-    Fehlkonfigurationen von Sicherheitseinstellungen sind das am häufigsten auftretende Problem.
-    Ursachen sind unsichere Standardkonfigurationen, unvollständige oder ad-hoc durchgeführte
-    Konfigurationen, ungeschützte Cloud-Speicher, fehlkonfigurierte HTTP-Header und Fehlerausgaben,
-    die vertrauliche Daten enthalten. Betriebssysteme, Frameworks, Bibliotheken und Anwendungen
-    müssen sicher konfiguriert werden und zeitnah Patches und Updates erhalten.
-
-    \subsubsection{A7: Cross-Site-Scripting (XSS)}
-    XSS tritt auf, wenn Anwendungen nicht vertrauenswürdige Daten entgegennehmen und ohne
-    Validierung oder Umkodierung an einen Webbrowser senden. XSS tritt auch auf, wenn eine
-    Anwendung HTML- oder JavaScript-Code auf Basis von Nutzereingaben erzeugt. XSS erlaubt es
-    einem Angreifer, Scriptcode im Browser eines Opfers auszuführen und so Benutzersitzungen zu
-    übernehmen, Seiteninhalte verändert anzuzeigen oder den Benutzer auf bösartige Seiten
-    umzuleiten.
-
-    \subsubsection{A8: Unsichere Deserialisierung}
-    Unsichere, weil unzureichend geprüfte Deserialisierungen können zu Schwachstellen in der
-    Remote-Code-Execution führen. Aber auch wenn das nicht der Fall ist, können
-    Deserialisierungsfehler Angriffsmuster wie Replay-Angriffe, Injections und Erschleichung
-    erweiterter Zugriffsrechte ermöglichen.
-
-    \subsubsection{A9: Nutzung von Komponenten mit bekannten Schwachstellen}
-    Komponenten wie Bibliotheken, Frameworks etc. werden mit den Berechtigungen der zugehörigen
-    Anwendung ausgeführt. Wird eine verwundbare Komponente ausgenutzt, kann ein solcher
-    Angriff von Datenverlusten bis hin zu einer Übernahme des Systems führen. Applikationen und
-    APIs, die Komponenten mit bekannten Schwachstellen einsetzen, können Schutzmaßnahmen
-    unterlaufen und so Angriffe mit schwerwiegenden Auswirkungen verursachen.
-
-    \subsubsection{A10: Unzureichendes Logging und Monitoring}
-    Unzureichendes Logging und Monitoring führt zusammen mit fehlender oder uneffektiver Reaktion auf Vorfälle zu andauernden oder wiederholten Angriffen. Auch können Angreifer dadurch in Netzwerken weiter vordringen und Daten entwenden, verändern oder zerstören. Viele Studien zeigen, dass die Zeit bis zur Aufdeckung eines Angriffs bei ca. 200 Tagen liegt sowie typischerweise durch Dritte entdeckt wird und nicht durch interne Überwachungs- und Kontrollmaßnahmen.
-
+\backmatter
 
 %%%%%%%%%%%%%%%%%%%
 %% declaration on oath
 %%%%%%%%%%%%%%%%%%%
-
+\addtocontents{toc}{\protect{\vspace{3ex}}}
 \addchap{Eidesstattliche Erklärung}
 
 Hiermit versichere ich, dass ich die vorgelegte Bachelorarbeit selbstständig verfasst und noch nicht anderweitig zu Prüfungszwecken vorgelegt habe. Alle benutzten Quellen und Hilfsmittel sind angegeben, wörtliche und sinngemäße Zitate wurden als solche gekennzeichnet.
 
 \vspace{20pt}
+Löwenstein, den \BaDeadline
 \begin{flushright}
-$\overline{~~~~~~~~~~~~~~~~~\mbox{\BaAuthor, am \today}~~~~~~~~~~~~~~~~~}$
+$\overline{~~~~~~~~~~~~~~~~~\mbox{\BaAuthor}~~~~~~~~~~~~~~~~~}$
 \end{flushright}
-
-
-
 
 \end{document}
