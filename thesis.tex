@@ -177,15 +177,15 @@ pdfkeywords={Keywords}
 %%%%%%%%%%%%%%%%%%%
 
 \section*{Zusammenfassung}
-Cyberangriffe von kriminellen Hackern nehmen weltweit zu und stellen sowohl für Unternehmen als auch für Privatpersonen eine reale Bedrohung dar. Das Thema Sicherheit spielt eine immer größer werdende Rolle im IT-Bereich, insbesondere Webanwendungen stehen hier im Fokus, da sie in der Regel weltweit erreichbar sind. Um sie gegen Angriffe abzusichern, ist es unter anderem notwendig, sie auf Schwachstellen zu testen, so wie es auch ein potentieller Angreifer täte.\\
-In dieser Thesis werden die dafür verwendeten Tools, die \ac{WVS} auf ihre Tauglichkeit überprüft. Aus der großen Menge an Open Source und kommerziellen WVS werden die vielversprechendsten herausgefiltert und mittels Angriffen auf mehrere verwundbare Webanwendungen verglichen. Neben der Anzahl der gefundenen Schwachstellen wird auch ermittelt, wie sich die WVS in den Kategorien Bedienung, Reporting und Geschwindigkeit unterscheiden, welche WVS insgesamt am besten abschneiden und ob die Open Source WVS im Vergleich mit den kommerziellen Produkten bestehen können.\\
+Cyberangriffe von kriminellen Hackern nehmen weltweit zu und stellen sowohl für Unternehmen als auch für Privatpersonen eine reale Bedrohung dar. Das Thema Sicherheit spielt eine immer größer werdende Rolle im IT-Bereich, insbesondere Webanwendungen stehen hier im Fokus, da sie in der Regel weltweit erreichbar sind. Um sie gegen Angriffe abzusichern, ist es unter anderem notwendig, sie auf Schwachstellen zu testen, so wie es auch ein potenzieller Angreifer täte.\\
+In dieser Thesis werden die dafür verwendeten Tools, die \ac{WVS} auf ihre Tauglichkeit überprüft. Aus der großen Menge an Open Source und kommerziellen WVS werden die vielversprechendsten herausgefiltert und mittels Angriffe auf mehrere verwundbare Webanwendungen verglichen. Neben der Anzahl der gefundenen Schwachstellen wird auch ermittelt, wie sich die WVS in den Kategorien Bedienung, Reporting und Geschwindigkeit unterscheiden, welche WVS insgesamt am besten abschneiden und ob die Open Source WVS im Vergleich mit den kommerziellen Produkten bestehen können.\\
 Im Gesamtranking schneidet kommerzielle WVS ``BurpSuite Pro'' am besten ab, aber auch Open Source WVS wie Arachni oder OpenVAS sind auf den vorderen Plätzen zu finden. Sie stellen damit eine vollwertige, kostengünstige Alternative dar. Bei der Anzahl der Schwachstellen fallen die Ergebnisse der WVS sehr unterschiedlich aus, auffällig ist das Fehlen von Mustern oder Regelmäßigkeiten.\\
 Ein Ansatz für weiterführende Forschungen ist das Verifizieren der Funde, um fälschlicher- weise gefundene Schwachstellen auszusortieren und exaktere Ergebnisse zu erhalten.
 \newpage
 \section*{Abstract}
-Cyber attacks by criminal hackers are increasing worldwide, posing a real threat to both businesses and individuals. Security is playing an increasingly important role in the IT sector, with web applications in particular, as they are generally accessible worldwide. Among other things, in order to protect them against attacks, it is necessary to test them for vulnerabilities, just as a potential attacker would do.\\
+Cyber-attacks by criminal hackers are increasing worldwide, posing a real threat to both businesses and individuals. Security is playing an increasingly important role in the IT sector, with web applications in particular, as they are generally accessible worldwide. Among other things, in order to protect them against attacks, it is necessary to test them for vulnerabilities, just as a potential attacker would do.\\
 In this thesis, the tools used for this, the Web Vulnerability Scanners (WVS), are checked for suitability. From the vast amount of open source and commercial WVS, the most promising are filtered out and compared by attacks on several vulnerable web applications. In addition to the number of vulnerabilities found, it is also determined how the WVS differ in terms of handling, reporting and speed, which WVS performs best and whether open source WVS can compete with commercial products.\\
-In the overall ranking, commercial WVS `BurpSuite Pro' performs best, but open source WVS such as Arachni or OpenVAS are also in the lead. They therefore represent a full-fledged, cost-effective alternative. With regard to the number of vulnerabilities, the results of the WVS are very different, with the striking lack of patterns or regularities.\\
+In the overall ranking, commercial WVS `BurpSuite Pro' performs best, but open source WVS such as Arachni or OpenVAS are also in the lead. They therefore represent a full-fledged, cost-effective alternative. About the number of vulnerabilities, the results of the WVS are very different, with the striking lack of patterns or regularities.\\
 One approach to further research is to verify the findings in order to sort out wrongly found vulnerabilities and obtain more accurate results.
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
@@ -253,7 +253,7 @@ Für die betroffenen Firmen ist der Schaden enorm: Laut einer Studie des Digital
    \includegraphics[width=1\textwidth]{Images/Bitkom}
   \caption[Bitkom Studie - Bedrohungsszenarien]{Bitkom Studie \cite{Bitkom}: Unentdeckte Sicherheitslücken wer- \\den von Unternehmen als größte Bedrohung angesehen.}
 \end{figure}
-Es gibt mehrere Ansätze, diesem Risiko zu begegnen: Grundsätzlich sollte der Entwickler einer Webseite von Beginn an eine Programmierung anstreben, die bereits bekannte Sicherheitslücken vermeidet und so potentiellen Angreifern möglichst wenig Angriffsfläche bietet. Hier gibt das \ac{BSI} mit seinem ``Leitfaden zur Entwicklung sicherer Webanwendungen''  \cite{BSI} Hilfestellung.\\
+Es gibt mehrere Ansätze, diesem Risiko zu begegnen: Grundsätzlich sollte der Entwickler einer Webseite von Beginn an eine Programmierung anstreben, die bereits bekannte Sicherheitslücken vermeidet und so potenziellen Angreifern möglichst wenig Angriffsfläche bietet. Hier gibt das \ac{BSI} mit seinem ``Leitfaden zur Entwicklung sicherer Webanwendungen''  \cite{BSI} Hilfestellung.\\
 Fehler in der Programmierung lassen sich jedoch nicht immer ausschließen, zudem ist auch ein Schutz gegen unentdeckte Sicherheitslücken vonnöten.
 
 Neben dem Einsatz von \acp{WAF}, die den Datenstrom zwischen Browser und Webapplikation überwachen, ist die Verwendung von \ac{WVS} im Rahmen von Penetration Tests ein wesentlicher Bestandteil von Sicherheitskonzepten.
@@ -270,7 +270,7 @@ Die vorliegende Arbeit macht sich die Evaluation von WVS zur Aufgabe, da die wen
 \end{itemize}
 
 Zusätzliche Motivation ist die große Anzahl und Vielfalt der Scanner: Das \ac{OWASP} listet allein eine Sammlung von 50 verschiedenen WVS auf \cite{OWASPtools}.
-Sie unterteilen sich in freie, Open Source und kommerzielle WVS und sind für unterschiedliche Plattformen erhältlich. Das Ziel dieser Arbeit ist es, aus dieser bunten Mischung diejenigen WVS herauszufiltern, für die eine nähere Betrachtung lohnenswert erscheint und diese im Hinblick auf folgende Fragestellungen zu evaluieren:
+Sie unterteilen sich in freie, Open Source und kommerzielle WVS und sind für unterschiedliche Plattformen erhältlich. Das Ziel dieser Arbeit ist es, aus dieser bunten Mischung diejenigen WVS herauszufiltern, für die eine nähere Betrachtung lohnend erscheint und diese im Hinblick auf folgende Fragestellungen zu evaluieren:
 
 \textbf{1. Wie viele Schwachstellen werden von den WVS gefunden?}
 
@@ -280,14 +280,14 @@ Sie unterteilen sich in freie, Open Source und kommerzielle WVS und sind für un
 
 \textbf{4. Wie schneiden die Open Source WVS im Vergleich mit kommerziellen WVS ab?}
 
-Für die Tests werden zunächst mehrere verwundbare Webanwendungen ausgesucht, die von den WVS gescannt werden. Von den WVS wird zu jedem Scan ein Bericht mit den gefundenen Schwachstellen generiert. Zusätzlich zu diesen Ergbenissen sollen subjektive Eindrücke wie Handhabung und Qualität des Reportings in die Bewertung mit einfließen.
+Für die Tests werden zunächst mehrere verwundbare Webanwendungen ausgesucht, die von den WVS gescannt werden. Von den WVS wird zu jedem Scan ein Bericht mit den gefundenen Schwachstellen generiert. Zusätzlich zu diesen Ergebnissen sollen subjektive Eindrücke wie Handhabung und Qualität des Reportings in die Bewertung mit einfließen.
 Die Evaluation soll mit Hilfe eines Punktesystems erfolgen und schließlich in einem Ranking resultieren, das die Tauglichkeit und Qualität der getesteten WVS anhand ihrer Platzierungen aufzeigt.
 
 Die Arbeit gliedert sich wie folgt:\\
-Das zweite Kapitel vermittelt die Grundlagen über Webanwendungen, Schwachstellen,  Sicherheitsmaßnahmen wie Web Application Firewalls und Penetrationtesting sowie die Arbeitsweise von WVS. Kapitel drei beinhaltet die Methodik, hier wird der Testaufbau einschließlich der Auswahlkriterien für die WVS und des Punktesystems für die Bewertung beschrieben. Zudem werden nicht berücksichtigte WVS genannt und die verwundbaren Webanwendungen vorgestellt, die für die Tests verwendet werden. Im vierten Kapitel folgt die Evaluation mitsamt der Ergebnisse, zum einen die Anzahl der gefundenen Schwachstellen per WVS, zum anderen eine Beschreibung der WVS einschließlich der Bewertung in den Kategorien Bedienung, Reporting und Scangeschwindigkeit. Im nachfolgenden fünften Kapitel werden die Ergebnisse der Evaluation im Hinblick auf die Forschungsfragen diskutiert, im letzten Kapitel wird schlussendlich die Studie nochmals kurz zusammengefasst und auf mögliche Ansätze für zukünftige Arbeiten eingegangen.
+Das zweite Kapitel vermittelt die Grundlagen über Webanwendungen, Schwachstellen,  Sicherheitsmaßnahmen wie Web Application Firewalls und Penetration Testing sowie die Arbeitsweise von WVS. Kapitel drei beinhaltet die Methodik, hier wird der Testaufbau einschließlich der Auswahlkriterien für die WVS und des Punktesystems für die Bewertung beschrieben. Zudem werden nicht berücksichtigte WVS genannt und die verwundbaren Webanwendungen vorgestellt, die für die Tests verwendet werden. Im vierten Kapitel folgt die Evaluation mitsamt den Ergebnissen, zum einen die Anzahl der gefundenen Schwachstellen per WVS, zum anderen eine Beschreibung der WVS einschließlich der Bewertung in den Kategorien Bedienung, Reporting und Scangeschwindigkeit. Im nachfolgenden fünften Kapitel werden die Ergebnisse der Evaluation im Hinblick auf die Forschungsfragen diskutiert, im letzten Kapitel wird schlussendlich die Studie nochmals kurz zusammengefasst und auf mögliche Ansätze für zukünftige Arbeiten eingegangen.
 
 \chapter{Grundlagen}
-Dieses Kapitel vermittelt Grundlagenwissen über Webanwendungen, Schwachstellen, Sicherheitsmaßnahmen wie \acp{WAF} und Penetrationtesting sowie die Arbeistweise von WVS.
+Dieses Kapitel vermittelt Grundlagenwissen über Webanwendungen, Schwachstellen, Sicherheitsmaßnahmen wie \acp{WAF} und Penetration Testing sowie die Arbeitsweise von WVS.
   \section{Webanwendung}
   Zu Beginn sollte der Begriff ``Webanwendung'' geklärt werden.
   Eine Webanwendung muss nicht zwingend über das \ac{WWW} erreichbar sein, auch in vielen Unternehmen kommen Webanwendungen zum Einsatz. Ob eine Anwendung als Webanwendung bezeichnet werden kann, hängt vom Einsatz von Webtechnologien ab. Daraus kann folgende Begriffsdefinition abgeleitet werden \cite[S.1]{Rohr}:
@@ -337,7 +337,7 @@ Um bekannte Schwachstellen herstellerübergreifend einheitlich benennen zu könn
   4. Veröffentlichung eines ``Advisorys'', einer Schwachstellenwarnung, die Informationen über die Sicherheitslücke, eine Gefährdungsbewertung und vorläufige Gegenmaßnahmen beinhaltet.
   Die Warnung erscheint in der Regel zeitgleich mit dem Patch, bei hoher Gefährdung und wenn die Öffentlichkeit schon von der Schwachstelle erfahren hat, kann sie auch vor der Fertigstellung des Patches veröffentlicht werden.
 
-  5. Der Patch ist fertiggestellt und wird vom Hersteller mit einer entsprechenden Beschreibung (Bulletin) zur Verfügung gestellt. Mit der Veröffentlichung des Patches und dem Bulletin steigt die Gefahr für ungepatchte Systeme, da nun auch potentelle Angreifer umfangreiche Informationen über die Schwachstelle
+  5. Der Patch ist fertiggestellt und wird vom Hersteller mit einer entsprechenden Beschreibung (Bulletin) zur Verfügung gestellt. Mit der Veröffentlichung des Patches und dem Bulletin steigt die Gefahr für ungepatchte Systeme, da nun auch potenzielle Angreifer umfangreiche Informationen über die Schwachstelle
   erhalten.
 
   6. Der Patch wird von den Benutzern der betroffenen Software installiert und die Sicherheitslücke dadurch geschlossen.
@@ -374,7 +374,7 @@ Um bekannte Schwachstellen herstellerübergreifend einheitlich benennen zu könn
 
   \subsection{Sicherheitsmaßnahmen}
   Das BSI definiert den Begriff wie folgt:
-    \begin{quote} ``Als Sicherheitsmaßnahmen werden alle Aktionen bezeichnet, die dazu dienen, Sicherheitsrisiken zu steuern und diesen entgegenzuwirken. Dies schließt sowohl organisatorische, als auch personelle, technische oder infrastrukturelle Sicherheitsmaßnahmen ein. Synonym werden auch die Begriffe Sicherheitsvorkehrung oder Schutzmaßnahme benutzt.'' \cite[S.107-108]{BSI2}\end{quote}
+    \begin{quote} ``Als Sicherheitsmaßnahmen werden alle Aktionen bezeichnet, die dazu dienen, Sicherheitsrisiken zu steuern und diesen entgegenzuwirken. Dies schließt sowohl organisatorische als auch personelle, technische oder infrastrukturelle Sicherheitsmaßnahmen ein. Synonym werden auch die Begriffe Sicherheitsvorkehrung oder Schutzmaßnahme benutzt.'' \cite[S.107-108]{BSI2}\end{quote}
 
  Zu den Maßnahmen, die bereits während der Entwicklung ergriffen werden sollten, gehören umfangreiche Security Tests. Nach Inbetriebnahme der Webanwendung kann mit Hilfe von Penetration Tests nach Sicherheitslücken gesucht werden, zusätzlichen Schutz bieten Web Application Firewalls.
 
@@ -452,10 +452,10 @@ Security Assessments stellen dabei die korrekte Umsetzung sowie die Effektivitä
     Eine WAF überprüft dabei alle eingehenden Anfragen und die ausgehenden Antworten des Webservers.
     Erkennt sie dabei gefährliche Muster, verhindert sie die weitere Kommunikation mit dem Client.
 
-    Eine WAF kann zentralisiert hinter der Netzerk Firewall und vor dem Webserver positioniert oder Host-basiert als Software-Lösung direkt auf dem Webserver installiert werden.
+    Eine WAF kann zentralisiert hinter der Netzwerk Firewall und vor dem Webserver positioniert oder Host-basiert als Software-Lösung direkt auf dem Webserver installiert werden.
     Häufig wird der sogenannte Reverse-Proxy-Modus verwendet, bei dem der Proxy sich zwischen Webserver und Firewall befindet und Zugriffe im Namen des Clients durchführt. Im zweiten Schritt werden die Anfragen an den wirklichen Webserver analysiert und die Websessions bei Bedarf terminiert.
 
-    Zu den Angriffen, die eine WAF üblicherweise verhindern kann, zählen Cross-Site-Scripting, SQL-Injection, Angriffe per Pufferüberlauf oder auch Konfigurationsfehler. Der Schutz ist hier stets nur als zusätzlicher Schutzmechanismus zu verstehen, der keinesfalls die Notwendigkeit ersetzt, Webanwendungenzu zu entwickeln, die ausreichend sicher sind und getestet wurden. Bei der Durchführung von Tests sollte eine WAF stets deaktiviert sein, um die Testergebnisse nicht zu verfälschen.
+    Zu den Angriffen, die eine WAF üblicherweise verhindern kann, zählen Cross-Site-Scrip- ting, SQL-Injection, Angriffe per Pufferüberlauf oder auch Konfigurationsfehler. Der Schutz ist hier stets nur als zusätzlicher Schutzmechanismus zu verstehen, der keinesfalls die Notwendigkeit ersetzt, Webanwendungenzu zu entwickeln, die ausreichend sicher sind und getestet wurden. Bei der Durchführung von Tests sollte eine WAF stets deaktiviert sein, um die Testergebnisse nicht zu verfälschen.
     Um aus einer WAF den größtmöglichen Nutzen zu ziehen, sollte die Konfiguration möglichst durch Fachleute
     auf die jeweilige Webanwendung angepasst werden. \cite{BSI,WAF}\\
     Bekannte Hersteller von WAFs sind Imperva, Akamai, F5, Fortinet, Citrix, Cloudflare und Barracuda.
@@ -464,7 +464,7 @@ Security Assessments stellen dabei die korrekte Umsetzung sowie die Effektivitä
 
     \newpage
   \section{Funktionsweise WVS}
-  WVS sind automatisierte Werkzeuge, die Webanwendungen - in der Regel von außerhalb - nach Sicherheitslücken wie Cross-Site Scripting, SQL-Injection, Command Injection, Path Traversal und unsicheren Serverkonfigurationen absuchen. Diese Kategorie von Werkzeugen wird häufig auch als ``Dynamic Application Security Testing (DAST) Tools'' bezeichnet \cite{OWASPtools}. Im Gegensatz zum ``Static Application Security Testing (SAST)'', bei dem der Quell-, Binär- oder Bytecode auf mögliche Implementierungs- und Konstruktionsfehler überprüft wird, testen DAST-Tools die laufende Webanwendung auf ihr Verhalten während des Betriebs. Es werden die gleichen Techniken angewendet, die auch ein realer Angreifer nutzen würde, um potentielle Sicherheitslücken zu finden.
+  WVS sind automatisierte Werkzeuge, die Webanwendungen - in der Regel von außerhalb - nach Sicherheitslücken wie Cross-Site Scripting, SQL-Injection, Command Injection, Path Traversal und unsicheren Serverkonfigurationen absuchen. Diese Kategorie von Werkzeugen wird häufig auch als ``Dynamic Application Security Testing (DAST) Tools'' bezeichnet \cite{OWASPtools}. Im Gegensatz zum ``Static Application Security Testing (SAST)'', bei dem der Quell-, Binär- oder Bytecode auf mögliche Implementierungs- und Konstruktionsfehler überprüft wird, testen DAST-Tools die laufende Webanwendung auf ihr Verhalten während des Betriebs. Es werden die gleichen Techniken angewendet, die auch ein realer Angreifer nutzen würde, um potenzielle Sicherheitslücken zu finden.
 
   Um Webanwendungen zu analysieren, befindet sich der WVS  auf einem Client-Computer, in der Regel werden bei der Analyse vier Phasen durchlaufen \cite{BSI4}:
   \begin{itemize}
@@ -473,12 +473,12 @@ Security Assessments stellen dabei die korrekte Umsetzung sowie die Effektivitä
     Häufig wird die Webanwendung auch auf vorhandene Verzeichnisse oder Dateien durchsucht, die Informationen beinhalten. Die Scan-Phase kann durch die Verwendung von öffentlichen Suchmaschinen wie Google unterstützt werden, die gezielt nach Informationen über die anzugreifende Webanwendung sucht.
     Für die Automatisierung dieser Abfragen und das Erstellen von Suchmustern gibt es spezielle Tools.
     \item Analyse:
-    Im zweiten Schritt analaysiert der WVS die Webanwendung auf ihre Sicherheit und speichert die relevanten Erkenntnisse in einer Datenbank. Interessant sind hier zum Beispiel die Art des Webservers, welche Technologien und Tools verwendet werden (CGI, PHP, JavaScript, JSP usw.) oder Mechanismen zum Session-Tracking (Cookies).
+    Im zweiten Schritt analysiert der WVS die Webanwendung auf ihre Sicherheit und speichert die relevanten Erkenntnisse in einer Datenbank. Interessant sind hier zum Beispiel die Art des Webservers, welche Technologien und Tools verwendet werden (CGI, PHP, JavaScript, JSP usw.) oder Mechanismen zum Session-Tracking (Cookies).
     \item Audit/Penetrationstest:
-    Die Erkenntnisse aus der Analysephase werden nun dazu verwendet, fehlerhafte und nicht zulässige Eingabemuster zu erzeugen, die dann an die Webanwendung geschickt werden. Diese Phase wird von einigen WVS in eine ``schadlose'' und ``potentiell schadhafte'' Prüfung unterteilt.
+    Die Erkenntnisse aus der Analysephase werden nun dazu verwendet, fehlerhafte und nicht zulässige Eingabemuster zu erzeugen, die dann an die Webanwendung geschickt werden. Diese Phase wird von einigen WVS in eine ``schadlose'' und ``potenziell schadhafte'' Prüfung unterteilt.
     \item Reporting:
     Am Schluss werden die Ergebnisse in Berichten zusammengefasst.
-    Je nach WVS variiert hier der Umfang, teilweise werden nur kritische Sicherheitslücken genannt, teilweise gibt es detaillierte Beschreibungen von allen Schwachstellen mit Hinweisen zur Behebung der Prbleme.
+    Je nach WVS variiert hier der Umfang, teilweise werden nur kritische Sicherheitslücken genannt, teilweise gibt es detaillierte Beschreibungen von allen Schwachstellen mit Hinweisen zur Behebung der Probleme.
     Bei den meisten WVS hat sich ein System etabliert, bei dem die gefundenen Schwachstellen je nach Schweregrad in vier Kategorien eingeteilt werden \cite{Lepofsky}:
     \begin{itemize}
       \item High: Schwachstellen, die es Angreifern erlauben, die komplette Kontrolle über die Webanwendung einschließlich Server zu übernehmen. Angreifer können auf die Datenbank der Anwendung zugreifen, Konten ändern und vertrauliche Informationen stehlen. Schwachstellen, die beispielsweise XSS und SQL-Injection erlauben, haben einen hohen Schweregrad und sollten bei der Erkennung durch einen Scanner oberste Priorität haben.
@@ -511,7 +511,7 @@ In diesem Kapitel wird der Testaufbau beschrieben einschließlich der Auswahlkri
      4         & \textbf{überragend}
      \end{tabular}
    \end{table}
-   Das Gesamtergebnis setzt sich aus den Bewertungen für die Bedienung, Qualität des Reportings, der Geschwindigkeit und dem Scanergebnis zusammen, wobei für die Katgorien unterschiedliche Gewichtungen festgelegt werden. Die Einteilung entspricht der subjektiven Einschätzung der Wichtigkeit der einzelnen Kategorien. Das Scanergebnis wird als wichtigste Kategorie angesehen und erhält daher mit 50\% die höchste Gewichtung. Die Gewichtung von Bedienung und Reporting wird mit jeweils 20\% angesetzt und die Scangeschwindigkeit mit 10\%.
+   Das Gesamtergebnis setzt sich aus den Bewertungen für die Bedienung, Qualität des Reportings, der Geschwindigkeit und dem Scanergebnis zusammen, wobei für die Kategorien unterschiedliche Gewichtungen festgelegt werden. Die Einteilung entspricht der subjektiven Einschätzung der Wichtigkeit der einzelnen Kategorien. Das Scanergebnis wird als wichtigste Kategorie angesehen und erhält daher mit 50\% die höchste Gewichtung. Die Gewichtung von Bedienung und Reporting wird mit jeweils 20\% angesetzt und die Scangeschwindigkeit mit 10\%.
    Für die Auswertung und das Erstellen des Rankings werden die Werte für das Scanergebnis mit 5 und die Werte für Bedienung und Reporting jeweils mit 2 multipliziert, die höchste zu erreichende Punktzahl ist somit 40.\\
    Angesichts zahlreicher Abstürze der Software Acunetix unter Windows (siehe Abschnitt 4.2.2) wurde eine weitere Bewertungskategorie ``Stabilität'' in Betracht gezogen, aber im Hinblick auf die Ununterscheidbarkeit aller anderen stabil laufenden WVS wieder verworfen. Die Abstürze der Acunetix-Software werden schließlich durch einen Abzug bei der Gesamtpunktzahl berücksichtigt.
 
@@ -554,7 +554,7 @@ In diesem Kapitel wird der Testaufbau beschrieben einschließlich der Auswahlkri
       \end{itemize}
     \subsubsection{Open Source WVS}
     \begin{itemize}
-      \item GoLismero \cite{GoLismero}: GoLismero ist ein in Python geschriebenes Framework, das verschiedene Penetrationtesting-Tools in sich vereint. Theoretisch sollten bei einem Angriff alle Tools angewendet und die jeweiligen Ergebnisse in einem einzigen Report gebündelt werden. In der Praxis hängte sich das Programm jedoch jedes Mal nach einer Weile auf, sowohl unter Kali-Linux und Parrot OS als auch unter Windows. Es werden zwar Teilergebnisse auf dem Bildschirm angezeigt, dies reicht aber nicht aus, um in die Evaluation aufgenommen zu werden.
+      \item GoLismero \cite{GoLismero}: GoLismero ist ein in Python geschriebenes Framework, das verschiedene Penetration Testing-Tools in sich vereint. Theoretisch sollten bei einem Angriff alle Tools angewendet und die jeweiligen Ergebnisse in einem einzigen Report gebündelt werden. In der Praxis hängte sich das Programm jedoch jedes Mal nach einer Weile auf, sowohl unter Kali-Linux und Parrot OS als auch unter Windows. Es werden zwar Teilergebnisse auf dem Bildschirm angezeigt, dies reicht aber nicht aus, um in die Evaluation aufgenommen zu werden.
       \item Grabber \cite{Grabber}: Das von Romain Gaucher entwickelte Programm ist zwar noch Bestandteil von Kali-Linux, ist aber schon über 12 Jahre alt (Latest Release 2006).
       \item Grendel-Scan \cite{Grendel}: Seit 2013 gibt es auf dem SourceForge-Repository von David Byrne keine Veränderung.
       \item Iron Wasp \cite{Iron}: Die aktuelle Verison des Windows-Programms von Lavakumar Kuppan ist ein Beta-Release aus dem Jahr 2015.
@@ -566,11 +566,11 @@ In diesem Kapitel wird der Testaufbau beschrieben einschließlich der Auswahlkri
       \item Webscarab \cite{Webscarab}: Der Vorgänger von OWASPs \ac{ZAP} ist veraltet (Latest Release 2011). OWASP empfiehlt, auf ZAP umzusteigen.
       \item Wfuzz \cite{Wfuzz}: Der in Python geschriebene Scanner verwendet die Bibliothek Pycurl für HTTP-Requests, diese unterstützt keine SSL/TLS Verschlüsselung.
       \newpage
-      \item W3af \cite{W3af}: W3af wird zwar noch sporadisch mit Bibliotheks-Aktualisierungen gepflegt, das aktuelle Release ist jedoch aus dem Jahr 2014 und es ist weder auf Kali-Linux noch auf Parrot OS gelungen, alle für den Programmstart benötigten Dependencies zu installieren. Das bei der Installation generierte Script versucht, teils veraltete Module zu installieren, manuelles Nachinstallieren der aktuellen Versionen brachte keinen Erfolg.
+      \item W3af \cite{W3af}: W3af wird zwar noch sporadisch mit Bibliotheks-Aktualisierungen gepflegt, das aktuelle Release ist jedoch aus dem Jahr 2014 und es ist weder auf Kali-Linux noch auf Parrot OS gelungen, alle für den Programmstart benötigten Dependencies zu installieren (siehe Abb. 3.2). Das bei der Installation generierte Script versucht, teils veraltete Module zu installieren, manuelles Nachinstallieren der aktuellen Versionen brachte keinen Erfolg.
       \begin{figure}[H]
         \centering
         \includegraphics[width=0.9\textwidth]{Images/w3af}
-        \caption[W3af: Fehlende Module]{W3af: Fehlende Module}
+        \caption[W3af: Fehlende Module]{W3af versucht, veraltete Module zu installieren}
       \end{figure}
       \item Wikto \cite{Wikto}: Wikto ist eine Windows-Portierung von Nikto und bedarf daher keiner eigenen Evaluation.
       \item Xenotix \cite{Xenotix}: Xenotix wurde von OWASP für das Auffinden von XSS Schwachstellen entwickelt und ist darauf beschränkt.
@@ -622,17 +622,17 @@ In diesem Kapitel wird der Testaufbau beschrieben einschließlich der Auswahlkri
 
 
 \newpage
-\section{Verwundbare Web-Applikationen}
-  Bei der Auswahl der Web-Applikationen musste darauf geachtet werden, dass sie für WVS geeignet sind. Auf ursprünglich in die Auswahl aufgenommene Applikationen wie WebGoat, JuiceShop (beide von OWASP) oder Damn Vulnerable Web Application (Bestandteil von Metasploitable) wurde am Ende verzichtet, da hier beim Scannen keine hinreichenden Ergebnisse hervorgebracht wurden. Diese Anwendungen  sind zwar sehr gut dokumentiert, aber hauptsächlich für das Erlernen von manuellen Angriffen entwickelt worden. Es wurde bei der Auswahl auf das OWASP Vulnerable Web Applications Directory Project zurückgegriffen, das eine Reihe von verwundbaren Web-Applikationen auflistet \cite{OWASPWebApps}. Die Auswahl deckt mehrere Technologien wie PHP, ASP.Net oder HTML5 ab.
+\section{Verwundbare Webanwendungen}
+  Bei der Auswahl der Webanwendungen musste darauf geachtet werden, dass sie für WVS geeignet sind. Auf ursprünglich in die Auswahl aufgenommene Applikationen wie WebGoat, JuiceShop (beide von OWASP) oder Damn Vulnerable Web Application (Bestandteil von Metasploitable) wurde am Ende verzichtet, da hier beim Scannen keine hinreichenden Ergebnisse hervorgebracht wurden. Diese Anwendungen  sind zwar sehr gut dokumentiert, aber hauptsächlich für das Erlernen von manuellen Angriffen entwickelt worden. Es wurde bei der Auswahl auf das OWASP Vulnerable Web Applications Directory Project zurückgegriffen, das eine Reihe von verwundbaren Web-Applikationen auflistet \cite{OWASPWebApps}. Die Auswahl deckt mehrere Technologien wie PHP, ASP.Net oder HTML5 ab.
 
-  Nachfolgend werden die für die Auswertung genutzten Web-Applikationen kurz vorgestellt.
+  Nachfolgend werden die für die Auswertung genutzten Webanwendungen kurz vorgestellt.
   \begin{itemize}
     \item WA1: Altoro Mutual\\
-    Altoro Mutual ist eine in C\texttt{\#} .NET geschriebene Online-Banking Web-Applikation, die von IBM entwickelt wurde, um WVS zu testen \cite{Altoro}.
+    Altoro Mutual ist eine in C\texttt{\#} .NET geschriebene Online-Banking Webanwendung, die von IBM entwickelt wurde, um WVS zu testen \cite{Altoro}.
     \item WA2: Webscantest\\
-    Diese Web-Applikation ist in PHP geschrieben und wurde von NTOSpider entwickelt, um WVS zu testen. Die Schwachstellen sind direkt auf der Seite dokumentiert \cite{Webscantest}.
+    Diese Webanwendung ist in PHP geschrieben und wurde von NTOSpider entwickelt, um WVS zu testen. Die Schwachstellen sind direkt auf der Seite dokumentiert \cite{Webscantest}.
     \item WA3: Zero Bank\\
-    Eine weitere Online-Banking Web-Applikation, entwickelt von Hewlett-Packard/Micro Focus \cite{Zero}.
+    Eine weitere Online-Banking Webanwendung, entwickelt von Hewlett-Packard/ Micro Focus \cite{Zero}.
     \item WA4: Bitcoin Web Site\\
     Diese von Netsparker entwickelte Applikation ist in ASP.NET geschrieben und simuliert eine Online-Seite für Bitcoin-Transaktionen \cite{Aspnet}.
     \item WA5: Acuart\\
@@ -643,7 +643,7 @@ In diesem Kapitel wird der Testaufbau beschrieben einschließlich der Auswahlkri
     Security Tweets ist eine von Twitter inspirierte Social Networks Applikation, die von Acunetix entwickelt wurde und HTML5 verwendet \cite{Tweets}.
  \end{itemize}
 \chapter{Evaluation}
-In diesem Kapitel wird die Evaluation samt ihrer Ergebnisse dargestellt, die getesteten WVS werden beschrieben und in den einzelnen Kategorien bewertet.
+In diesem Kapitel wird die Evaluation samt ihren Ergebnissen dargestellt, die getesteten WVS werden beschrieben und in den einzelnen Kategorien bewertet.
 \section{Scanzeiten}
 In den beiden folgenden Tabellen sind die Zeiten aufgeführt, die die WVS benötigten, um die jeweiligen Webanwendungen zu scannen.
 \begin{table}[H]
@@ -880,7 +880,7 @@ In den beiden folgenden Tabellen sind die Zeiten aufgeführt, die die WVS benöt
        \hline
        \textbf{Geschwindigkeit (10\%)} & \textbf{3}       & \textbf{3}    & \textbf{2}       & \textbf{3}     & \textbf{0}          \\
        \hline
-       \textbf{Gesamt}                 &   \textbf{32}     &  \textbf{14}   &  \textbf{28}      &  \textbf{14}    &  \textbf{12}          \\
+       \textbf{Total}                 &   \textbf{32}     &  \textbf{14}   &  \textbf{28}      &  \textbf{14}    &  \textbf{12}          \\
        \hline
        \end{tabular}
        \caption[Bewertung der Open Source WVS]{Bewertung der Open Source WVS}
@@ -900,7 +900,7 @@ In den beiden folgenden Tabellen sind die Zeiten aufgeführt, die die WVS benöt
        \hline
        \textbf{Geschwindigkeit (10\%)} & \textbf{4}       & \textbf{2}              & \textbf{2}      & \textbf{1}            \\
        \hline
-       \textbf{Gesamt}                 &  \textbf{36}     & \textbf{36}              & \textbf{22}       &  \textbf{26}                    \\
+       \textbf{Total}                 &  \textbf{36}     & \textbf{36}              & \textbf{22}       &  \textbf{26}                    \\
        \hline
        \end{tabular}
        \caption[Bewertung der kommerziellen WVS]{Bewertung der kommerziellen WVS}
@@ -910,7 +910,7 @@ In den beiden folgenden Tabellen sind die Zeiten aufgeführt, die die WVS benöt
      \begin{table}[H]
   \begin{tabular}{|r|r|c|c|c|c|c|}
  \cline{2-7}
- \multicolumn{1}{l|}{} & \textbf{WVS}           & \textbf{Gesamt} & Scanergebnis & Reporting & Bedienung & Geschwindigkeit  \\
+ \multicolumn{1}{l|}{} & \textbf{WVS}           & \textbf{Total} & Scanergebnis & Reporting & Bedienung & Geschwindigkeit  \\
  \hline
  \textbf{1}            & \textbf{BurpSuite Pro} & \textbf{36}     & 4            & 4         & 3         & 2                \\
  \hline
@@ -938,11 +938,11 @@ In den beiden folgenden Tabellen sind die Zeiten aufgeführt, die die WVS benöt
 \chapter{Diskussion}
 In der nachfolgenden Diskussion sollen die Ergebnisse der Evaluation im Hinblick auf die in der Einleitung thematisierten Fragestellungen analysiert und erörtert werden.
   \section{Anzahl der gefundenen Schwachstellen}
-  Die Tabellen 4.3 und 4.4 zeigen eine große Bandbreite an unterschiedlichen Ergebnisssen. Während ZAP insgesamt nur 63 Schwachstellen findet, sind es bei BurpSuite Pro mit 551 Funden ungefähr neun mal so viele. Die beiden Terminalprogramme Nikto und Wapiti liegen fast gleich auf mit 97 und 93 Funden und sind damit nur geringfügig besser als das Schlusslicht ZAP.
+  Die Tabellen 4.3 und 4.4 zeigen eine große Bandbreite an unterschiedlichen Ergebnissen. Während ZAP insgesamt nur 63 Schwachstellen findet, sind es bei BurpSuite Pro mit 551 Funden ungefähr neun Mal so viele. Die beiden Terminalprogramme Nikto und Wapiti liegen fast gleichauf mit 97 und 93 Funden und sind damit nur geringfügig besser als das Schlusslicht ZAP.
   Mit 265 Funden hat Nessus bei den kommerziellen Scannern das schlechteste Ergebnis, überraschend ist hier vor allem, dass die Open Source Software und Nessus-Abspaltung OpenVAS fast 200 Schwachstellen mehr findet.
   OpenVAS lässt mit diesem Ergebnis auch noch den kommerziellen WVS Netsparker (389 Funde) hinter sich und belegt insgesamt den dritten Platz. Arachni findet 319 Schwachstellen und reiht sich damit zwischen Nessus und Netsparker ein. Acunetix muss sich mit 517 Funden nur BurpSuite Pro geschlagen geben und belegt hier den zweiten Platz.
 
-  Auch wenn die Werte in die Katgorien High, Medium, Low und Informational aufgesplittet werden, gibt es eine breite Palette an Ergebnissen, es gibt fast keinerlei Überein- stimmungen oder erkennbare Muster. Bei den WVS, die bei den insgesamt gefundenen Schwachstellen ungefähr gleichauf liegen, lässt sich dies veranschaulichen: Acunetix hat zum Beispiel mehr als 330 Funde in High und Medium eingeteilt und ca. 180 in Low und Informational, BurpSuite Pro stuft die Schwachstellen als nicht so schwerwiegend ein,  gerade einmal 84 Funde finden sich in High und Medium, aber 467 in Low und Informational. Arachni hat 134 Funde in die Kategorie High eingestuft, Nessus nur 37 und OpenVAS gar nur neun.
+  Auch wenn die Werte in die Kategorien High, Medium, Low und Informational aufgesplittet werden, gibt es eine breite Palette an Ergebnissen, es gibt fast keinerlei Überein- stimmungen oder erkennbare Muster. Bei den WVS, die bei den insgesamt gefundenen Schwachstellen ungefähr gleichauf liegen, lässt sich dies veranschaulichen: Acunetix hat zum Beispiel mehr als 330 Funde in High und Medium eingeteilt und ca. 180 in Low und Informational, BurpSuite Pro stuft die Schwachstellen als nicht so schwerwiegend ein,  gerade einmal 84 Funde finden sich in High und Medium, aber 467 in Low und Informational. Arachni hat 134 Funde in die Kategorie High eingestuft, Nessus nur 37 und OpenVAS gar nur neun.
 
   Selbst wenn man die Ergebnisse nach den verwundbaren Webanwendungen aufteilt, gibt es keine Wiedererkennungswerte. Weder gibt es eine Webseite, bei der von allen WVS besonders viele Schwachstellen gefunden wurden, noch sticht eine mit besonders wenigen Funden heraus. Auch die Anzahl der Funde pro Webanwendung ist von WVS zu WVS sehr verschieden. So findet zum Beispiel Acunetix auf der Seite Zero Bank (WA3) 68 Schwachstellen, BurpSuite Pro nur 14, andererseits findet BurpSuite Pro auf Webscantest (WA2) 169 Schwachstellen und Acunetix nur 86. OpenVAS findet auf Security Tweets (WA7) 110 Schwachstellen, Netsparker nur 31. Auf Webscantest (WA2) hingegen findet Netsparker doppelt so viele (99) Schwachstellen wie OpenVAS (49).
 
@@ -960,11 +960,11 @@ In der nachfolgenden Diskussion sollen die Ergebnisse der Evaluation im Hinblick
   \subsection{Reporting}
   Nikto und Wapiti schneiden in dieser Kategorie unterdurchschnittlich ab, da sie die gefundenen Schwachstellen nicht nach Schweregrad unterteilen (siehe Tabellen 4.5 und 4.6). Das Reporting von Nessus und OpenVAS könnte ausführlicher sein, OpenVAS verzichtet auf die Nennung von gefundenen Schwachstellen der Kategorie ``Informational'', bei Nessus sind die Beschreibungen der Schwachstellen und Lösungsvorschläge nur online abzurufen, das bedeutet zusätzlichen Aufwand, wenn der Auftraggeber einen gedruckten Bericht wünscht.
   Überdurchschnittlich schneiden ZAP, Acunetix und Netsparker ab, die alle sehr umfangreiche Beschreibungen der Schwachstellen liefern. Netsparker ist hier hervorzuheben für die zusätzliche Kategorie ``Critical'' und die besondere Kennzeichnung gesicherter Ergebnisse als ``Confirmed''.
-  Überragende Ergebnisse liefern Arachni und BurpSuite Pro, Arachni sticht neben der Unterscheidung zwischen gesicherten und noch zu überprüfenden Ergenissen mit seinen ausführlichen Statistikfunktionen heraus, BurpSuite Pro mit seiner ``Confidence''-Tabelle, die die Schwachstellen noch genauer zwischen gesichert, wahrscheinlich und tentativ differenziert. Zudem bieten beide äußerst detaillierte Beschreibungen der Schwachstellen und sind trotzdem sehr übersichtlich gestaltet.
+  Überragende Ergebnisse liefern Arachni und BurpSuite Pro, Arachni sticht neben der Unterscheidung zwischen gesicherten und noch zu überprüfenden Ergebnissen mit seinen ausführlichen Statistikfunktionen heraus, BurpSuite Pro mit seiner ``Confidence''-Tabelle, die die Schwachstellen noch genauer zwischen gesichert, wahrscheinlich und tentativ differenziert. Zudem bieten beide äußerst detaillierte Beschreibungen der Schwachstellen und sind trotzdem sehr übersichtlich gestaltet.
   \subsection{Scan-Geschwindigkeit}
   Mit einer Ausnahme liegen die Scan-Geschwindigkeiten alle im vertretbaren Bereich, lediglich ZAP weicht hier mit Scanzeiten von 10 bis 14 Stunden pro Webanwendung ungewöhnlich weit von der Norm ab (siehe Tabellen 4.1 und 4.2). Selbst die Werte von Netsparker, der auf dem vorletzten Platz landet, sind bis auf einen Ausreißer bei Webscantest (WA2) akzeptabel. Die Zeiten von OpenVAS, BurpSuite Pro und Nessus liegen alle nah beieinander und ordnen sich im Mittelfeld ein. Arachni sowie die beiden Terminalprogramme Nikto und Wapiti scannen überdurchschnittlich schnell, der beste WVS in dieser Kategorie ist mit großem Vorsprung Acunetix, der teilweise keine zehn Minuten für einen Scan benötigt.
   \section{Ranking}
-  Tabelle 4.7 zeigt einen klaren Verlierer dieser Evaluation: ZAP ist der einzige WVS, der mit null Punkten bewertet werden musste, und das gleich zweimal, in den Kategorien Scanergebnis und Geschwindigkeit. ZAP ist damit als unbrauchbar zu bezeichnen, zumindest in der Funktion als WVS; die jeweils drei Punkte in den Kategorien Reporting und Bedienung sind wertlos, da kaum Schwachstellen gefunden werden. Nikto und Wapiti liegen mit jeweils 14 Punkten auf dem vorletzten Platz, mit den dürftigen Scanergebnissen und den Mängeln im Reporting sind diese Tools für professionelles Penetration Testing nur sehr bedingt tauglich. Nessus befindet sich mit 22 Punkten im unteren Mittelfeld und kann nur in der Kategorie Bedienung überzeugen, erfüllt aber insgesamt seinen Zweck. Netsparker hat gute Werte im Scanergebnis und im Reporting und belegt mit 26 Punkten den 5. Platz. OpenVAS erreicht 28 Punkte und lässt damit den kommerziellen WVS Nessus, aus dem OpenVAS hervorgegengen ist, hinter sich.
+  Tabelle 4.7 zeigt einen klaren Verlierer dieser Evaluation: ZAP ist der einzige WVS, der mit null Punkten bewertet werden musste, und das gleich zweimal, in den Kategorien Scanergebnis und Geschwindigkeit. ZAP ist damit als unbrauchbar zu bezeichnen, zumindest in der Funktion als WVS; die jeweils drei Punkte in den Kategorien Reporting und Bedienung sind wertlos, da kaum Schwachstellen gefunden werden. Nikto und Wapiti liegen mit jeweils 14 Punkten auf dem vorletzten Platz, mit den dürftigen Scanergebnissen und den Mängeln im Reporting sind diese Tools für professionelles Penetration Testing nur sehr bedingt tauglich. Nessus befindet sich mit 22 Punkten im unteren Mittelfeld und kann nur in der Kategorie Bedienung überzeugen, erfüllt aber insgesamt seinen Zweck. Netsparker hat gute Werte im Scanergebnis und im Reporting und belegt mit 26 Punkten den 5. Platz. OpenVAS erreicht 28 Punkte und lässt damit den kommerziellen WVS Nessus, aus dem OpenVAS hervorgegangen ist, hinter sich.
   Auf den ersten drei Plätzen befinden sich mit Arachni, Acunetix und BurpSuite Pro diejenigen WVS, die durchweg überdurchschnittliche und überragende Werte erreicht haben und somit fast uneingeschränkt empfehlenswert sind. Arachni belegt mit 32 Punkten den 3. Platz und ist damit der beste Open Source WVS.
   Acunetix belegt mit 33 Punkten den 2. Platz, allerdings nur durch den Punktabzug aufgrund der Abstürze beim Testen unter Windows. Ohne Abstürze hätte Acunetix sich den ersten Platz mit BurpSuite Pro geteilt.\\
   Testsieger und damit die Antwort auf die Frage \textbf{Welcher WVS schneidet insgesamt am besten ab?} ist BurpSuite Pro mit 36 Punkten. Ausschlaggebend für das Ergebnis sind in erster Linie das Scanergebnis und das Reporting, in beiden Kategorien hat BurpSuite Pro am besten von allen WVS abgeschnitten.
@@ -984,7 +984,7 @@ Neben dem Aufzeigen der Unterschiede in den einzelnen Kategorien sollten die Fra
 
 Durch die Evaluation ist es gelungen, für jede Fragestellung Antworten zu finden:
 \paragraph{Anzahl gefundener Schwachstellen:}
-Mit Hilfe der Tabellen 4.3 und 4.4 werden die Unterschiede bei der Anzahl gefundener Schwachstellen sichtbar gemacht. BurpSuitePro und Acunetix schneiden in dieser Kategorie mit über 500 Funden am besten ab. Auffällig ist, dass sich insgesamt keine Übereinstimmungen zwischen den WVS feststellen lassen, weder bei Aufsplittung der Ergenisse in High, Low, Medium und Informational, noch bei den Resultaten für die einzelnen Webanwendungen. Erwartungen bezüglich anzutreffender Muster oder Regelmäßigkeiten können nicht bestätigt werden.
+Mit Hilfe der Tabellen 4.3 und 4.4 werden die Unterschiede bei der Anzahl gefundener Schwachstellen sichtbar gemacht. BurpSuitePro und Acunetix schneiden in dieser Kategorie mit über 500 Funden am besten ab. Auffällig ist, dass sich insgesamt keine Übereinstimmungen zwischen den WVS feststellen lassen, weder bei Aufsplittung der Ergebnisse in High, Low, Medium und Informational, noch bei den Resultaten für die einzelnen Webanwendungen. Erwartungen bezüglich anzutreffender Muster oder Regelmäßigkeiten können nicht bestätigt werden.
 \paragraph{Bedienung, Reporting und Geschwindigkeit:}
 Die Scan-Geschwindigkeit wurde den Berichten entnommen oder manuell ermittelt. Die subjektiven Eindrücke für die Bedienung und das Reporting wurden für jeden WVS einzeln beschrieben und mit Hilfe des Punktesystems bewertet. Die Ergebnisse werden in den Tabellen 4.5 und 4.6 dargestellt. Die Bewertung resultiert in einem Gesamtranking (siehe Tabelle 4.7).
 \paragraph{Ranking:} Aus dem Gesamtranking (siehe Tabelle 4.7) lässt sich der WVS ermitteln, der am besten abgeschnitten hat, es ist BurpSuite Pro mit 36 Punkten. Hieraus sollte jedoch keine Allgemeingültigkeit abgeleitet werden, es ist das Ergebnis des für diese Thesis angewandten Testverfahrens mit seinem individuellen Testaufbau und seinen spezifischen Gewichtungen der Kategorien.
@@ -992,7 +992,7 @@ Die Scan-Geschwindigkeit wurde den Berichten entnommen oder manuell ermittelt. D
 Anhand des Rankings wurde auch das Abschneiden der Open Source WVS aufgezeigt, mit Arachni und OpenVAS an dritter und vierter Stelle der Rangliste gibt es vollwertige, kostenlose Alternativen zu den kommerziellen WVS.
 
 Ungeachtet der Resultate soll hier durch Reflexion der gewählten Methodik auch auf die Grenzen der Evaluation eingegangen werden.\\
-So hat die Gesamtanzahl der gefundenen Schwachstellen zum Beispiel nur eingeschränkte Aussagekraft; zum einen müsste jeder Fund noch durch manuelles Testen verifiziert werden, um False-Positives auszuschließen, zum anderen ist die durch die WVS vorgenommene Einteilung in die Kategorien ``High'', ``Medium'', ``Low'' und ``Informational'' problematisch, da die ``Informational''-Funde, wie der Name schon sagt, nur der Information dienen und gar kein Eingreifen erfordern. Würde man diese Werte ausblenden, ergäbe sich im Ranking ein komplett anderes Bild, der Testsieger BurpSuite Pro käme zum Beispiel nur noch auf 107 gefundene Schwachstellen und würde damit in dieser Kategorie den vorletzten Rang belegen. In diesem Zusammenhang muss rückblickend auch die Gewichtung der einzelnen Kategorien hinterfragt werden, angesichts der zweifelhaften Ausssagekraft des Scanergebnisses ist die Gewichtung von 50\% vielleicht zu hoch angesetzt.
+So hat die Gesamtanzahl der gefundenen Schwachstellen zum Beispiel nur eingeschränkte Aussagekraft; zum einen müsste jeder Fund noch durch manuelles Testen verifiziert werden, um False-Positives auszuschließen, zum anderen ist die durch die WVS vorgenommene Einteilung in die Kategorien ``High'', ``Medium'', ``Low'' und ``Informational'' problematisch, da die ``Informational''-Funde, wie der Name schon sagt, nur der Information dienen und gar kein Eingreifen erfordern. Würde man diese Werte ausblenden, ergäbe sich im Ranking ein komplett anderes Bild, der Testsieger BurpSuite Pro käme zum Beispiel nur noch auf 107 gefundene Schwachstellen und würde damit in dieser Kategorie den vorletzten Rang belegen. In diesem Zusammenhang muss rückblickend auch die Gewichtung der einzelnen Kategorien hinterfragt werden, angesichts der zweifelhaften Aussagekraft des Scanergebnisses ist die Gewichtung von 50\% vielleicht zu hoch angesetzt.
 
 Die Ergebnisse dieser Thesis sind somit als Grundlage für weitergehende Evaluationen einzuordnen.
 
