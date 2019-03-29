@@ -284,7 +284,7 @@ Für die Tests werden zunächst mehrere verwundbare Webanwendungen ausgesucht, d
 Die Evaluation soll mit Hilfe eines Punktesystems erfolgen und schließlich in einem Ranking resultieren, das die Tauglichkeit und Qualität der getesteten WVS anhand ihrer Platzierungen aufzeigt.
 
 Die Arbeit gliedert sich wie folgt:\\
-Das zweite Kapitel vermittelt die Grundlagen über Webanwendungen, Schwachstellen,  Sicherheitsmaßnahmen wie Web Application Firewalls und Penetration Testing sowie die Arbeitsweise von WVS. Kapitel drei beinhaltet die Methodik, hier wird der Testaufbau einschließlich der Auswahlkriterien für die WVS und des Punktesystems für die Bewertung beschrieben. Zudem werden nicht berücksichtigte WVS genannt und die verwundbaren Webanwendungen vorgestellt, die für die Tests verwendet werden. Im vierten Kapitel folgt die Evaluation mitsamt den Ergebnissen, zum einen die Anzahl der gefundenen Schwachstellen per WVS, zum anderen eine Beschreibung der WVS einschließlich der Bewertung in den Kategorien Bedienung, Reporting und Scangeschwindigkeit. Im nachfolgenden fünften Kapitel werden die Ergebnisse der Evaluation im Hinblick auf die Forschungsfragen diskutiert, im letzten Kapitel wird schlussendlich die Studie nochmals kurz zusammengefasst und auf mögliche Ansätze für zukünftige Arbeiten eingegangen.
+Das zweite Kapitel vermittelt die Grundlagen über Webanwendungen, Schwachstellen,  Sicherheitsmaßnahmen wie \acp{WAF} und Penetration Testing sowie die Arbeitsweise von WVS. Kapitel drei beinhaltet die Methodik. Hier wird der Testaufbau einschließlich der Auswahlkriterien für die WVS und des Punktesystems für die Bewertung beschrieben. Zudem werden nicht berücksichtigte WVS genannt und die verwundbaren Webanwendungen vorgestellt, die für die Tests verwendet werden. Im vierten Kapitel folgt die Evaluation mitsamt den Ergebnissen, zum einen die Anzahl der gefundenen Schwachstellen per WVS, zum anderen eine Beschreibung der WVS einschließlich der Bewertung in den Kategorien Bedienung, Reporting und Scangeschwindigkeit. Im nachfolgenden fünften Kapitel werden die Ergebnisse der Evaluation im Hinblick auf die Forschungsfragen diskutiert, und im letzten Kapitel wird schlussendlich die Studie nochmals kurz zusammengefasst und auf mögliche Ansätze für zukünftige Arbeiten eingegangen.
 
 \chapter{Grundlagen}
 Dieses Kapitel vermittelt Grundlagenwissen über Webanwendungen, Schwachstellen, Sicherheitsmaßnahmen wie \acp{WAF} und Penetration Testing sowie die Arbeitsweise von WVS.
@@ -322,7 +322,7 @@ Dieses Kapitel vermittelt Grundlagenwissen über Webanwendungen, Schwachstellen,
   \end{itemize}
 Um bekannte Schwachstellen herstellerübergreifend einheitlich benennen zu können, wurde der Industriestandard \ac{CVE} etabliert, der gewährleistet, dass Hersteller, Entdecker und weitere Beteiligte jeweils über dieselbe Schwachstelle diskutieren. Der \ac{CVE} sammelt vorhandene Informationen über die Schwachstelle und bietet die Möglichkeit zu statistischen Auswertungen.
 
-  Wie in Abbildung 2.3 dargestellt, lässt sich der Lebenszyklus einer Schwachstelle, die durch Dritte entdeckt wurde, auf das folgende Schema zurückführen\cite{BSI3}:
+  Wie in Abbildung 2.2 dargestellt, lässt sich der Lebenszyklus einer Schwachstelle, die durch Dritte entdeckt wurde, auf das folgende Schema zurückführen \cite{BSI3}:
 
   1. Entdeckung der Schwachstelle durch einen Dritten.
 
@@ -333,7 +333,7 @@ Um bekannte Schwachstellen herstellerübergreifend einheitlich benennen zu könn
     \item \glqq Zero-Day-Exploit\grqq: Niemand wird über die Schwachstelle informiert, stattdessen wird sie für Angriffe ausgenutzt. Öffentlichkeit und Hersteller erfahren erst nach erfolgreichen Angriffen von der Schwachstelle.
     \item Indirekte Benachrichtigung an den Hersteller über einen sogenannten Schwachstellen-Broker. \end{itemize}
   3. Der Hersteller beginnt damit, die Sicherheitslücke zu schließen, indem er die Software nachbessert und einen Patch entwickelt.
-
+  \newpage
   4. Veröffentlichung eines ``Advisorys'', einer Schwachstellenwarnung, die Informationen über die Sicherheitslücke, eine Gefährdungsbewertung und vorläufige Gegenmaßnahmen beinhaltet.
   Die Warnung erscheint in der Regel zeitgleich mit dem Patch, bei hoher Gefährdung und wenn die Öffentlichkeit schon von der Schwachstelle erfahren hat, kann sie auch vor der Fertigstellung des Patches veröffentlicht werden.
 
@@ -376,7 +376,7 @@ Um bekannte Schwachstellen herstellerübergreifend einheitlich benennen zu könn
   Das BSI definiert den Begriff wie folgt:
     \begin{quote} ``Als Sicherheitsmaßnahmen werden alle Aktionen bezeichnet, die dazu dienen, Sicherheitsrisiken zu steuern und diesen entgegenzuwirken. Dies schließt sowohl organisatorische als auch personelle, technische oder infrastrukturelle Sicherheitsmaßnahmen ein. Synonym werden auch die Begriffe Sicherheitsvorkehrung oder Schutzmaßnahme benutzt.'' \cite[S.107-108]{BSI2}\end{quote}
 
- Zu den Maßnahmen, die bereits während der Entwicklung ergriffen werden sollten, gehören umfangreiche Security Tests. Nach Inbetriebnahme der Webanwendung kann mit Hilfe von Penetration Tests nach Sicherheitslücken gesucht werden, zusätzlichen Schutz bieten Web Application Firewalls.
+ Zu den Maßnahmen, die bereits während der Entwicklung ergriffen werden sollten, gehören umfangreiche Security Tests. Nach Inbetriebnahme der Webanwendung kann mit Hilfe von Penetration Tests nach Sicherheitslücken gesucht werden, zusätzlichen Schutz bieten \acp{WAF}.
 
 
   \subsubsection{Security Tests}
@@ -406,7 +406,7 @@ Security Assessments stellen dabei die korrekte Umsetzung sowie die Effektivitä
     Diese Tools führen eine \ac{SCA} durch, um Schwachstellen zu finden. Da dieses Testverfahren vor der eigentlichen Ausführung der Software angewendet wird, müssen die Scanner Kenntnis von den verwendeten APIs haben, die normalerweise nicht im Quellcode vorliegen. Zudem müssen die Ergebnisse von qualifiziertem Personal verifiziert werden, da diese Tools oft eine große Menge an False-Positives produzieren.
     \item Web Application Vulnerability Scanner: siehe Abschnitt 2.4
     \item Fuzz Testing:
-    Beim Fuzz Testing werden ungültige oder unerwartete Eingabewerte an die Webanwendung übergeben und überprüft, ob dabei ein Fehlverhalten auftritt. Dadurch können einfache Programmfehler entdeckt werden, die sonst leicht zu übersehen sind. \cite{BSI}
+    Beim Fuzz Testing werden ungültige oder unerwartete Eingabewerte an die Webanwendung übergeben und überprüft, ob dabei ein Fehlverhalten auftritt. Dadurch können einfache Programmfehler entdeckt werden, die sonst leicht zu übersehen sind.
   \end{itemize}
 
     \subsubsection{Penetration Testing}
@@ -431,14 +431,15 @@ Security Assessments stellen dabei die korrekte Umsetzung sowie die Effektivitä
     Beim Black-Box Testing befindet sich der Tester in der Rolle eines typischen Hackers von
     außen, der kein Wissen über die innere Arbeitsweise der Anwendung hat, weder Architektur noch
     Quellcode sind bekannt. Der Angreifer muss mit manuellen Methoden sowie speziellen Tools des Penetration Testings vertraut sein, um Schwachstellen zu lokalisieren und auszunutzen. Für die dynamische Analyse des anzugreifenden Netzwerks benötigt er Scanning Tools, die in der vorliegenden Arbeit evaluiert werden.
+    \newpage
     \paragraph{Grey-Box Testing}
     Während der Black-Box-Tester ein System aus der Sicht eines Außenseiters untersucht, hat ein    Grey-Box Tester bereits Zugriff auf das System auf Benutzerebene, möglicherweise sogar mit erhöhten Berechtigungen eines Administrators. In der Regel liegt eine Dokumentation über Design und Architektur des Netzwerks vor, die internen Komponenten sind bekannt. Dies hat den Vorteil, dass die Sicherheit des Netzwerks gezielter und effizienter beurteilt werden kann, der Tester kann sich sofort auf die Systeme konzentrieren, die am wichtigsten sind oder ein besonders hohes Risiko haben. Zudem kann durch das interne Benutzerkonto ein Angriff innerhalb des abgesicherten Systems mit umfassendem Zugriff auf das Netzwerk simuliert werden.
     \paragraph{White-Box Testing}
     Der White-Box Tester hat schließlich uneingeschränkten Zugriff auf ein System, er besitzt alle nötigen Berechtigungen und kennt Netzwerkarchitektur und Design. Überdies hat er Zugang zum Quellcode, was es ihm erlaubt, statische Code-Analysen durchzuführen. Durch das Auffinden sowohl interner als auch externer Schwachstellen ist das White-Box Testing maximal effektiv, aber auch sehr aufwandsintensiv, da der Tester sehr große Datenmengen untersuchen muss.
 
-    Penetration Tests sind nicht auf technische Systeme beschränkt. Angriffe mittels Social Engineering zielen zum Beispiel auf die personelle Infrastruktur, aber auch Angriffe auf die organisatorische Infrastruktur lassen sich realisieren\cite{BSI}.
+    Penetration Tests sind nicht auf technische Systeme beschränkt. Angriffe mittels Social Engineering zielen zum Beispiel auf die personelle Infrastruktur, aber auch Angriffe auf die organisatorische Infrastruktur lassen sich realisieren. \cite{BSI}
 
-    Generell haben Penetration Tests folgende Ziele: \cite{BSI}:
+    Generell haben Penetration Tests folgende Ziele \cite{BSI}:
     \begin{itemize}
       \item Verbesserung der Sicherheit der IT-Systeme
       \item Erkennung von Sicherheitslücken
@@ -455,7 +456,7 @@ Security Assessments stellen dabei die korrekte Umsetzung sowie die Effektivitä
     Eine WAF kann zentralisiert hinter der Netzwerk Firewall und vor dem Webserver positioniert oder Host-basiert als Software-Lösung direkt auf dem Webserver installiert werden.
     Häufig wird der sogenannte Reverse-Proxy-Modus verwendet, bei dem der Proxy sich zwischen Webserver und Firewall befindet und Zugriffe im Namen des Clients durchführt. Im zweiten Schritt werden die Anfragen an den wirklichen Webserver analysiert und die Websessions bei Bedarf terminiert.
 
-    Zu den Angriffen, die eine WAF üblicherweise verhindern kann, zählen Cross-Site-Scrip- ting, SQL-Injection, Angriffe per Pufferüberlauf oder auch Konfigurationsfehler. Der Schutz ist hier stets nur als zusätzlicher Schutzmechanismus zu verstehen, der keinesfalls die Notwendigkeit ersetzt, Webanwendungenzu zu entwickeln, die ausreichend sicher sind und getestet wurden. Bei der Durchführung von Tests sollte eine WAF stets deaktiviert sein, um die Testergebnisse nicht zu verfälschen.
+    Zu den Angriffen, die eine WAF üblicherweise verhindern kann, zählen XSS, SQL-Injection, Angriffe per Pufferüberlauf oder auch Konfigurationsfehler. Der Schutz ist hier stets nur als zusätzlicher Schutzmechanismus zu verstehen, der keinesfalls die Notwendigkeit ersetzt, Webanwendungenzu zu entwickeln, die ausreichend sicher sind und getestet wurden. Bei der Durchführung von Tests sollte eine WAF stets deaktiviert sein, um die Testergebnisse nicht zu verfälschen.
     Um aus einer WAF den größtmöglichen Nutzen zu ziehen, sollte die Konfiguration möglichst durch Fachleute
     auf die jeweilige Webanwendung angepasst werden. \cite{BSI,WAF}\\
     Bekannte Hersteller von WAFs sind Imperva, Akamai, F5, Fortinet, Citrix, Cloudflare und Barracuda.
@@ -464,7 +465,7 @@ Security Assessments stellen dabei die korrekte Umsetzung sowie die Effektivitä
 
     \newpage
   \section{Funktionsweise WVS}
-  WVS sind automatisierte Werkzeuge, die Webanwendungen - in der Regel von außerhalb - nach Sicherheitslücken wie Cross-Site Scripting, SQL-Injection, Command Injection, Path Traversal und unsicheren Serverkonfigurationen absuchen. Diese Kategorie von Werkzeugen wird häufig auch als ``Dynamic Application Security Testing (DAST) Tools'' bezeichnet \cite{OWASPtools}. Im Gegensatz zum ``Static Application Security Testing (SAST)'', bei dem der Quell-, Binär- oder Bytecode auf mögliche Implementierungs- und Konstruktionsfehler überprüft wird, testen DAST-Tools die laufende Webanwendung auf ihr Verhalten während des Betriebs. Es werden die gleichen Techniken angewendet, die auch ein realer Angreifer nutzen würde, um potenzielle Sicherheitslücken zu finden.
+  WVS sind automatisierte Werkzeuge, die Webanwendungen nach Sicherheitslücken absuchen, die Angriffe wie XSS, SQL-Injection, Command Injection oder Path Traversal ermöglichen. Diese Kategorie von Werkzeugen wird häufig auch als ``Dynamic Application Security Testing (DAST) Tools'' bezeichnet \cite{OWASPtools}. Im Gegensatz zum ``Static Application Security Testing (SAST)'', bei dem der Quell-, Binär- oder Bytecode auf mögliche Implementierungs- und Konstruktionsfehler überprüft wird, testen DAST-Tools die laufende Webanwendung auf ihr Verhalten während des Betriebs. Es werden die gleichen Techniken angewendet, die auch ein realer Angreifer nutzen würde, um potenzielle Sicherheitslücken zu finden.
 
   Um Webanwendungen zu analysieren, befindet sich der WVS  auf einem Client-Computer, in der Regel werden bei der Analyse vier Phasen durchlaufen \cite{BSI4}:
   \begin{itemize}
@@ -517,7 +518,7 @@ In diesem Kapitel wird der Testaufbau beschrieben einschließlich der Auswahlkri
 
    Für das Scanergebnis wird die reine Anzahl der gefundenen Schwachstellen zu Grunde gelegt. Für eine tiefergehende Evaluation ist eine manuelle Validierung aller Schwachstellen auf True- und False-Positives in Erwägung zu ziehen, was jedoch angesichts der Vielzahl an Funden (über 3000) den Rahmen dieser Ausarbeitung sprengen würde.
 
-  Für die Tests wird folgendes System verwendet:
+  Für die Tests wird folgendes System verwendet (siehe auch Abb. 3.1):
   \begin{itemize}
     \item Intel Core i7-8700K CPU mit 32 GB RAM
     \item Microsoft Windows 10 pro, Version 1809 (64 bit)
@@ -547,7 +548,7 @@ In diesem Kapitel wird der Testaufbau beschrieben einschließlich der Auswahlkri
   Von den angefragten Firmen stellten Acunetix, Netsparker, N-Stalker, Portswigger und Tenable jeweils eine Testversion zur Verfügung.
 
   \subsection{Nicht ausgewählte WVS}
-    Nachfolgend werden alle WVS aufgelistet, die als Anwärter für die Evaluation in Erwägung gezogen wurden, bei näherer Betrachtung jedoch nicht die erforderlichen Voraussetzungen erfüllten.
+    Nachfolgend werden alle WVS aufgelistet, die als Anwärter für die Evaluation in Erwä- gung gezogen wurden, bei näherer Betrachtung jedoch nicht die erforderlichen Voraussetzungen erfüllten.
     \subsubsection{Kommerzielle WVS}
       \begin{itemize}
         \item N-Stalker \cite{Stalker}: Die angebotene ``7-Day Evaluation Licence'' erlaubt nur das Scannen einer einzigen, vorher festgelegten URL und ist daher für den geplanten Testaufbau nicht geeignet.
@@ -645,7 +646,7 @@ In diesem Kapitel wird der Testaufbau beschrieben einschließlich der Auswahlkri
 \chapter{Evaluation}
 In diesem Kapitel wird die Evaluation samt ihren Ergebnissen dargestellt, die getesteten WVS werden beschrieben und in den einzelnen Kategorien bewertet.
 \section{Scanzeiten}
-In den beiden folgenden Tabellen sind die Zeiten aufgeführt, die die WVS benötigten, um die jeweiligen Webanwendungen zu scannen.
+In den Tabellen 4.1 und 4.2 sind die Zeiten aufgeführt, die die WVS benötigten, um die jeweiligen Webanwendungen zu scannen.
 \begin{table}[H]
 \begin{tabular}{|r|c|c|c|c|c|}
 \hline
@@ -695,7 +696,8 @@ In den beiden folgenden Tabellen sind die Zeiten aufgeführt, die die WVS benöt
 \caption[Scanzeiten der kommerziellen WVS in Minuten]{Scanzeiten der kommerziellen WVS in Minuten}
 \end{table}
   \section{Gefundene Schwachstellen per Webanwendung}
-   Die Buchstaben H, M, L und I stehen für die Kategorien High, Medium, Low und Informational (siehe Abschnitt 2.4). Aus Gründen der Vergleichbarkeit wurden die Werte aus der zusätzlichen Kategorie ``Critical'' bei Nessus und Netsparker mit in die Kategorie High übernommen. WA1 - WA 7 stehen für die verwundbare Web-Applikationen (siehe Abschnitt 3.3).\\
+  In den Tabellen 4.3 und 4.4 wird die Anzahl der Schwachstellen aufgelistet, die jeder WVS per Webanwendung gefunden hat.  Die Buchstaben H, M, L und I stehen für die Kategorien High, Medium, Low und Informational (siehe Abschnitt 2.4). Aus Gründen der Vergleichbarkeit wurden die Werte aus der zusätzlichen Kategorie ``Critical'' bei Nessus und Netsparker mit in die Kategorie High übernommen. WA1 - WA7 stehen für die verwundbaren Web-Applikationen (siehe Abschnitt 3.3).
+  \vspace{20pt}
      \begin{table}[H]
       \begin{tabular}{|r|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
         \cline{2-15}
@@ -724,7 +726,7 @@ In den beiden folgenden Tabellen sind die Zeiten aufgeführt, die die WVS benöt
       \end{tabular}
       \caption[Gefundene Schwachstellen der Open Source WVS]{Gefundene Schwachstellen der Open Source WVS}
     \end{table}
-    \vspace{40pt}
+    \vspace{20pt}
       \begin{table}[H]
       \begin{tabular}{|r|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
         \cline{2-17}
@@ -758,23 +760,35 @@ In den beiden folgenden Tabellen sind die Zeiten aufgeführt, die die WVS benöt
   \section{Bedienung, Reporting und Geschwindigkeit}
   Nachfolgend werden die einzelnen WVS in den Kategorien Bedienung, Reporting und Geschwindigkeit beurteilt. Die Screenshots der Benutzeroberflächen wurden während des Testens selbst erstellt. Im Anhang A befindet sich zudem jeweils ein exemplarischer Screenshot eines generierten Berichtes von jedem WVS, die vollständigen Berichte aller Scans sind auf der beiliegenden CD-ROM zu finden.
     \subsection{Open Source}
-    \vspace{20pt}
-    \begin{itemize}
+      \begin{itemize}
       \item \textbf{Nikto} \cite{Nikto}:\\
-      Nikto ist ein gut dokumentiertes Terminal-Programm, nach kurzer Einarbeitung hat ein ungeübter User die benötigten Befehle und Optionen gefunden, um einen Scan zu starten.
+      Nikto (siehe Abb. 4.1) ist ein gut dokumentiertes Terminal-Programm  nach kurzer Einarbeitung hat ein ungeübter User die benötigten Befehle und Optionen gefunden, um einen Scan zu starten.
       Der generierte Report (siehe Abb. A.7) listet alle gefundenen Schwachstellen auf, unterscheidet diese jedoch im Gegensatz zu den meisten anderen WVS nicht zwischen High, Medium, Low und Informational. Die Scan-Geschwindigkeit ist überdurchschnittlich.
 
       \textbf{Bewertung: Reporting 1, Bedienung 2, Geschwindigkeit 3}
+        \vspace{20pt}
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{Images/Nikto}
+        \caption[Terminalprogramm Nikto]{Terminalprogramm Nikto}
+      \end{figure}
       \vspace{20pt}
 
       \item \textbf{Wapiti} \cite{Wapiti}:\\
-        In der Handhabung und im Reporting (siehe Abb. A.8) ähnelt Wapiti dem anderen reinen Terminal-Programm Nikto. Die auswählbaren Optionen sind ähnlich, und die gefundenen Schwachstellen werden auch hier nicht in Kategorien eingeteilt. Die Dokumentation fällt etwas spartanischer aus, ist aber ausreichend, um sich schnell zurechtzufinden. Wapiti scannt fast so schnell wie Nikto und reiht sich hier auf dem dritten Platz ein.
+        In der Handhabung und im Reporting (siehe Abb. A.8) ähnelt Wapiti (siehe Abb. 4.2) dem anderen reinen Terminal-Programm Nikto. Die auswählbaren Optionen sind ähnlich, und die gefundenen Schwachstellen werden auch hier nicht in Kategorien eingeteilt. Die Dokumentation fällt etwas spartanischer aus, ist aber ausreichend, um sich schnell zurechtzufinden. Wapiti scannt fast so schnell wie Nikto und reiht sich hier auf dem dritten Platz ein.
 
     \textbf{Bewertung: Reporting 1, Bedienung 2, Geschwindigkeit 3}
+      \vspace{20pt}
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=1\textwidth]{Images/Wapiti}
+      \caption[Terminalprogramm Wapiti]{Terminalprogramm Wapiti}
+    \end{figure}
+    \vspace{20pt}
 
 \newpage
           \item \textbf{Arachni} \cite{Arachni}:\\
-            Arachni gibt es als reine Terminal-Anwendung oder als Ruby on Rails Framework mit Web-Interface. Die Web-Oberfläche ist übersichtlich und verständlich aufgebaut (siehe Abb. 4.1), der User findet sich schnell zurecht und kann sofort mit dem Scannen einer Seite beginnen, die Scangeschwindigkeit liegt über dem Durchschnitt. Als Hilfestellung gibt es ein umfangreiches Wiki mit Erklärungen und Screenshots. Der Report (siehe Abb. A.5) ist sehr umfangreich, verschiedene Balken- und Kuchendiagramme geben Statistiken über Art und Schweregrad der Funde wieder, zudem gibt es Verlinkungen zu den OWASP Top 10 und detaillierte Ausführungen über die Schwachstellen. Arachni unterscheidet bei den Funden außerdem zwischen gesicherten (``Trusted'') und noch zu überprüfenden Ergebnissen (``Untrusted'').
+            Arachni gibt es als reine Terminal-Anwendung oder als Ruby on Rails Framework mit Web-Interface. Die Web-Oberfläche ist übersichtlich und verständlich aufgebaut (siehe Abb. 4.3), der User findet sich schnell zurecht und kann sofort mit dem Scannen einer Seite beginnen, die Scangeschwindigkeit liegt über dem Durchschnitt. Als Hilfestellung gibt es ein umfangreiches Wiki mit Erklärungen und Screenshots. Der Report (siehe Abb. A.5) ist sehr umfangreich, verschiedene Balken- und Kuchendiagramme geben Statistiken über Art und Schweregrad der Funde wieder, zudem gibt es Verlinkungen zu den OWASP Top 10 und detaillierte Ausführungen über die Schwachstellen. Arachni unterscheidet bei den Funden außerdem zwischen gesicherten (``Trusted'') und noch zu überprüfenden Ergebnissen (``Untrusted'').
 
             \textbf{Bewertung: Reporting 4, Bedienung 3, Geschwindigkeit 3}
             \vspace{20pt}
@@ -785,7 +799,7 @@ In den beiden folgenden Tabellen sind die Zeiten aufgeführt, die die WVS benöt
             \end{figure}
             \newpage
             \item \textbf{OpenVAS} \cite{OpenVAS}:\\
-            OpenVAS ist aus der Software Nessus hervorgegangen, als diese im Jahr 2005 von Open Soucre zu einer kommerziellen Lizenz wechselte, und wird seitdem auf Basis der letzten freien Nessus-Version 2.2 von Greenbone Networks weiterentwickelt. Der Scanner ist eingebettet in den Greenbone Security Assistant, der über ein Web-Interface bedient wird (siehe Abb. 4.2). Die Oberfläche ist nicht selbsterklärend. Es bedarf etwas an Recherche, bis sich dem User der logische Aufbau des Programms erschließt. Hier ist das ``Tech Doc-Portal'' von Greenbone sehr hilfreich. Zuerst muss unter Configuration/Targets ein Ziel definiert werden, dann kann der User für dieses Ziel unter dem Punkt ``Scans'' einen Task erstellen und diesen entweder sofort oder per Schedule starten.
+            OpenVAS ist aus der Software Nessus hervorgegangen, als diese im Jahr 2005 von Open Soucre zu einer kommerziellen Lizenz wechselte, und wird seitdem auf Basis der letzten freien Nessus-Version 2.2 von Greenbone Networks weiterentwickelt. Der Scanner ist eingebettet in den Greenbone Security Assistant, der über ein Web-Interface bedient wird (siehe Abb. 4.4). Die Oberfläche ist nicht selbsterklärend. Es bedarf etwas an Recherche, bis sich dem User der logische Aufbau des Programms erschließt. Hier ist das ``Tech Doc-Portal'' von Greenbone sehr hilfreich. Zuerst muss unter Configuration/Targets ein Ziel definiert werden, dann kann der User für dieses Ziel unter dem Punkt ``Scans'' einen Task erstellen und diesen entweder sofort oder per Schedule starten.
             Die umständliche Handhabung hat jedoch den Vorteil, dass sich leicht mehrere Tasks automatisieren lassen. Der Bericht (siehe Abb. A.6) präsentiert sich etwas sparsam, die gefundenen Schwachstellen der Kategorie ``Informational'' werden nicht aufgelistet. Die Scangeschwindigkeit ist durchschnittlich.
 
             \textbf{Bewertung: Reporting 2, Bedienung 1, Geschwindigkeit 2}
@@ -797,7 +811,7 @@ In den beiden folgenden Tabellen sind die Zeiten aufgeführt, die die WVS benöt
             \end{figure}
             \newpage
             \item \textbf{\ac{ZAP}} \cite{ZAP}:\\
-              Der von OWASP entwickelte Scanner hat eine übersichtliche Benutzeroberfläche (siehe Abb. 4.3) und lässt sich intuitiv bedienen. Auf der Startseite lässt sich direkt die anzugreifende URL eingeben und ohne weitere Konfiguration angreifen. Es gibt umfangreiche Hilfestellung in Form eines Handbuchs und einem Online-Wiki, zudem gibt es mit der OWASP ZAP User Group ein gut frequentiertes Benutzerforum, auf dem ein reger Austausch zwischen den Benutzern stattfindet.
+              Der von OWASP entwickelte Scanner hat eine übersichtliche Benutzeroberfläche (siehe Abb. 4.5) und lässt sich intuitiv bedienen. Auf der Startseite lässt sich direkt die anzugreifende URL eingeben und ohne weitere Konfiguration angreifen. Es gibt umfangreiche Hilfestellung in Form eines Handbuchs und einem Online-Wiki, zudem gibt es mit der OWASP ZAP User Group ein gut frequentiertes Benutzerforum, auf dem ein reger Austausch zwischen den Benutzern stattfindet.
               Auffällig sind die langen Scan-Zeiten von mehreren Stunden, die sich jedoch nicht in einer höheren Anzahl an gefundenen Schwachstellen widerspiegeln. Die wenigen Funde werden im Report ausführlich beschrieben einschließlich umfangreicher Empfehlungen zur Behebung (siehe Abb. A.9).
 
               \textbf{Bewertung: Reporting 3, Bedienung 3, Geschwindigkeit 0}
@@ -813,7 +827,7 @@ In den beiden folgenden Tabellen sind die Zeiten aufgeführt, die die WVS benöt
     \subsection{Kommerziell}
       \begin{itemize}
         \item \textbf{Netsparker} \cite{Netsparker}:\\
-          Netsparker stellte nach Rücksprache eine 14-tägige Testversion zur Verfügung, die auf acht zu scannende Web-Applikationen begrenzt ist. Die grafische Benutzeroberfläche ist etwas unruhig und überladen (siehe Abb. 4.4), der User kann aber direkt über den Button ``New'' eine Web-Seite scannen. Die Scangeschwindigkeit ist im unteren Mittelfeld angesiedelt. Der Report ist äußerst umfangreich, aber etwas unübersichtlich (siehe Abb. A.4). Netsparker hat neben High, Medium, Low und Informational eine fünfte Kategorie ``Critical'' eingeführt, die auf besonders kritische Schwachstellen hinweist. Wie bei Arachni und BurpSuite werden gesicherte Ergebnisse gesondert gekennzeichnet, hier als ``Confirmed''.
+          Netsparker stellte nach Rücksprache eine 14-tägige Testversion zur Verfügung, die auf acht zu scannende Web-Applikationen begrenzt ist. Die grafische Benutzeroberfläche ist etwas unruhig und überladen (siehe Abb. 4.6), der User kann aber direkt über den Button ``New'' eine Web-Seite scannen. Die Scangeschwindigkeit ist im unteren Mittelfeld angesiedelt. Der Report ist äußerst umfangreich, aber etwas unübersichtlich (siehe Abb. A.4). Netsparker hat neben High, Medium, Low und Informational eine fünfte Kategorie ``Critical'' eingeführt, die auf besonders kritische Schwachstellen hinweist. Wie bei Arachni und BurpSuite werden gesicherte Ergebnisse gesondert gekennzeichnet, hier als ``Confirmed''.
 
           \textbf{Bewertung: Reporting 3, Bedienung 2, Geschwindigkeit 1}
           \vspace{20pt}
@@ -824,7 +838,7 @@ In den beiden folgenden Tabellen sind die Zeiten aufgeführt, die die WVS benöt
           \end{figure}
           \newpage
           \item \textbf{Acunetix} \cite{Acunetix}:\\
-            Acunetix stellte eine 14-tägige Vollversion zur Verfügung. Die graphische Oberfläche ist sehr übersichtlich (siehe Abb. 4.5) und lässt sich intuitiv bedienen. Online gibt es ein Support-Portal mit ausführlicher Dokumentation und Hilfestellung.
+            Acunetix stellte eine 14-tägige Vollversion zur Verfügung. Die graphische Oberfläche ist sehr übersichtlich (siehe Abb. 4.7) und lässt sich intuitiv bedienen. Online gibt es ein Support-Portal mit ausführlicher Dokumentation und Hilfestellung.
             Auffällig ist die im Vergleich zu allen anderen WVS ungewöhnlich hohe Scan-Geschwindigkeit, die sich im Minutenbereich einordnet.
             Unter Windows brachte Acunetix das System mehrmals zum Absturz (BSoD\footnotemark), so dass auf die Linux-Version ausgewichen wurde. Hier lief das Programm stabil und scannte von den kommerziellen WVS am schnellsten, von allen WVS muss sich Acunetix hier nur den Terminalprogrammen Wapiti und Nikto geschlagen geben. Der Report (siehe Abb. A.1) listet zu jeder gefundenen Schwachstelle sehr detailliert die vollständigen GET- und POST-Requests sowie teilweise seitenlange Code-Passagen auf. Die Empfehlungen zur Behebung der Funde könnten hingegen ausführlicher sein. Aufgrund der Abstürze wurden bei der Gesamtpunktzahl 3 Punkte abgezogen.
 
@@ -837,7 +851,7 @@ In den beiden folgenden Tabellen sind die Zeiten aufgeführt, die die WVS benöt
             \end{figure}
         \item \textbf{Nessus} \cite{Nessus}:\\
           Die Firma Tenable bietet zwei Testversionen an: Nessus Home für das Testen des heimischen Netzwerks, gültig für ein Jahr, sowie eine unbeschränkte Version von Nessus Pro, gültig für sieben Tage.
-          Nessus präsentiert sich auf einer übersichtlich gestalteten Web-Schnittstelle (siehe Abb. 4.6) und ist selbsterklärend zu bedienen. Einen Hilfe-Button sucht man vergeblich, die umfangreiche Dokumentation mit Anleitungen findet man online durch Recherchieren. Die Scangeschwindigkeit ist durchschnittlich, der Report übersichtlich, aber eher spartanisch (siehe Abb. A.3). Nur durch Anklicken der Funde gibt es online Beschreibungen und Lösungsvor- schläge. Wie bei Netsparker gibt es auch bei Nessus neben High, Medium, Low und Informational die zusätzliche Kategorie ``Critical''.
+          Nessus präsentiert sich auf einer übersichtlich gestalteten Web-Schnittstelle (siehe Abb. 4.8) und ist selbsterklärend zu bedienen. Einen Hilfe-Button sucht man vergeblich, die umfangreiche Dokumentation mit Anleitungen findet man online durch Recherchieren. Die Scangeschwindigkeit ist durchschnittlich, der Report übersichtlich, aber eher spartanisch (siehe Abb. A.3). Nur durch Anklicken der Funde gibt es online Beschreibungen und Lösungsvor- schläge. Wie bei Netsparker gibt es auch bei Nessus neben High, Medium, Low und Informational die zusätzliche Kategorie ``Critical''.
 
           \textbf{Bewertung: Reporting 2, Bedienung 3, Geschwindigkeit 2}
             \begin{figure}[htb!]
@@ -847,7 +861,7 @@ In den beiden folgenden Tabellen sind die Zeiten aufgeführt, die die WVS benöt
           \end{figure}
         \item \textbf{BurpSuite Pro} \cite{Burp}:\\
           Die Firma Portswigger stellte auf Anfrage eine 30-tägige unbeschränkte Testversion zur Verfügung.
-          BurpSuite Pro enthält eine umfangreiche Dokumentation mit zahlreichen Hilfestellungen für verschiedene Anwendungsszenarien.  Das Dashboard ist sehr übersichtlich und intuitiv zu bedienen (siehe Abb. 4.7). Mit Hilfe des Buttons ``New Scan'' lässt sich direkt ohne größeren Konfigurationsaufwand eine Website erfolgreich und in durchschnittlicher Geschwindigkeit scannen.
+          BurpSuite Pro enthält eine umfangreiche Dokumentation mit zahlreichen Hilfestellungen für verschiedene Anwendungsszenarien.  Das Dashboard ist sehr übersichtlich und intuitiv zu bedienen (siehe Abb. 4.9). Mit Hilfe des Buttons ``New Scan'' lässt sich direkt ohne größeren Konfigurationsaufwand eine Website erfolgreich und in durchschnittlicher Geschwindigkeit scannen.
           \begin{figure}[htb!]
             \centering
             \includegraphics[width=0.91\textwidth]{Images/BurpSuitePro}
@@ -855,7 +869,7 @@ In den beiden folgenden Tabellen sind die Zeiten aufgeführt, die die WVS benöt
           \end{figure}
           Der von BurpSuite generierte Report ist von allen getesteten WVS der umfangreichste und ist trotzdem sehr übersichtlich (siehe Abb. A.2).
 
-          Ähnlich wie Arachni unterscheidet BurpSuite zwischen gesicherten und ungesicherten Ergebnissen, allerdings noch genauer: in einer ``Confidence''-Tabelle wird zwischen gesicherten (Certain), wahrscheinlichen (Firm) und möglichen (Tentative) Schwachstellen unterschieden (siehe Abb. 4.8).
+          Ähnlich wie Arachni unterscheidet BurpSuite zwischen gesicherten und ungesicherten Ergebnissen, allerdings noch genauer: in einer ``Confidence''-Tabelle wird zwischen gesicherten (Certain), wahrscheinlichen (Firm) und möglichen (Tentative) Schwachstellen unterschieden (siehe Abb. 4.10).
 
           \textbf{Bewertung: Reporting 4, Bedienung 3, Geschwindigkeit 2}
           \begin{figure}[htb!]
@@ -864,7 +878,7 @@ In den beiden folgenden Tabellen sind die Zeiten aufgeführt, die die WVS benöt
             \caption[Confidence-Tabelle im Report von BurpSuite Pro]{Confidence-Tabelle im Report von BurpSuite Pro}
           \end{figure}
      \end{itemize}
-     \subsection{Gesamtbewertung und Ranking}
+     \section{Gesamtbewertung und Ranking}
      \paragraph{Open Source WVS}
      \
        \begin{table}[H]
@@ -984,7 +998,7 @@ Neben dem Aufzeigen der Unterschiede in den einzelnen Kategorien sollten die Fra
 
 Durch die Evaluation ist es gelungen, für jede Fragestellung Antworten zu finden:
 \paragraph{Anzahl gefundener Schwachstellen:}
-Mit Hilfe der Tabellen 4.3 und 4.4 werden die Unterschiede bei der Anzahl gefundener Schwachstellen sichtbar gemacht. BurpSuitePro und Acunetix schneiden in dieser Kategorie mit über 500 Funden am besten ab. Auffällig ist, dass sich insgesamt keine Übereinstimmungen zwischen den WVS feststellen lassen, weder bei Aufsplittung der Ergebnisse in High, Low, Medium und Informational, noch bei den Resultaten für die einzelnen Webanwendungen. Erwartungen bezüglich anzutreffender Muster oder Regelmäßigkeiten können nicht bestätigt werden.
+Mit Hilfe der Tabellen 4.3 und 4.4 werden die Unterschiede bei der Anzahl gefundener Schwachstellen sichtbar gemacht. BurpSuite Pro und Acunetix schneiden in dieser Kategorie mit über 500 Funden am besten ab. Auffällig ist, dass sich insgesamt keine Übereinstimmungen zwischen den WVS feststellen lassen, weder bei Aufsplittung der Ergebnisse in High, Low, Medium und Informational, noch bei den Resultaten für die einzelnen Webanwendungen. Erwartungen bezüglich anzutreffender Muster oder Regelmäßigkeiten können nicht bestätigt werden.
 \paragraph{Bedienung, Reporting und Geschwindigkeit:}
 Die Scan-Geschwindigkeit wurde den Berichten entnommen oder manuell ermittelt. Die subjektiven Eindrücke für die Bedienung und das Reporting wurden für jeden WVS einzeln beschrieben und mit Hilfe des Punktesystems bewertet. Die Ergebnisse werden in den Tabellen 4.5 und 4.6 dargestellt. Die Bewertung resultiert in einem Gesamtranking (siehe Tabelle 4.7).
 \paragraph{Ranking:} Aus dem Gesamtranking (siehe Tabelle 4.7) lässt sich der WVS ermitteln, der am besten abgeschnitten hat, es ist BurpSuite Pro mit 36 Punkten. Hieraus sollte jedoch keine Allgemeingültigkeit abgeleitet werden, es ist das Ergebnis des für diese Thesis angewandten Testverfahrens mit seinem individuellen Testaufbau und seinen spezifischen Gewichtungen der Kategorien.
